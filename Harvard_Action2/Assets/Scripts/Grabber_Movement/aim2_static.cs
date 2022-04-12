@@ -19,7 +19,7 @@ public float speed = 5f;
 			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
 			Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward); 
 			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
-			print("transform.rotation = Quaternion " + transform.rotation);
+
 			return transform.rotation;
     }
 }

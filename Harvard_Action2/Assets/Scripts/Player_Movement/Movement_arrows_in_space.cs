@@ -23,7 +23,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
 	
 	 void OnCollisionEnter2D(Collision2D collision)
     {
-		print("entered a collision and tag is ");//  + collision.gameObject.tag == "platform");
+		// print("entered a collision and tag is ");//  + collision.gameObject.tag == "platform");
 		if (collision.gameObject.tag == "platform")
 		{
         isGrounded = true;
@@ -44,7 +44,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
     }
 	void OnCollisionExit2D(Collision2D collision)
     {
-			print("EXITED a collision and tag is " );// + collision.gameObject.tag == "platform");
+			// print("EXITED a collision and tag is " );// + collision.gameObject.tag == "platform");
 			
 			if( collision.gameObject.tag == "platform") 
 			{
@@ -59,7 +59,6 @@ public class Movement_arrows_in_space: MonoBehaviour {
 			// not ground and not grabbable then do this (move at constant speed)
 			if (!isGrounded && !isGrabbable) 
 			{
-					print("velocityNow " + velocityNow);
 					rigidbody2d.velocity = -velocityNow/3;
 					// gameObject.transform.position = velocityNow;
 			}

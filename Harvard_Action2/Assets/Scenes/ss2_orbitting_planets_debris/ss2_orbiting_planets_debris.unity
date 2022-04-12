@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToOrbit: {fileID: 253335415}
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: -8, y: 110, z: 0}
   angle: -12
   radius: 33
   degreesPerSecond: 10
@@ -255,9 +255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToOrbit: {fileID: 1592720108}
-  direction: {x: 0, y: 0, z: 0}
-  angle: 0
-  radius: 0
+  direction: {x: -99, y: 22, z: 0}
+  angle: 77
+  radius: 22
   degreesPerSecond: 10
 --- !u!212 &253335417
 SpriteRenderer:
@@ -843,9 +843,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToOrbit: {fileID: 1532941201}
-  direction: {x: 0, y: 0, z: 0}
-  angle: 0
-  radius: 0
+  direction: {x: 3, y: 4, z: 0}
+  angle: 55
+  radius: 8
   degreesPerSecond: 10
 --- !u!212 &1592720110
 SpriteRenderer:
