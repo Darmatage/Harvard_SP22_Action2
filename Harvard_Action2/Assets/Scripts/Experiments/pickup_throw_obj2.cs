@@ -3,7 +3,6 @@ using System.Collections;
 
 public class pickup_throw_obj2 : MonoBehaviour {
 
-	// variables for picking up
 	public bool grabbed;
 	RaycastHit2D hit;
 	public float distance=2f;
@@ -90,17 +89,30 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					// Rigidbody2D objRB = hit.collider.gameObject.GetComponent<Rigidbody2D>();
 					
 					// Rigidbody2D objRB = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-					obj.GetComponent<Rigidbody2D>().velocity =  firePoint.right * bulletSpeed; // firePoint.right * bulletSpeed;
+					
+					
+					// both will work
+					// obj.GetComponent<Rigidbody2D>().velocity =  firePoint.right * bulletSpeed; // firePoint.right * bulletSpeed;
+					// obj.GetComponent<Rigidbody2D>().AddForce(firePoint.right * bulletSpeed, ForceMode2D.Impulse);
 					
 					
 					
 					 print("firePoint.right * bulletSpeed " +  firePoint.right * bulletSpeed + " actual velocity of obj " + obj.GetComponent<Rigidbody2D>().velocity + " obj rotation " + obj.transform.rotation);
 					 // launch player
 					   // get position of parent
-					PersonRB = transform.parent.GetComponent<Rigidbody2D>();
+					   
+					   
+					// Vector3 mousePos = Input.mousePosition;
+					// transform.parent.position = new Vector3(transform.parent.position.x*.01f, transform.parent.position.y*.01f, 0);
 					
-					transform.parent.rotation = obj.transform.rotation = Quaternion.Euler(0, 0, -lookAngle);// ; obj.transform.rotation;  //Quaternion.Euler(0, 0, lookAngle);
-					PersonRB.velocity =  -obj.GetComponent<Rigidbody2D>().velocity;  //(firePoint.right*bulletSpeed);
+					GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
+					print("the pos of this player is " + ThisPlayer.transform.position);
+					PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
+					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
+					ThisPlayer.transform.rotation =  Quaternion.Euler(0, 0, -lookAngle);// ; obj.transform.rotation;  //Quaternion.Euler(0, 0, lookAngle);
+					// PersonRB.velocity =  -firePoint.right * bulletSpeed;  //(firePoint.right*bulletSpeed);
+					PersonRB.velocity =  -lookDirection * bulletSpeed;
+					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
 					print("Person.velocity " +  PersonRB.velocity + " persons rotation " + transform.parent.rotation);
 					
 				}

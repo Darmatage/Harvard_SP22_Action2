@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 2807064580354990748}
   - component: {fileID: 2253818011468988559}
   m_Layer: 0
-  m_Name: Basic_Player
+  m_Name: OldP_delete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

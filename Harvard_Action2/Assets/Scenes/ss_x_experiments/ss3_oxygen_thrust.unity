@@ -474,9 +474,10 @@ GameObject:
   - component: {fileID: 416250465}
   - component: {fileID: 416250464}
   - component: {fileID: 416250463}
+  - component: {fileID: 416250466}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,7 +508,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416250461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c0e7ba77ad2f1e4f93f49afdc59561b, type: 3}
   m_Name: 
@@ -561,6 +562,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &416250466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416250461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be5431cc9c4ba346902a470a08ae2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpPower: 1
+  isGrounded: 1
 --- !u!1 &442620448
 GameObject:
   m_ObjectHideFlags: 0
