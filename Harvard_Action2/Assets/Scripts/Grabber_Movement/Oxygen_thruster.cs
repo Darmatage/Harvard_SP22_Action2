@@ -4,15 +4,18 @@ using UnityEngine;
 
 
 // camera needs to be in orthographic
-public class Oxygen_thruster : MonoBehaviour
-{
-	
+public class Oxygen_thruster : MonoBehaviour{
 	
 public float speed = 5f;
-public ParticleSystem particleEffect;
+public GameObject oxygenParticles;
+public Transform handEnd;
+public Transform shoulder;
+//public ParticleSystem particleEffect;
 // public Aim2_static aimer
 private Quaternion armRotation;
 private float OxygenTime;
+
+GameObject particlesTemp;
 
 	void start()
 	{
@@ -38,12 +41,17 @@ private float OxygenTime;
 			
     }
 	
-	public float startOxygen() 
-	{
+	public float startOxygen(){
+		
+		
 		 if (Input.GetKeyDown(KeyCode.E))
 		 {
 			 print("oxygen is on particle!");
-             particleEffect.Play();
+			 particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
+			 particlesTemp.transform.SetParent(handEnd);
+			 particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
+			 //LookAt( position - ( target - position))
+;             //particleEffect.Play();
 			 
 			 // track timer
 			 OxygenTime += Time.deltaTime;
@@ -55,7 +63,8 @@ private float OxygenTime;
 		 }
 		 if (Input.GetKeyUp(KeyCode.E))
 		 {
-			 particleEffect.Stop();
+			 //particleEffect.Stop();
+			 Destroy(particlesTemp);
 			 OxygenTime = 0;
 			 
 		 }
