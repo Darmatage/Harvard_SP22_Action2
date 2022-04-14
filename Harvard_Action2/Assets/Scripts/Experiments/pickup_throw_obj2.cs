@@ -63,11 +63,11 @@ public class pickup_throw_obj2 : MonoBehaviour {
 				
 				// bring this back
 				// hit = Physics2D.Raycast(holdpoint.position,Vector2.right*transform.localScale.x,distance);
-				hit = Physics2D.Raycast(holdpoint.position,worldMousePosition,distance);
+				hit = Physics2D.Raycast(holdpoint.position,mousePosition,distance);
 				
 				// hit collider rotate
 				// hit.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-				Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector2.right)*50, Color.yellow, 2, false);
+				Debug.DrawRay(hit.transform.position, mousePosition*distance, Color.yellow, 2, false);
 				print("raycast ! " + hit.transform.position + " " + transform.TransformDirection(Vector3.forward)*hit.distance);
 				
 				bool madeContact = hit.collider.tag=="grabbable";
@@ -147,8 +147,8 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
 		
 		// Ray ray = new Ray(holdpoint.position );
-		Debug.DrawRay(holdpoint.position, worldMousePosition);
-		Gizmos.DrawRay(holdpoint.position, worldMousePosition);
+		Debug.DrawRay(holdpoint.position, mousePosition);
+		Gizmos.DrawRay(holdpoint.position, mousePosition);
 		print("the holdpoint and the world " + holdpoint.position + " "+  worldMousePosition);
 
 		// Gizmos.DrawRay(holdpoint.position,transform.TransformDirection(Vector2.right));
