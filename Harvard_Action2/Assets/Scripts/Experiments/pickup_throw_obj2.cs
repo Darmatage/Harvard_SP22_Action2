@@ -8,6 +8,8 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	public float distance=2f;
 	public Transform holdpoint;
 	public LayerMask notgrabbed;
+	
+	public Camera mainCamera;
 
 	public aim2_static pickupPoint;
 	
@@ -33,26 +35,40 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
 		// print("the pos of this player is " + ThisPlayer.transform.position);
 		PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
+		
+		// hit = Physics2D.Raycast(holdpoint.position,Vector2.right*transform.localScale.x,distance);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
+		// get the mouse screen pos
+		Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+		 
+		 // convert it -- dont thibk i need ti do this in 2d
+		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
 	
 		 if (Input.GetMouseButtonDown(0))
 		{
-			
+			// Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector2.right)*50, Color.blue, 2, false);
 			print("first mouse click 0");
 			if(!grabbed)
 			{
 				Physics2D.queriesStartInColliders=false;
 				
-				print("not grabbed! " + transform.position + " " + Vector2.right*transform.localScale.x + " " + distance);
+				
 
-				hit = Physics2D.Raycast(transform.position,Vector2.right*transform.localScale.x,distance);
+				// issue here is the thing that is rotating is not the 'grabber' but the rotator...so let's connect raycast to pickupPoint, aka holdpoint
+				// hit = Physics2D.Raycast(transform.position,Vector2.right*transform.localScale.x,distance);
+				
+				// bring this back
+				// hit = Physics2D.Raycast(holdpoint.position,Vector2.right*transform.localScale.x,distance);
+				hit = Physics2D.Raycast(holdpoint.position,worldMousePosition,distance);
 				
 				// hit collider rotate
-				hit.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-				Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow);
+				// hit.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+				Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector2.right)*50, Color.yellow, 2, false);
+				print("raycast ! " + hit.transform.position + " " + transform.TransformDirection(Vector3.forward)*hit.distance);
 				
 				bool madeContact = hit.collider.tag=="grabbable";
 				bool isNull =  hit.collider!=null ;
@@ -104,6 +120,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 						hit.collider.gameObject.transform.position = holdpoint.position;
 						hit.collider.gameObject.transform.rotation =  pickupPoint.Update();
 						hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = PersonRB.velocity;
+						
 		}
 	}
 	
@@ -122,8 +139,20 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	void OnDrawGizmos()
 	{
 		Gizmos.color = Color.green;
+		
+		 // get the mouse screen pos
+		Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+		 
+		 // convert it -- dont thibk i need ti do this in 2d
+		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+		
+		// Ray ray = new Ray(holdpoint.position );
+		Debug.DrawRay(holdpoint.position, worldMousePosition);
+		Gizmos.DrawRay(holdpoint.position, worldMousePosition);
+		print("the holdpoint and the world " + holdpoint.position + " "+  worldMousePosition);
 
-		Gizmos.DrawLine(transform.position,transform.position+Vector3.right*transform.localScale.x*distance);
+		// Gizmos.DrawRay(holdpoint.position,transform.TransformDirection(Vector2.right));
+		
 		
 	}
 }
