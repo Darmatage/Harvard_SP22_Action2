@@ -22,7 +22,6 @@ public class Player_MoveMagnetic : MonoBehaviour{
 	private float maxMagnetism;
 	private float minMagnetism = -2f;
 	public float distToAttractor;
-	public float maxDistance;
 
 	//Jumping variables:
 	public bool inContact = false;
@@ -58,8 +57,8 @@ public class Player_MoveMagnetic : MonoBehaviour{
 			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ + 110f);
 					
-			if ((isJumping)||((distToAttractor > maxDistance)&&(distToAttractor < maxDistance + 0.5f))){
-				attractMe = false;
+			if ((isJumping)||((distToAttractor > magnetRange)&&(distToAttractor < magnetRange + 1f))){
+				endAttractor();
 				//playerMag.currentWalkable = null;
 			}
 		}
@@ -72,16 +71,16 @@ public class Player_MoveMagnetic : MonoBehaviour{
 		//NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
 		hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
 		
-		if ((inContact)&&(hMove != null)){
+		if ((inContact)&&(hMove != null)&&(currentAttractor !=null)){
 			//transform.position = transform.position + hMove * walkSpeed * Time.deltaTime;
 			
-			rb2D.AddForce (transform.right + hMove * walkForce * Time.deltaTime);
+			rb2D.AddForce (transform.forward + hMove * walkForce * Time.deltaTime);
 			Debug.Log("horizontal movement = " + hMove + ", move force vector = " + (transform.right + hMove * walkForce * Time.deltaTime));
 			
 			// always draw a 5-unit colored line from the origin
 			Color color = new Color(2, 2, 1.0f);
 			//Debug.DrawLine(Vector3.zero, new Vector3(0, 5, 0), color);
-			Debug.DrawLine(transform.position, (transform.right + hMove * walkForce * Time.deltaTime), color);
+			Debug.DrawLine(transform.position, Vector3.Cross(transform.position, currentAttractor.position), color);
 			
 			// make this the vector3.cross!
 			// PlayerInContactVector = transform.position - currentAttractor.position;
@@ -172,6 +171,11 @@ public class Player_MoveMagnetic : MonoBehaviour{
 			//attractor.GetComponent<AttractorBody>().pullPlayer(); // use a separate script for attraction
 			}
 		}
+	}
+
+	public void endAttractor(){
+		currentAttractor = null;
+		attractMe = false;
 	}
 
 
