@@ -33,8 +33,11 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	
 	
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
+		// print("the pos of this player is " + ThisPlayer.transform.position);
+		PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -87,9 +90,9 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					obj.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 					
 					
-					GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
-					print("the pos of this player is " + ThisPlayer.transform.position);
-					PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
+					// GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
+					// print("the pos of this player is " + ThisPlayer.transform.position);
+					// PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
 					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
 					
 					
@@ -121,6 +124,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 
 						hit.collider.gameObject.transform.position = holdpoint.position;
 						hit.collider.gameObject.transform.rotation =  pickupPoint.Update();
+						hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = PersonRB.velocity;
 		}
 	}
 	

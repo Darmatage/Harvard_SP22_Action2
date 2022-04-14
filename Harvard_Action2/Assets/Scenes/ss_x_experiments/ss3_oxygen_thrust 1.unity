@@ -593,7 +593,7 @@ MonoBehaviour:
     m_Bits: 0
   pickupPoint: {fileID: 1469481447}
   firePoint: {fileID: 495966518}
-  bulletSpeed: 0.5
+  bulletSpeed: 0.2
 --- !u!1 &416250461
 GameObject:
   m_ObjectHideFlags: 0
