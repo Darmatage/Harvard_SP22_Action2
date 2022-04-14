@@ -48,7 +48,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		 // convert it -- dont thibk i need ti do this in 2d
 		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
 	
-		 if (Input.GetMouseButtonDown(0))
+		 if (Input.GetKeyDown(KeyCode.R))
 		{
 			// Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector2.right)*50, Color.blue, 2, false);
 			print("first mouse click 0");
