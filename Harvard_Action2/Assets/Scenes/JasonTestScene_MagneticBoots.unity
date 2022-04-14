@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &41712375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41712376}
+  m_Layer: 0
+  m_Name: Debris1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &41712376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41712375}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
+  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1296869422}
+  m_Father: {fileID: 827425592}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
 --- !u!1 &47204579
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +228,89 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.8867924, g: 0.87699795, b: 0.69855815, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &218499225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218499226}
+  - component: {fileID: 218499227}
+  m_Layer: 6
+  m_Name: Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218499226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218499225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296869422}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &218499227
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218499225}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -475,7 +589,6 @@ GameObject:
   - component: {fileID: 618676340}
   - component: {fileID: 618676343}
   - component: {fileID: 618676342}
-  - component: {fileID: 618676341}
   m_Layer: 6
   m_Name: SpaceDebrisMajor4
   m_TagString: Untagged
@@ -497,24 +610,6 @@ Transform:
   m_Father: {fileID: 827425592}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 144.375}
---- !u!114 &618676341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618676339}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ff3e8ccf708594ea8b03fbe811bb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1546457131}
-  playerMag: {fileID: 0}
-  pullThePlayer: 0
-  magnetism: -10
-  distToPlayer: 0
-  maxDistance: 0
 --- !u!60 &618676342
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -668,7 +763,6 @@ GameObject:
   - component: {fileID: 672961991}
   - component: {fileID: 672961994}
   - component: {fileID: 672961993}
-  - component: {fileID: 672961992}
   m_Layer: 6
   m_Name: SpaceDebrisMajor6
   m_TagString: Untagged
@@ -690,24 +784,6 @@ Transform:
   m_Father: {fileID: 827425592}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.733}
---- !u!114 &672961992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672961990}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ff3e8ccf708594ea8b03fbe811bb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1546457131}
-  playerMag: {fileID: 0}
-  pullThePlayer: 0
-  magnetism: -10
-  distToPlayer: 0
-  maxDistance: 0
 --- !u!60 &672961993
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -855,7 +931,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1296869422}
+  - {fileID: 41712376}
   - {fileID: 1214067665}
   - {fileID: 1323222423}
   - {fileID: 618676340}
@@ -1003,7 +1079,6 @@ GameObject:
   - component: {fileID: 1214067665}
   - component: {fileID: 1214067668}
   - component: {fileID: 1214067667}
-  - component: {fileID: 1214067666}
   m_Layer: 6
   m_Name: SpaceDebrisMajor2
   m_TagString: Untagged
@@ -1025,24 +1100,6 @@ Transform:
   m_Father: {fileID: 827425592}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.733}
---- !u!114 &1214067666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214067664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ff3e8ccf708594ea8b03fbe811bb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1546457131}
-  playerMag: {fileID: 0}
-  pullThePlayer: 0
-  magnetism: -10
-  distToPlayer: 0
-  maxDistance: 0
 --- !u!60 &1214067667
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1174,7 +1231,7 @@ GameObject:
   - component: {fileID: 1296869422}
   - component: {fileID: 1296869424}
   - component: {fileID: 1296869423}
-  - component: {fileID: 1296869425}
+  - component: {fileID: 1296869426}
   m_Layer: 6
   m_Name: SpaceDebrisMajor1
   m_TagString: Untagged
@@ -1189,13 +1246,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296869421}
-  m_LocalRotation: {x: 0, y: 0, z: 0.32474288, w: 0.94580233}
-  m_LocalPosition: {x: 0.94, y: -0.94, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 827425592}
+  m_Children:
+  - {fileID: 218499226}
+  m_Father: {fileID: 41712376}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.9}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1296869423
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1218,7 +1276,7 @@ PolygonCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Points:
     m_Paths:
     - - {x: -0.835, y: -1.035}
@@ -1338,24 +1396,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1296869425
+--- !u!114 &1296869426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296869421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ff3e8ccf708594ea8b03fbe811bb79, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a10ffa79a2d53f48b0ee58af5d1e755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1546457131}
-  playerMag: {fileID: 0}
-  pullThePlayer: 0
-  magnetism: -10
-  distToPlayer: 0
-  maxDistance: 0
+  myCollider: {fileID: 0}
+  totalPoints: 0
+  testObject: {fileID: 218499226}
+  shapePoints: []
+  currentPoint: {x: 0, y: 0}
+  currentIndex: 0
+  startIndex: 0
 --- !u!1 &1323222422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1426,6 @@ GameObject:
   - component: {fileID: 1323222423}
   - component: {fileID: 1323222426}
   - component: {fileID: 1323222425}
-  - component: {fileID: 1323222424}
   m_Layer: 6
   m_Name: SpaceDebrisMajor3
   m_TagString: Untagged
@@ -1389,24 +1447,6 @@ Transform:
   m_Father: {fileID: 827425592}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1323222424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323222422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ff3e8ccf708594ea8b03fbe811bb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1546457131}
-  playerMag: {fileID: 0}
-  pullThePlayer: 0
-  magnetism: -10
-  distToPlayer: 0
-  maxDistance: 0
 --- !u!60 &1323222425
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1782,7 +1822,6 @@ GameObject:
   - component: {fileID: 1798831307}
   - component: {fileID: 1798831310}
   - component: {fileID: 1798831309}
-  - component: {fileID: 1798831308}
   m_Layer: 6
   m_Name: SpaceDebrisMajor5
   m_TagString: Untagged
@@ -1804,24 +1843,6 @@ Transform:
   m_Father: {fileID: 827425592}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1798831308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798831306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ff3e8ccf708594ea8b03fbe811bb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1546457131}
-  playerMag: {fileID: 0}
-  pullThePlayer: 0
-  magnetism: -10
-  distToPlayer: 0
-  maxDistance: 0
 --- !u!60 &1798831309
 PolygonCollider2D:
   m_ObjectHideFlags: 0
