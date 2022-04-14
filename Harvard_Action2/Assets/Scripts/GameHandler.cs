@@ -46,7 +46,7 @@ public class GameHandler : MonoBehaviour{
             //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerOx = StartPlayerOx;
             //}
-            updateStatsDisplay();
+            // updateStatsDisplay();  // NOTE commented this out since giving error for now
 
 
             
