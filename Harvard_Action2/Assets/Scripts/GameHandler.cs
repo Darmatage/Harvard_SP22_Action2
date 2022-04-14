@@ -14,6 +14,18 @@ public class GameHandler : MonoBehaviour{
         public static float volumeLevel = 0.5f;
         private Slider sliderVolumeCtrl;
 
+    private GameObject player;
+    public static int playerOx = 100;
+    public int StartPlayerOx = 100;
+    public GameObject TextOx;
+
+ 
+
+    
+    //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
+
+    private string sceneName;
+
         void Awake (){
                 SetLevel (volumeLevel);
                 GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
@@ -26,6 +38,17 @@ public class GameHandler : MonoBehaviour{
         void Start (){
                 pauseMenuUI.SetActive(false);
                 GameisPaused = false;
+
+
+                 player = GameObject.FindWithTag("Player");
+            sceneName = SceneManager.GetActiveScene().name;
+            //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
+                  playerOx = StartPlayerOx;
+            //}
+            updateStatsDisplay();
+
+
+            
         }
 
         void Update (){
