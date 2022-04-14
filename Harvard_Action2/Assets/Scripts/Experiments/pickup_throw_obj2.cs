@@ -51,6 +51,11 @@ public class pickup_throw_obj2 : MonoBehaviour {
 				print("not grabbed! " + transform.position + " " + Vector2.right*transform.localScale.x + " " + distance);
 
 				hit = Physics2D.Raycast(transform.position,Vector2.right*transform.localScale.x,distance);
+				
+				// hit collider rotate
+				hit.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+				Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow);
+				
 				bool madeContact = hit.collider.tag=="grabbable";
 				bool isNull =  hit.collider!=null ;
 				print("hit collider made contact true? " + isNull + " is grabbable? " + madeContact);
@@ -81,39 +86,28 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					obj.transform.position = firePoint.position;
 					obj.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 					
-					// pos rotation og obj to apply to player
-				    // oldRot = Quaternion.Euler(0, 0, lookAngle);
-					
-					// throw the obj
-					// objVelocity = firePoint.right * bulletSpeed;
-					// Rigidbody2D objRB = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-					
-					// Rigidbody2D objRB = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-					
-					
-					// both will work
-					// obj.GetComponent<Rigidbody2D>().velocity =  firePoint.right * bulletSpeed; // firePoint.right * bulletSpeed;
-					// obj.GetComponent<Rigidbody2D>().AddForce(firePoint.right * bulletSpeed, ForceMode2D.Impulse);
-					
-					
-					
-					 print("firePoint.right * bulletSpeed " +  firePoint.right * bulletSpeed + " actual velocity of obj " + obj.GetComponent<Rigidbody2D>().velocity + " obj rotation " + obj.transform.rotation);
-					 // launch player
-					   // get position of parent
-					   
-					   
-					// Vector3 mousePos = Input.mousePosition;
-					// transform.parent.position = new Vector3(transform.parent.position.x*.01f, transform.parent.position.y*.01f, 0);
 					
 					GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
 					print("the pos of this player is " + ThisPlayer.transform.position);
 					PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
 					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
-					ThisPlayer.transform.rotation =  Quaternion.Euler(0, 0, -lookAngle);// ; obj.transform.rotation;  //Quaternion.Euler(0, 0, lookAngle);
+					
+					
+					// ThisPlayer.transform.rotation =  Quaternion.Euler(0, 0, -lookAngle);// ; obj.transform.rotation;  //Quaternion.Euler(0, 0, lookAngle);
 					// PersonRB.velocity =  -firePoint.right * bulletSpeed;  //(firePoint.right*bulletSpeed);
+					
+					
 					PersonRB.velocity =  -lookDirection * bulletSpeed;
 					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
 					print("Person.velocity " +  PersonRB.velocity + " persons rotation " + transform.parent.rotation);
+					
+					
+					
+					// launch object
+					obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
+					// obj.GetComponent<Rigidbody2D>().AddForce(firePoint.right * bulletSpeed, ForceMode2D.Impulse);
+					 print("firePoint.right * bulletSpeed " +  firePoint.right * bulletSpeed + " actual velocity of obj " + obj.GetComponent<Rigidbody2D>().velocity + " obj rotation " + obj.transform.rotation);
+					
 					
 				}
 
@@ -147,5 +141,6 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		Gizmos.color = Color.green;
 
 		Gizmos.DrawLine(transform.position,transform.position+Vector3.right*transform.localScale.x*distance);
+		
 	}
 }
