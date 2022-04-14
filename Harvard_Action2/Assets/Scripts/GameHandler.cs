@@ -13,6 +13,7 @@ public class GameHandler : MonoBehaviour{
         public AudioMixer mixer;
         public static float volumeLevel = 0.5f;
         private Slider sliderVolumeCtrl;
+		private static float OxygenLevel = 100f;
 
         void Awake (){
                 SetLevel (volumeLevel);
@@ -82,6 +83,10 @@ public class GameHandler : MonoBehaviour{
         public void RestartGame(){
                 Time.timeScale = 1f;
                 SceneManager.LoadScene("MainMenu");
+        }
+		
+		public void setOxygen(float oxygenDepletion){
+                OxygenLevel = OxygenLevel - oxygenDepletion;
         }
 
         public void QuitGame(){

@@ -10,10 +10,13 @@ public float speed = 5f;
 public GameObject oxygenParticles;
 public Transform handEnd;
 public Transform shoulder;
+
+public GameHandler gameHandler;
 //public ParticleSystem particleEffect;
 // public Aim2_static aimer
 private Quaternion armRotation;
 private float OxygenTime;
+
 
 GameObject particlesTemp;
 
@@ -53,8 +56,8 @@ GameObject particlesTemp;
 			 //LookAt( position - ( target - position))
 ;             //particleEffect.Play();
 			 
-			 // track timer
-			 OxygenTime += Time.deltaTime;
+			// for oxygenBlaster
+			 OxygenTime += 1f * Time.deltaTime;
 			 print("the oxygen use is " + OxygenTime);
 			 // MOVE PARENT IN OPPOSITE OF TOTATION - get player tag and move player opposite
 			 
@@ -65,10 +68,14 @@ GameObject particlesTemp;
 		 {
 			 //particleEffect.Stop();
 			 Destroy(particlesTemp);
-			 OxygenTime = 0;
+			 
+			 	
+
+			 return OxygenTime;
 			 
 		 }
-		 
+		  
+		  OxygenTime = 0;
 		  return OxygenTime;
 	}
 	

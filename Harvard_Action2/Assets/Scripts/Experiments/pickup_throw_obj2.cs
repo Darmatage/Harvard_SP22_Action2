@@ -24,7 +24,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	// to pass along
 	private Quaternion oldRot;
 	private Vector2 objVelocity;
-	
+
 	
 	
 	
@@ -59,10 +59,6 @@ public class pickup_throw_obj2 : MonoBehaviour {
 				
 
 				// issue here is the thing that is rotating is not the 'grabber' but the rotator...so let's connect raycast to pickupPoint, aka holdpoint
-				// hit = Physics2D.Raycast(transform.position,Vector2.right*transform.localScale.x,distance);
-				
-				// bring this back
-				// hit = Physics2D.Raycast(holdpoint.position,Vector2.right*transform.localScale.x,distance);
 				hit = Physics2D.Raycast(holdpoint.position,mousePosition,distance);
 				
 				// hit collider rotate
@@ -122,6 +118,17 @@ public class pickup_throw_obj2 : MonoBehaviour {
 						hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = PersonRB.velocity;
 						
 		}
+		
+		// Oxygen thruster
+		if(!grabbed && (Input.GetKeyDown(KeyCode.E)))
+		{
+					lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+					lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+					firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
+					PersonRB.velocity =  -lookDirection * bulletSpeed;
+					
+					
+		}
 	}
 	
 	
@@ -145,6 +152,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		 
 		 // convert it -- dont thibk i need ti do this in 2d
 		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+
 		
 		// Ray ray = new Ray(holdpoint.position );
 		Debug.DrawRay(holdpoint.position, mousePosition);
