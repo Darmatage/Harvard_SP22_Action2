@@ -8,12 +8,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	public float distance=2f;
 	public Transform holdpoint;
 	public LayerMask notgrabbed;
-	
-	// variables for throwing
-	// private float movementSpeed = 5f;
-	// public Vector2 speed = new Vector2(50,50);
-	
-	// need this to ensure object picking up spins
+
 	public aim2_static pickupPoint;
 	
 	// for shooting
