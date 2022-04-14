@@ -78,38 +78,22 @@ public class pickup_throw_obj2 : MonoBehaviour {
 				if(hit.collider.gameObject.GetComponent<Rigidbody2D>()!=null) // throw
 				{
 					
-					// for shooting
+					// mouse directions for shooting
 					lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-
 					firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 					
-					// how we throw (original check throw_launch.cs)
+					// get obj we throw 
 					GameObject obj = hit.collider.gameObject;
 					obj.transform.position = firePoint.position;
 					obj.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 					
-					
-					// GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
-					// print("the pos of this player is " + ThisPlayer.transform.position);
-					// PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
-					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
-					
-					
-					// ThisPlayer.transform.rotation =  Quaternion.Euler(0, 0, -lookAngle);// ; obj.transform.rotation;  //Quaternion.Euler(0, 0, lookAngle);
-					// PersonRB.velocity =  -firePoint.right * bulletSpeed;  //(firePoint.right*bulletSpeed);
-					
-					
+					//launch player
 					PersonRB.velocity =  -lookDirection * bulletSpeed;
-					// PersonRB.AddForce(-firePoint.right * bulletSpeed, ForceMode2D.Impulse);
-					print("Person.velocity " +  PersonRB.velocity + " persons rotation " + transform.parent.rotation);
-					
-					
-					
+
 					// launch object
 					obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
-					// obj.GetComponent<Rigidbody2D>().AddForce(firePoint.right * bulletSpeed, ForceMode2D.Impulse);
-					 print("firePoint.right * bulletSpeed " +  firePoint.right * bulletSpeed + " actual velocity of obj " + obj.GetComponent<Rigidbody2D>().velocity + " obj rotation " + obj.transform.rotation);
+					 
 					
 					
 				}
