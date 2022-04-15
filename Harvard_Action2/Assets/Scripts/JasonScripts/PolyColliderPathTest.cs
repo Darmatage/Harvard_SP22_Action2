@@ -21,7 +21,7 @@ public class PolyColliderPathTest : MonoBehaviour{
 		myCollider = GetComponent<PolygonCollider2D>();
 		
         totalPoints = myCollider.GetTotalPointCount(); 
-		Debug.Log("Total Vertices on this polygon collider = " + totalPoints);
+		//Debug.Log("Total Vertices on this polygon collider = " + totalPoints);
 		
 		shapePoints = myCollider.points; // this works??
 		
@@ -54,15 +54,12 @@ public class PolyColliderPathTest : MonoBehaviour{
 		// currentPoint.y = shapePoints[currentIndex].y;
 		// testObject.position = currentPoint;
 
-		
-
-
     }
 	
 	public void movePlayer(){
 		if (currentIndex >= totalPoints){currentIndex=0;} 
-		currentPoint.x = shapePoints[currentIndex].x;
-		currentPoint.y = shapePoints[currentIndex].y;
+		currentPoint.x = shapePoints[currentIndex].x + transform.position.x;
+		currentPoint.y = shapePoints[currentIndex].y + transform.position.y;
 		testObject.position = currentPoint;
 		Debug.Log("current point = " + currentPoint);
 		currentIndex++; 
