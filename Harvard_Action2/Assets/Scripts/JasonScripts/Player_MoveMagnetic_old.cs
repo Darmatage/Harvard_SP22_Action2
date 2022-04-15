@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_MoveMagnetic : MonoBehaviour{
+public class Player_MoveMagnetic_old : MonoBehaviour{
 	
     //public Animator anim;
 	//public AudioSource WalkSFX;
@@ -31,17 +31,8 @@ public class Player_MoveMagnetic : MonoBehaviour{
 
 	//Movement variables:
 	private bool FaceRight = false; // determine which way player is facing.
+	public float walkForce = 10f;
 	private Vector3 hMove; 
-	public float walkSpeed = 2f;
-	public bool isWalking = false;
-	
-	//Polygon Collider Variables:
-	public PolygonCollider2D myCollider;
-	public int totalPoints; // length of the array
-	public Vector2[] shapePoints; 
-	public Vector2 currentPoint;
-	public int currentIndex = 0;
-	public int startIndex; 
 	
     void Start(){
         //animator = gameObject.GetComponentInChildren<Animator>();
@@ -77,14 +68,25 @@ public class Player_MoveMagnetic : MonoBehaviour{
 		else {magnetism = maxMagnetism;}
 
 		//Movement work:
-		//NOTE: Horizontal axis: [a] / left arrow = -1, [d] / right arrow = 1
+		//NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
 		hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
 		
 		if ((inContact)&&(hMove != null)&&(currentAttractor !=null)){
-						
-			//move the player:
-			if (hMove.x > 0){movePlayerRight();}
-			if (hMove.x < 0){movePlayerLeft();}			
+			//transform.position = transform.position + hMove * walkSpeed * Time.deltaTime;
+			
+			rb2D.AddForce (transform.forward + hMove * walkForce * Time.deltaTime);
+			Debug.Log("horizontal movement = " + hMove + ", move force vector = " + (transform.right + hMove * walkForce * Time.deltaTime));
+			
+			// always draw a 5-unit colored line from the origin
+			Color color = new Color(2, 2, 1.0f);
+			//Debug.DrawLine(Vector3.zero, new Vector3(0, 5, 0), color);
+			Debug.DrawLine(transform.position, Vector3.Cross(transform.position, currentAttractor.position), color);
+			
+			// make this the vector3.cross!
+			// PlayerInContactVector = transform.position - currentAttractor.position;
+            // transform.right = Vector3.Cross(PlayerInContactVector, Vector3.forward);
+			// rb2D.AddForce (transform.right + hMove * walkForce * Time.deltaTime);
+			// Debug.Log("horizontal movement = " + hMove + ", move force vector = " + (transform.right + hMove * walkForce * Time.deltaTime));
 		}
 
 		//Walk animation:
@@ -99,6 +101,7 @@ public class Player_MoveMagnetic : MonoBehaviour{
 		// }
 
 		//Player flip:
+		// NOTE: if input is moving the Player right and Player faces left, turn, and vice-versa
 		if ((hMove.x <0 && !FaceRight) || (hMove.x >0 && FaceRight)){
 			playerTurn();
 		}
@@ -118,35 +121,7 @@ public class Player_MoveMagnetic : MonoBehaviour{
 		if (hMove.x == 0){
 			rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
 		}
-		
-		//Lerp player around debris
-		// if (isWalking){
-			// Vector2 pos = Vector2.Lerp ((Vector2)transform.position, currentPoint, walkSpeed * Time.fixedDeltaTime);
-			// transform.position = new Vector3 (pos.x, pos.y, transform.position.z);
-			// if ((isJumping) ||((Vector2)transform.position == currentPoint)){isWalking=false;}
-		// }
 	}
-	
-	public void movePlayerRight(){
-		currentIndex++; 
-		if (currentIndex >= totalPoints){currentIndex=0;} 
-		currentPoint.x = shapePoints[currentIndex].x + transform.position.x;
-		currentPoint.y = shapePoints[currentIndex].y + transform.position.y;
-		transform.position = currentPoint; // change to a LERP
-		//isWalking = true;
-		Debug.Log("current point = " + currentPoint);
-	}
-			
-	public void movePlayerLeft(){
-		currentIndex--; 
-		if (currentIndex < 0){currentIndex=(totalPoints -1);} 
-		currentPoint.x = shapePoints[currentIndex].x + transform.position.x;
-		currentPoint.y = shapePoints[currentIndex].y + transform.position.y;
-		transform.position = currentPoint; // change to a LERP
-		//isWalking = true;
-		Debug.Log("current point = " + currentPoint);
-	}
-	
 	
 	private void playerTurn(){
 		// NOTE: Switch player facing label
@@ -157,6 +132,7 @@ public class Player_MoveMagnetic : MonoBehaviour{
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+	
 	
 	public void Jump() {
 		//rb2D.velocity = PlayerWalkableVector * jumpForce;
@@ -170,15 +146,10 @@ public class Player_MoveMagnetic : MonoBehaviour{
 		Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, groundedRange, walkableLayer);
 		//Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
 		
+
 		if (groundCheck != null) {
 			//currentWalkable = groundCheck[0];
 			inContact = true;
-			
-			//load polygon collider values
-			myCollider = currentAttractor.gameObject.GetComponent<PolygonCollider2D>();
-			totalPoints = myCollider.GetTotalPointCount();		
-			shapePoints = myCollider.points; // How to get the points to recalculate when object is rotated?
-			
 			return true;
 			//Debug.Log("I can jump now!");
 		}
