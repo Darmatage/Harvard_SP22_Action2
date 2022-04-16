@@ -18,13 +18,20 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	Vector2 lookDirection;
     float lookAngle;
 	public float bulletSpeed = 10f;
-	private Rigidbody2D PersonRB;
 	
+	// player 
+	private Rigidbody2D PersonRB;
+	private GameObject ThisPlayer;
+	private Vector3 originalOrientation;
+	
+	// for aiming
+	private Vector3 direction;
 	
 	// to pass along
 	private Quaternion oldRot;
 	private Vector2 objVelocity;
 	public Transform redTargeter;
+	
 
 	
 	
@@ -33,9 +40,11 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject ThisPlayer = GameObject.FindGameObjectWithTag("Player");
+	   ThisPlayer = GameObject.FindGameObjectWithTag("Player");
+	   originalOrientation = ThisPlayer.transform.position;
 		// print("the pos of this player is " + ThisPlayer.transform.position);
 		PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
+		
 		
 		// hit = Physics2D.Raycast(holdpoint.position,Vector2.right*transform.localScale.x,distance);
 	}
@@ -43,11 +52,18 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		// Gets a vector that points from the player's position to the target's.
+		// https://docs.unity3d.com/2018.3/Documentation/Manual/DirectionDistanceFromOneObjectToAnother.html
+		var heading = holdpoint.position - redTargeter.position;
+		var distance = heading.magnitude;
+		direction = heading / distance; // This is now the normalized direction.
+		
+		
 		// get the mouse screen pos
-		Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+		// Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
 		 
 		 // convert it -- dont thibk i need ti do this in 2d
-		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+		// Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
 	
 		 if (Input.GetKeyDown(KeyCode.R))
 		{
@@ -59,15 +75,16 @@ public class pickup_throw_obj2 : MonoBehaviour {
 				float DistOfVect = Vector3.Distance (holdpoint.position, redTargeter.position);
 
 				// issue here is the thing that is rotating is not the 'grabber' but the rotator...so let's connect raycast to pickupPoint, aka holdpoint
-				Vector3 directionOfTarget = redTargeter.position.normalized;
-				hit = Physics2D.Raycast(holdpoint.position,redTargeter.position,DistOfVect);
+				// Vector3 directionOfTarget = redTargeter.position.normalized;
+				// hit = Physics2D.Raycast(holdpoint.position,redTargeter.position,DistOfVect);
+				hit = Physics2D.Raycast(holdpoint.position,-direction,DistOfVect);
 				
 				// hit collider rotate
 				// hit.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 
 				
-				Debug.DrawRay(hit.transform.position, redTargeter.position*DistOfVect, Color.yellow, 2, false);
-				print("raycast ! " + hit.transform.position + " " + transform.TransformDirection(Vector3.forward)*hit.distance);
+				// Debug.DrawRay(hit.transform.position, directionOfTarget*DistOfVect, Color.yellow, 2, false);
+				// print("raycast ! " + hit.transform.position + " " + transform.TransformDirection(Vector3.forward)*hit.distance);
 				
 				bool madeContact = hit.collider.tag=="grabbable";
 				bool isNull =  hit.collider!=null ;
@@ -132,6 +149,12 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					PersonRB.velocity =  -lookDirection * bulletSpeed;
 					
 					
+					// roation reducer;
+					float smooth = Time.deltaTime;
+					// ThisPlayer.transform.rotation = Quaternion.identity*smooth;
+					ThisPlayer.transform.Rotate(originalOrientation * smooth);
+					
+					
 		}
 	}
 	
@@ -152,19 +175,29 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		Gizmos.color = Color.green;
 		
 		 // get the mouse screen pos
-		Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+		// Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
 		 
 		 // convert it -- dont thibk i need ti do this in 2d
-		Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
+		// Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
 
 		
 		// Ray ray = new Ray(holdpoint.position );
 		// Debug.DrawRay(holdpoint.position, mousePosition);
-		Vector2 rightHoldPos = new Vector2(holdpoint.position.x, 0);
+		// Vector2 rightHoldPos = new Vector2(holdpoint.position.x, 0);
 		Gizmos.DrawLine(holdpoint.position, redTargeter.position);
-		print("the holdpoint and the world " + holdpoint.position + " "+  worldMousePosition);
+		// print("the holdpoint and the world " + holdpoint.position + " "+  worldMousePosition);
+		
+		
+		// Vector3 directionOfTarget = redTargeter.position.normalized;
+		// Gets a vector that points from the player's position to the target's.
+		// https://docs.unity3d.com/2018.3/Documentation/Manual/DirectionDistanceFromOneObjectToAnother.html
+		var heading = holdpoint.position - redTargeter.position;
+		var distance = heading.magnitude;
+		var direction2 = heading / distance; // This is now the normalized direction.
 
-		// Gizmos.DrawRay(holdpoint.position,transform.TransformDirection(Vector2.right));
+		
+		Gizmos.color = Color.red;
+		Gizmos.DrawRay(holdpoint.position,-direction2);
 		
 		
 	}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script ensures that nothing 'grabbable' can interfere with a players movement
 public class collisionBlock: MonoBehaviour {
   
   private Collision2D player;
