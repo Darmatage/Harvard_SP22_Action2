@@ -15,15 +15,24 @@ public class GameHandler : MonoBehaviour{
         private Slider sliderVolumeCtrl;
 		private static float OxygenLevel = 100f;
 
-    private GameObject player;
-    public static int playerOx = 100;
+    public bool isDefending = false;
+	
+	private GameObject player;
+	//Used by the death system, needs to be merged with Oxygen system
+	public static int playerHealth = 100;
+    public int StartPlayerHealth = 100;
+    public GameObject healthText;
+    public static int gotTokens = 0;
+    public GameObject tokensText;
+	public static int MaxHealth = 100;
+    public static int CurrentHealth = 100;
+
+	
+	//Used by the oxygen system
+    public static int MaxOx = 100;
+	public static int playerOx = 100;
     public int StartPlayerOx = 100;
     public GameObject TextOx;
-
- 
-
-    
-    //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
 
     private string sceneName;
 
@@ -37,21 +46,70 @@ public class GameHandler : MonoBehaviour{
         }
 
         void Start (){
-                pauseMenuUI.SetActive(false);
-                GameisPaused = false;
-
-
-                 player = GameObject.FindWithTag("Player");
+            pauseMenuUI.SetActive(false);
+            GameisPaused = false;
+				
+            player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
-            //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
-                  playerOx = StartPlayerOx;
-            //}
-            // updateStatsDisplay();  // NOTE commented this out since giving error for now
-
-
-            
+            if (sceneName=="MainMenu"){ 
+                  playerHealth = StartPlayerHealth;
+            }
+            updateStatsDisplay();
         }
+//Start of death system
+		public void playerGetHit(int damage){
+           if (isDefending == false){
+                  playerHealth -= damage;
+                  if (playerHealth >=0){
+                        updateStatsDisplay();
+                  }
+                  player.GetComponent<PlayerHurt>().playerHit();
+            }
 
+           if (playerHealth >= StartPlayerHealth){
+                  playerHealth = StartPlayerHealth;
+            }
+
+           if (playerHealth <= 0){
+                  playerHealth = 0;
+                  playerDies();
+            }
+      }
+
+      public void updateStatsDisplay(){
+            Text healthTextTemp = healthText.GetComponent<Text>();
+            healthTextTemp.text = "HEALTH: " + playerHealth;
+
+            Text tokensTextTemp = tokensText.GetComponent<Text>();
+            tokensTextTemp.text = "GOLD: " + gotTokens;
+      }
+
+      public void playerDies(){
+            player.GetComponent<PlayerHurt>().playerDead();
+            //StartCoroutine(DeathPause());
+      }
+
+      //IEnumerator DeathPause(){
+            //player.GetComponent<PlayerMove>().isAlive = false;
+            //player.GetComponent<PlayerJump>().isAlive = false;
+            //yield return new WaitForSeconds(1.0f);
+            //SceneManager.LoadScene("EndLose");
+      //}
+	  
+	  public void TakeDamage(int damage){
+              CurrentHealth -= damage;
+              UpdateHealth();
+              sceneName = SceneManager.GetActiveScene().name;
+              if (CurrentHealth >= MaxHealth){CurrentHealth = MaxHealth;}
+              //if ((CurrentHealth <= 0) && (sceneName != "EndLose")){
+              //       SceneManager.LoadScene("EndLose");
+              }
+
+       public void UpdateHealth(){
+              Text healthTextB = healthText.GetComponent<Text>();
+              healthTextB.text = "Current Health: " + CurrentHealth + "\n Max Health: " + MaxHealth;
+       }
+//End of Death System
         void Update (){
                 if (Input.GetKeyDown(KeyCode.Escape)){
                         if (GameisPaused){
@@ -91,10 +149,6 @@ public class GameHandler : MonoBehaviour{
                 return playerStat;
         }
 
-        //void UpdateScore () {
-        //        Text scoreTemp = textGameObject.GetComponent<Text>();
-        //        scoreTemp.text = "Score: " + score; }
-
         public void StartGame(){
                 SceneManager.LoadScene("Scene1");
         }
@@ -111,8 +165,8 @@ public class GameHandler : MonoBehaviour{
 		public void setOxygen(float oxygenDepletion){
                 OxygenLevel = OxygenLevel - oxygenDepletion;
         }
-
-        public void QuitGame(){
+		
+		public void QuitGame(){
                 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
                 #else
@@ -120,3 +174,56 @@ public class GameHandler : MonoBehaviour{
                 #endif
         }
 }
+
+		
+		// Below is Daniel's botched attempt at merging the health and oxygen systems
+		
+		//public void TakeDamage(int damage){
+        //      playerOx -= damage;
+        //      UpdateOx();
+        //      sceneName = SceneManager.GetActiveScene().name;
+        //      if (playerOx >= MaxOx){playerOx = MaxOx;}
+        //      if ((playerOx <= 0) && (sceneName != "EndLose")){
+         //            SceneManager.LoadScene("EndLose");
+         //     }
+		//}
+	   
+	   //public void UpdateOx(){
+       //       Text healthTextB = healthText.GetComponent<Text>();
+       //       healthTextB.text = "Current Health: " + CurrentHealth + "\n Max Health: " + MaxHealth;
+       //}
+		
+		//public void playerDies(){
+        //    player.GetComponent<PlayerHurt>().playerDead();
+        //    StartCoroutine(DeathPause());
+		//}
+		
+		//IEnumerator DeathPause(){
+        //    player.GetComponent<PlayerMove>().isAlive = false;
+        //    player.GetComponent<PlayerJump>().isAlive = false;
+        //    yield return new WaitForSeconds(1.0f);
+        //    SceneManager.LoadScene("EndLose");
+		//}
+		
+		//public void playerGetHit(int damage){
+         //         //if (isDefending == false)
+		//		  {
+		//			playerOx -= damage;
+		//			if (playerOx >=0){
+        //                //updateStatsDisplay();
+        //          }
+        //          player.GetComponent<PlayerHurt>().playerHit();
+        //    }
+		//
+        //   if (playerOx >= StartPlayerOx){
+        //          playerOx = StartPlayerOx;
+        //    }
+
+        //   if (playerOx <= 0){
+        //          playerOx = 0;
+        //          playerDies();
+        //    }
+		//}
+		
+
+        
