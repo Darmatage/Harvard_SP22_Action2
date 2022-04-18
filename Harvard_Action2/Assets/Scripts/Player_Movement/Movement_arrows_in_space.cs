@@ -6,6 +6,8 @@ public class Movement_arrows_in_space: MonoBehaviour {
     
 	public float speed;
 	private Vector2 velocityNow;
+	public OxBarScript dragCanvasHereOxyHealth;
+	private float h;
 	// private bool isGrabbable;
 
 
@@ -19,6 +21,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+		h = 1;
         rigidbody2d = GetComponent<Rigidbody2D>();
 		print("starting script!");
     }
@@ -38,6 +41,13 @@ public class Movement_arrows_in_space: MonoBehaviour {
 			print("the tag of obj is " + collision.gameObject.tag);
 			Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>()); // player.collider);
 		}	
+		if (collision.gameObject.tag == "kill")
+		{
+			print("object is spike or fire! NAME: " + collision.gameObject.name);
+			print("the tag of obj is " + collision.gameObject.tag);
+			dragCanvasHereOxyHealth.Die();
+			
+		}
 
 					
     }
@@ -48,7 +58,16 @@ public class Movement_arrows_in_space: MonoBehaviour {
 			{
 
 				isGrounded = false;
+				if (h == 1)
+				{
+				print("right " + h);
 				rigidbody2d.velocity = -velocityNow/3;
+				}
+				if (h == -1)
+				{
+					print("left " +h);
+					rigidbody2d.velocity = velocityNow/3;
+				}
 			}	
 		
     }
@@ -62,6 +81,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
 			{
 
 				float h = Input.GetAxisRaw("Horizontal");
+				print("the horiz direction is " + h);
 				// velocityNow = new Vector2 (transform.position.x + (h * speed)*Time.deltaTime, transform.position.y);
 				transform.position = new Vector2 (transform.position.x + (h * speed)*Time.deltaTime, transform.position.y);
 					if(h != 0) 

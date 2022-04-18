@@ -12,10 +12,11 @@ public Transform handEnd;
 public Transform shoulder;
 
 public OxBarScript oxBar;
+public bool OxygenOn;
 //public ParticleSystem particleEffect;
 // public Aim2_static aimer
 private Quaternion armRotation;
-private float OxygenTime;
+// private float OxygenTime;
 
 
 GameObject particlesTemp;
@@ -44,11 +45,14 @@ GameObject particlesTemp;
 			
     }
 	
-	public float startOxygen(){
+	public void startOxygen(){
 		
 		
 		 if (Input.GetKeyDown(KeyCode.E))
 		 {
+			 OxygenOn = true;
+			 oxBar.timeToDamage = .05f;
+			 print("the ox level in THRUSTER is " + oxBar.timeToDamage);
 			 // print("oxygen is on particle!");
 			 particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
 			 particlesTemp.transform.SetParent(handEnd);
@@ -57,9 +61,9 @@ GameObject particlesTemp;
 ;             //particleEffect.Play();
 			 
 			// for oxygenBlaster
-			 OxygenTime += 1f * Time.deltaTime;
+			 // OxygenTime += 1f * Time.deltaTime;
 			 // oxDamage();
-			 oxBar.timeToDamage = .05f;
+	
 			 // oxBar.TakeDamage(OxygenTime);
 			 // oxDamage();
 			 
@@ -68,32 +72,33 @@ GameObject particlesTemp;
 		 }
 		 if (Input.GetKeyUp(KeyCode.E))
 		 {
+			 OxygenOn = false;
 			 //particleEffect.Stop() ;
-			 float newOxygenTime = OxygenTime + 100f * Time.deltaTime;
-			 OxygenTime = newOxygenTime - OxygenTime;
+			 // float newOxygenTime = OxygenTime + 100f * Time.deltaTime;
+			 // OxygenTime = newOxygenTime - OxygenTime;
 			 Destroy(particlesTemp);
 			 oxBar.timeToDamage = 5f;
 			 
 			 // oxBar.TakeDamage(OxygenTime);
 			 
 
-			 return OxygenTime;
+			 // return OxygenTime;
 			 
 		 }
 		  
-		  OxygenTime = 0;
-		  return OxygenTime;
+		  // OxygenTime = 0;
+		  // return OxygenTime;
 	}
 	
-	IEnumerator oxDamage()
+	// IEnumerator oxDamage()
 	// float oxTime = 0f;
-{
-    while (Input.GetKeyDown(KeyCode.E))
-    {
-        oxBar.TakeDamage(40);
-        yield return null;
-    }
-}
+// {
+    // while (Input.GetKeyDown(KeyCode.E))
+    // {
+        // oxBar.TakeDamage(40);
+        // yield return null;
+    // }
+// }
 	// public Quaternion getArmRotation()
 	// {
 		// return armRotation;

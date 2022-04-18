@@ -88,6 +88,10 @@ public class GameHandler : MonoBehaviour{
 				
 				// update oxygen level constantly
 				OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
+				if (OxygenLevel <= 0) 
+				{
+					playerDies();
+				}
 				print("the Oxygen level from GameHandler is " + OxygenLevel);
 				// update oxygen UI textbox to show percent
 				UpdateOxygenPercentTextBox();
@@ -129,7 +133,7 @@ public class GameHandler : MonoBehaviour{
 
 
       public void playerDies(){
-            player.GetComponent<PlayerHurt>().playerDead();
+            // player.GetComponent<PlayerHurt>().playerDead();
 			SceneManager.LoadScene("Death");
             //StartCoroutine(DeathPause());
       }

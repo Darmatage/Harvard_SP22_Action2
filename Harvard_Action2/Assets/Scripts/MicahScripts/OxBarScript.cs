@@ -18,6 +18,10 @@ public class OxBarScript : MonoBehaviour
     public float timeToDamage = 5f;
     private float theTimer;
     public float damageAmt = 10f;
+	
+	
+	// connect to oxygenThruster:
+	public Oxygen_thruster OxyThrust;
 
     private void Start()
     {
@@ -25,15 +29,26 @@ public class OxBarScript : MonoBehaviour
         theTimer = timeToDamage;
     }
 
-    // this timer is just to test damage. Comment-out when no longer needed
     void FixedUpdate()
     {
+		// if (Input.GetKeyDown(KeyCode.E))
+		// {
+			 // timeToDamage = .05f;
+		// }
+		// if (Input.GetKeyUp(KeyCode.E))
+		// {
+			// timeToDamage = 5f;
+		// }
+		// theTimer = timeToDamage;
         theTimer -= Time.deltaTime;
+		
         if (theTimer <= 0)
         {
             TakeDamage(damageAmt);
             theTimer = timeToDamage;
         }
+		
+
     }
 
     public void SetColor(Color newColor)
@@ -62,6 +77,7 @@ public class OxBarScript : MonoBehaviour
 
     public void Die()
     {
+		Ox = 0;
         Debug.Log("You Died");
       
     }
