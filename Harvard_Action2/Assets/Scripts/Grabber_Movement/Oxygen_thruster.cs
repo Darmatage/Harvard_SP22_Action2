@@ -71,7 +71,6 @@ GameObject particlesTemp;
 			 //particleEffect.Stop() ;
 			 float newOxygenTime = OxygenTime + 100f * Time.deltaTime;
 			 OxygenTime = newOxygenTime - OxygenTime;
-			 print("the oxygen use is " + OxygenTime);
 			 Destroy(particlesTemp);
 			 oxBar.timeToDamage = 5f;
 			 
@@ -91,7 +90,6 @@ GameObject particlesTemp;
 {
     while (Input.GetKeyDown(KeyCode.E))
     {
-		print("ox is taking damage");
         oxBar.TakeDamage(40);
         yield return null;
     }

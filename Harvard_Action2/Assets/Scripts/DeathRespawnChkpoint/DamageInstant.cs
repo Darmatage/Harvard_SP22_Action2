@@ -14,11 +14,11 @@ public class DamageInstant : MonoBehaviour {
             }
        }
 
-       public void OnCollisionEnter2D(Collision2D other) {
-              if (other.gameObject.tag == "Player") {
-                     gameHandlerObj.playerGetHit(damage);
-					 Debug.Log("Ouch");
-                     //other.transform.position = new Vector3(backToStart.position.x, backToStart.position.y, backToStart.position.z);
-              }
-       }
+       // public void OnCollisionEnter2D(Collision2D other) {
+              // if (other.gameObject.tag == "Player") {
+                     // gameHandlerObj.playerGetHit(damage);
+					 // Debug.Log("Ouch");
+                     // other.transform.position = new Vector3(backToStart.position.x, backToStart.position.y, backToStart.position.z);
+              // }
+       // }
 }

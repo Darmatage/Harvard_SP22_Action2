@@ -9,7 +9,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	public Transform holdpoint;
 	public LayerMask notgrabbed;
 	
-	public Camera mainCamera;
+	// public Camera mainCamera;
 
 	public aim2_static pickupPoint;
 	
@@ -28,8 +28,8 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	private Vector3 direction;
 	
 	// to pass along
-	private Quaternion oldRot;
-	private Vector2 objVelocity;
+	// private Quaternion oldRot;
+	// private Vector2 objVelocity;
 	public Transform redTargeter;
 	
 	//ox bar connector
@@ -149,15 +149,15 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	}
 	
 	
-	public Quaternion getObjRotation()
-	{
-		return oldRot;
-	}
+	// public Quaternion getObjRotation()
+	// {
+		// return oldRot;
+	// }
 	
-	public Vector2 getObjVelcity()
-	{
-		return objVelocity;
-	}
+	// public Vector2 getObjVelcity()
+	// {
+		// return objVelocity;
+	// }
 
 	// draw raycast to show distance for picking up
 	void OnDrawGizmos()

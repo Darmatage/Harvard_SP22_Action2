@@ -13,7 +13,25 @@ public class GameHandler : MonoBehaviour{
         public AudioMixer mixer;
         public static float volumeLevel = 0.5f;
         private Slider sliderVolumeCtrl;
+		
+		
+		// Oxygen
 		private static float OxygenLevel = 100f;
+		public OxBarScript Drag_Canvas_Here_OxygenTracker;
+		public Text OxygenPercentTextBox;
+		// public GameObject TextOx;
+			//Used by the oxygen system
+		// public static int MaxOx = 100;
+		// public static int playerOx = 100;
+		// public int StartPlayerOx = 100;
+		// public GameObject TextOx;
+		
+		// Current goals
+		public GameObject ShowMission;
+		
+		
+		
+		
 
     public bool isDefending = false;
 	
@@ -21,71 +39,98 @@ public class GameHandler : MonoBehaviour{
 	//Used by the death system, needs to be merged with Oxygen system
 	public static int playerHealth = 100;
     public int StartPlayerHealth = 100;
-    public GameObject healthText;
+
     public static int gotTokens = 0;
-    public GameObject tokensText;
+    // public GameObject tokensText;
 	public static int MaxHealth = 100;
     public static int CurrentHealth = 100;
 
-	
-	//Used by the oxygen system
-    public static int MaxOx = 100;
-	public static int playerOx = 100;
-    public int StartPlayerOx = 100;
-    public GameObject TextOx;
+
 
     private string sceneName;
 
         void Awake (){
-                SetLevel (volumeLevel);
-                GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
-                if (sliderTemp != null){
-                        sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
-                        sliderVolumeCtrl.value = volumeLevel;
-                }
+			
+			// this is the volume level!
+                // SetLevel (volumeLevel);
+                // GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
+                // if (sliderTemp != null){
+                        // sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
+                        // sliderVolumeCtrl.value = volumeLevel;
+                // }
         }
 
         void Start (){
             pauseMenuUI.SetActive(false);
+			ShowMission.SetActive(false);
             GameisPaused = false;
 				
             player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
-            if (sceneName=="MainMenu"){ 
-                  playerHealth = StartPlayerHealth;
-            }
-            updateStatsDisplay();
+            // if (sceneName=="MainMenu"){ 
+                  // playerHealth = StartPlayerHealth;
+            // }
+            // updateStatsDisplay();
         }
+		
+		
+		
+				// update section called repeatedly
+        public void Update (){
+                if (Input.GetKeyDown(KeyCode.Escape)){
+                        if (GameisPaused){
+                                Resume();
+                        }
+                        else{
+                                Pause();
+                        }
+                }
+				
+				// update oxygen level constantly
+				OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
+				print("the Oxygen level from GameHandler is " + OxygenLevel);
+				// update oxygen UI textbox to show percent
+				UpdateOxygenPercentTextBox();
+				
+				// show mission when user presses M
+				if (Input.GetKeyDown(KeyCode.M))
+				 {
+					 ShowMission.SetActive(true);
+					 
+					 
+				 }
+				 if (Input.GetKeyUp(KeyCode.M))
+				 {
+					 ShowMission.SetActive(false);
+					 
+				 }
+        }
+		
 //Start of death system
-		public void playerGetHit(int damage){
-           if (isDefending == false){
-                  playerHealth -= damage;
-                  if (playerHealth >=0){
-                        updateStatsDisplay();
-                  }
-                  player.GetComponent<PlayerHurt>().playerHit();
-            }
+		// public void playerGetHit(int damage){
+           // if (isDefending == false){
+                  // playerHealth -= damage;
+                  // if (playerHealth >=0){
+                        // updateStatsDisplay();
+                  // }
+                  // player.GetComponent<PlayerHurt>().playerHit();
+            // }
 
-           if (playerHealth >= StartPlayerHealth){
-                  playerHealth = StartPlayerHealth;
-            }
+           // if (playerHealth >= StartPlayerHealth){
+                  // playerHealth = StartPlayerHealth;
+            // }
 
-           if (playerHealth <= 0){
-                  playerHealth = 0;
-                  playerDies();
-            }
-      }
+           // if (playerHealth <= 0){
+                  // playerHealth = 0;
+                  // playerDies();
+            // }
+      // }
 
-      public void updateStatsDisplay(){
-            Text healthTextTemp = healthText.GetComponent<Text>();
-            healthTextTemp.text = "HEALTH: " + playerHealth;
 
-            Text tokensTextTemp = tokensText.GetComponent<Text>();
-            tokensTextTemp.text = "GOLD: " + gotTokens;
-      }
 
       public void playerDies(){
             player.GetComponent<PlayerHurt>().playerDead();
+			SceneManager.LoadScene("Death");
             //StartCoroutine(DeathPause());
       }
 
@@ -96,30 +141,18 @@ public class GameHandler : MonoBehaviour{
             //SceneManager.LoadScene("EndLose");
       //}
 	  
-	  public void TakeDamage(int damage){
-              CurrentHealth -= damage;
-              UpdateHealth();
-              sceneName = SceneManager.GetActiveScene().name;
-              if (CurrentHealth >= MaxHealth){CurrentHealth = MaxHealth;}
-              //if ((CurrentHealth <= 0) && (sceneName != "EndLose")){
-              //       SceneManager.LoadScene("EndLose");
-              }
 
-       public void UpdateHealth(){
-              Text healthTextB = healthText.GetComponent<Text>();
-              healthTextB.text = "Current Health: " + CurrentHealth + "\n Max Health: " + MaxHealth;
+
+       public void UpdateOxygenPercentTextBox(){
+              // Text OxygenPercentTextBoxText = OxygenPercentTextBox.GetComponent<Text>();
+			  // float OxPercent = OxBarScript.getOxLevel();
+			  float OxygenPercent = OxygenLevel/100f;
+              OxygenPercentTextBox.text = "Ox: " + OxygenPercent + " %";
+			  print("the text of OXBar " + OxygenPercentTextBox.text );
        }
-//End of Death System
-        void Update (){
-                if (Input.GetKeyDown(KeyCode.Escape)){
-                        if (GameisPaused){
-                                Resume();
-                        }
-                        else{
-                                Pause();
-                        }
-                }
-        }
+
+
+
 
         void Pause(){
                 pauseMenuUI.SetActive(true);
@@ -139,11 +172,6 @@ public class GameHandler : MonoBehaviour{
         }
 
 
-        public void UpdatePlayerStat(int amount){
-                playerStat += amount;
-                Debug.Log("Current Player Stat = " + playerStat);
-        //      UpdateScore ();
-        }
 
         public int CheckPlayerStat(){
                 return playerStat;
@@ -162,8 +190,9 @@ public class GameHandler : MonoBehaviour{
                 SceneManager.LoadScene("MainMenu");
         }
 		
-		public void setOxygen(float oxygenDepletion){
-                OxygenLevel = OxygenLevel - oxygenDepletion;
+		// gets oxygen from OxBarScript and then tracks it
+		public void setOxygen(){
+                OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
         }
 		
 		public void QuitGame(){

@@ -43,7 +43,6 @@ public class OxBarScript : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-		print("I'm losing " + amount);
         Ox -= amount;
         OxBar.fillAmount = Ox / startOx;
       
@@ -66,6 +65,12 @@ public class OxBarScript : MonoBehaviour
         Debug.Log("You Died");
       
     }
+	
+	// connected to GameHandler to update level on total oxygen
+	public float getOxLevel()
+	{
+		return Ox;
+	}
 
     IEnumerator FilterOverTimeCoroutine(float filterAmount, float duration)
     {
