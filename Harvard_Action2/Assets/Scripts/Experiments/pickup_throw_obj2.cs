@@ -32,6 +32,9 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	private Vector2 objVelocity;
 	public Transform redTargeter;
 	
+	//ox bar connector
+	// public OxBarScript oxBar;
+	
 
 	
 	
@@ -57,14 +60,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		var heading = holdpoint.position - redTargeter.position;
 		var distance = heading.magnitude;
 		direction = heading / distance; // This is now the normalized direction.
-		
-		
-		// get the mouse screen pos
-		// Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
-		 
-		 // convert it -- dont thibk i need ti do this in 2d
-		// Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
-	
+
 		 if (Input.GetKeyDown(KeyCode.R))
 		{
 			// Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector2.right)*50, Color.blue, 2, false);
@@ -73,19 +69,10 @@ public class pickup_throw_obj2 : MonoBehaviour {
 				Physics2D.queriesStartInColliders=false;
 				
 				float DistOfVect = Vector3.Distance (holdpoint.position, redTargeter.position);
-
-				// issue here is the thing that is rotating is not the 'grabber' but the rotator...so let's connect raycast to pickupPoint, aka holdpoint
-				// Vector3 directionOfTarget = redTargeter.position.normalized;
-				// hit = Physics2D.Raycast(holdpoint.position,redTargeter.position,DistOfVect);
 				hit = Physics2D.Raycast(holdpoint.position,-direction,DistOfVect);
 				
-				// hit collider rotate
-				// hit.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
-
-				
 				// Debug.DrawRay(hit.transform.position, directionOfTarget*DistOfVect, Color.yellow, 2, false);
-				// print("raycast ! " + hit.transform.position + " " + transform.TransformDirection(Vector3.forward)*hit.distance);
-				
+
 				bool madeContact = hit.collider.tag=="grabbable";
 				bool isNull =  hit.collider!=null ;
 				print("hit collider made contact true? " + isNull + " is grabbable? " + madeContact);
@@ -148,11 +135,12 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 					firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-					PersonRB.velocity =  direction * 0.3f; // bulletSpeed;
+					PersonRB.velocity =  direction * 3f; // bulletSpeed;
 					
 					
 					// roation reducer;
-					float smooth = Time.deltaTime;
+					// float smooth = Time.deltaTime;
+					// oxBar.TakeDamage(smooth);
 					// ThisPlayer.transform.rotation = Quaternion.identity*smooth;
 					// ThisPlayer.transform.Rotate(originalOrientation * smooth);
 					
@@ -176,16 +164,6 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	{
 		Gizmos.color = Color.green;
 		
-		 // get the mouse screen pos
-		// Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
-		 
-		 // convert it -- dont thibk i need ti do this in 2d
-		// Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(mousePosition);
-
-		
-		// Ray ray = new Ray(holdpoint.position );
-		// Debug.DrawRay(holdpoint.position, mousePosition);
-		// Vector2 rightHoldPos = new Vector2(holdpoint.position.x, 0);
 		Gizmos.DrawLine(holdpoint.position, redTargeter.position);
 		// print("the holdpoint and the world " + holdpoint.position + " "+  worldMousePosition);
 		

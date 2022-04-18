@@ -11,7 +11,7 @@ public GameObject oxygenParticles;
 public Transform handEnd;
 public Transform shoulder;
 
-public GameHandler gameHandler;
+public OxBarScript oxBar;
 //public ParticleSystem particleEffect;
 // public Aim2_static aimer
 private Quaternion armRotation;
@@ -49,7 +49,7 @@ GameObject particlesTemp;
 		
 		 if (Input.GetKeyDown(KeyCode.E))
 		 {
-			 print("oxygen is on particle!");
+			 // print("oxygen is on particle!");
 			 particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
 			 particlesTemp.transform.SetParent(handEnd);
 			 particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
@@ -58,18 +58,25 @@ GameObject particlesTemp;
 			 
 			// for oxygenBlaster
 			 OxygenTime += 1f * Time.deltaTime;
-			 print("the oxygen use is " + OxygenTime);
-			 // MOVE PARENT IN OPPOSITE OF TOTATION - get player tag and move player opposite
+			 // oxDamage();
+			 oxBar.timeToDamage = .05f;
+			 // oxBar.TakeDamage(OxygenTime);
+			 // oxDamage();
 			 
 			
 		
 		 }
 		 if (Input.GetKeyUp(KeyCode.E))
 		 {
-			 //particleEffect.Stop();
+			 //particleEffect.Stop() ;
+			 float newOxygenTime = OxygenTime + 100f * Time.deltaTime;
+			 OxygenTime = newOxygenTime - OxygenTime;
+			 print("the oxygen use is " + OxygenTime);
 			 Destroy(particlesTemp);
+			 oxBar.timeToDamage = 5f;
 			 
-			 	
+			 // oxBar.TakeDamage(OxygenTime);
+			 
 
 			 return OxygenTime;
 			 
@@ -79,6 +86,16 @@ GameObject particlesTemp;
 		  return OxygenTime;
 	}
 	
+	IEnumerator oxDamage()
+	// float oxTime = 0f;
+{
+    while (Input.GetKeyDown(KeyCode.E))
+    {
+		print("ox is taking damage");
+        oxBar.TakeDamage(40);
+        yield return null;
+    }
+}
 	// public Quaternion getArmRotation()
 	// {
 		// return armRotation;

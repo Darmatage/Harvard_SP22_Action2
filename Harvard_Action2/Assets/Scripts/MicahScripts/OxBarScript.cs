@@ -43,6 +43,7 @@ public class OxBarScript : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+		print("I'm losing " + amount);
         Ox -= amount;
         OxBar.fillAmount = Ox / startOx;
       
