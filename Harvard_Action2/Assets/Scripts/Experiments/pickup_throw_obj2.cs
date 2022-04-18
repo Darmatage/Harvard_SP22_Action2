@@ -117,10 +117,12 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					obj.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 					
 					//launch player
-					PersonRB.velocity =  -lookDirection * bulletSpeed;
+					// PersonRB.velocity =  -lookDirection * bulletSpeed;
+					PersonRB.velocity =  direction * bulletSpeed;
 
 					// launch object
-					obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
+					// obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
+					obj.GetComponent<Rigidbody2D>().velocity = -direction * bulletSpeed;
 					 
 					
 					
@@ -146,13 +148,13 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 					firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-					PersonRB.velocity =  -lookDirection * bulletSpeed;
+					PersonRB.velocity =  direction * 0.3f; // bulletSpeed;
 					
 					
 					// roation reducer;
 					float smooth = Time.deltaTime;
 					// ThisPlayer.transform.rotation = Quaternion.identity*smooth;
-					ThisPlayer.transform.Rotate(originalOrientation * smooth);
+					// ThisPlayer.transform.Rotate(originalOrientation * smooth);
 					
 					
 		}
