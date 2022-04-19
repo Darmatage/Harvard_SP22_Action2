@@ -8,6 +8,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
 	private Vector2 velocityNow;
 	public OxBarScript dragCanvasHereOxyHealth;
 	private float h;
+	private float c;
 	// private bool isGrabbable;
 
 
@@ -53,24 +54,18 @@ public class Movement_arrows_in_space: MonoBehaviour {
     }
 	void OnCollisionExit2D(Collision2D collision)
     {
-			print("EXITED a collision and tag is " + collision.gameObject.tag);// + collision.gameObject.tag == "platform");
+		
+		h = Input.GetAxisRaw("Horizontal");
+			print("EXITED a collision and tag is " + collision.gameObject.tag + " h on exit " + h);// + collision.gameObject.tag == "platform");
 			if( collision.gameObject.tag == "platform") 
 			{
 
 				isGrounded = false;
-				if (h == 1)
-				{
-				print("right " + h);
-				rigidbody2d.velocity = -velocityNow/3;
-				}
-				if (h == -1)
-				{
-					print("left " +h);
-					rigidbody2d.velocity = velocityNow/3;
-				}
-			}	
+				rigidbody2d.velocity = h * velocityNow*speed;
+			}
+	}			
 		
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -80,14 +75,15 @@ public class Movement_arrows_in_space: MonoBehaviour {
 			if (isGrounded)
 			{
 
-				float h = Input.GetAxisRaw("Horizontal");
+				h = Input.GetAxisRaw("Horizontal");
 				print("the horiz direction is " + h);
 				// velocityNow = new Vector2 (transform.position.x + (h * speed)*Time.deltaTime, transform.position.y);
 				transform.position = new Vector2 (transform.position.x + (h * speed)*Time.deltaTime, transform.position.y);
-					if(h != 0) 
-					{
-						velocityNow = new Vector2 (transform.position.x + (h * speed)*Time.deltaTime, 0.1f);
-					}
+					print("his velocity is " + velocityNow + " transform.position.x " + transform.position.x + " h " + h);
+
+						velocityNow = new Vector2 (1 + (h * speed)*Time.deltaTime, 0.1f);
+			
+					print("his velocity is " + velocityNow);
 			}
 			
 		

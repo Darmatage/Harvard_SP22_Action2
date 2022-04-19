@@ -47,6 +47,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	   originalOrientation = ThisPlayer.transform.position;
 		// print("the pos of this player is " + ThisPlayer.transform.position);
 		PersonRB = ThisPlayer.GetComponent<Rigidbody2D>();
+		grabbed = false;
 		
 		
 		// hit = Physics2D.Raycast(holdpoint.position,Vector2.right*transform.localScale.x,distance);
