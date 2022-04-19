@@ -87,6 +87,14 @@ public class OxBarScript : MonoBehaviour
 	{
 		return Ox;
 	}
+	
+	// reset
+	public void setOxLevel100()
+	{
+		print("OXYGEN levels replenished!");
+		Ox = startOx;
+		// return Ox;
+	}
 
     IEnumerator FilterOverTimeCoroutine(float filterAmount, float duration)
     {

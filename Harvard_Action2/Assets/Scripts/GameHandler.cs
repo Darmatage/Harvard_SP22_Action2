@@ -15,7 +15,7 @@ public class GameHandler : MonoBehaviour{
         private Slider sliderVolumeCtrl;
 		
 		// current level
-		// public int currentLevel = 1;
+		public int currentLevel = 0;
 		
 		
 		// Oxygen
@@ -31,6 +31,8 @@ public class GameHandler : MonoBehaviour{
 		
 		// Current goals
 		public GameObject ShowMission;
+		public static int Deaths = 0;
+		public static int MaxDeaths = 4;
 		
 		
 		
@@ -43,10 +45,10 @@ public class GameHandler : MonoBehaviour{
 	public static int playerHealth = 100;
     public int StartPlayerHealth = 100;
 
-    public static int gotTokens = 0;
+    // public static int gotTokens = 0;
     // public GameObject tokensText;
 	public static int MaxHealth = 100;
-    public static int CurrentHealth = 100;
+    public static float CurrentHealth = 100f;
 
 
 
@@ -88,10 +90,11 @@ public class GameHandler : MonoBehaviour{
                                 Pause();
                         }
                 }
+				CurrentHealth = OxygenLevel;
 				
 				// update oxygen level constantly
 				OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
-				if (OxygenLevel <= 0) 
+				if (Deaths >=  MaxDeaths) 
 				{
 					playerDies();
 				}
@@ -134,6 +137,11 @@ public class GameHandler : MonoBehaviour{
       // }
 
 
+	public void replenishHealth(){
+		print("gameHandler has replenishHealth");
+		Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
+	}
+	
 
       public void playerDies(){
             // player.GetComponent<PlayerHurt>().playerDead();
