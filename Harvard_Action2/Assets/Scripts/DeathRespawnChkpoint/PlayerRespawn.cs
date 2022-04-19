@@ -27,6 +27,8 @@ public class PlayerRespawn : MonoBehaviour
 							Debug.Log("I touched a checkpoint");
                             pSpawn = other.gameObject.transform;
                             GameObject thisCheckpoint = other.gameObject;
+							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
+							// checkRend.material.color = Color.white;
                             StopCoroutine(changeColor(thisCheckpoint));
                             StartCoroutine(changeColor(thisCheckpoint));
               }
@@ -37,5 +39,6 @@ public class PlayerRespawn : MonoBehaviour
               checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
               yield return new WaitForSeconds(0.5f);
               checkRend.material.color = Color.white;
+			  // checkRend.color = Color.green;
        }
 }

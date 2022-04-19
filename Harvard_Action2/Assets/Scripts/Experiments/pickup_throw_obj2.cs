@@ -18,6 +18,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	Vector2 lookDirection;
     float lookAngle;
 	public float bulletSpeed = 10f;
+	public float thrusterSpeed = 3f;
 	
 	// player 
 	private Rigidbody2D PersonRB;
@@ -136,7 +137,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 					lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 					firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-					PersonRB.velocity =  direction * 3f; // bulletSpeed;
+					PersonRB.velocity =  direction * thrusterSpeed; // bulletSpeed;
 					
 					
 					// roation reducer;

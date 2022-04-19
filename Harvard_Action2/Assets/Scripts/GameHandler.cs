@@ -14,6 +14,9 @@ public class GameHandler : MonoBehaviour{
         public static float volumeLevel = 0.5f;
         private Slider sliderVolumeCtrl;
 		
+		// current level
+		// public int currentLevel = 1;
+		
 		
 		// Oxygen
 		private static float OxygenLevel = 100f;
@@ -134,17 +137,21 @@ public class GameHandler : MonoBehaviour{
 
       public void playerDies(){
             // player.GetComponent<PlayerHurt>().playerDead();
-			SceneManager.LoadScene("Death");
-            //StartCoroutine(DeathPause());
+			StartCoroutine(DeathPause());
+			// SceneManager.LoadScene("Death");
+            
       }
 
-      //IEnumerator DeathPause(){
-            //player.GetComponent<PlayerMove>().isAlive = false;
-            //player.GetComponent<PlayerJump>().isAlive = false;
-            //yield return new WaitForSeconds(1.0f);
-            //SceneManager.LoadScene("EndLose");
-      //}
+      IEnumerator DeathPause(){
+            // player.GetComponent<PlayerMove>().isAlive = false;
+            // player.GetComponent<PlayerJump>().isAlive = false;
+            yield return new WaitForSeconds(1.0f);
+            SceneManager.LoadScene("Death");
+      }
 	  
+	  // public void checkpointUpdatesLevel(checkpoint){
+		  // currentLevel = checkpoint;
+	  // }
 
 
        public void UpdateOxygenPercentTextBox(){

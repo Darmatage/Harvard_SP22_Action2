@@ -10,6 +10,7 @@ public float speed = 5f;
 public GameObject oxygenParticles;
 public Transform handEnd;
 public Transform shoulder;
+public float OxygenDepletion = .05f;
 
 public OxBarScript oxBar;
 public bool OxygenOn;
@@ -51,7 +52,7 @@ GameObject particlesTemp;
 		 if (Input.GetKeyDown(KeyCode.E))
 		 {
 			 OxygenOn = true;
-			 oxBar.timeToDamage = .05f;
+			 oxBar.timeToDamage = OxygenDepletion;
 			 print("the ox level in THRUSTER is " + oxBar.timeToDamage);
 			 // print("oxygen is on particle!");
 			 particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
