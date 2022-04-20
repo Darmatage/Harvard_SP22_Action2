@@ -31,10 +31,13 @@ public class Movement_arrows_in_space: MonoBehaviour {
     {
 		// print("entered a collision");//  + collision.gameObject.tag == "platform");
 		if (collision.gameObject.tag == "platform")
+			
+		
 		{
 			// print("object is PLATFORM! NAME: " + collision.gameObject.name);
 			// print("the tag of obj is " + collision.gameObject.tag);
 			isGrounded = true;
+
 		}
 		if (collision.gameObject.tag == "grabbable")
 		{
@@ -84,6 +87,14 @@ public class Movement_arrows_in_space: MonoBehaviour {
 						velocityNow = new Vector2 (1 + (h * speed)*Time.deltaTime, 0.1f);
 			
 					print("his velocity is " + velocityNow);
+					
+				//Stop the Rigidbody from rotating
+				rigidbody2d.freezeRotation = true;
+			}
+			else 
+			{
+				//resume the Rigidbody  rotating
+				rigidbody2d.freezeRotation = false;
 			}
 			
 		
