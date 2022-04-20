@@ -5,14 +5,25 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
        private GameHandler gameHandler;
+	   public GameObject oxygenParticles;
+	   // public Transform shoulder;
 	   public PlayerBottomRespawn pSpawnScript;
        public Transform pSpawn;       // current player spawn point
+	   // public Transform suithole;
+	   public GameObject suitholeparent;
+	   private Transform suithole;
+	   
+	   
+	   GameObject particlesTemp;
 
        void Start() {
               gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+			  suithole = suitholeparent.transform;
+			  suitholeparent.SetActive(false);
        }
 
        void Update() {
+				damage();
               if (pSpawn != null){
                      if (GameHandler.CurrentHealth <= 0f && GameHandler.Deaths < GameHandler.MaxDeaths){
                             //comment out lines from GameHandler about EndLose screen
@@ -26,6 +37,20 @@ public class PlayerRespawn : MonoBehaviour
                      }
               }
        }
+	   
+	   public void damage(){
+		   if (GameHandler.CurrentHealth <= 20f){
+			   print("particles should start!");
+			   suitholeparent.SetActive(true);
+			 // particlesTemp = Instantiate(oxygenParticles, suithole.position, Quaternion.identity);
+			 // particlesTemp.transform.SetParent(suithole);
+			 // particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
+		   }
+		   else{
+			    suitholeparent.SetActive(false);
+		   }
+		   
+	   }
 
        public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "Checkpoint"){
