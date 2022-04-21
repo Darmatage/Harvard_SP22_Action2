@@ -475,7 +475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2553488322584633912}
-  mixer: {fileID: 0}
   currentLevel: 0
   Drag_Canvas_Here_OxygenTracker: {fileID: 2371432381624135093}
   OxygenPercentTextBox: {fileID: 8596766724283908957}
@@ -628,7 +627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygenParticles: {fileID: 1115055653295575432}
-  shoulder: {fileID: 5660957733001131041}
   pSpawnScript: {fileID: 3102933866884734080}
   pSpawn: {fileID: 2699949919413529612}
   suitholeparent: {fileID: 6585938044256725092}

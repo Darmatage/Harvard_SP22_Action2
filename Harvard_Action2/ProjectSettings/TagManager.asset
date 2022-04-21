@@ -10,6 +10,7 @@ TagManager:
   - GameHandler
   - Checkpoint
   - kill
+  - feet
   layers:
   - Default
   - TransparentFX
