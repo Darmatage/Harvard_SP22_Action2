@@ -30,6 +30,7 @@ public class PlayerRespawn : MonoBehaviour
                             Debug.Log("I am going back to the last spawn point");
                             Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
                             gameObject.transform.position = pSpn2;
+							gameObject.transform.rotation = Quaternion.identity;
 							pSpawnScript.respawn(); // call a respawn
 							// GameHandler.CurrentHealth = 1;
 							gameHandler.replenishHealth();
