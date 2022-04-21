@@ -9,6 +9,8 @@ public class Movement_arrows_in_space: MonoBehaviour {
 	public OxBarScript dragCanvasHereOxyHealth;
 	private float h;
 	private float c;
+	Quaternion startRotation;
+	float time;
 	// private bool isGrabbable;
 
 
@@ -24,19 +26,18 @@ public class Movement_arrows_in_space: MonoBehaviour {
     {
 		h = 1;
         rigidbody2d = GetComponent<Rigidbody2D>();
-		// print("starting script!");
+		startRotation = transform.rotation;
     }
 	
 	 void OnCollisionEnter2D(Collision2D collision)
     {
 		// print("entered a collision");//  + collision.gameObject.tag == "platform");
 		if (collision.gameObject.tag == "platform")
-			
-		
 		{
-			// print("object is PLATFORM! NAME: " + collision.gameObject.name);
-			// print("the tag of obj is " + collision.gameObject.tag);
 			isGrounded = true;
+			transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
+			time += Time.deltaTime;
+			
 
 		}
 		if (collision.gameObject.tag == "grabbable")

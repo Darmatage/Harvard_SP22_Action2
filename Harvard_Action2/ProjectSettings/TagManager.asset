@@ -9,7 +9,6 @@ TagManager:
   - PauseMenuSlider
   - GameHandler
   - Checkpoint
-  - Kill
   - kill
   layers:
   - Default
