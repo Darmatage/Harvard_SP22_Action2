@@ -13463,6 +13463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startOx: 100
+  Ox: 0
   OxBar: {fileID: 2371432380468444183}
   OxyColor: {r: 1, g: 1, b: 1, a: 0}
   unOxyColor: {r: 0.5377358, g: 0.11414205, b: 0.11414205, a: 1}
@@ -15013,21 +15014,6 @@ Transform:
   m_Father: {fileID: 1493086339582782646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4096831999693871060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4718059380586317748}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be5431cc9c4ba346902a470a08ae2d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  jumpPower: 3
-  isGrounded: 1
 --- !u!1 &4396054211408809844
 GameObject:
   m_ObjectHideFlags: 0
@@ -15119,7 +15105,6 @@ GameObject:
   - component: {fileID: 5201810841766522333}
   - component: {fileID: 8708912260883249754}
   - component: {fileID: 2434828169809796976}
-  - component: {fileID: 4096831999693871060}
   - component: {fileID: 4718059380586317749}
   m_Layer: 0
   m_Name: Player
@@ -15145,9 +15130,11 @@ MonoBehaviour:
   oxygenParticles: {fileID: 5822451420741445685, guid: 4d5f5d7ce78606c40af3dd3845ac8438, type: 3}
   handEnd: {fileID: 2377617171219782480}
   shoulder: {fileID: 4078461650507994189}
-  OxygenDepletion: 1
-  OxygenBurstDepletion: 0.05
+  OxygenDepletion: 0.9
+  OxygenBurstDepletion: 0.0001
+  OxygenBurstStart: 0.0001
   oxBar: {fileID: 2371432380884858334}
+  Ox: 100
   OxygenOn: 0
 --- !u!1 &5197709700931774389
 GameObject:

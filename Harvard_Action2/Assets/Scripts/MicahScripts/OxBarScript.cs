@@ -8,7 +8,7 @@ public class OxBarScript : MonoBehaviour
 {
 
     public float startOx = 100;
-    private float Ox;
+    public float Ox;
     //public GameObject deathEffect;
     public Image OxBar;
     public Color OxyColor = new Color(0.3f, 0.8f, 0.3f);

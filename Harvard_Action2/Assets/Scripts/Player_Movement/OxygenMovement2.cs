@@ -15,8 +15,9 @@ public class OxygenMovement2 : MonoBehaviour
     public Transform shoulder;
     public float OxygenDepletion = .05f;
     public float OxygenBurstDepletion;
-
+    public float OxygenBurstStart;
     public OxBarScript oxBar;
+    public float Ox;
     public bool OxygenOn;
     GameObject particlesTemp;
     private Quaternion armRotation;
@@ -39,8 +40,8 @@ public class OxygenMovement2 : MonoBehaviour
     public void startOxygen()
     {
 
-
-        if (Input.GetMouseButton(1))
+        
+         if (Input.GetMouseButton(1))
         {
             OxygenOn = true;
             oxBar.timeToDamage = OxygenBurstDepletion;
