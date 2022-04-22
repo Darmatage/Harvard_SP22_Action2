@@ -7,6 +7,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	RaycastHit2D hit;
 	public float distance=2f;
 	public Transform holdpoint;
+	public Transform grabpoint;
 	public LayerMask notgrabbed;
 	
 	// public Camera mainCamera;
@@ -63,7 +64,7 @@ public class pickup_throw_obj2 : MonoBehaviour {
 		var distance = heading.magnitude;
 		direction = heading / distance; // This is now the normalized direction.
 
-		 if (Input.GetKeyDown(KeyCode.R))
+		 if (Input.GetMouseButtonDown(0))
 		{
 			// Debug.DrawRay(hit.transform.position, transform.TransformDirection(Vector2.right)*50, Color.blue, 2, false);
 			if(!grabbed)
