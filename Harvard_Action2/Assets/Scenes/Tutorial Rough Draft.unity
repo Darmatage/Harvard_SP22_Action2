@@ -730,7 +730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604857150}
   m_Layer: 0
-  m_Name: holdpoint
+  m_Name: hand end
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -15052,7 +15052,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187335383590698992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19d4d220af9c7514f9ee1088e33356db, type: 3}
   m_Name: 
@@ -15142,10 +15142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burstPower: -0.05
   isGrounded: 0
-  oxygenParticles: {fileID: 0}
-  handEnd: {fileID: 0}
-  shoulder: {fileID: 0}
-  OxygenDepletion: 0.05
+  oxygenParticles: {fileID: 5822451420741445685, guid: 4d5f5d7ce78606c40af3dd3845ac8438, type: 3}
+  handEnd: {fileID: 2377617171219782480}
+  shoulder: {fileID: 4078461650507994189}
+  OxygenDepletion: 1
+  OxygenBurstDepletion: 0.05
   oxBar: {fileID: 2371432380884858334}
   OxygenOn: 0
 --- !u!1 &5197709700931774389
