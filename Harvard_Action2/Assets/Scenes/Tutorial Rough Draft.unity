@@ -1371,7 +1371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 989159236}
   - component: {fileID: 989159238}
-  - component: {fileID: 989159237}
   m_Layer: 0
   m_Name: rotatorRight
   m_TagString: Untagged
@@ -1398,25 +1397,6 @@ Transform:
   m_Father: {fileID: 1563651743}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &989159237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989159235}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d4d220af9c7514f9ee1088e33356db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  oxygenParticles: {fileID: 8695158101449908318, guid: acfaf6c9d17348244b8f7c84df8de049, type: 3}
-  handEnd: {fileID: 1921746546}
-  shoulder: {fileID: 989159236}
-  OxygenDepletion: 0.05
-  oxBar: {fileID: 2371432380884858334}
-  OxygenOn: 0
 --- !u!114 &989159238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15040,7 +15020,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4718059380586317748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be5431cc9c4ba346902a470a08ae2d7, type: 3}
   m_Name: 
@@ -15081,7 +15061,7 @@ MonoBehaviour:
   oxygenParticles: {fileID: 8695158101449908318, guid: acfaf6c9d17348244b8f7c84df8de049, type: 3}
   handEnd: {fileID: 2377617171219782480}
   shoulder: {fileID: 4078461650507994189}
-  OxygenDepletion: 0.05
+  OxygenDepletion: 0.1
   oxBar: {fileID: 2371432380884858334}
   OxygenOn: 0
 --- !u!222 &4475156896653200318
@@ -15140,6 +15120,7 @@ GameObject:
   - component: {fileID: 8708912260883249754}
   - component: {fileID: 2434828169809796976}
   - component: {fileID: 4096831999693871060}
+  - component: {fileID: 4718059380586317749}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15147,6 +15128,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4718059380586317749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718059380586317748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069db1f9ed44d574984d7e5b5a57e4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burstPower: -0.05
+  isGrounded: 0
+  oxygenParticles: {fileID: 0}
+  handEnd: {fileID: 0}
+  shoulder: {fileID: 0}
+  OxygenDepletion: 0.05
+  oxBar: {fileID: 2371432380884858334}
+  OxygenOn: 0
 --- !u!1 &5197709700931774389
 GameObject:
   m_ObjectHideFlags: 0
