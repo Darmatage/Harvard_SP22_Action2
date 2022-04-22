@@ -2245,7 +2245,7 @@ GameObject:
   - component: {fileID: 1563651743}
   - component: {fileID: 1563651745}
   m_Layer: 0
-  m_Name: grabberArmTRD
+  m_Name: GrabberArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8313,29 +8313,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &896785832175848665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109520435213741484}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb8e12d7efc22e45b2fa37680db6b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabbed: 1
-  distance: 5
-  holdpoint: {fileID: 604857150}
-  notgrabbed:
-    serializedVersion: 2
-    m_Bits: 0
-  pickupPoint: {fileID: 3330052912916561906}
-  firePoint: {fileID: 2377617171219782480}
-  bulletSpeed: 3
-  thrusterSpeed: 5
-  redTargeter: {fileID: 2475419542316627587}
 --- !u!4 &951702215788333505
 Transform:
   m_ObjectHideFlags: 0
@@ -8359,9 +8336,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493086339582782646}
-  - component: {fileID: 896785832175848665}
   m_Layer: 0
-  m_Name: grabberArm
+  m_Name: OxygenArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
