@@ -42,28 +42,21 @@ public class player_movement_attractor : MonoBehaviour
     }
 	 void Update()
     {
-      moveDir = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")).normalized;  
+      
 		if(isGrounded)
 		{
-			// 	rotate smoothly back upright
-				// transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
-				// time += Time.deltaTime;
-				// rb.freezeRotation = true;
 				
-				// Vector2 gravityup = (transform.position - platform.transform.position).normalized;
-				// Vector2 bodyup = transform.up;
-				
-				// rb.rigidbody.AddForce(gravityUp * gravity);
-				
-				// Quaternion targetRotation = Quaternion.FromToRotation(bodyup,gravityup) * transform.rotation;
-				// transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 50 * Time.deltaTime);
+			// RaycastHit hit;
+			// Transform raycastPoint;
+			// Rotate to align with terrain
+			// Physics.Raycast(raycastPoint.position, Vector3.down, out hit);
+			// if (hit.collider.tag == "platform")
+			// {
+				// isGrounded = true;
+				// transform.up -= (transform.up - hit.normal) * 0.1f;
+			// }
+		   
 		}
-		else 
-		{
-				//resume the Rigidbody  rotating
-				// rb.freezeRotation = false;
-			}
-		
 	}
 
     void FixedUpdate()
@@ -71,13 +64,7 @@ public class player_movement_attractor : MonoBehaviour
         // RaycastHit hit;
 		Vector2 pos2D = new Vector2(transform.position.x, transform.position.y);
         origin = pos2D + com;
-		// origin = feet.transform.position;
-		// RaycastHit2D hit = (Physics2D.CircleCast(origin, GravityRadius, transform.forward, 0));
-
-        // Cast a sphere wrapping character controller 10 meters forward
-        // to see if it is about to hit anything.
-        // if (Physics2D.CircleCast(p1, rb.height / 2, transform.forward, out hit, GravityRadius))
-			
+		
 		// create a circle radius around player
 		 Collider2D [] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
 		 if(colliders.Length > 1)
@@ -94,45 +81,12 @@ public class player_movement_attractor : MonoBehaviour
 				   {
 					   platform = c.gameObject;
 					   
-					   
-					   // -------
-					   // Rigidbody2D rbToAttract  = platform.GetComponent<Rigidbody2D>();
-					   // Vector3 direction = rb.position - rbToAttract.position;
-					   // float distance = direction.magnitude;
-					   // print("distance " + distance);
-
-						// if (distance == 0f)
-							// return;
-						
-						// if (distance <= 10f) 
-						// {
-							// if ( isGrounded ) {
-								// distance = 1;
-							// }
-								// float forceMagnitude = G * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
-								// Vector3 force = direction.normalized * forceMagnitude;
-
-			// rbToAttract.AddForce(force);
-			
-			// force 2
-			// get the size of this object
-			// var renderer = gameObject.GetComponent<Renderer>();
-			// float width = 3f; // renderer.bounds.size.x;
-			// print("my width is " + width);
-			// float forceMagnitudeF2dg = -G * (rb.mass * rbToAttract.mass) / (width/2);
-			// Vector3 forceF2dg = direction.normalized * forceMagnitude;
-			// print("my force vector is " + forceF2dg);
-			// rb.AddForce(-forceF2dg);
-					   
-					   // --------
-					   
-					   
 					   Vector2 closestPoint = c.ClosestPoint(origin);
 					   var heading = origin - closestPoint;
 					   var distance = heading.magnitude;
 					   dir = -heading / distance;
 					 
-					   hit1 =  Physics2D.Raycast(transform.position, dir, GravityRadius);
+					   hit1 =  Physics2D.Raycast(origin, dir, GravityRadius);
 					   hitpoint = hit1.point;
 					   normalSurface = hit1.normal;
 					   try
@@ -155,7 +109,11 @@ public class player_movement_attractor : MonoBehaviour
 		 }
 		 if (isGrounded) 
 		 {
-			Vector3 transPos = transform.TransformDirection(moveDir);
+			// Vector3 transPos = transform.TransformDirection(moveDir);
+			// Vector2 transPos2 =  new Vector2(transPos.x, transPos.y);
+			// print("transPos2 " + transPos2);
+			// rb.MovePosition(rb.position + transPos2 * moveSpeed * Time.deltaTime);
+		
 			// Vector2 transPos2 =  new Vector2(transPos.x, transPos.y);
 			// rb.MovePosition(rb.position + transPos2 * moveSpeed * Time.deltaTime);
 			float h = Input.GetAxisRaw("Horizontal");
@@ -178,8 +136,18 @@ public class player_movement_attractor : MonoBehaviour
 			// var distance = heading.magnitude;
 			// Vector2 dirFeet = -heading / distance;
 			var slopeRotation = Quaternion.FromToRotation(transform.up, normalSurface);
-			// transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation * transform.rotation,10*Time.deltaTime);
+			
+			// if player is barely moving let's align them to obj this way
+			if (rb.velocity.sqrMagnitude < 2) 
+			{
+			transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation * transform.rotation,10*Time.deltaTime);
 			transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation,10*Time.deltaTime);
+			}
+			else
+			{
+				var movementRotation = Quaternion.LookRotation (new Vector3(Input.GetAxis ("Horizontal"),0, Input.GetAxis("Vertical")));
+				transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation*movementRotation, 10 * Time.deltaTime);
+			}
 		 }
 		
     }
