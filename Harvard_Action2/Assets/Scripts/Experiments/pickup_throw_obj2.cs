@@ -7,7 +7,6 @@ public class pickup_throw_obj2 : MonoBehaviour {
 	RaycastHit2D hit;
 	public float distance=2f;
 	public Transform holdpoint;
-	public Transform grabpoint;
 	public LayerMask notgrabbed;
 	
 	// public Camera mainCamera;
