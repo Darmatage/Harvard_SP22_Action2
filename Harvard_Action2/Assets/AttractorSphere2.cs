@@ -147,3 +147,8 @@ public class AttractorSphere2 : MonoBehaviour
 			}
 	}
 }
+
+
+/* 
+notes for KAI:
+work on directions.... right is along surface normal, left is negative of surface normal?
