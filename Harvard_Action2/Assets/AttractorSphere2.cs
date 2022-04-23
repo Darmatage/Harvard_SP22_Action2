@@ -17,6 +17,7 @@ public class AttractorSphere2 : MonoBehaviour
 	Vector2 moveDir;
 	Vector2 normalSurface;
 	GameObject feet;
+	Vector2 dir;
 	
 	// for jumping
 	Vector2 jumpVect;
@@ -34,6 +35,7 @@ public class AttractorSphere2 : MonoBehaviour
 		com = rb.centerOfMass;
 		feet = GameObject.FindWithTag("feet");
 		jumpDir = Vector2.up;
+		dir = -Vector2.up;
 		isJumping = false;
     }
 	 void Update()
@@ -66,7 +68,6 @@ public class AttractorSphere2 : MonoBehaviour
 		 Collider2D [] colliders = Physics2D.OverlapCircleAll(feet.transform.position, 10f);
 		 if(colliders.Length > 1)
 		 {
-			 Vector2 dir;
 			 RaycastHit2D hit1;
 			
 			   
@@ -104,6 +105,7 @@ public class AttractorSphere2 : MonoBehaviour
 		 }
 		 if (isGrounded) 
 		 {
+			// rb.AddForce((dir * BootGravPower*Time.deltaTime), ForceMode2D.Force);
 			Vector3 transPos = transform.TransformDirection(moveDir);
 			Vector2 transPos2 =  new Vector2(transPos.x, transPos.y);
 			rb.MovePosition(rb.position + transPos2 * moveSpeed * Time.deltaTime);

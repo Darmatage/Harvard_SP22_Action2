@@ -101,7 +101,21 @@ public class player_movement_attractor : MonoBehaviour
 					   print(" the hit point is " + hit1.point + " the dir is " + dir + " the origin is " + origin);
 					   Debug.DrawRay(origin, dir, Color.blue, 5);
 					   Debug.DrawLine(origin, hitpoint, Color.red, 5);
+					   
+					   
+					   	var slopeRotation = Quaternion.FromToRotation(transform.up, normalSurface);
 					   // break;
+					   
+					   			if (rb.velocity.sqrMagnitude < 2) 
+			{
+			transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation * transform.rotation,10*Time.deltaTime);
+			transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation,10*Time.deltaTime);
+			}
+			// else
+			// {
+				// var movementRotation = Quaternion.LookRotation (new Vector3(Input.GetAxis ("Horizontal"),0, Input.GetAxis("Vertical")));
+				// transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation*movementRotation, 10 * Time.deltaTime);
+			// }
 				   }
 				}
 				
@@ -135,19 +149,10 @@ public class player_movement_attractor : MonoBehaviour
 			// var heading = origin - feet.transform.position;
 			// var distance = heading.magnitude;
 			// Vector2 dirFeet = -heading / distance;
-			var slopeRotation = Quaternion.FromToRotation(transform.up, normalSurface);
+
 			
 			// if player is barely moving let's align them to obj this way
-			if (rb.velocity.sqrMagnitude < 2) 
-			{
-			transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation * transform.rotation,10*Time.deltaTime);
-			transform.rotation = Quaternion.Slerp(transform.rotation,slopeRotation,10*Time.deltaTime);
-			}
-			else
-			{
-				var movementRotation = Quaternion.LookRotation (new Vector3(Input.GetAxis ("Horizontal"),0, Input.GetAxis("Vertical")));
-				transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation*movementRotation, 10 * Time.deltaTime);
-			}
+
 		 }
 		
     }
