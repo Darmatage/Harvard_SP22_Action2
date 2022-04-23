@@ -8,6 +8,7 @@ public class AttractorSphere2 : MonoBehaviour
 	public float BootGravPower = 30;
 	public float moveSpeed = 15;
 	public bool isGrounded;
+	
     // CharacterController r;
 	Rigidbody2D rb;
 	Vector2 com;
@@ -15,23 +16,38 @@ public class AttractorSphere2 : MonoBehaviour
 	Vector2 origin;
 	Vector2 moveDir;
 	Vector2 normalSurface;
-	
-	// should i add feet so that object stands up?
 	GameObject feet;
+	
+	// for jumping
+	Vector2 jumpVect;
+	Vector2 jumpDir;
+	public bool isJumping;
+	public float jumpPower = 20;
+	public float tapSpeed = 0.5f;
+	float lastTapTime = 0;
+	
+
 	
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 		com = rb.centerOfMass;
 		feet = GameObject.FindWithTag("feet");
+		jumpDir = Vector2.up;
+		isJumping = false;
     }
 	 void Update()
     {
       moveDir = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")).normalized;  
-		// if (Input.GetKeyDown(KeyCode.Space))
-		// {
-			   
-		// }
+	  if (Input.GetKeyDown(KeyCode.Space))
+	  { 
+			// jumpVect = Input.GetAxisRaw("Vertical").normalized
+			isJumping = true;
+	  }
+	  if (Input.GetKeyUp(KeyCode.Space))
+	  {
+			isJumping = false;
+	  }
 	}
 
     void FixedUpdate()
@@ -59,17 +75,22 @@ public class AttractorSphere2 : MonoBehaviour
 				{
 				   if (c.tag == "platform")
 				   {
+					   
 					   Vector2 closestPoint = c.ClosestPoint(origin);
 					   var heading = origin - closestPoint;
 					   var distance = heading.magnitude;
 					   dir = -heading / distance;
+					   jumpDir = -dir;
 					   // dir = dir.normalized;
 					   hit1 =  Physics2D.Raycast(origin, dir, GravityRadius);
 					   hitpoint = hit1.point;
 					   // Rigidbody2D rbFeet = feet.GetComponent<Rigidbody2D>().AddForce((dir * BootGravPower), ForceMode2D.Force);
 					   normalSurface = hit1.normal;
-					   rb.AddForce((dir * BootGravPower), ForceMode2D.Force);
-					   print(" the hit point is " + hit1.point + " the dir is " + dir + " the origin is " + origin);
+					   
+					   if(!isJumping)
+					   {
+							rb.AddForce((dir * BootGravPower), ForceMode2D.Force);
+					   }
 					   Debug.DrawRay(origin, dir, Color.blue, 5);
 					   Debug.DrawLine(origin, hitpoint, Color.red, 5);
 					   // break;
@@ -87,7 +108,20 @@ public class AttractorSphere2 : MonoBehaviour
 			Vector2 transPos2 =  new Vector2(transPos.x, transPos.y);
 			rb.MovePosition(rb.position + transPos2 * moveSpeed * Time.deltaTime);
 			// Vector3 normalSurface3D = new Vector3(normalSurface.x, normalSurface.y, 0);
-			
+			if (isJumping)
+			{
+				rb.MovePosition(rb.position + jumpDir*jumpPower*(Time.deltaTime));
+				var m = rb.position;
+				print("time "  + (Time.time - lastTapTime) + " " + tapSpeed);
+				if ((Time.time - lastTapTime) < tapSpeed)
+				{
+					print(" added torque jumpdir " + jumpDir + " " + jumpDir*jumpPower*(Time.deltaTime)) ;
+					// rb.AddForce(jumpDir * jumpPower, ForceMode2D.Impulse);
+					rb.AddTorque(10 * Time.deltaTime);
+					rb.velocity= jumpDir*jumpPower*(Time.deltaTime);
+				}
+				lastTapTime = Time.time;
+			}
 			// transform.rotation = Quaternion.FromToRotation(transform.position, normalSurface);
 		 }
 		
