@@ -1048,6 +1048,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 623640be1ac47e44c90cba97a087ceda, type: 3}
+--- !u!1 &817777078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5822451420741445685, guid: 4d5f5d7ce78606c40af3dd3845ac8438, type: 3}
+  m_PrefabInstance: {fileID: 2070513179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &875808374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3536,7 +3541,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -15127,7 +15132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burstPower: -0.05
   isGrounded: 0
-  oxygenParticles: {fileID: 5822451420741445685, guid: 4d5f5d7ce78606c40af3dd3845ac8438, type: 3}
+  oxygenParticles: {fileID: 817777078}
   handEnd: {fileID: 2377617171219782480}
   shoulder: {fileID: 4078461650507994189}
   OxygenDepletion: 0.9
