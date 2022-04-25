@@ -10,11 +10,11 @@ public class MissionHandler : MonoBehaviour
 	
 	public GameObject MissionDisplay;
 	public Text missionText;
-	public GameObject missionNextCloseButton;
+	// public GameObject missionNextCloseButton;
 	public GameObject ThinkingDisplay;
 	public Text thinkingText;
-	public GameObject thinkingPrevButton;
-	public GameObject thinkingNextButton;
+	// public GameObject thinkingPrevButton;
+	// public GameObject thinkingNextButton;
 	
 	List<string> thinkingList = new List<string>();
 	private GameHandler gameHandler;
@@ -86,7 +86,8 @@ public class MissionHandler : MonoBehaviour
 	
 	// connect to 'x' button of mission
 	public void hideMissionBox()
-	{
+	{	
+		print("hide mission click " );
 		MissionDisplay.SetActive(false);
 	}
 	
