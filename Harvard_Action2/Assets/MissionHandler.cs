@@ -56,21 +56,22 @@ public class MissionHandler : MonoBehaviour
 	
 	public void StatusUpdater() 
 	{
+		print("the currGameStatus " + currGameStatus);
 		
-		if(currGameStatus == "CP_tutorial_1")
+		if(currGameStatus == "CP_sample_1")
 		{
 			print("update checkpoint 1");
 			thinkingList.Add("Where am I? I heard an explosion... Let me travel forward (arrow keys). I notice a hole in my suit. What happens when I release more oxygen (left click)");
 			missionText.text = "use the debris to get to the upper level of the storage component of the space station";
 		}
 		
-		if(currGameStatus == "CP_tutorial_2")
+		if(currGameStatus == "CP_sample_2")
 		{
 			print("update checkpoint 2");
 			thinkingList.Add("message 2: press mouse left button and fly! uh oh but don't let your oxygent run out...");
 		}
 		
-		if(currGameStatus == "CP_tutorial_3")
+		if(currGameStatus == "CP_sample_3")
 		{
 			thinkingList.Add("message 3 yes yes yes!!");
 			
@@ -82,4 +83,36 @@ public class MissionHandler : MonoBehaviour
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
 	}
+	
+	// connect to 'x' button of mission
+	public void hideMissionBox()
+	{
+		MissionDisplay.SetActive(false);
+	}
+	
+	// connect to 'x' button of thinking box
+	public void hideThinkingBox()
+	{
+		ThinkingDisplay.SetActive(false);
+	}
+	
+	// displays the prev thought -- connect this to prevButton of thinking box
+	public void prevThought()
+	{
+		if(currThoughtIndex >0)
+		{
+			currThoughtIndex--;
+		}
+	}
+	
+	// displays the next thought -- connect to the nextButton of thinking box
+	public void nextThought()
+	{
+		if(currThoughtIndex < maxIndex)
+		{
+			currThoughtIndex++;
+		}
+	}
+	
+	
 }
