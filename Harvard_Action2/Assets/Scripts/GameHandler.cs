@@ -30,7 +30,7 @@ public class GameHandler : MonoBehaviour{
 		// public GameObject TextOx;
 		
 		// Current goals
-		public GameObject ShowMission;
+		// public GameObject ShowMission;
 		public static int Deaths = 0;
 		public static int MaxDeaths = 4;
 		
@@ -49,6 +49,10 @@ public class GameHandler : MonoBehaviour{
     // public GameObject tokensText;
 	public static int MaxHealth = 100;
     public static float CurrentHealth = 100f;
+	
+	
+	// update mission thought box
+	public MissionHandler missionHandler;
 
 
 
@@ -80,6 +84,10 @@ public class GameHandler : MonoBehaviour{
             // updateStatsDisplay();
         }
 		
+		public void updateUIMissionThoughtUI() 
+		{
+			missionHandler.StatusUpdater();
+		}
 		
 		
 				// update section called repeatedly
@@ -105,17 +113,17 @@ public class GameHandler : MonoBehaviour{
 				UpdateOxygenPercentTextBox();
 				
 				// show mission when user presses M
-				if (Input.GetKeyDown(KeyCode.M))
-				 {
-					 ShowMission.SetActive(true);
+				// if (Input.GetKeyDown(KeyCode.M))
+				 // {
+					 // ShowMission.SetActive(true);
 					 
 					 
-				 }
-				 if (Input.GetKeyUp(KeyCode.M))
-				 {
-					 ShowMission.SetActive(false);
+				 // }
+				 // if (Input.GetKeyUp(KeyCode.M))
+				 // {
+					 // ShowMission.SetActive(false);
 					 
-				 }
+				 // }
         }
 		
 //Start of death system

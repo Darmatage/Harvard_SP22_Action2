@@ -40,15 +40,15 @@ public class MissionHandler : MonoBehaviour
     void Update()
     {
 		
-		if(gameHandler.newCheckPointTouched)
-		{
-			print("gamehandler new updated!");
+		// if(gameHandler.newCheckPointTouched)
+		// {
+			// print("gamehandler new updated!");
 			currGameStatus = gameHandler.currCheckpointName;
-			StatusUpdater();
-		}
+			// StatusUpdater();
+		// }
 		
-		maxIndex = thinkingList.Count-1;
-		
+		// maxIndex = thinkingList.Count-1;
+		// print("maxIndex " + maxIndex);
 		// this will display the current index on the canvas
 		thinkingText.text = thinkingList[currThoughtIndex];
 		
@@ -78,8 +78,10 @@ public class MissionHandler : MonoBehaviour
 			missionText.text = "testing another mission but the prev mission still applies!";
 		}
 		
-		currThoughtIndex = thinkingList.Count - 1; // this updates the index to the most current one
+		 // this updates the index to the most current one
 		// reset the displays when a new checkpoint it reached.
+		maxIndex = thinkingList.Count;
+		currThoughtIndex = maxIndex;
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
 	}
@@ -87,7 +89,7 @@ public class MissionHandler : MonoBehaviour
 	// connect to 'x' button of mission
 	public void hideMissionBox()
 	{	
-		print("hide mission click " );
+
 		MissionDisplay.SetActive(false);
 	}
 	
@@ -100,18 +102,20 @@ public class MissionHandler : MonoBehaviour
 	// displays the prev thought -- connect this to prevButton of thinking box
 	public void prevThought()
 	{
+		print("prevThought is clicked ! " );
 		if(currThoughtIndex >0)
 		{
-			currThoughtIndex--;
+			currThoughtIndex = currThoughtIndex - 1;
 		}
 	}
 	
 	// displays the next thought -- connect to the nextButton of thinking box
 	public void nextThought()
 	{
+		print("nextThought is clicked " );
 		if(currThoughtIndex < maxIndex)
 		{
-			currThoughtIndex++;
+			currThoughtIndex = currThoughtIndex + 1;
 		}
 	}
 	

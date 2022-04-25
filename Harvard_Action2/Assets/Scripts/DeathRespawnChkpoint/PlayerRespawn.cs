@@ -67,6 +67,7 @@ public class PlayerRespawn : MonoBehaviour
 							var currentCheckpoint = other.gameObject.name;
 							gameHandler.currCheckpointName = currentCheckpoint;
 							gameHandler.newCheckPointTouched = true;
+							gameHandler.updateUIMissionThoughtUI();
               }
        }
 	   
