@@ -22,17 +22,10 @@ public class GameHandler : MonoBehaviour{
 		private static float OxygenLevel = 100f;
 		public OxBarScript Drag_Canvas_Here_OxygenTracker;
 		public Text OxygenPercentTextBox;
-		// public GameObject TextOx;
-			//Used by the oxygen system
-		// public static int MaxOx = 100;
-		// public static int playerOx = 100;
-		// public int StartPlayerOx = 100;
-		// public GameObject TextOx;
-		
-		// Current goals
-		// public GameObject ShowMission;
+
+	    //Deaths
 		public static int Deaths = 0;
-		public static int MaxDeaths = 4;
+		public static int MaxDeaths = 100;
 		
 		
 		
