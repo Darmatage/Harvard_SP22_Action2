@@ -178,7 +178,7 @@ public class AttractorSphere3 : MonoBehaviour
 						   {
 						   var normalSurface2 = hit2.normal;
 						   Vector3 normalSurface3D_2 = new Vector3(normalSurface2.x, normalSurface2.y, 0);
-						   transform.up -= (transform.up - normalSurface3D_2)*0.8f;
+						   transform.up -= (transform.up - normalSurface3D_2)*1f;
 						   }
 						   
 						   // once player is oriented we need to create another raycast to calculate force pull

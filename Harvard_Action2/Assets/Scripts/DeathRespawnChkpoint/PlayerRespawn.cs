@@ -52,7 +52,7 @@ public class PlayerRespawn : MonoBehaviour
 		   }
 		   
 	   }
-
+		// get checkpoint name >> send this to GameHandler >> GameHandler records current pos >> sends to canvas SceneScript >> displays appropriate message based on input from gameHandler
        public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "Checkpoint"){
 							Debug.Log("I touched a checkpoint");
@@ -62,6 +62,19 @@ public class PlayerRespawn : MonoBehaviour
 							// checkRend.material.color = Color.white;
                             StopCoroutine(changeColor(thisCheckpoint));
                             StartCoroutine(changeColor(thisCheckpoint));
+							
+							// update gameHandler with current checkpoint name
+							var currentCheckpoint = other.gameObject.name;
+							gameHandler.currCheckpointName = currentCheckpoint;
+							gameHandler.newCheckPointTouched = true;
+              }
+       }
+	   
+	   // one potential issue, everytime we pass a checkpoint will reset thinking....
+	   public void OnTriggerExit2D(Collider2D other) {
+              if (other.gameObject.tag == "Checkpoint"){
+							Debug.Log("I moved passed a checkpoint");
+							gameHandler.newCheckPointTouched = false;
               }
        }
 

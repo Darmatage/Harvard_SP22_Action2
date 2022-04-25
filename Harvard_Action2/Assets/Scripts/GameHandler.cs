@@ -52,8 +52,10 @@ public class GameHandler : MonoBehaviour{
 
 
 
-    private string sceneName;
-
+    public string sceneName;
+	public string currCheckpointName = "CP_tutorial_1";
+	public bool newCheckPointTouched = false;
+	
         void Awake (){
 			
 			// this is the volume level!
@@ -67,7 +69,7 @@ public class GameHandler : MonoBehaviour{
 
         void Start (){
             pauseMenuUI.SetActive(false);
-			ShowMission.SetActive(false);
+			// ShowMission.SetActive(false);
             GameisPaused = false;
 				
             player = GameObject.FindWithTag("Player");
