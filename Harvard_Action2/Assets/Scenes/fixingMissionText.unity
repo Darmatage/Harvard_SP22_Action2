@@ -13477,6 +13477,7 @@ MonoBehaviour:
   thinkingText: {fileID: 1023827198}
   currGameStatus: 
   currThoughtIndex: 0
+  maxIndex: 0
   currDisplayScene: 
 --- !u!1 &2371432380918968258
 GameObject:
@@ -15384,9 +15385,9 @@ MonoBehaviour:
   currentLevel: 0
   Drag_Canvas_Here_OxygenTracker: {fileID: 2371432380884858334}
   OxygenPercentTextBox: {fileID: 8596766723544701750}
-  ShowMission: {fileID: 0}
   isDefending: 0
   StartPlayerHealth: 100
+  missionHandler: {fileID: 2371432380884858336}
   sceneName: 
   currCheckpointName: 
   newCheckPointTouched: 0

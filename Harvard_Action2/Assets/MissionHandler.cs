@@ -20,16 +20,25 @@ public class MissionHandler : MonoBehaviour
 	private GameHandler gameHandler;
 	public string currGameStatus;
 	public int currThoughtIndex = 0;
-	private int maxIndex=0;
+	public int maxIndex=0;
 	
 	public string currDisplayScene;
+	
+	void Awake()
+	{
+	
+	}
 	
     // Start is called before the first frame update
     void Start()
     {
-        gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+        
+		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
 		currGameStatus = gameHandler.currCheckpointName;
 		currDisplayScene = currGameStatus;
+		thinkingList.Add("...");
+		thinkingText.text = thinkingList[currThoughtIndex];
+		maxIndex = thinkingList.Count-1;
 		
 		// very first mission. Append thinking to list
 	
@@ -40,18 +49,18 @@ public class MissionHandler : MonoBehaviour
     void Update()
     {
 		
-		// if(gameHandler.newCheckPointTouched)
-		// {
+		if(gameHandler.newCheckPointTouched)
+		{
 			// print("gamehandler new updated!");
 			currGameStatus = gameHandler.currCheckpointName;
-			// StatusUpdater();
-		// }
+			StatusUpdater();
+		}
 		
 		// maxIndex = thinkingList.Count-1;
 		// print("maxIndex " + maxIndex);
 		// this will display the current index on the canvas
 		thinkingText.text = thinkingList[currThoughtIndex];
-		
+				// print( " the thinkingText.text = thinkingList[currThoughtIndex]);
     }
 	
 	public void StatusUpdater() 
@@ -80,10 +89,18 @@ public class MissionHandler : MonoBehaviour
 		
 		 // this updates the index to the most current one
 		// reset the displays when a new checkpoint it reached.
-		maxIndex = thinkingList.Count;
+		maxIndex = thinkingList.Count-1;
+		print("thinkingList.Count " + thinkingList);
+		print("thinkingList.Count " + thinkingList.Count);
+		thinkingText.text = thinkingList[currThoughtIndex];
+		foreach(var p in thinkingList) {
+         print(" thinkingList " + p );
+      }
+		print("thinkingList[currThoughtIndex]; " + thinkingList[currThoughtIndex]);
 		currThoughtIndex = maxIndex;
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
+
 	}
 	
 	// connect to 'x' button of mission
