@@ -12957,6 +12957,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 993660886770700998, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.870026
+      objectReference: {fileID: 0}
+    - target: {fileID: 993660886770700998, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.552917
+      objectReference: {fileID: 0}
     - target: {fileID: 993660886937268121, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_Text
       value: 'Left click to grab/throw
