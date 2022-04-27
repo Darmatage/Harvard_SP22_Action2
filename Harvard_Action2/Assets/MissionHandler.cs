@@ -87,6 +87,21 @@ public class MissionHandler : MonoBehaviour
 			missionText.text = "testing another mission but the prev mission still applies!";
 		}
 		
+		if(currGameStatus == "CP_debris_1_1" || currGameStatus == "CP_debris_1_2" || currGameStatus == "CP_debris_1_3")
+		{
+			thinkingList.Add("I need to catch and throw objects. I need to watch out for yellow spikes!");
+			
+			missionText.text = "Get to the top of the debris field";
+		}
+		//
+		if(currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
+		{
+			thinkingList.Add("What is this ahead? Look for a green egg shaped thing. Walk into it...");
+			
+			missionText.text = "Get into the Green Egg!";
+		}
+		
+		  // do not change below
 		 // this updates the index to the most current one
 		// reset the displays when a new checkpoint it reached.
 		maxIndex = thinkingList.Count-1;

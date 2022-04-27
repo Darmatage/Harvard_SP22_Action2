@@ -55,8 +55,9 @@ public class PlayerRespawn : MonoBehaviour
 		// get checkpoint name >> send this to GameHandler >> GameHandler records current pos >> sends to canvas SceneScript >> displays appropriate message based on input from gameHandler
        public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "Checkpoint"){
-							Debug.Log("I touched a checkpoint");
+							
                             pSpawn = other.gameObject.transform;
+							Debug.Log("I touched a checkpoint " + pSpawn);
                             GameObject thisCheckpoint = other.gameObject;
 							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
 							// checkRend.material.color = Color.white;
