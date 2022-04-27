@@ -217,7 +217,7 @@ public class GameHandler : MonoBehaviour{
         }
 
         public void StartGame(){
-                SceneManager.LoadScene("Scene1");
+                SceneManager.LoadScene("World2");
         }
 
         public void OpenCredits(){
