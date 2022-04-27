@@ -2998,11 +2998,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 993660886770700998, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25
+      value: 98.8
       objectReference: {fileID: 0}
     - target: {fileID: 993660886770700998, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.7
+      value: 61.64
       objectReference: {fileID: 0}
     - target: {fileID: 993660886770700999, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: player
@@ -7942,9 +7942,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494aab4e3efa3c346a1cfc9553c857db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityRadius: 3
-  BootGravPower: 88
-  moveSpeed: 8
+  GravityRadius: 10
+  BootGravPower: 55
+  moveSpeed: 15
   isGrounded: 0
   isJumping: 0
 --- !u!61 &1383711883
@@ -7985,7 +7985,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 30
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -8054,7 +8054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383711878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.5, y: 5.6, z: 0}
+  m_LocalPosition: {x: 104.43, y: 77.54, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1944663851}
