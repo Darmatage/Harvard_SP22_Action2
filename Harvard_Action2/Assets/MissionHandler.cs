@@ -36,7 +36,7 @@ public class MissionHandler : MonoBehaviour
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
 		currGameStatus = gameHandler.currCheckpointName;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("...");
+		thinkingList.Add("basic controls: Right/Left arrows for movement on platforms. Right Mouse Button to catch an Object and Throw it. Left Mouse Button fires Oxygen. Walk directly off a platform to allow Oxygen Thrusters");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count-1;
 		
@@ -67,7 +67,7 @@ public class MissionHandler : MonoBehaviour
 	{
 		print("the currGameStatus " + currGameStatus);
 		
-		if(currGameStatus == "CP_sample_1")
+		if(currGameStatus == "CP_sample_1" || currGameStatus == "Checkpoint (1)")
 		{
 			print("update checkpoint 1");
 			thinkingList.Add("Where am I? I heard an explosion... Let me travel forward (arrow keys). I notice a hole in my suit. What happens when I release more oxygen (left click)");
