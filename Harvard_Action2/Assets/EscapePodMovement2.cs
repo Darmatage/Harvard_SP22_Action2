@@ -42,7 +42,7 @@ public class EscapePodMovement2 : MonoBehaviour
 	  
 	  if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) 
 			 { 
-					jumpVect = Input.GetAxisRaw("Vertical").normalized;
+					Vector2 jumpVect =  new Vector2(0,Input.GetAxisRaw("Vertical")).normalized;
 					Vector3 transPos = transform.TransformDirection(jumpVect);
 					Vector2 transPos2 =  new Vector2(transPos.x, transPos.y);
 			rb.MovePosition(rb.position + transPos2 * moveSpeed * Time.deltaTime);
