@@ -100,6 +100,62 @@ public class MissionHandler : MonoBehaviour
 			
 			missionText.text = "Get into the Green Egg!";
 		}
+		if(currGameStatus == "CP_spaceship_1")
+		{
+			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
+			
+			missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if(currGameStatus == "CP_spaceship_2")
+		{
+			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
+			
+			missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if(currGameStatus == "CP_spaceship_3")
+		{
+			thinkingList.Add("If I push the up arrow, I jump and the magnetization of this egg turns off!");
+			
+			missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if(currGameStatus == "CP_spaceship_4")
+		{
+			thinkingList.Add("I notice I have more energy. This Egg is giving me oxygen! Somehow it is more powerful than my suit!");
+			
+			missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if(currGameStatus == "CP_spaceship_15")
+		{
+			thinkingList.Add("I'm almost at the end. Keep pushing the up arrow and launching from orb to orb. My magnetism is helping me!");
+			
+			missionText.text = "I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home";
+		}
+		if(currGameStatus == "CP_spaceship_16")
+		{
+			thinkingList.Add("I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home");
+			
+			missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "CP_spaceship_17")
+		{
+			thinkingList.Add("All I need to do is to push into it. Then it will move");
+			
+			missionText.text = "Push the green machine component into the engine slot";
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		  // do not change below
 		 // this updates the index to the most current one
