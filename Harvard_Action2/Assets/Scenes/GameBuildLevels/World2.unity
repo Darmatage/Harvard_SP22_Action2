@@ -6362,7 +6362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5527002295517310983, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: burstPower
-      value: -0.1
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5527002295517310983, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: OxygenBurstStart
