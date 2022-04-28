@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameBuildLevels/MainMenu.unity
     guid: 1089d390494b893408a821b0e76183d4
   - enabled: 1
-    path: Assets/Scenes/GameBuildLevels/Credits.unity
-    guid: e96a5596975448e42aca218c52ca8479
-  - enabled: 1
     path: Assets/Scenes/GameBuildLevels/World2.unity
     guid: 8904a73ade1e4364db85c11a7248db82
   - enabled: 1
-    path: Assets/Scenes/Death.unity
+    path: Assets/Scenes/GameBuildLevels/Credits.unity
+    guid: e96a5596975448e42aca218c52ca8479
+  - enabled: 1
+    path: Assets/Scenes/GameBuildLevels/Death.unity
     guid: 9f38e0b32ce425842b473e3bcbbc9af9
   m_configObjects: {}

@@ -174,20 +174,27 @@ public class GameHandler : MonoBehaviour{
        public void UpdateOxygenPercentTextBox(){
               // Text OxygenPercentTextBoxText = OxygenPercentTextBox.GetComponent<Text>();
 			  // float OxPercent = OxBarScript.getOxLevel();
-			  float OxygenPercent = OxygenLevel/100f;
-              OxygenPercentTextBox.text = "Ox: " + OxygenPercent + " %";
-			  print("the text of OXBar " + OxygenPercentTextBox.text );
+			  
+			  
+			  // took out below due to error in build
+					  // float OxygenPercent = OxygenLevel/100f;
+					  // OxygenPercentTextBox.text = "Ox: " + OxygenPercent + " %";
+					  // print("the text of OXBar " + OxygenPercentTextBox.text );
        }
 	   
 	   public void UpdateDeathTracker()
 	   {
-		  var respawnsLeft = MaxDeaths - Deaths;
-		  RespawnsLeft.text =  respawnsLeft + " Respawns";
+		   
+		   // TAKEN OUT DUE TO BUILD
+		  // var respawnsLeft = MaxDeaths - Deaths;
+		  // RespawnsLeft.text =  respawnsLeft + " Respawns";
 		
 	   }
 	   
 	   public void UpdateAchievements(){
-		   GoalsMet.text = pointsScored + " Goals met";
+		   
+		   //TAKEN OUT DUE TO BUILD
+		   // GoalsMet.text = pointsScored + " Goals met";
 	   }
 
 
