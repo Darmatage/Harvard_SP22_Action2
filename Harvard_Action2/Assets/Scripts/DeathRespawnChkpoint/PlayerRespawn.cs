@@ -58,6 +58,7 @@ public class PlayerRespawn : MonoBehaviour
 							
                             pSpawn = other.gameObject.transform;
 							Debug.Log("I touched a checkpoint " + pSpawn);
+							print("checkpoint has been hit! ");
                             GameObject thisCheckpoint = other.gameObject;
 							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
 							// checkRend.material.color = Color.white;

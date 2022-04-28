@@ -103,7 +103,8 @@ public class Movement_arrows2 : MonoBehaviour
 			// not ground and not grabbable then do this (move at constant speed)
 			if (isGrounded)
 			{
-
+				transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
+				time += Time.deltaTime;
 				h = Input.GetAxisRaw("Horizontal");
 				// print("the horiz direction is " + h);
 				// velocityNow = new Vector2 (transform.position.x + (h * speed)*Time.deltaTime, transform.position.y);
@@ -116,6 +117,7 @@ public class Movement_arrows2 : MonoBehaviour
 					
 				//Stop the Rigidbody from rotating
 				rigidbody2d.freezeRotation = true;
+
 			}
 			else 
 			{
