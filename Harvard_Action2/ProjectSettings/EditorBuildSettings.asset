@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameBuildLevels/MainMenu.unity
     guid: 1089d390494b893408a821b0e76183d4
   - enabled: 1
-    path: Assets/Scenes/GameBuildLevels/World2.unity
+    path: Assets/Scenes/DEBUG_tests/moveDEBUG.unity
     guid: 8904a73ade1e4364db85c11a7248db82
   - enabled: 1
     path: Assets/Scenes/GameBuildLevels/Credits.unity
