@@ -172,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262333514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.517, y: -1.639, z: 0}
+  m_LocalPosition: {x: 0.517, y: -0.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 899792301}
@@ -233,6 +233,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &328385418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5165345453679705676, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+  m_PrefabInstance: {fileID: 578524691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &328385420
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328385418}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26b42f3f84bdf0143824e5ce33834725, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &578524691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +267,22 @@ PrefabInstance:
     - target: {fileID: 524711253650496507, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717620922312120169, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 848829686896330309, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.0234
+      objectReference: {fileID: 0}
+    - target: {fileID: 848829686896330309, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0234
+      objectReference: {fileID: 0}
+    - target: {fileID: 848829686896330309, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.0234
       objectReference: {fileID: 0}
     - target: {fileID: 993660886379178648, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_RootOrder
@@ -296,6 +336,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Mission: Escape the destroyed SpaceStation by activating the escape
         pod'
+      objectReference: {fileID: 0}
+    - target: {fileID: 993660886603045165, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.029965818
       objectReference: {fileID: 0}
     - target: {fileID: 993660886643220175, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -364,6 +408,10 @@ PrefabInstance:
     - target: {fileID: 1597932393950481818, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833725166984502020, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 1928191691620949207, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -441,6 +489,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6151792769853482973, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6238390682902229644, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -488,6 +540,22 @@ PrefabInstance:
     - target: {fileID: 7492984383919008752, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220680570540739421, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8020143640844766479, guid: b05f7fa5be9795d4387c4fba161ce018, type: 3}
+    - target: {fileID: 9220680570540739421, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220680570540739421, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220680570540739421, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5527002295517310980, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
@@ -676,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0e7ba77ad2f1e4f93f49afdc59561b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   speed: 5
   dragCanvasHereOxyHealth: {fileID: 1239598799}
   isGrounded: 0
@@ -707,8 +776,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcefa47e16281ee4b9fa83864fde77e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpPower: 0.3
+  animator: {fileID: 328385420}
+  speed: 50
+  jumpPower: 2
   dragCanvasHereOxyHealth: {fileID: 1239598799}
   underMyFeet: {fileID: 262333517}
   isGrounded: 1
@@ -725,11 +795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016614236917518469, guid: 623640be1ac47e44c90cba97a087ceda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 300
+      value: 300.95
       objectReference: {fileID: 0}
     - target: {fileID: 3016614236917518469, guid: 623640be1ac47e44c90cba97a087ceda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -383
+      value: -383.85
       objectReference: {fileID: 0}
     - target: {fileID: 3016614236917518469, guid: 623640be1ac47e44c90cba97a087ceda, type: 3}
       propertyPath: m_LocalPosition.z

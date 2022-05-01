@@ -86,7 +86,7 @@ public class Movement_arrows3 : MonoBehaviour
 				rigidbody2d.freezeRotation = true;
 				
 				//NEW STUFF BY DANIEL - activates on platform animation
-				animator.SetBool("Idle", true);
+				animator.SetBool("Idle", false);
 				animator.SetBool("Float", false);
 				animator.SetFloat("Walk", h);
 				animator.SetFloat("WalkB", -h);

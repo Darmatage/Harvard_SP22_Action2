@@ -93,7 +93,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
 				//Stop the Rigidbody from rotating
 				rigidbody2d.freezeRotation = true;
 				
-				//NEW STUFF BY DANIEL - activates on platform animation
+				//activates on platform animation
 				animator.SetBool("Idle", true);
 				animator.SetBool("Float", false);
 				animator.SetFloat("Walk", h);
@@ -103,7 +103,7 @@ public class Movement_arrows_in_space: MonoBehaviour {
 			{
 				//resume the Rigidbody  rotating
 				rigidbody2d.freezeRotation = false;
-				//NEW STUFF BY DANIEL - activates off platform animation
+				//activates off platform animation
 				animator.SetBool("Idle", false);
 				animator.SetBool("Float", true);
 			}
