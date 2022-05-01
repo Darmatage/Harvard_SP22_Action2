@@ -344,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262333514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.517, y: -1.639, z: 0}
+  m_LocalPosition: {x: 0.517, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 899792301}
@@ -5559,6 +5559,10 @@ PrefabInstance:
       propertyPath: oxBar
       value: 
       objectReference: {fileID: 1239598799}
+    - target: {fileID: 5038340650621997063, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5042547421882292847, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_Size.y
       value: 2.922214
@@ -5610,6 +5614,18 @@ PrefabInstance:
     - target: {fileID: 7253897364840567560, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -197.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418500102530354985, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418500102530354985, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418500102530354985, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7488399007671785050, guid: fc9a7a39734db984890db6f5773f75a2, type: 3}
       propertyPath: missionHandler
