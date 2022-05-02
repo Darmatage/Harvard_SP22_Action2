@@ -150,9 +150,13 @@ void FixedUpdate()
 			if (force2D == Vector2.zero)
 			{
 				force2D = new Vector2(1,0);
+				// rigidbody2d.velocity = (force2D*h*speed);
 			}
+			else
+			{
 		rigidbody2d.AddForce(force2D*h*speed, ForceMode2D.Force);
-		
+		// rigidbody2d.velocity = (force2D*h*speed);
+			}
 
 		}
 	if (h == 0 && v == 0)
