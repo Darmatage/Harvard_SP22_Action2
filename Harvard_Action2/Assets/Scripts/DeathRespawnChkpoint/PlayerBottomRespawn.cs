@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerBottomRespawn : MonoBehaviour {
 
-       public GameHandler gameHandler;
+       public Animator animator;
+	   public GameHandler gameHandler;
        public Transform playerPos;
        public Transform pSpawn;
        public int damage = 10;
@@ -26,6 +27,8 @@ public class PlayerBottomRespawn : MonoBehaviour {
                             // gameHandler.playerGetHit(damage);
                             Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, playerPos.position.z);
                             playerPos.position = pSpn2;
+							
+							
                      }
               }
 	   }

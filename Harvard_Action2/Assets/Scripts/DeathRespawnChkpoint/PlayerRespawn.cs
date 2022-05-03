@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-       private GameHandler gameHandler;
+       public Animator animator;
+	   private GameHandler gameHandler;
 	   public GameObject oxygenParticles;
 	   // public Transform shoulder;
 	   public PlayerBottomRespawn pSpawnScript;
@@ -38,8 +39,7 @@ public class PlayerRespawn : MonoBehaviour
 							// delay death for 3 secs
 							StartCoroutine(DelayDeath());
 							
-							
-							
+							animator.SetBool("Death", true);
 							
                             // gameObject.transform.position = pSpn2;
 							// gameObject.transform.rotation = Quaternion.identity;
@@ -82,6 +82,8 @@ public class PlayerRespawn : MonoBehaviour
 							gameHandler.currCheckpointName = currentCheckpoint;
 							gameHandler.newCheckPointTouched = true;
 							gameHandler.updateUIMissionThoughtUI();
+							
+							
               }
 			   if (other.gameObject.tag == "LevelGateway"){
 							
@@ -110,7 +112,10 @@ public class PlayerRespawn : MonoBehaviour
        }
 
        IEnumerator changeColor(GameObject thisCheckpoint){
-              Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
+			//currently not working, not sure why... the color changes but the animation doesnt play
+			animator.SetBool("CP", true);	
+				
+			  Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
               checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
 			  SpriteRenderer checkRend2 = thisCheckpoint.GetComponentInChildren<SpriteRenderer>();
 			  checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
@@ -128,8 +133,6 @@ public class PlayerRespawn : MonoBehaviour
 			print("dying in 3 seconds");
 			
 			
-			// // @ Daniel add death animation here?
-			
 			
 			yield return new WaitForSeconds(3);
 			Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
@@ -142,6 +145,7 @@ public class PlayerRespawn : MonoBehaviour
 							gameHandler.replenishHealth();
 							// GameHandler.Deaths ++;
 							
+							animator.SetBool("Death", false);
 							
 			print("ByeBye");
 			respawning = false;
