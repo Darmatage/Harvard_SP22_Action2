@@ -29,7 +29,7 @@ public class PlayerRespawn : MonoBehaviour
               if (pSpawn != null && respawning == false){
                      if (GameHandler.CurrentHealth <= 0f && GameHandler.Deaths < GameHandler.MaxDeaths){
                             respawning = true; // cannot respawn or die again
-							
+							animator.SetBool("Death", true);
 							//comment out lines from GameHandler about EndLose screen
                             Debug.Log("I am going back to the last spawn point");
                             // Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
@@ -39,7 +39,7 @@ public class PlayerRespawn : MonoBehaviour
 							// delay death for 3 secs
 							StartCoroutine(DelayDeath());
 							
-							animator.SetBool("Death", true);
+							
 							
                             // gameObject.transform.position = pSpn2;
 							// gameObject.transform.rotation = Quaternion.identity;
@@ -134,7 +134,7 @@ public class PlayerRespawn : MonoBehaviour
 			
 			
 			
-			yield return new WaitForSeconds(3);
+			yield return new WaitForSeconds(2);
 			Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
 							
 							

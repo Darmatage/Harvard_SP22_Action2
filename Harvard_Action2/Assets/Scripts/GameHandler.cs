@@ -48,7 +48,7 @@ public class GameHandler : MonoBehaviour{
 	
 	// update MISSION status
 	public MissionHandler missionHandler;
-	public string currentLevel = "tutorial"; // name of current level
+	public string currentLevel = ""; // name of current level
 
 	public int currentLevelInteger = 0; // integer associated with current level
 	public int pointsScored = 0; // temporary way to track total positive behavior

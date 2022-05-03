@@ -12,6 +12,7 @@ TagManager:
   - kill
   - feet
   - LevelGateway
+  - playerCheckpoint
   layers:
   - Default
   - TransparentFX
