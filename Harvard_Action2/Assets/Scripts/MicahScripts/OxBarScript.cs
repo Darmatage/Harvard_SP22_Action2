@@ -16,9 +16,11 @@ public class OxBarScript : MonoBehaviour
 
     //temporary time variables:
     public float timeToDamage = 5f;
+    public float timeToRefill = 5f;
     private float theTimer;
     public float damageAmt = 10f;
-	
+    public float refillAmt = 10f;
+    public bool isFiltering = false;
 	
 	// connect to oxygenThruster:
 	public Oxygen_thruster OxyThrust;
@@ -29,28 +31,36 @@ public class OxBarScript : MonoBehaviour
         theTimer = timeToDamage;
     }
 
-    void FixedUpdate()
+    public void adjustOx(int amount)
     {
-		// if (Input.GetKeyDown(KeyCode.E))
-		// {
-			 // timeToDamage = .05f;
-		// }
-		// if (Input.GetKeyUp(KeyCode.E))
-		// {
-			// timeToDamage = 5f;
-		// }
-		// theTimer = timeToDamage;
-        theTimer -= Time.deltaTime;
-		
-        if (theTimer <= 0)
-        {
-            TakeDamage(damageAmt);
-            theTimer = timeToDamage;
-        }
-		
-
+        Ox += amount;
     }
 
+    void FixedUpdate()
+    {
+	
+        theTimer -= Time.deltaTime;
+
+        if (isFiltering == false)
+        {
+            if (theTimer <= 0)
+            {
+                TakeDamage(damageAmt);
+                theTimer = timeToDamage;
+            }
+        }
+        else if (isFiltering == true)
+        {
+            if (theTimer <= 0)
+            {
+                RefillOx(refillAmt);
+                theTimer = timeToRefill;
+            }
+        }
+    }
+
+    
+   
     public void SetColor(Color newColor)
     {
         OxBar.GetComponent<Image>().color = newColor;
@@ -62,11 +72,30 @@ public class OxBarScript : MonoBehaviour
         OxBar.fillAmount = Ox / startOx;
       
     }
+    public void RefillOx(float amount)
+    {
+        if (Ox <= 100)
+        {
+            Ox += amount;
+            OxBar.fillAmount = Ox / startOx;
+        }
+        else if (Ox > 100)
+        {
+            isFiltering = false;
+        }
+    }
+ 
 
-    
-   
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "OxRefill")
+        {
+            isFiltering = true;
+        }
+    }
 
-    public void Die()
+
+        public void Die()
     {
 		Ox = 0;
         Debug.Log("You Died");

@@ -28,6 +28,7 @@ public class Movement_arrows_4 : MonoBehaviour
 
     [Header("Bools")]
     [SerializeField] bool isGrounded = false;
+	public bool isFiltering = false;
 	
 
 
@@ -57,6 +58,10 @@ public class Movement_arrows_4 : MonoBehaviour
 		{
 			Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>()); // player.collider);
 		}	
+		if (collision.gameObject.tag == "OxRefill")
+        {
+			isFiltering = true;
+        }
 
 					
     }
