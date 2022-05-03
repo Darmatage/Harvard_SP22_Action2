@@ -21,9 +21,9 @@ public class GameHandler : MonoBehaviour{
 		// Oxygen
 		private static float OxygenLevel = 100f;
 		public OxBarScript Drag_Canvas_Here_OxygenTracker;
-		public Text OxygenPercentTextBox;
-		public Text RespawnsLeft;
-		public Text GoalsMet;
+		// public Text OxygenPercentTextBox;
+		// public Text RespawnsLeft;
+		// public Text GoalsMet;
 
 	    //Deaths
 		public static int Deaths = 0;
@@ -46,7 +46,7 @@ public class GameHandler : MonoBehaviour{
     public static float CurrentHealth = 100f;
 	
 	public int pointsScored = 0; // temporary way to track total positive behavior
-	
+	public static int pointsScoredForUI;
 	
 	// update mission thought box
 	public MissionHandler missionHandler;
@@ -98,7 +98,7 @@ public class GameHandler : MonoBehaviour{
                         }
                 }
 				CurrentHealth = OxygenLevel;
-				
+				pointsScoredForUI = pointsScored;
 				// update oxygen level constantly
 				OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
 				if (Deaths >=  MaxDeaths) 
