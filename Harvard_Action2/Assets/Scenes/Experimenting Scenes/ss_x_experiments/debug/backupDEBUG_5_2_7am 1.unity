@@ -1083,6 +1083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Walkable Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3016614236917518714, guid: 623640be1ac47e44c90cba97a087ceda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60811296252ad224f9041343ab55ca77, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 623640be1ac47e44c90cba97a087ceda, type: 3}
 --- !u!1001 &2104404928
