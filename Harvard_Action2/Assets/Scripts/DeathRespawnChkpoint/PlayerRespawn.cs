@@ -79,6 +79,22 @@ public class PlayerRespawn : MonoBehaviour
 							gameHandler.newCheckPointTouched = true;
 							gameHandler.updateUIMissionThoughtUI();
               }
+			   if (other.gameObject.tag == "LevelGateway"){
+							
+                            pSpawn = other.gameObject.transform;
+							Debug.Log("I touched a LevelGateway " + pSpawn);
+							print("LevelGateway has been hit! ");
+                            GameObject thisLevelGateway = other.gameObject;
+							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
+							// checkRend.material.color = Color.white;
+                            StopCoroutine(changeColor(thisLevelGateway));
+                            StartCoroutine(changeColor(thisLevelGateway));
+							
+							// update gameHandler with current checkpoint name
+							var currentLevelGateway = other.gameObject.name;
+							gameHandler.currentLevel = currentLevelGateway; // update name of level in gamehandler
+							gameHandler.updateUIMissionUI(); // will trigger player UI
+              }
        }
 	   
 	   // one potential issue, everytime we pass a checkpoint will reset thinking....

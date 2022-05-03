@@ -19,6 +19,7 @@ public class MissionHandler : MonoBehaviour
 	List<string> thinkingList = new List<string>();
 	private GameHandler gameHandler;
 	public string currGameStatus;
+	public string currLevelOfGame;
 	public int currThoughtIndex = 0;
 	public int maxIndex=0;
 	
@@ -35,6 +36,7 @@ public class MissionHandler : MonoBehaviour
         
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
 		currGameStatus = gameHandler.currCheckpointName;
+		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
 		thinkingList.Add("basic controls: Right/Left arrows for movement on platforms. Right Mouse Button to catch an Object and Throw it. Left Mouse Button fires Oxygen. Walk directly off a platform to allow Oxygen Thrusters");
 		thinkingText.text = thinkingList[currThoughtIndex];
@@ -53,7 +55,7 @@ public class MissionHandler : MonoBehaviour
 		{
 			// print("gamehandler new updated!");
 			currGameStatus = gameHandler.currCheckpointName;
-			StatusUpdater();
+			ThoughtUpdater();
 		}
 		
 		// maxIndex = thinkingList.Count-1;
@@ -63,20 +65,26 @@ public class MissionHandler : MonoBehaviour
 				// print( " the thinkingText.text = thinkingList[currThoughtIndex]);
     }
 	
-	public void StatusUpdater() 
+	public void MissionUpdater()
 	{
-		print("the currGameStatus " + currGameStatus);
+		
+	}
+	
+	// // @Daniel and @Micah Use a conditional on the name of the checkpoint in your level and write in
+	// // the thought the player has as they pass the checkpoint. The thought should
+	// // offer help about gameplay or tips for them on what they need to do 
+	public void ThoughtUpdater() 
+	{
 		
 		if(currGameStatus == "CP_sample_1" || currGameStatus == "Checkpoint (1)")
 		{
-			print("update checkpoint 1");
 			thinkingList.Add("Where am I? I heard an explosion... Let me travel forward (arrow keys). I notice a hole in my suit. What happens when I release more oxygen (left click)");
 			missionText.text = "use the debris to get to the upper level of the storage component of the space station";
 		}
 		
 		if(currGameStatus == "CP_sample_2")
 		{
-			print("update checkpoint 2");
+
 			thinkingList.Add("message 2: press mouse left button and fly! uh oh but don't let your oxygent run out...");
 		}
 		

@@ -14,8 +14,7 @@ public class GameHandler : MonoBehaviour{
         public static float volumeLevel = 0.5f;
         private Slider sliderVolumeCtrl;
 		
-		// current level
-		public int currentLevel = 0;
+		
 		
 		
 		// Oxygen
@@ -45,13 +44,15 @@ public class GameHandler : MonoBehaviour{
 	public static int MaxHealth = 100;
     public static float CurrentHealth = 100f;
 	
+
+	
+	// update MISSION status
+	public MissionHandler missionHandler;
+	public string currentLevel = "tutorial"; // name of current level
+
+	public int currentLevelInteger = 0; // integer associated with current level
 	public int pointsScored = 0; // temporary way to track total positive behavior
 	public static int pointsScoredForUI;
-	
-	// update mission thought box
-	public MissionHandler missionHandler;
-
-
 
     public string sceneName;
 	public string currCheckpointName = "CP_tutorial_1";
@@ -83,7 +84,11 @@ public class GameHandler : MonoBehaviour{
 		
 		public void updateUIMissionThoughtUI() 
 		{
-			missionHandler.StatusUpdater();
+			missionHandler.ThoughtUpdater();
+		}
+		public void updateUIMissionUI() 
+		{
+			missionHandler.MissionUpdater();
 		}
 		
 		
