@@ -28,13 +28,21 @@ public class PlayerRespawn : MonoBehaviour
                      if (GameHandler.CurrentHealth <= 0f && GameHandler.Deaths < GameHandler.MaxDeaths){
                             //comment out lines from GameHandler about EndLose screen
                             Debug.Log("I am going back to the last spawn point");
-                            Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
-                            gameObject.transform.position = pSpn2;
-							gameObject.transform.rotation = Quaternion.identity;
-							pSpawnScript.respawn(); // call a respawn
-							// GameHandler.CurrentHealth = 1;
-							gameHandler.replenishHealth();
-							GameHandler.Deaths ++;
+                            // Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
+							
+							
+							// delay death for 3 secs
+							StartCoroutine(DelayDeath());
+							
+							
+							
+							
+                            // gameObject.transform.position = pSpn2;
+							// gameObject.transform.rotation = Quaternion.identity;
+							// pSpawnScript.respawn(); // call a respawn
+					
+							// gameHandler.replenishHealth();
+							// GameHandler.Deaths ++;
                      }
               }
        }
@@ -94,4 +102,25 @@ public class PlayerRespawn : MonoBehaviour
 			 
 			  // checkRend.color = Color.green;
        }
+	   
+	   IEnumerator DelayDeath()  //  <-  its a standalone method
+		{
+			print("dying in 3 seconds");
+			
+			
+			// // @ Daniel add death animation here?
+			
+			
+			yield return new WaitForSeconds(3);
+			Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
+							
+							
+			  gameObject.transform.position = pSpn2;
+							gameObject.transform.rotation = Quaternion.identity;
+							pSpawnScript.respawn(); // call a respawn
+					
+							gameHandler.replenishHealth();
+							GameHandler.Deaths ++;
+			print("ByeBye");
+		}
 }
