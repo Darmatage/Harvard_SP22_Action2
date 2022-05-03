@@ -20,7 +20,9 @@ public class player_stats_viewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		UpdateOxygenPercentTextBox();
+		// UpdateOxygenPercentTextBox();
+		UpdateDeathTracker();
+		UpdateAchievements();
         
     }
 	       public void UpdateOxygenPercentTextBox(){
@@ -39,7 +41,7 @@ public class player_stats_viewer : MonoBehaviour
 		   
 		   // TAKEN OUT DUE TO BUILD
 		  var respawnsLeft = GameHandler.MaxDeaths - GameHandler.Deaths;
-		  RespawnsLeft.text =  respawnsLeft + " Respawns";
+		  RespawnsLeft.text =  respawnsLeft + "% Respawn Level";
 		
 	   }
 	   

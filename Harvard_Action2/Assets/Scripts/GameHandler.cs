@@ -57,6 +57,7 @@ public class GameHandler : MonoBehaviour{
     public string sceneName;
 	public string currCheckpointName = "CP_tutorial_1";
 	public bool newCheckPointTouched = false;
+	public bool respawning = false;
 	
         void Awake (){
 			
@@ -154,6 +155,7 @@ public class GameHandler : MonoBehaviour{
 	public void replenishHealth(){
 		print("gameHandler has replenishHealth");
 		Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
+		Deaths++;
 	}
 	
 

@@ -12,6 +12,7 @@ public class PlayerRespawn : MonoBehaviour
 	   // public Transform suithole;
 	   public GameObject suitholeparent;
 	   private Transform suithole;
+	   private bool respawning = false;
 	   
 	   
 	   GameObject particlesTemp;
@@ -24,13 +25,16 @@ public class PlayerRespawn : MonoBehaviour
 
        void Update() {
 				damage();
-              if (pSpawn != null){
+              if (pSpawn != null && respawning == false){
                      if (GameHandler.CurrentHealth <= 0f && GameHandler.Deaths < GameHandler.MaxDeaths){
-                            //comment out lines from GameHandler about EndLose screen
+                            respawning = true; // cannot respawn or die again
+							
+							//comment out lines from GameHandler about EndLose screen
                             Debug.Log("I am going back to the last spawn point");
                             // Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
 							
 							
+							print("MY GUY DIES THIS AMOINT !! " + GameHandler.Deaths);
 							// delay death for 3 secs
 							StartCoroutine(DelayDeath());
 							
@@ -136,7 +140,10 @@ public class PlayerRespawn : MonoBehaviour
 							pSpawnScript.respawn(); // call a respawn
 					
 							gameHandler.replenishHealth();
-							GameHandler.Deaths ++;
+							// GameHandler.Deaths ++;
+							
+							
 			print("ByeBye");
+			respawning = false;
 		}
 }
