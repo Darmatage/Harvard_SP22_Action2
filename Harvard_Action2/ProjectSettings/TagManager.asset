@@ -13,6 +13,7 @@ TagManager:
   - feet
   - LevelGateway
   - playerCheckpoint
+  - OxRefill
   layers:
   - Default
   - TransparentFX

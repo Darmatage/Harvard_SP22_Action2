@@ -63,16 +63,7 @@ public class OxBarScript : MonoBehaviour
       
     }
 
-    public void FilterOverTime (int filterAmount, int duration)
-    {
-        StartCoroutine(FilterOverTimeCoroutine(filterAmount, duration));
-    }
-
-    public void SpendOverTime(int spendAmount, int duration)
-    {
-        StartCoroutine(SpendOverTimeCoroutine(spendAmount, duration));
-    }
-
+    
    
 
     public void Die()
@@ -96,30 +87,7 @@ public class OxBarScript : MonoBehaviour
 		// return Ox;
 	}
 
-    IEnumerator FilterOverTimeCoroutine(float filterAmount, float duration)
-    {
-        float amountFiltered = 0;
-        float filterPerLoop = filterAmount / duration;
-        while (amountFiltered < filterAmount)
-        {
-            Ox += filterPerLoop;
-            amountFiltered += filterPerLoop;
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    IEnumerator SpendOverTimeCoroutine(float spendAmount, float duration)
-    {
-        float amountSpent = 0;
-        float spendPerLoop = spendAmount / duration;
-        while (amountSpent < spendAmount)
-        {
-            Ox += spendPerLoop;
-            Debug.Log(Ox.ToString());
-            amountSpent += spendPerLoop;
-            yield return new WaitForSeconds(1f);
-        }
-    }
+    
 
 
 }
