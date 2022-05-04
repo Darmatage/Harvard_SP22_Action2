@@ -131,7 +131,7 @@ public class TRDGrabberScript : MonoBehaviour {
 		}
 
 		// Oxygen thruster
-		if (!grabbed && (Input.GetKeyDown(KeyCode.E)))
+		if (!grabbed && (Input.GetKeyDown(KeyCode.Q)))
 		{
 			lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;

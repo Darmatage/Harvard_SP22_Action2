@@ -6486,6 +6486,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 19184975450991601, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19184975450991601, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
       propertyPath: burstPower
       value: -0.8
       objectReference: {fileID: 0}

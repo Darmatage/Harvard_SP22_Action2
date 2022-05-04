@@ -244,6 +244,10 @@ public class GameHandler : MonoBehaviour{
         public void OpenCredits(){
                 SceneManager.LoadScene("Credits");
         }
+		
+		public void OpenPlayerControls(){
+                SceneManager.LoadScene("PlayerControls");
+        }
 
         public void RestartGame(){
                 Time.timeScale = 1f;

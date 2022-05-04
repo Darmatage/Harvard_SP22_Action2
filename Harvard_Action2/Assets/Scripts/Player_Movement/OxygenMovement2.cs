@@ -41,7 +41,7 @@ public class OxygenMovement2 : MonoBehaviour
     {
 
         
-         if (Input.GetMouseButton(1))
+         if (Input.GetMouseButton(1) || (Input.GetKeyDown(KeyCode.E)))
         {
             OxygenOn = true;
             oxBar.timeToDamage = OxygenBurstDepletion;
@@ -60,7 +60,7 @@ public class OxygenMovement2 : MonoBehaviour
     }
     void Burst()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || (Input.GetKeyDown(KeyCode.E)))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * burstPower, ForceMode2D.Impulse);
             isGrounded = false;

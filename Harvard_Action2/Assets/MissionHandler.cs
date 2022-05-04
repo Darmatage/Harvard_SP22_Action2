@@ -43,7 +43,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("basic controls: Right/Left arrows for movement on platforms. Right Mouse Button to catch an Object and Throw it. Left Mouse Button fires Oxygen. Walk directly off a platform to allow Oxygen Thrusters");
+		thinkingList.Add("basic controls: Right/Left/Up arrows for movement on platforms. Left Mouse Button (or R)to catch an Object and Throw it. Right Mouse Button (or E) fires Oxygen. Walk directly off a platform or jump to allow Oxygen Thrusters");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count-1;
 		
