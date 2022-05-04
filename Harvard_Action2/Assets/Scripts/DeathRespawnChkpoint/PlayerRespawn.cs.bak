@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
        public Animator animator;
+	   
+	   // public Animator animatorCheckPoint;
+	   
+	   
 	   private GameHandler gameHandler;
 	   public GameObject oxygenParticles;
 	   // public Transform shoulder;
@@ -14,9 +18,14 @@ public class PlayerRespawn : MonoBehaviour
 	   public GameObject suitholeparent;
 	   private Transform suithole;
 	   private bool respawning = false;
+	   public float playerHealth;
 	   
 	   
 	   GameObject particlesTemp;
+	   
+	   // timer
+	   private float timer = 0.0f;
+	   public float waitTime = 2.0f;
 
        void Start() {
               gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
@@ -25,28 +34,32 @@ public class PlayerRespawn : MonoBehaviour
        }
 
        void Update() {
+		   playerHealth = gameHandler.CurrentHealthNotStatic;
 				damage();
-              if (pSpawn != null && respawning == false){
-                     if (GameHandler.CurrentHealth <= 0f && GameHandler.Deaths < GameHandler.MaxDeaths){
+              if (respawning == false && pSpawn != null){
+                     if (playerHealth <= 0f){ //&&  GameHandler.Deaths < GameHandler.MaxDeaths){
                             respawning = true; // cannot respawn or die again
-							
-							//comment out lines from GameHandler about EndLose screen
-                            Debug.Log("I am going back to the last spawn point");
-                            // Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
+							playerHealth = 100;
 							
 							
-							print("MY GUY DIES THIS AMOINT !! " + GameHandler.Deaths);
-							// delay death for 3 secs
-							StartCoroutine(DelayDeath());
-							
-							animator.SetBool("Death", true);
-							
-                            // gameObject.transform.position = pSpn2;
-							// gameObject.transform.rotation = Quaternion.identity;
-							// pSpawnScript.respawn(); // call a respawn
+							Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
+			
+                            gameObject.transform.position = pSpn2;
+							gameObject.transform.rotation = Quaternion.identity;
+							pSpawnScript.respawn(); // call a respawn
 					
-							// gameHandler.replenishHealth();
+							gameHandler.replenishHealth();
 							// GameHandler.Deaths ++;
+							
+							
+							 // timeDelay();
+							
+							// GameHandler.Deaths ++;
+							
+							
+							respawning = false;
+							print("ByeBye");
+							
                      }
               }
        }
@@ -67,6 +80,8 @@ public class PlayerRespawn : MonoBehaviour
 		// get checkpoint name >> send this to GameHandler >> GameHandler records current pos >> sends to canvas SceneScript >> displays appropriate message based on input from gameHandler
        public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "Checkpoint"){
+							
+							// animatorCheckPoint.SetTrigger("CP");
 							
                             pSpawn = other.gameObject.transform;
 							Debug.Log("I touched a checkpoint " + pSpawn);
@@ -112,16 +127,16 @@ public class PlayerRespawn : MonoBehaviour
        }
 
        IEnumerator changeColor(GameObject thisCheckpoint){
-				
+			
 			animator.SetBool("CP", true);	
 				
 			  Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
               checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
-			  SpriteRenderer checkRend2 = thisCheckpoint.GetComponentInChildren<SpriteRenderer>();
-			  checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
-              yield return new WaitForSeconds(0.5f);
-              checkRend.material.color = Color.white;
-			  checkRend2.color = Color.white;
+			  //SpriteRenderer checkRend2 = thisCheckpoint.GetComponentInChildren<SpriteRenderer>();
+			  //checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+              //yield return new WaitForSeconds(0.5f);
+              //checkRend.material.color = Color.white;
+			  //checkRend2.color = Color.white;
 			  
 			  // remove if checkpoint img changed
 			 
@@ -134,7 +149,7 @@ public class PlayerRespawn : MonoBehaviour
 			
 			
 			
-			yield return new WaitForSeconds(3);
+			yield return new WaitForSeconds(2f);
 			Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
 							
 							
@@ -150,4 +165,37 @@ public class PlayerRespawn : MonoBehaviour
 			print("ByeBye");
 			respawning = false;
 		}
+			
+		public void timeDelay()
+		{
+			// respawning = true;
+			animator.SetTrigger("Death");
+			
+			 timer += Time.deltaTime;
+			 // animator.SetBool("Death", false);	
+			 GameHandler.CurrentHealth = 100f;
+			
+        // Check if we have reached beyond 2 seconds.
+        // Subtracting two is more accurate over time than resetting to zero.
+        if (timer > waitTime)
+			{
+				 // animator.SetBool("Death", false);	
+			Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
+							
+						
+			  gameObject.transform.position = pSpn2;
+							gameObject.transform.rotation = Quaternion.identity;
+							
+							pSpawnScript.respawn(); // call a respawn
+					
+							gameHandler.replenishHealth();
+							print("animate the death!" + gameHandler.CurrentHealthNotStatic);
+							 
+				// Remove the recorded 2 seconds.
+				timer = timer - waitTime;
+				
+			}
+			respawning = false;
+		}
+		
 }

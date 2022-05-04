@@ -127,16 +127,16 @@ public class PlayerRespawn : MonoBehaviour
        }
 
        IEnumerator changeColor(GameObject thisCheckpoint){
-			//currently not working, not sure why... the color changes but the animation doesnt play
+			
 			animator.SetBool("CP", true);	
 				
-			  Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
-              checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
-			  SpriteRenderer checkRend2 = thisCheckpoint.GetComponentInChildren<SpriteRenderer>();
-			  checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+			  //Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
+              //checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+			  //SpriteRenderer checkRend2 = thisCheckpoint.GetComponentInChildren<SpriteRenderer>();
+			  //checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
               yield return new WaitForSeconds(0.5f);
-              checkRend.material.color = Color.white;
-			  checkRend2.color = Color.white;
+              //checkRend.material.color = Color.white;
+			  //checkRend2.color = Color.white;
 			  
 			  // remove if checkpoint img changed
 			 
