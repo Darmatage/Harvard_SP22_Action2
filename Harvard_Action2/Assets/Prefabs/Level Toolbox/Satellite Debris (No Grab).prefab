@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2161521006011670289}
   - component: {fileID: 2161521006011670288}
   m_Layer: 0
-  m_Name: Satellite (No Grab)
+  m_Name: Satellite Debris (No Grab)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
