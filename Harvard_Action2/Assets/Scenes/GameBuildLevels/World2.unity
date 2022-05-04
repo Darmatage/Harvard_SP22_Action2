@@ -197,11 +197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366520524601036740, guid: 0514919d82733394db10cd52a42812d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -451.1
+      value: -451.67
       objectReference: {fileID: 0}
     - target: {fileID: 2366520524601036740, guid: 0514919d82733394db10cd52a42812d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -254.39
+      value: -253.01
       objectReference: {fileID: 0}
     - target: {fileID: 4501192793112074800, guid: 0514919d82733394db10cd52a42812d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,6 +300,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6203706487709111687, guid: 07b54bc51e0891348aeb51404ac8dbd1, type: 3}
   m_PrefabInstance: {fileID: 8862527261988482317}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &912058196 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1817527677128379770, guid: 0514919d82733394db10cd52a42812d1, type: 3}
+  m_PrefabInstance: {fileID: 509245104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1323755794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,6 +312,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3372707944168355730, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -168.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372707944168355730, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -623.74
+      objectReference: {fileID: 0}
     - target: {fileID: 4701127580105879917, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
       propertyPath: m_Name
       value: Core Game System (May 3)
@@ -355,6 +368,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6987332561528386356, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: animatorCheckPoint
+      value: 
+      objectReference: {fileID: 912058196}
     - target: {fileID: 7084745751782357096, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

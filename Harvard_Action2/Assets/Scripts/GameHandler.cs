@@ -43,6 +43,7 @@ public class GameHandler : MonoBehaviour{
     // public GameObject tokensText;
 	public static int MaxHealth = 100;
     public static float CurrentHealth = 100f;
+	public float CurrentHealthNotStatic = 100f;
 	
 
 	
@@ -103,7 +104,12 @@ public class GameHandler : MonoBehaviour{
                                 Pause();
                         }
                 }
+				
+				// two health meters for now
 				CurrentHealth = OxygenLevel;
+				CurrentHealthNotStatic = OxygenLevel;
+				
+				
 				pointsScoredForUI = pointsScored;
 				// update oxygen level constantly
 				OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
@@ -155,6 +161,7 @@ public class GameHandler : MonoBehaviour{
 	public void replenishHealth(){
 		print("gameHandler has replenishHealth");
 		Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
+		CurrentHealthNotStatic = 100f;
 		Deaths++;
 	}
 	

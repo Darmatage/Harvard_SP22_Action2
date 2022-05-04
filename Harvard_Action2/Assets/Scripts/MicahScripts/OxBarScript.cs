@@ -23,7 +23,7 @@ public class OxBarScript : MonoBehaviour
     public bool isFiltering = false;
 	
 	// connect to oxygenThruster:
-	public Oxygen_thruster OxyThrust;
+	// public Oxygen_thruster OxyThrust;
 
     private void Start()
     {
@@ -82,7 +82,7 @@ public class OxBarScript : MonoBehaviour
             Ox += amount;
             OxBar.fillAmount = Ox / startOx;
         }
-        else if (Ox > 100)
+        else if (Ox >= 100)
         {
             isFiltering = false;
         }
@@ -92,14 +92,18 @@ public class OxBarScript : MonoBehaviour
     
     public void Update()
     {
-        if (GetComponent<Movement_arrows_4>().isFiltering == false)
-        {
-            isFiltering = false;
-        }
-        else if (GetComponent<Movement_arrows_4>().isFiltering == true)
-        {
-            isFiltering = true;
-        }
+			// if(isFiltering)
+			// {
+				// RefillOx(2f);
+			// }
+        // if (GetComponent<Movement_arrows_4>().isFiltering == false)
+        // {
+            // isFiltering = false;
+        // }
+        // else if (GetComponent<Movement_arrows_4>().isFiltering == true)
+        // {
+            // isFiltering = true;
+        // }
     }
 
     public void Die()

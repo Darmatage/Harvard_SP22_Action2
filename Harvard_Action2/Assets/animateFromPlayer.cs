@@ -19,8 +19,10 @@ public class animateFromPlayer : MonoBehaviour
 	
 	public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "playerCheckpoint"){
-				print("player has entered ");
-				animator.SetBool("CP", true);	
+				// print("player has entered ");
+				animator.SetTrigger("CP");	
+				// animator.SetBool("CP", true);
+				// animator.Play("CP");
 			  }
 							
 							
@@ -29,7 +31,8 @@ public class animateFromPlayer : MonoBehaviour
 			  public void OnTriggerExit2D(Collider2D other) {
               if (other.gameObject.tag == "playerCheckpoint"){
 							
-				animator.SetBool("CP", false);	
+				// animator.SetBool("CP", false);	
+				animator.speed = 0f;
 			  }
 							
 							
