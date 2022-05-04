@@ -68,12 +68,15 @@ public class PlayerRespawn : MonoBehaviour
 		   if (GameHandler.CurrentHealth <= 20f){
 			   print("particles should start!");
 			   suitholeparent.SetActive(true);
+			   // animator.SetBool("Death", true);
 			 // particlesTemp = Instantiate(oxygenParticles, suithole.position, Quaternion.identity);
 			 // particlesTemp.transform.SetParent(suithole);
 			 // particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
 		   }
 		   else{
 			    suitholeparent.SetActive(false);
+				// animator.SetBool("CP", false);
+			
 		   }
 		   
 	   }
