@@ -9,6 +9,7 @@ public class Movement_arrows_4 : MonoBehaviour
 	public float jumpPower=0.3f;
 	// private Vector2 velocityNow;
 	public OxBarScript dragCanvasHereOxyHealth;
+	public OxBarScript OxBarScript;
 	private float h=0;
 	private float v=0; // jump
 	private float horizontalSpeed;
@@ -61,7 +62,7 @@ public class Movement_arrows_4 : MonoBehaviour
 		if (collision.gameObject.tag == "OxRefill")
         {
 			isFiltering = true;
-        }
+		}
 
 					
     }

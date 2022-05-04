@@ -29,6 +29,8 @@ public class OxBarScript : MonoBehaviour
     {
         Ox = startOx;
         theTimer = timeToDamage;
+
+       
     }
 
     public void adjustOx(int amount)
@@ -40,6 +42,7 @@ public class OxBarScript : MonoBehaviour
     {
 	
         theTimer -= Time.deltaTime;
+        
 
         if (isFiltering == false)
         {
@@ -86,16 +89,20 @@ public class OxBarScript : MonoBehaviour
     }
  
 
-    public void OnTriggerEnter2D(Collider2D other)
+    
+    public void Update()
     {
-        if (other.gameObject.tag == "OxRefill")
+        if (GetComponent<Movement_arrows_4>().isFiltering == false)
+        {
+            isFiltering = false;
+        }
+        else if (GetComponent<Movement_arrows_4>().isFiltering == true)
         {
             isFiltering = true;
         }
     }
 
-
-        public void Die()
+    public void Die()
     {
 		Ox = 0;
         Debug.Log("You Died");
