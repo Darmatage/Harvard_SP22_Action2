@@ -78,6 +78,22 @@ public class MissionHandler : MonoBehaviour
 		// this will display the current index on the canvas
 		thinkingText.text = thinkingList[currThoughtIndex];
 				// print( " the thinkingText.text = thinkingList[currThoughtIndex]);
+			
+		// im M is pressed show mission and thought box
+		if (Input.GetKeyDown(KeyCode.M))
+        {
+			// if any one of them are actice we can hide them both with M
+            if(MissionDisplay.activeSelf || ThinkingDisplay.activeSelf){
+				hideMissionBox();
+				hideThinkingBox();
+			}
+			else
+			{
+				//actice both of them
+				MissionDisplay.SetActive(true);
+				ThinkingDisplay.SetActive(true);
+			}
+        }
     }
 	
 	public void MissionUpdater()

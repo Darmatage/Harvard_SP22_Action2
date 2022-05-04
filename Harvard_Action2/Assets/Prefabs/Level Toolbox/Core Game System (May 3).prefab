@@ -107,6 +107,8 @@ MonoBehaviour:
   pSpawnScript: {fileID: 7652204320949725359}
   pSpawn: {fileID: 7225432439385462819}
   suitholeparent: {fileID: 1898321539703266379}
+  playerHealth: 0
+  waitTime: 2
 --- !u!114 &19184975450991601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +166,10 @@ MonoBehaviour:
   speed: 10
   jumpPower: 2
   dragCanvasHereOxyHealth: {fileID: 7049478737230551450}
+  OxBarScript: {fileID: 0}
   underMyFeet: {fileID: 5546169678013753768}
   isGrounded: 0
+  isFiltering: 0
 --- !u!1 &549794868776540040
 GameObject:
   m_ObjectHideFlags: 0
@@ -10148,7 +10152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 534, y: 183}
+  m_AnchoredPosition: {x: 533, y: 205}
   m_SizeDelta: {x: 101.7486, y: 175.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1358173715232107822
@@ -22265,7 +22269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 534, y: 130}
+  m_AnchoredPosition: {x: 533, y: 130}
   m_SizeDelta: {x: 109.77, y: 175.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6410009873932199013
@@ -27853,6 +27857,8 @@ MonoBehaviour:
   pSpawnScript: {fileID: 7652204320949725359}
   pSpawn: {fileID: 7225432439385462819}
   suitholeparent: {fileID: 6301401585521762993}
+  playerHealth: 0
+  waitTime: 2
 --- !u!114 &716900865338043765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28169,8 +28175,10 @@ MonoBehaviour:
   OxyColor: {r: 1, g: 1, b: 1, a: 0}
   unOxyColor: {r: 0.5377358, g: 0.11414205, b: 0.11414205, a: 1}
   timeToDamage: 1
+  timeToRefill: 5
   damageAmt: 0.5
-  OxyThrust: {fileID: 0}
+  refillAmt: 10
+  isFiltering: 0
 --- !u!114 &7049478737230551460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34361,6 +34369,7 @@ MonoBehaviour:
   Drag_Canvas_Here_OxygenTracker: {fileID: 7049478737230551450}
   isDefending: 0
   StartPlayerHealth: 100
+  CurrentHealthNotStatic: 100
   missionHandler: {fileID: 7049478737230551460}
   currentLevel: 0
   currentLevelInteger: 0

@@ -41,7 +41,7 @@ public class player_stats_viewer : MonoBehaviour
 		   
 		   // TAKEN OUT DUE TO BUILD
 		  var respawnsLeft = GameHandler.MaxDeaths - GameHandler.Deaths;
-		  RespawnsLeft.text =  respawnsLeft + "% Respawn Level";
+		  RespawnsLeft.text =  respawnsLeft + " Respawn Level";
 		
 	   }
 	   
