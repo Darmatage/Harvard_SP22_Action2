@@ -123,19 +123,6 @@ void FixedUpdate()
    // Cast a ray straight down.
    RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
    
-   // check if there is platform
-   // print("the hit collider is " + hit.collider.tag);
-    // if (hit.collider.tag == "platform")
-    // {
-		// isGrounded = true;
-	// }
-	// else
-	// {
-		// isGrounded = false;
-	// }
-   //  if there's a floor beneath us
-   
-   print("is hit collider null? hit.collider " +  hit.collider + " " + h + " " + v);
    if (hit.collider != null && isGrounded == true)
     {
 		
@@ -144,10 +131,10 @@ void FixedUpdate()
 		
         // Project our force direction to be parallel to the floor
         force = Vector3.ProjectOnPlane(force3d, surfaceNorm3d);
-
-        // This means the force we're adding is now following the slopes angle
-    
-    
+		
+		 float angle = Mathf.Atan2(hit.normal.x, hit.normal.y)*Mathf.Rad2Deg; //get angle
+         Debug.Log( " THE ANGLE IS " + angle);
+    // This means the force we're adding is now following the slopes angle
 	Vector2 force2D = new Vector2(force.x, force.y);
 	if(h != 0 && v == 0)
 		{
@@ -160,10 +147,10 @@ void FixedUpdate()
 				horizontalSpeed = speed;
 				rigidbody2d.velocity = (force2D*h*horizontalSpeed);
 			}
-			else
+			else // hills
 			{
-		rigidbody2d.AddForce(force2D*h*speed, ForceMode2D.Force);
-		// rigidbody2d.velocity = (force2D*h*speed);
+				if (angle > 0) rigidbody2d.AddForce(force2D*h*speed, ForceMode2D.Force);
+				if (angle < 0) rigidbody2d.AddForce(-force2D*h*speed, ForceMode2D.Force);
 			}
 
 		}
