@@ -233,7 +233,7 @@ public class MissionHandler : MonoBehaviour
 		}
 		if(currGameStatus == "tutorial_5")
 		{
-			thinkingList.Add("This blue debris looks safe. I can use it to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
+			thinkingList.Add("I can use this debris to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
 			
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
