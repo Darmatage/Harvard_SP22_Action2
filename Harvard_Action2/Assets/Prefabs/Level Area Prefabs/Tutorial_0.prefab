@@ -2090,7 +2090,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1377808714577014965
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,6 +3851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OxBar: {fileID: 0}
+  SpeedOfReplishmentSmallIsFaster: 0.00001
 --- !u!58 &2507848544197858556
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9950,7 +9951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5389957029513430229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.71, y: -29.21, z: 1054.4177}
+  m_LocalPosition: {x: 8.41, y: -27.7, z: 1054.4177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3597305611101039047}
@@ -17174,7 +17175,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &6391366731194123509
 GameObject:
   m_ObjectHideFlags: 0
@@ -32289,7 +32290,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &7232195088102471798
 GameObject:
   m_ObjectHideFlags: 0
@@ -32778,7 +32779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7616783735860507355}
   m_LocalRotation: {x: -0, y: -0, z: 0.10977688, w: 0.99395627}
-  m_LocalPosition: {x: -2.94, y: -30.32, z: 1054.4177}
+  m_LocalPosition: {x: 4.55, y: -26.13, z: 1054.4177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3597305611101039047}

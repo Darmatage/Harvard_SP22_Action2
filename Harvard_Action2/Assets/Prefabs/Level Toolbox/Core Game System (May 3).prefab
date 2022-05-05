@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 652258636790170009}
   - component: {fileID: 6987332561528386356}
   - component: {fileID: 19184975450991601}
-  - component: {fileID: 5546169676940286433}
   - component: {fileID: 5546169676940286432}
+  - component: {fileID: 4735203260912457207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -132,24 +132,6 @@ MonoBehaviour:
   oxBar: {fileID: 7049478737230551450}
   Ox: 100
   OxygenOn: 0
---- !u!114 &5546169676940286433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19184975450991600}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcefa47e16281ee4b9fa83864fde77e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5546169677949783657}
-  speed: 50
-  jumpPower: 2
-  dragCanvasHereOxyHealth: {fileID: 7049478737230551450}
-  underMyFeet: {fileID: 5546169678013753768}
-  isGrounded: 1
 --- !u!114 &5546169676940286432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,10 +148,24 @@ MonoBehaviour:
   speed: 10
   jumpPower: 2
   dragCanvasHereOxyHealth: {fileID: 7049478737230551450}
-  OxBarScript: {fileID: 0}
   underMyFeet: {fileID: 5546169678013753768}
   isGrounded: 0
   isFiltering: 0
+--- !u!114 &4735203260912457207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19184975450991600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42f9b2f95a7722479eb76cf96573ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 1
+  PlatformCheckerScript: {fileID: 5546169678013753768}
+  torso: {fileID: 817699914675250618}
 --- !u!1 &549794868776540040
 GameObject:
   m_ObjectHideFlags: 0
