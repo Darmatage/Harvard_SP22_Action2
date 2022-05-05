@@ -111,8 +111,8 @@ public class PlayerRespawn : MonoBehaviour
                             GameObject thisLevelGateway = other.gameObject;
 							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
 							// checkRend.material.color = Color.white;
-                            StopCoroutine(changeColor(thisLevelGateway));
-                            StartCoroutine(changeColor(thisLevelGateway));
+                            StopCoroutine(changeColorGatway(thisLevelGateway));
+                            StartCoroutine(changeColorGatway(thisLevelGateway));
 							
 							// update gameHandler with current checkpoint name
 							var currentLevelGateway = other.gameObject.name;
@@ -200,5 +200,24 @@ public class PlayerRespawn : MonoBehaviour
 			}
 			respawning = false;
 		}
+		
+		
+		// temp!
+		 IEnumerator changeColorGatway(GameObject thisCheckpoint){
+			
+				print("CHANGING COLOR! ");
+				
+			  Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
+              checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+			  SpriteRenderer checkRend2 = thisCheckpoint.GetComponentInChildren<SpriteRenderer>();
+			  checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+              yield return new WaitForSeconds(0.5f);
+              checkRend.material.color = Color.white;
+			  checkRend2.color = Color.white;
+			  
+			  // remove if checkpoint img changed
+			 
+			  // checkRend.color = Color.green;
+       }
 		
 }

@@ -100,7 +100,7 @@ public class MissionHandler : MonoBehaviour
 	{
 		if(currLevelOfGame == "tutorial")
 		{
-			missionText.text = "MISSION: Throw the debris into the green machine basket";
+			missionText.text = "MISSION: Follow the checkpoints (green alien eyes) to the space station storage room";
 		}
 		if(currLevelOfGame == "MicahsLevel")
 		{
@@ -204,6 +204,42 @@ public class MissionHandler : MonoBehaviour
 		if(currGameStatus == "CP_spaceship_17")
 		{
 			thinkingList.Add("All I need to do is to push into it. Then it will move");
+			
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "tutorial_1")
+		{
+			thinkingList.Add("I am a respawn checkpoint! Press the right or left arrow keys to walk left or right on platforms. If you walk off a platform you can turn on your oxygen thruster by pressing the right mouse button. Press M to toggle thinking and mission boxes");
+			
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "tutorial_2")
+		{
+			thinkingList.Add("press the up or W keys to jump. You will jump TOWARDS the mouse cursor! Your gravity boots will deactivate allowing you to turn on your oxygen thruster (right click!");
+			
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "tutorial_3")
+		{
+			thinkingList.Add("lookout for alien spikes. These will kill you if you touch them!");
+			
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "tutorial_4")
+		{
+			thinkingList.Add("Up ahead is an oxyegn replenisher. You can stand in it and watch your oxygen tanks replenish!");
+			
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "tutorial_5")
+		{
+			thinkingList.Add("Oxygen thruster is cool! but the best way to travel is to pick an object up (use mouse left mouse button or R) and throw it (using left mouse button again or R. Get Airborne and see if you can catch and throw your way upwards!");
+			
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if(currGameStatus == "tutorial_6")
+		{
+			thinkingList.Add("Can I throw this bright green alien orb into that machine basket? Then can I throw my way back up the and get to the storage room of the space station!");
 			
 			// missionText.text = "Push the green machine component into the engine slot";
 		}

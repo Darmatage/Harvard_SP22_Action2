@@ -16,7 +16,7 @@ public class OxBarScript : MonoBehaviour
 
     //temporary time variables:
     public float timeToDamage = 5f;
-    public float timeToRefill = 5f;
+    public float timeToRefill = .0001f;
     private float theTimer;
     public float damageAmt = 10f;
     public float refillAmt = 10f;
