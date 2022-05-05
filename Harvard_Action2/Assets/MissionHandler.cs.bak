@@ -132,10 +132,62 @@ public class MissionHandler : MonoBehaviour
 	// // offer help about gameplay or tips for them on what they need to do 
 	public void ThoughtUpdater() 
 	{
+		//Beginnning of Daniel level CP
+		if(currGameStatus == "AntennaCP_1")
+		{
+			thinkingList.Add("The antenna is far up at the top... I should stick close to the station... or...?");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_1.5")
+		{
+			thinkingList.Add("Oh no... John, Doe... If only they saw these alien eyes...");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_2")
+		{
+			thinkingList.Add("Halfway There...");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_3")
+		{
+			thinkingList.Add("Nearly... There");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_4")
+		{
+			thinkingList.Add("Phew, that was nerve wracking. I should look for the service elevator behind the antenna after I fix it.");
+			
+		}
+		
+		//Beginning of Micah level CP
+		
+		if(currGameStatus == "MCP1")
+		{
+			thinkingList.Add("This is the docking port. I gotta be careful not to fly off into space.");
+			
+		}
+		
+		if(currGameStatus == "MCP2")
+		{
+			thinkingList.Add("What a mess. I should head up towards the lifeboats");
+			
+		}
+		
+		if(currGameStatus == "MCP3")
+		{
+			thinkingList.Add("Am I the only survivor? Is anyone still alive?");
+			
+		}
+		
+		//beginning of Kai level CP
 		
 		if(currGameStatus == "CP_sample_1" || currGameStatus == "Checkpoint (1)")
 		{
-			thinkingList.Add("Where am I? I heard an explosion... Let me travel forward (arrow keys). I notice a hole in my suit. What happens when I release more oxygen (left click)");
+			thinkingList.Add("Where am I? I heard an explosion... Let me check it out. Move with A/D keys.");
 			
 		}
 		
@@ -213,6 +265,9 @@ public class MissionHandler : MonoBehaviour
 			
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
+		
+		//beginning of Tutorial level CP
+		
 		if(currGameStatus == "tutorial_2")
 		{
 			thinkingList.Add("I need to escape, but there's too much in the way! I'll have to cut my suit... While floating, right mouse button to spend oxygen for speed and course corrections.");
@@ -227,19 +282,19 @@ public class MissionHandler : MonoBehaviour
 		}
 		if(currGameStatus == "tutorial_4")
 		{
-			thinkingList.Add("Up ahead is an oxygen replenisher. I can stand in it and replenish my oxygen tanks.");
+			thinkingList.Add("An oxygen tank! I should stand in it and replenish my oxygen before I head out.");
 			
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
 		if(currGameStatus == "tutorial_5")
 		{
-			thinkingList.Add("I can use this debris to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
+			thinkingList.Add("This blue debris looks safe. I can use it to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
 			
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
 		if(currGameStatus == "tutorial_6")
 		{
-			thinkingList.Add("Can I throw this bright green alien orb into that machine basket? Then can I throw my way back up the and get to the storage room of the space station!");
+			thinkingList.Add("Everything is in disarray... After I roll this silo into its slot, I should move up towards the lifeboats.");
 			
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
