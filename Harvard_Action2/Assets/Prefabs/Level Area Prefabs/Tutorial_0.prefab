@@ -5948,7 +5948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5764459460603865581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.923126, y: -3.242157, z: 1054.4177}
+  m_LocalPosition: {x: -18.18, y: -9.59, z: 1054.4177}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 5764459461111293723}
@@ -10059,7 +10059,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391366730185759397}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -10090,7 +10090,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 37.916286
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -11802,7 +11802,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391366731044515833}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11833,7 +11833,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 37.916286
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
