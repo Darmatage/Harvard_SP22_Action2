@@ -8730,6 +8730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core Game System (May 3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4701127580105879917, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4701127580105879918, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
       propertyPath: m_RootOrder
       value: 0
