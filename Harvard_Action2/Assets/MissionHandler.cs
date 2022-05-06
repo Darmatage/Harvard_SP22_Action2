@@ -43,7 +43,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("Woah, what just happened... and what is THAT thing? Press A/D to move. Press M to toggle thinking and mission boxes");
+		thinkingList.Add("What the hell just happened? I'd better go check the rest of the space station. (Walk = A/D)");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count-1;
 		
@@ -130,10 +130,170 @@ public class MissionHandler : MonoBehaviour
 	// // @Daniel and @Micah Use a conditional on the name of the checkpoint in your level and write in
 	// // the thought the player has as they pass the checkpoint. The thought should
 	// // offer help about gameplay or tips for them on what they need to do 
-	public void ThoughtUpdater() 
-	{
+	public void ThoughtUpdater()
+	{//beginning of Tutorial
+
+		
+
+		if (currGameStatus == "ThoughtJump")
+		{
+
+			thinkingList.Add("(Aim with your mouse and press W/Space to JUMP ");
+		}
+
+		if (currGameStatus == "ThoughtGrab")
+        {
+
+			thinkingList.Add("(Click to GRAB and THROW debris)");
+        }
+
+        if (currGameStatus == "ThoughtRelease")
+		{
+
+			thinkingList.Add("Right Click to RELEASE OXYGEN. But keep an eye on your Oxygen Meter...");
+		}
+
+		if (currGameStatus == "Thought")
+		{
+			thinkingList.Add("");
+		}
+
+		if (currGameStatus == "Thought")
+		{
+
+			thinkingList.Add("");
+		}
+
+		if (currGameStatus == "Thought")
+		{
+
+			thinkingList.Add("");
+		}
+
+
+		if (currGameStatus == "CP1")
+		{
+			thinkingList.Add("Oh god I think it touched me. ");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		
+
+		if (currGameStatus == "CP_sample_1" || currGameStatus == "Checkpoint (1)")
+		{
+			thinkingList.Add("");
+
+		}
+
+		if (currGameStatus == "CP_sample_2")
+		{
+
+			thinkingList.Add("message 2: press mouse right button and fly! uh oh but don't let your oxygent run out...");
+		}
+
+		if (currGameStatus == "CP_sample_3")
+		{
+			thinkingList.Add("message 3 yes yes yes!!");
+
+			// missionText.text = "testing another mission but the prev mission still applies!";
+		}
+
+		if (currGameStatus == "CP_debris_1_1" || currGameStatus == "CP_debris_1_2" || currGameStatus == "CP_debris_1_3")
+		{
+			thinkingList.Add("I need to catch and throw objects. I need to watch out for red spikes!");
+
+			// missionText.text = "Get to the top of the debris field";
+		}
+		//
+		if (currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
+		{
+			thinkingList.Add("What is this ahead? Look for a green egg shaped thing. Walk into it...");
+
+			// missionText.text = "Get into the Green Egg!";
+		}
+		if (currGameStatus == "CP_spaceship_1")
+		{
+			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
+
+			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if (currGameStatus == "CP_spaceship_2")
+		{
+			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
+
+			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if (currGameStatus == "CP_spaceship_3")
+		{
+			thinkingList.Add("If I push the up arrow, I jump and the magnetization of this egg turns off!");
+
+			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if (currGameStatus == "CP_spaceship_4")
+		{
+			thinkingList.Add("I notice I have more energy. This Egg is giving me oxygen! Somehow it is more powerful than my suit!");
+
+			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
+		}
+		if (currGameStatus == "CP_spaceship_15")
+		{
+			thinkingList.Add("I'm almost at the end. Keep pushing the up arrow and launching from orb to orb. My magnetism is helping me!");
+
+			// missionText.text = "I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home";
+		}
+		if (currGameStatus == "CP_spaceship_16")
+		{
+			thinkingList.Add("I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if (currGameStatus == "CP_spaceship_17")
+		{
+			thinkingList.Add("All I need to do is to push into it. Then it will move");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if (currGameStatus == "tutorial_1")
+		{
+			thinkingList.Add("Oh god I think it touched me. ");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+
+		//beginning of Tutorial level CP
+
+		if (currGameStatus == "tutorial_2")
+		{
+			thinkingList.Add("I need to escape, but there's too much in the way! I'll have to cut my suit... While floating, right mouse button to spend oxygen for speed and course corrections.");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if (currGameStatus == "tutorial_3")
+		{
+			thinkingList.Add("Those red objects look dangerous. I should avoid them.");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if (currGameStatus == "tutorial_4")
+		{
+			thinkingList.Add("An oxygen tank! I should stand in it and replenish my oxygen before I head out.");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if (currGameStatus == "tutorial_5")
+		{
+			thinkingList.Add("This blue debris looks safe. I can use it to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
+		if (currGameStatus == "tutorial_6")
+		{
+			thinkingList.Add("Everything is in disarray... After I roll this silo into its slot, I should move up towards the lifeboats.");
+
+			// missionText.text = "Push the green machine component into the engine slot";
+		}
 		//Beginnning of Daniel level CP
-		if(currGameStatus == "AntennaCP_1")
+		if (currGameStatus == "AntennaCP_1")
 		{
 			thinkingList.Add("The antenna is far up at the top... I should stick close to the station... or...?");
 			
@@ -189,121 +349,7 @@ public class MissionHandler : MonoBehaviour
 			
 		}
 		
-		//beginning of Kai level CP
 		
-		if(currGameStatus == "CP_sample_1" || currGameStatus == "Checkpoint (1)")
-		{
-			thinkingList.Add("Where am I? I heard an explosion... Let me check it out. Move with A/D keys.");
-			
-		}
-		
-		if(currGameStatus == "CP_sample_2")
-		{
-
-			thinkingList.Add("message 2: press mouse right button and fly! uh oh but don't let your oxygent run out...");
-		}
-		
-		if(currGameStatus == "CP_sample_3")
-		{
-			thinkingList.Add("message 3 yes yes yes!!");
-			
-			// missionText.text = "testing another mission but the prev mission still applies!";
-		}
-		
-		if(currGameStatus == "CP_debris_1_1" || currGameStatus == "CP_debris_1_2" || currGameStatus == "CP_debris_1_3")
-		{
-			thinkingList.Add("I need to catch and throw objects. I need to watch out for red spikes!");
-			
-			// missionText.text = "Get to the top of the debris field";
-		}
-		//
-		if(currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
-		{
-			thinkingList.Add("What is this ahead? Look for a green egg shaped thing. Walk into it...");
-			
-			// missionText.text = "Get into the Green Egg!";
-		}
-		if(currGameStatus == "CP_spaceship_1")
-		{
-			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
-			
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if(currGameStatus == "CP_spaceship_2")
-		{
-			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
-			
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if(currGameStatus == "CP_spaceship_3")
-		{
-			thinkingList.Add("If I push the up arrow, I jump and the magnetization of this egg turns off!");
-			
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if(currGameStatus == "CP_spaceship_4")
-		{
-			thinkingList.Add("I notice I have more energy. This Egg is giving me oxygen! Somehow it is more powerful than my suit!");
-			
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if(currGameStatus == "CP_spaceship_15")
-		{
-			thinkingList.Add("I'm almost at the end. Keep pushing the up arrow and launching from orb to orb. My magnetism is helping me!");
-			
-			// missionText.text = "I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home";
-		}
-		if(currGameStatus == "CP_spaceship_16")
-		{
-			thinkingList.Add("I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if(currGameStatus == "CP_spaceship_17")
-		{
-			thinkingList.Add("All I need to do is to push into it. Then it will move");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if(currGameStatus == "tutorial_1")
-		{
-			thinkingList.Add("Woah! It's alive? Why is its gaze so reassuring? I feel... safe. The endless void of space isn't so scary anymore. Press the W key to jump. I will jump TOWARDS the mouse cursor!");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		
-		//beginning of Tutorial level CP
-		
-		if(currGameStatus == "tutorial_2")
-		{
-			thinkingList.Add("I need to escape, but there's too much in the way! I'll have to cut my suit... While floating, right mouse button to spend oxygen for speed and course corrections.");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if(currGameStatus == "tutorial_3")
-		{
-			thinkingList.Add("Those red objects look dangerous. I should avoid them.");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if(currGameStatus == "tutorial_4")
-		{
-			thinkingList.Add("An oxygen tank! I should stand in it and replenish my oxygen before I head out.");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if(currGameStatus == "tutorial_5")
-		{
-			thinkingList.Add("This blue debris looks safe. I can use it to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if(currGameStatus == "tutorial_6")
-		{
-			thinkingList.Add("Everything is in disarray... After I roll this silo into its slot, I should move up towards the lifeboats.");
-			
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
 		
 		
 		
