@@ -147,15 +147,15 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("(Click to GRAB and THROW debris)");
         }
 
-        if (currGameStatus == "ThoughtRelease")
+        if (currGameStatus == "ThoughtPropel")
 		{
 
 			thinkingList.Add("Right Click to RELEASE OXYGEN. But keep an eye on your Oxygen Meter...");
 		}
 
-		if (currGameStatus == "Thought")
+		if (currGameStatus == "ThoughtSeeCP")
 		{
-			thinkingList.Add("");
+			thinkingList.Add("What in the name of Space Jesus is that thing?");
 		}
 
 		if (currGameStatus == "Thought")
@@ -173,7 +173,7 @@ public class MissionHandler : MonoBehaviour
 
 		if (currGameStatus == "CP1")
 		{
-			thinkingList.Add("Oh god I think it touched me. ");
+			thinkingList.Add("Oh god I think it touched me. Why do I feel like it collected a sample?");
 
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
