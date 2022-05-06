@@ -82,6 +82,12 @@ public class Movement_arrows_4 : MonoBehaviour
     {
 			isGrounded = underMyFeet.isGrounded;
 		
+		// turn off isGrounded if OX
+		if((Input.GetMouseButton(1) || (Input.GetKeyDown(KeyCode.E))))
+		{
+			isGrounded = false;
+		}
+		
 			if (isGrounded)
 			{
 				transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);

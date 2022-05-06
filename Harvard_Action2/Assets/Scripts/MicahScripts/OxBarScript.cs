@@ -22,6 +22,11 @@ public class OxBarScript : MonoBehaviour
     public float refillAmt = 10f;
     public bool isFiltering = false;
 	
+	// screenflash
+	public GameObject ScreenFlash;
+	public float screenFlashDelay = 0.3f;
+	public GameObject warning;
+	
 	// connect to oxygenThruster:
 	// public Oxygen_thruster OxyThrust;
 
@@ -29,6 +34,8 @@ public class OxBarScript : MonoBehaviour
     {
         Ox = startOx;
         theTimer = timeToDamage;
+		ScreenFlash.SetActive(false);
+		warning.SetActive(false);
 
        
     }
@@ -60,6 +67,7 @@ public class OxBarScript : MonoBehaviour
                 theTimer = timeToRefill;
             }
         }
+		
     }
 
     
@@ -92,18 +100,16 @@ public class OxBarScript : MonoBehaviour
     
     public void Update()
     {
-			// if(isFiltering)
-			// {
-				// RefillOx(2f);
-			// }
-        // if (GetComponent<Movement_arrows_4>().isFiltering == false)
-        // {
-            // isFiltering = false;
-        // }
-        // else if (GetComponent<Movement_arrows_4>().isFiltering == true)
-        // {
-            // isFiltering = true;
-        // }
+		if(Ox <= 20f)
+		{
+		 warning.SetActive(true);
+		 StartCoroutine(ShowAndHide(ScreenFlash, screenFlashDelay));
+		}
+		else
+		{
+			warning.SetActive(false);
+			ScreenFlash.SetActive(false);
+		}
     }
 
     public void Die()
@@ -126,9 +132,15 @@ public class OxBarScript : MonoBehaviour
 		Ox = startOx;
 		// return Ox;
 	}
+	IEnumerator ShowAndHide(GameObject ScreenFlash, float delay)
+	   {
+		   ScreenFlash.SetActive(true);
+		   yield return new WaitForSeconds(delay);
+		   ScreenFlash.SetActive(false);
+	   }
 
     
-
+	
 
 }
 
