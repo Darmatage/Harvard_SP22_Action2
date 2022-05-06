@@ -8024,6 +8024,11 @@ Transform:
   m_Father: {fileID: 339670806}
   m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.71}
+--- !u!1 &1233631473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6486360651562554074, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+  m_PrefabInstance: {fileID: 1323755794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1244787765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8729,6 +8734,14 @@ PrefabInstance:
       propertyPath: animatorCheckPoint
       value: 
       objectReference: {fileID: 912058196}
+    - target: {fileID: 7049478737230551450, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: warning
+      value: 
+      objectReference: {fileID: 1233631473}
+    - target: {fileID: 7049478737230551450, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: ScreenFlash
+      value: 
+      objectReference: {fileID: 2015939970}
     - target: {fileID: 7084745751782357096, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12467,6 +12480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87dc807069b4de844a8b9830709be748, type: 3}
+--- !u!1 &2015939970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3784365372194234922, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+  m_PrefabInstance: {fileID: 1323755794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2042050717
 GameObject:
   m_ObjectHideFlags: 0
