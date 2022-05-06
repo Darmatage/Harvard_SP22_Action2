@@ -94,6 +94,11 @@ public class Movement_arrows_4 : MonoBehaviour
 				time += Time.deltaTime;
 				h = Input.GetAxisRaw("Horizontal");
 				v = Input.GetAxis("Vertical");
+				
+				if(Input.GetKey(KeyCode.Space))
+				{
+					v = 1f;
+				}
 
 				rigidbody2d.freezeRotation = true;
 				
