@@ -30,6 +30,11 @@ public class MissionHandler : MonoBehaviour
 	string prevMission;
 	
 	
+	// for fading UI thought boxes
+	public bool makeBoxesFade = true;
+	public float NotificationDuration = 5f;
+	private YieldInstruction fadeInstruction = new YieldInstruction();
+	
 	void Awake()
 	{
 	
@@ -92,6 +97,16 @@ public class MissionHandler : MonoBehaviour
 				//actice both of them
 				MissionDisplay.SetActive(true);
 				ThinkingDisplay.SetActive(true);
+				
+				// hide after duration
+					// Text t1 = ThinkingDisplay.GetComponent<Text>();
+				if(makeBoxesFade)
+				{
+					Image image1 = ThinkingDisplay.GetComponent<Image>();
+					Image image2 = MissionDisplay.GetComponent<Image>();
+					StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
+					
+				}
 			}
         }
     }
@@ -348,7 +363,11 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("Am I the only survivor? Is anyone still alive?");
 			
 		}
-		
+		if(currGameStatus == "kai_test")
+		{
+			thinkingList.Add("THIS IS JUST A TEST!!! only survivor? Is anyone still alive?");
+			
+		}
 		
 		
 		
@@ -379,7 +398,16 @@ public class MissionHandler : MonoBehaviour
 		currThoughtIndex = maxIndex;
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
-
+		
+		
+		// Text t1 = ThinkingDisplay.GetComponent<Text>();
+		if(makeBoxesFade)
+		{
+			Image image1 = ThinkingDisplay.GetComponent<Image>();
+			Image image2 = MissionDisplay.GetComponent<Image>();
+			StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
+			
+		}
 	}
 	
 	// connect to 'x' button of mission
@@ -414,6 +442,40 @@ public class MissionHandler : MonoBehaviour
 			currThoughtIndex = currThoughtIndex + 1;
 		}
 	}
+
+	IEnumerator FadeOut(Image image, Image image2, Text text, Text text2)
+{
+    float elapsedTime = 0.0f;
+	Color origC1 = image.color;
+	Color origC2 = image2.color;
+	Color origT1 = text.color;
+	Color origT2 = text2.color;
+	
+    Color c = image.color;
+    while (elapsedTime < NotificationDuration)
+    {
+		print("elapsedTime vs. fadeTime " + elapsedTime + " " + NotificationDuration);
+        yield return fadeInstruction;
+        elapsedTime += Time.deltaTime ;
+        c.a = 1.0f - Mathf.Clamp01(elapsedTime / NotificationDuration);
+        image.color = c;
+		image2.color = c;
+		
+		
+		// text
+		float alpha = Mathf.Lerp(1f, 0f, elapsedTime/NotificationDuration);
+        text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+		text2.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+    }
+	// t1.CrossFadeAlpha(0.0f, 0.05f, false);
+	hideThinkingBox();
+	hideMissionBox();
+	image.color = origC1;
+	image2.color = origC2;
+	text.color = origT1;
+	text2.color = origT2;
+}
+
 	
 	
 }

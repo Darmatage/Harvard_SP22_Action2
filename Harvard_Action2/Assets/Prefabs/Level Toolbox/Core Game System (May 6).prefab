@@ -5635,7 +5635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1292605763295986283
 Transform:
   m_ObjectHideFlags: 0
@@ -28371,6 +28371,9 @@ MonoBehaviour:
   currThoughtIndex: 0
   maxIndex: 0
   currDisplayScene: 
+  NotificationDuration: 10
+  fadeTime: 3
+  fadeStart: 0
 --- !u!114 &5546169678029687111
 MonoBehaviour:
   m_ObjectHideFlags: 0
