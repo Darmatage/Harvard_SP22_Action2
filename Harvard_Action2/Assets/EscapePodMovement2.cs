@@ -118,7 +118,8 @@ public class EscapePodMovement2 : MonoBehaviour
 			{
 				print("collision with platform");
 				isGrounded = true;
-				rb.velocity = rb.velocity/(rb.velocity);// * 1.09f);
+				rb.velocity =  rb.velocity/(rb.velocity);// * 1.09f);
+				print("rb.velocity/(rb.velocity "  + rb.velocity/(rb.velocity));
 
 			}
 	}

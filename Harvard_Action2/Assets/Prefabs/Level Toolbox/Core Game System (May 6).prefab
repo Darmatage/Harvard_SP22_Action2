@@ -10925,6 +10925,63 @@ MonoBehaviour:
   OxygenDepletion: 0.1
   oxBar: {fileID: 7049478737230551450}
   OxygenOn: 0
+--- !u!1 &2986735944682480337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4320916408439399962}
+  - component: {fileID: 4380177384855703421}
+  m_Layer: 0
+  m_Name: checkpointHitter (1)
+  m_TagString: playerCheckpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4320916408439399962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986735944682480337}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 0.02, z: -704.6529}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2908470865532471550}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4380177384855703421
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986735944682480337}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09114838, y: -0.11393547}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1822968, y: 1.227871}
+  m_EdgeRadius: 0
 --- !u!1 &3099494697022972904
 GameObject:
   m_ObjectHideFlags: 0
@@ -23300,6 +23357,7 @@ GameObject:
   - component: {fileID: 8618193855733678248}
   - component: {fileID: 716900865338043765}
   - component: {fileID: 3598514270895721061}
+  - component: {fileID: 3798052208973707258}
   m_Layer: 0
   m_Name: AlienEggEscaper
   m_TagString: Player
@@ -23321,6 +23379,7 @@ Transform:
   - {fileID: 7886073514026918631}
   - {fileID: 8621219735403044254}
   - {fileID: 8577597915470214405}
+  - {fileID: 4320916408439399962}
   m_Father: {fileID: 3809914639848602755}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23447,7 +23506,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6546840657029633644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 434e75577d0a08c4a875f28f92f13231, type: 3}
   m_Name: 
@@ -23498,6 +23557,22 @@ MonoBehaviour:
   moveSpeed: 15
   isGrounded: 0
   isJumping: 0
+--- !u!114 &3798052208973707258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546840657029633644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fde1e571c7a97489353e0821127829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pSpawnScript: {fileID: 7652204320949725359}
+  pSpawn: {fileID: 7225432439385462819}
+  playerHealth: 0
+  waitTime: 2
 --- !u!1 &6692456058714385902
 GameObject:
   m_ObjectHideFlags: 0
