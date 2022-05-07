@@ -35,6 +35,10 @@ public class MissionHandler : MonoBehaviour
 	public float NotificationDuration = 5f;
 	private YieldInstruction fadeInstruction = new YieldInstruction();
 	
+	// for button
+	public Button hideBox;
+	public Text hideButtonText;
+	
 	Color origC1;
 	Color origC2;
 	Color origT1;
@@ -107,6 +111,11 @@ public class MissionHandler : MonoBehaviour
 				// colorOriginator();
 				MissionDisplay.SetActive(true);
 				ThinkingDisplay.SetActive(true);
+				
+				
+				//change button
+				hideBox.GetComponent<Image>().color = Color.red;
+				hideButtonText.text = "[x]";
 				
 				// hide after duration
 					// Text t1 = ThinkingDisplay.GetComponent<Text>();
@@ -412,6 +421,12 @@ public class MissionHandler : MonoBehaviour
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
 		
+				
+				// button changes
+				ThinkingDisplay.SetActive(true);;
+				hideBox.GetComponent<Image>().color = Color.blue;
+				hideButtonText.text = "[o]";
+		
 		
 		// Text t1 = ThinkingDisplay.GetComponent<Text>();
 		if(makeBoxesFade)
@@ -434,6 +449,40 @@ public class MissionHandler : MonoBehaviour
 	public void hideThinkingBox()
 	{
 		ThinkingDisplay.SetActive(false);
+						
+				// button will change
+		// button changes
+
+				hideBox.GetComponent<Image>().color = Color.blue;
+				hideButtonText.text = "[o]";
+		
+	}
+	public void thinkingBoxButton()
+	{
+		if(ThinkingDisplay.activeSelf)  // turn off box
+			{
+				colorOriginator();
+				// hideThinkingBox();
+				ThinkingDisplay.SetActive(false);
+				// MissionDisplay.SetActive(true);
+				// ThinkingDisplay.SetActive(false);
+				hideBox.GetComponent<Image>().color = Color.blue;
+				hideButtonText.text = "[o]";
+			
+				
+			}
+		else // turn on box
+			{
+				//actice both of them
+				// colorOriginator();
+				colorOriginator();
+				ThinkingDisplay.SetActive(true);
+				
+				
+					hideBox.GetComponent<Image>().color = Color.red;
+				hideButtonText.text = "[x]";
+			}
+		
 	}
 	
 	// displays the prev thought -- connect this to prevButton of thinking box
