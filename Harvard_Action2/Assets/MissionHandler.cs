@@ -35,6 +35,11 @@ public class MissionHandler : MonoBehaviour
 	public float NotificationDuration = 5f;
 	private YieldInstruction fadeInstruction = new YieldInstruction();
 	
+	Color origC1;
+	Color origC2;
+	Color origT1;
+	Color origT2;
+	
 	void Awake()
 	{
 	
@@ -43,7 +48,10 @@ public class MissionHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		origC1 = ThinkingDisplay.GetComponent<Image>().color;
+		origC2 = MissionDisplay.GetComponent<Image>().color;
+		origT1 = thinkingText.color;
+		origT2 = missionText.color;
 		gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
@@ -87,6 +95,7 @@ public class MissionHandler : MonoBehaviour
 		// im M is pressed show mission and thought box
 		if (Input.GetKeyDown(KeyCode.M))
         {
+			colorOriginator();
 			// if any one of them are actice we can hide them both with M
             if(MissionDisplay.activeSelf || ThinkingDisplay.activeSelf){
 				hideMissionBox();
@@ -95,6 +104,7 @@ public class MissionHandler : MonoBehaviour
 			else
 			{
 				//actice both of them
+				// colorOriginator();
 				MissionDisplay.SetActive(true);
 				ThinkingDisplay.SetActive(true);
 				
@@ -396,6 +406,9 @@ public class MissionHandler : MonoBehaviour
       }
 		print("thinkingList[currThoughtIndex]; " + thinkingList[currThoughtIndex]);
 		currThoughtIndex = maxIndex;
+		
+
+			colorOriginator();
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
 		
@@ -446,10 +459,10 @@ public class MissionHandler : MonoBehaviour
 	IEnumerator FadeOut(Image image, Image image2, Text text, Text text2)
 {
     float elapsedTime = 0.0f;
-	Color origC1 = image.color;
-	Color origC2 = image2.color;
-	Color origT1 = text.color;
-	Color origT2 = text2.color;
+	// Color origC1 = image.color;
+	// Color origC2 = image2.color;
+	// Color origT1 = text.color;
+	// Color origT2 = text2.color;
 	
     Color c = image.color;
     while (elapsedTime < NotificationDuration)
@@ -466,14 +479,31 @@ public class MissionHandler : MonoBehaviour
 		float alpha = Mathf.Lerp(1f, 0f, elapsedTime/NotificationDuration);
         text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
 		text2.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+		
+		if (Input.GetKeyDown(KeyCode.M))
+        {
+			colorOriginator();
+			break;
+		}
     }
 	// t1.CrossFadeAlpha(0.0f, 0.05f, false);
 	hideThinkingBox();
 	hideMissionBox();
-	image.color = origC1;
-	image2.color = origC2;
-	text.color = origT1;
-	text2.color = origT2;
+	// image.color = origC1;
+	// image2.color = origC2;
+	// text.color = origT1;
+	// text2.color = origT2;
+	colorOriginator();
+}
+
+void colorOriginator()
+{
+			Image image1 = ThinkingDisplay.GetComponent<Image>();
+			Image image2 = MissionDisplay.GetComponent<Image>();
+			image1.color = origC1;
+			image2.color = origC2;
+			thinkingText.color = origT1;
+			missionText.color = origT2;
 }
 
 	

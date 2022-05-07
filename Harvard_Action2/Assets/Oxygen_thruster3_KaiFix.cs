@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-// camera needs to be in orthographic
-public class Oxygen_thruster2 : MonoBehaviour{
-	
+public class Oxygen_thruster3_KaiFix : MonoBehaviour
+{
 public float speed = 5f;
 public GameObject oxygenParticles;
 public Transform handEnd;
@@ -32,17 +30,8 @@ GameObject particlesTemp;
     public  void Update()
     {
 		
-
-			// Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position; 
-			// float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
-			// armRotation = Quaternion.AngleAxis(angle, Vector3.forward); 
-			// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
-			// print("transform.rotation = Quaternion " + transform.rotation);
-			// armRotation = aimer.Update();
 			startOxygen(); 
-			
-			// GET PARTICLE ROTATION OR DIRECTION AND THEN THRUS IN OPPOSITE WAY OF THIS
-			// armRotation = transform.rotation;
+
 			
     }
 	

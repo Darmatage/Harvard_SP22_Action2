@@ -1,7 +1,9 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class TRDGrabberScript : MonoBehaviour {
+public class grab_throw_3 : MonoBehaviour
+{
 
 	public bool grabbed;
 	RaycastHit2D hit;
@@ -36,6 +38,7 @@ public class TRDGrabberScript : MonoBehaviour {
 	
 	public PlatformChecker platformChecker;
 	public bool isGrounded;
+	public GameObject feet;
 
 	
 
@@ -48,7 +51,7 @@ public class TRDGrabberScript : MonoBehaviour {
 	void Start()
 	{
 		
-		isGrounded = platformChecker.isGrounded;
+		
 		// platformChecker = GameObject.FindWithTag("feet").GetComponent<PlatformChecker>();
 		ThisPlayer = GameObject.FindGameObjectWithTag("Player");
 		originalOrientation = ThisPlayer.transform.position;
@@ -62,7 +65,8 @@ public class TRDGrabberScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-
+		// feet.SetActive(true);
+		isGrounded = platformChecker.isGrounded;
 		// Gets a vector that points from the player's position to the target's.
 		// https://docs.unity3d.com/2018.3/Documentation/Manual/DirectionDistanceFromOneObjectToAnother.html
 		var heading = grabpoint.position - redTargeter.position;
@@ -113,14 +117,15 @@ public class TRDGrabberScript : MonoBehaviour {
 					
 					// this aims to allow us to launch player even when isGrounded
 					platformChecker.isGrounded = false;
+					feet.SetActive(false);
 					//launch player
 					// PersonRB.velocity =  -lookDirection * bulletSpeed;
 					PersonRB.velocity = direction * bulletSpeed;
-
+					
 					// launch object
 					// obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
 					obj.GetComponent<Rigidbody2D>().velocity = -direction * bulletSpeed;
-
+					StartCoroutine(delay());
 
 
 				}
@@ -191,4 +196,10 @@ public class TRDGrabberScript : MonoBehaviour {
 
 
 	}
+	
+	IEnumerator delay()
+    {
+        yield return new WaitForSeconds(1f);
+		feet.SetActive(true);
+    }
 }

@@ -16166,6 +16166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4701127578813498075}
   - component: {fileID: 4701127578813498085}
+  - component: {fileID: 3728559058716737370}
   m_Layer: 0
   m_Name: GrabberArm
   m_TagString: Untagged
@@ -16195,7 +16196,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4701127578813498074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bb608eb4c26fb64c840128d84d43b03, type: 3}
   m_Name: 
@@ -16212,6 +16213,33 @@ MonoBehaviour:
   bulletSpeed: 4
   thrusterSpeed: 3
   redTargeter: {fileID: 2351544991942845634}
+--- !u!114 &3728559058716737370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701127578813498074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdb5c5971bd1a54795c1aa4c6b3fd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
+  distance: 2
+  grabpoint: {fileID: 4701127580012250728}
+  handpoint: {fileID: 4701127580251456990}
+  notgrabbed:
+    serializedVersion: 2
+    m_Bits: 0
+  pickupPoint: {fileID: 4701127580462265090}
+  firePoint: {fileID: 292250879566536864}
+  bulletSpeed: 4
+  thrusterSpeed: 3
+  redTargeter: {fileID: 2351544991942845634}
+  platformChecker: {fileID: 5546169678013753768}
+  isGrounded: 0
+  feet: {fileID: 5546169678013753775}
 --- !u!1 &4701127578860194805
 GameObject:
   m_ObjectHideFlags: 0
@@ -28371,9 +28399,8 @@ MonoBehaviour:
   currThoughtIndex: 0
   maxIndex: 0
   currDisplayScene: 
+  makeBoxesFade: 1
   NotificationDuration: 10
-  fadeTime: 3
-  fadeStart: 0
 --- !u!114 &5546169678029687111
 MonoBehaviour:
   m_ObjectHideFlags: 0

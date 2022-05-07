@@ -90,8 +90,8 @@ public class Movement_arrows_4 : MonoBehaviour
 		
 			if (isGrounded)
 			{
-				transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
-				time += Time.deltaTime;
+				// transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
+				// time += Time.deltaTime;
 				h = Input.GetAxisRaw("Horizontal");
 				v = Input.GetAxis("Vertical");
 				
@@ -125,6 +125,8 @@ public class Movement_arrows_4 : MonoBehaviour
 
 void FixedUpdate()
 {
+	
+	
 
     // isGrounded = underMyFeet.isGrounded;
 	Vector3 force3d = new Vector3 (0,-1,0);
@@ -135,7 +137,10 @@ void FixedUpdate()
    
    if (hit.collider != null && isGrounded == true)
     {
+		// transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
+		// time += Time.deltaTime;
 		
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 100f * Time.deltaTime);
 		
 		Vector3 surfaceNorm3d = new Vector3(hit.normal.x, hit.normal.y, 0);
 		
@@ -146,9 +151,12 @@ void FixedUpdate()
          Debug.Log( " THE ANGLE IS " + angle);
     // This means the force we're adding is now following the slopes angle
 	Vector2 force2D = new Vector2(force.x, force.y);
+	// Vector2 nonZeroForce;
+	
+	// if (force2D != Vector2.zero) nonZeroForce = force2D;
 	if(h != 0 && v == 0)
 		{
-			print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed);
+			print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed + "vel " + rigidbody2d.velocity);
 			
 						// if we're on a horizontal surface
 			if (force2D == Vector2.zero)
@@ -159,8 +167,8 @@ void FixedUpdate()
 			}
 			else // hills
 			{
-				if (angle > 0) rigidbody2d.AddForce(force2D*h*speed, ForceMode2D.Force);
-				if (angle < 0) rigidbody2d.AddForce(-force2D*h*speed, ForceMode2D.Force);
+				if (angle > 0) rigidbody2d.AddForce(force2D*h*speed*1.5f, ForceMode2D.Force);
+				if (angle < 0) rigidbody2d.AddForce(-force2D*h*speed*1.5f, ForceMode2D.Force);
 			}
 
 		}
