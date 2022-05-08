@@ -31,9 +31,12 @@ public class MissionHandler : MonoBehaviour
 	
 	
 	// for fading UI thought boxes
-	public bool makeBoxesFade = true;
+	public bool makeBoxesFade = false;
 	public float NotificationDuration = 5f;
 	private YieldInstruction fadeInstruction = new YieldInstruction();
+	
+	// or make boxes vanish
+	public bool makeBoxesVanish = true;
 	
 	// for button
 	public Button hideBox;
@@ -102,7 +105,7 @@ public class MissionHandler : MonoBehaviour
 			colorOriginator();
 			// if any one of them are actice we can hide them both with M
             if(MissionDisplay.activeSelf || ThinkingDisplay.activeSelf){
-				hideMissionBox();
+				// hideMissionBox();
 				hideThinkingBox();
 			}
 			else
@@ -125,6 +128,10 @@ public class MissionHandler : MonoBehaviour
 					Image image2 = MissionDisplay.GetComponent<Image>();
 					StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
 					
+				}
+				if(makeBoxesVanish)
+				{
+					StartCoroutine(DelayDisappear());
 				}
 			}
         }
@@ -434,6 +441,10 @@ public class MissionHandler : MonoBehaviour
 			StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
 			
 		}
+		if(makeBoxesVanish)
+		{
+			   StartCoroutine(DelayDisappear());
+		}
 	}
 	
 	// connect to 'x' button of mission
@@ -535,12 +546,19 @@ public class MissionHandler : MonoBehaviour
     }
 	// t1.CrossFadeAlpha(0.0f, 0.05f, false);
 	hideThinkingBox();
-	hideMissionBox();
+	// hideMissionBox();
 	// image.color = origC1;
 	// image2.color = origC2;
 	// text.color = origT1;
 	// text2.color = origT2;
 	colorOriginator();
+}
+
+
+IEnumerator DelayDisappear()
+{
+    yield return new WaitForSeconds(NotificationDuration);
+	hideThinkingBox();
 }
 
 void colorOriginator()
