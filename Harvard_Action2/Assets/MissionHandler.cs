@@ -208,7 +208,7 @@ public class MissionHandler : MonoBehaviour
         if (currGameStatus == "ThoughtMagnetic")
 		{
 
-			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if my feet get close.");
+			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if my feet get close. (press A/D to walk)");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")

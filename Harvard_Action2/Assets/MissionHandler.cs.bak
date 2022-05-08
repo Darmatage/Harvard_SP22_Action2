@@ -196,7 +196,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtGrab2")
         {
 
-            thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Click to GRAB and THROW debris)");
+            thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Left Click to GRAB and THROW debris)");
         }
 		
 		if (currGameStatus == "ThoughtOxy")
@@ -208,7 +208,7 @@ public class MissionHandler : MonoBehaviour
         if (currGameStatus == "ThoughtMagnetic")
 		{
 
-			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if I get close.");
+			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if my feet get close.");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")
