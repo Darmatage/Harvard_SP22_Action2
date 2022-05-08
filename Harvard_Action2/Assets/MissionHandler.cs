@@ -60,7 +60,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("What the hell just happened? I'd better go check the rest of the space station. (Walk = A/D)");
+		thinkingList.Add("What the hell just happened? I'd better go check the rest of the space station.                    (Walk = A/D)");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count-1;
 		
@@ -167,24 +167,29 @@ public class MissionHandler : MonoBehaviour
 	public void ThoughtUpdater()
 	{//beginning of Tutorial
 
-		
+
+		if (currGameStatus == "Thought")
+		{
+
+			thinkingList.Add("");
+		}
 
 		if (currGameStatus == "ThoughtJump")
 		{
 
-			thinkingList.Add("(Aim with your mouse and press W/Space to JUMP ");
+			thinkingList.Add("(Aim with your mouse and press W/Space to JUMP.)");
 		}
 
 		if (currGameStatus == "ThoughtGrab")
         {
 
-			thinkingList.Add("(Click to GRAB and THROW debris)");
+            thinkingList.Add("Uh oh. That's a lot of debris.                                          (Click to GRAB and THROW debris)");
         }
 
         if (currGameStatus == "ThoughtPropel")
 		{
 
-			thinkingList.Add("Right Click to RELEASE OXYGEN. But keep an eye on your Oxygen Meter...");
+			thinkingList.Add("(Right Click to propel yourself with Oxygen.)                                           WARNING: Depletes your oxygen when out of space station.");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")
@@ -192,37 +197,30 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("What in the name of Space Jesus is that thing?");
 		}
 
-		if (currGameStatus == "Thought")
-		{
-
-			thinkingList.Add("");
-		}
-
-		if (currGameStatus == "Thought")
-		{
-
-			thinkingList.Add("");
-		}
-
-
 		if (currGameStatus == "CP1")
 		{
 			thinkingList.Add("Oh god I think it touched me. Why do I feel like it collected a sample?");
 
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
-		
 
-		if (currGameStatus == "CP_sample_1" || currGameStatus == "Checkpoint (1)")
+		if (currGameStatus == "ThoughtSave")
 		{
-			thinkingList.Add("");
+
+			thinkingList.Add("I don't know how many oxygen tanks I'm gonna find from here on out- I'd better mind my meter.");
+		}
+
+
+		if (currGameStatus == "CP2" || currGameStatus == "Checkpoint (2)")
+		{
+			thinkingList.Add("Okay, that DEFINITELY touched me. Not cool, Audrey II.");
 
 		}
 
-		if (currGameStatus == "CP_sample_2")
+		if (currGameStatus == "ThoughtSpike")
 		{
 
-			thinkingList.Add("message 2: press mouse right button and fly! uh oh but don't let your oxygent run out...");
+			thinkingList.Add("Those red things look dangerous... I'd better avoid them.");
 		}
 
 		if (currGameStatus == "CP_sample_3")
