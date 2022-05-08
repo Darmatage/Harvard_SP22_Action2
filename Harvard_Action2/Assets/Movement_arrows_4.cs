@@ -140,7 +140,12 @@ void FixedUpdate()
 		// transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
 		// time += Time.deltaTime;
 		
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 100f * Time.deltaTime);
+		// reorient player to platform
+		// transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 100f * Time.deltaTime);
+		
+		// pull player down to platform sice they rotate and can disconnect
+		// rigidbody2d.AddForce(Vector2.down * 10f);
+		// rigidbody2d.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
 		
 		Vector3 surfaceNorm3d = new Vector3(hit.normal.x, hit.normal.y, 0);
 		

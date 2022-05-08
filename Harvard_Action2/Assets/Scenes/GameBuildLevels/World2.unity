@@ -1591,6 +1591,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &40024389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 19184975450991600, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+  m_PrefabInstance: {fileID: 1323755794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &41110498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3637834387160474835, guid: fc5b251a74c5bf24eb7f5c20f1be5944, type: 3}
@@ -30878,6 +30883,10 @@ PrefabInstance:
       propertyPath: jumpPower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5546169678013753768, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 40024389}
     - target: {fileID: 6987332561528386356, guid: 57362ce5df6a6de45bbd61c3bb2be7e4, type: 3}
       propertyPath: animatorCheckPoint
       value: 
@@ -46969,7 +46978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932647676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.632, z: 0}
+  m_LocalPosition: {x: -0.21, y: -0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2042278045}

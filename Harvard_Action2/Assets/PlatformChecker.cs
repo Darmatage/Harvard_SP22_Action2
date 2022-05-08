@@ -5,12 +5,15 @@ using UnityEngine;
 // check to see if player is grounded on platform
 public class PlatformChecker : MonoBehaviour
 {
+	GameObject player;
     // Start is called before the first frame update
 	public bool isGrounded = false;
+	public float miniPlatformPuller = -0.2f;
 	
     void Start()
     {
-        
+        player =  this.transform.parent.gameObject;
+		
     }
 
     // Update is called once per frame
@@ -48,6 +51,10 @@ public class PlatformChecker : MonoBehaviour
 				   {
 					   
 					   isGrounded = true;
+					   
+					   // use a slower roation if collideers hit
+					   var tr = player.transform;
+						tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
 				   }
 				}
 		 }
@@ -57,6 +64,7 @@ public class PlatformChecker : MonoBehaviour
               if (other.gameObject.tag == "platform"){
 							
                            isGrounded = true;
+						   reorientToGround();
               }
        }
 	   
@@ -66,4 +74,16 @@ public class PlatformChecker : MonoBehaviour
 						isGrounded = false;
               }
        }
+	   
+	   public void reorientToGround()
+	   {
+		   Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+		   var tr = player.transform;
+		   // tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
+		   tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.identity, 1f);
+		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
+		   tr.position = tr.position + new Vector3(0,miniPlatformPuller,0);
+		
+		   
+	   }
 }

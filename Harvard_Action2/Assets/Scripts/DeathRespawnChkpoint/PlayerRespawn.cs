@@ -46,6 +46,7 @@ public class PlayerRespawn : MonoBehaviour
 			
                             gameObject.transform.position = pSpn2;
 							gameObject.transform.rotation = Quaternion.identity;
+							gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero; // turn off RB
 							pSpawnScript.respawn(); // call a respawn
 					
 							gameHandler.replenishHealth();
