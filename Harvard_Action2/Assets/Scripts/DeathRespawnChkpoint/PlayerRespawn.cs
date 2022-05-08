@@ -104,6 +104,13 @@ public class PlayerRespawn : MonoBehaviour
 							
 							
               }
+			  
+			  if (other.gameObject.tag == "Thought"){
+				  var currentThoughtpoint = other.gameObject.name;
+				  gameHandler.currCheckpointName = currentThoughtpoint;
+				  
+			  }
+			  
 			   if (other.gameObject.tag == "LevelGateway"){
 							
                             pSpawn = other.gameObject.transform;
