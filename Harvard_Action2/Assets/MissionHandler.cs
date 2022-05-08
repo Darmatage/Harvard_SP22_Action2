@@ -63,7 +63,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("What the hell just happened? I'd better go check the rest of the space station.                    (Walk = A/D)");
+		thinkingList.Add("What just happened? I'd better check the rest of the space station.                    (Right Mouse Button to move in space)");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count-1;
 		
@@ -190,13 +190,25 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtGrab")
         {
 
-            thinkingList.Add("Uh oh. That's a lot of debris.                                          (Click to GRAB and THROW debris)");
+            thinkingList.Add("The areas ahead are not pressurized...                                        My propulsion will start using oxygen...");
         }
 
-        if (currGameStatus == "ThoughtPropel")
+		if (currGameStatus == "ThoughtGrab2")
+        {
+
+            thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Left Click to GRAB and THROW debris)");
+        }
+		
+		if (currGameStatus == "ThoughtOxy")
+        {
+
+            thinkingList.Add("Look! I can replenish my oxygen at that tank.");
+        }
+
+        if (currGameStatus == "ThoughtMagnetic")
 		{
 
-			thinkingList.Add("(Right Click to propel yourself with Oxygen.)                                           WARNING: Depletes your oxygen when out of space station.");
+			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if my feet get close.");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")
