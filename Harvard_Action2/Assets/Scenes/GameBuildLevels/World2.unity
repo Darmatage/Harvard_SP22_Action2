@@ -38920,7 +38920,7 @@ GameObject:
   - component: {fileID: 1339553233}
   - component: {fileID: 1339553232}
   m_Layer: 0
-  m_Name: ThoughtGrab2
+  m_Name: ThoughtGrab
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64177,7 +64177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121726293}
   m_LocalRotation: {x: -0, y: -0, z: 0.01877899, w: 0.9998237}
-  m_LocalPosition: {x: -119.2, y: 22.7, z: 1054.4177}
+  m_LocalPosition: {x: -111.1, y: 22.7, z: 1054.4177}
   m_LocalScale: {x: 1.4263144, y: 35.384727, z: 3}
   m_Children:
   - {fileID: 728126682}
@@ -73951,7 +73951,7 @@ GameObject:
   - component: {fileID: 6778424563465196652}
   - component: {fileID: 6778424563465196655}
   m_Layer: 0
-  m_Name: ThoughtGrab
+  m_Name: ThoughtDestroyed
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74036,7 +74036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6778424563465196649}
   m_LocalRotation: {x: -0, y: -0, z: 0.25331646, w: 0.9673835}
-  m_LocalPosition: {x: -178.8, y: -11.5, z: 1054.4177}
+  m_LocalPosition: {x: -166.7, y: -3.7, z: 1054.4177}
   m_LocalScale: {x: 1.1043859, y: 7.8510337, z: 3}
   m_Children:
   - {fileID: 6778424563587305414}
@@ -77444,7 +77444,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 37.916286
+  m_Mass: 37.916313
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

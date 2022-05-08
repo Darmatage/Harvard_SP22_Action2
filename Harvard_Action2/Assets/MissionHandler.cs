@@ -187,13 +187,13 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("(Aim with your mouse and press W/Space to JUMP.)");
 		}
 
-		if (currGameStatus == "ThoughtGrab")
+		if (currGameStatus == "ThoughtDestroyed")
         {
 
-            thinkingList.Add("The areas ahead are not pressurized...                                        My propulsion will start using oxygen...");
+            thinkingList.Add("The station is destroyed...                                        I'd better watch my oxygen levels...");
         }
 
-		if (currGameStatus == "ThoughtGrab2")
+		if (currGameStatus == "ThoughtGrab")
         {
 
             thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Left Click to GRAB and THROW debris)");
