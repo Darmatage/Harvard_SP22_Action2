@@ -110,6 +110,12 @@ public class OxBarScript : MonoBehaviour
 			warning.SetActive(false);
 			ScreenFlash.SetActive(false);
 		}
+
+        if(Ox >= 100f)
+        {
+            Ox = startOx;
+        }
+
     }
 
     public void Die()
