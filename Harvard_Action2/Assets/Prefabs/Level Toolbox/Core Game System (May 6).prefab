@@ -23463,6 +23463,7 @@ GameObject:
   - component: {fileID: 3798052208973707258}
   - component: {fileID: 254314336020946130}
   - component: {fileID: 4389624636705933502}
+  - component: {fileID: 8096844156026938614}
   m_Layer: 0
   m_Name: AlienEggEscaper
   m_TagString: Player
@@ -23556,7 +23557,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0.1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -23689,6 +23690,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f98f199d6cb47a4fbd6b9bcc696f6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8096844156026938614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546840657029633644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1705a048c8a9b4699c85559d70d12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GravityRadius: 10
+  BootGravPower: 30
+  speed: 5
+  jumpPower: 2
+  isGrounded: 0
+  isJumping: 0
 --- !u!1 &6692456058714385902
 GameObject:
   m_ObjectHideFlags: 0

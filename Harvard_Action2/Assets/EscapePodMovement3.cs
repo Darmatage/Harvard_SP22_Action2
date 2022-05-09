@@ -40,9 +40,12 @@ public class EscapePodMovement3 : MonoBehaviour
 			v = Input.GetAxis("Vertical");
 			
 			// bind space to jump
-				if(Input.GetKey(KeyCode.Space))
+				if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 				{
 					v = 1f;
+				}
+				else{
+					v = 0;
 				}
 			
 			  // if(h != 0 && isGrounded)
@@ -108,7 +111,7 @@ public class EscapePodMovement3 : MonoBehaviour
 					   }
 					   else
 					   {
-						   rb.AddForce((-dir ), ForceMode2D.Impulse);
+						   
 						   
 					   }
 					   
@@ -152,13 +155,18 @@ public class EscapePodMovement3 : MonoBehaviour
 				{
 					isJumping = true;
 					 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-					// maybe adding to it will be with mouse
-					// rigidbody2d.AddForce(Vector2.up, ForceMode2D.Impulse);
+
+					print("the v is  " + v);
 					rb.AddForce(direction*jumpPower, ForceMode2D.Impulse);
 					isGrounded = false;
 					 // StartCoroutine(jump());
 				}
-				else isJumping = false;
+				else 
+				{	
+					
+					print(" v no more!" );
+					isJumping = false;
+				}
 			 
 		 }
 		
