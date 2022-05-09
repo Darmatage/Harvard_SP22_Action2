@@ -399,7 +399,7 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("Am I the only survivor? Is anyone still alive?");
 			
 		}
-		if(currGameStatus == "kai_test")
+		if(currGameStatus == "Thought_debug")
 		{
 			thinkingList.Add("THIS IS JUST A TEST!!! only survivor? Is anyone still alive?");
 			
@@ -442,7 +442,7 @@ public class MissionHandler : MonoBehaviour
 				// button changes
 				ThinkingDisplay.SetActive(true);;
 				hideBox.GetComponent<Image>().color = Color.blue;
-				hideButtonText.text = "[o]";
+				hideButtonText.text = " [o]";
 		
 		
 		// Text t1 = ThinkingDisplay.GetComponent<Text>();
@@ -475,7 +475,7 @@ public class MissionHandler : MonoBehaviour
 		// button changes
 
 				hideBox.GetComponent<Image>().color = Color.blue;
-				hideButtonText.text = "[o]";
+				hideButtonText.text = " [o]";
 		
 	}
 	public void thinkingBoxButton()
@@ -488,7 +488,7 @@ public class MissionHandler : MonoBehaviour
 				// MissionDisplay.SetActive(true);
 				// ThinkingDisplay.SetActive(false);
 				hideBox.GetComponent<Image>().color = Color.blue;
-				hideButtonText.text = "[o]";
+				hideButtonText.text = " [o]";
 			
 				
 			}

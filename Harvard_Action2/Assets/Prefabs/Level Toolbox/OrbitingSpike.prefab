@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 706265878273417506, guid: 40a22022d61cc65419ed2f3e94c3b2b7, type: 3}
       propertyPath: m_Name
-      value: Orbiting Grabbable Debris (9)
+      value: OrbitingSpike
       objectReference: {fileID: 0}
     - target: {fileID: 706265878273417506, guid: 40a22022d61cc65419ed2f3e94c3b2b7, type: 3}
       propertyPath: m_TagString

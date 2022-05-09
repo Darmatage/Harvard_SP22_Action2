@@ -24,6 +24,8 @@ public class Orbit2 : MonoBehaviour
         }
         Vector3 orbit = Vector3.forward * radius;
         orbit = Quaternion.LookRotation(direction) * Quaternion.Euler(0, angle, 0) * orbit;
-        transform.position = objectToOrbit.transform.position + orbit;
+		Vector3 removeZ = objectToOrbit.transform.position + orbit;
+		Vector3 removeZ2 = new Vector3(removeZ.x, removeZ.y, 0);
+        transform.position = removeZ2; // objectToOrbit.transform.position + orbit;
     }
 }

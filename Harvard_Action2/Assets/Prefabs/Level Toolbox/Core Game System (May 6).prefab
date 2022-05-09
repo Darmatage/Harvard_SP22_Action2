@@ -18015,6 +18015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  miniPlatformPuller: -0.2
 --- !u!61 &5546169678013753769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28687,8 +28688,9 @@ MonoBehaviour:
   currThoughtIndex: 0
   maxIndex: 0
   currDisplayScene: 
-  makeBoxesFade: 1
+  makeBoxesFade: 0
   NotificationDuration: 10
+  makeBoxesVanish: 1
   hideBox: {fileID: 4051546930294340813}
   hideButtonText: {fileID: 4743396563780780133}
 --- !u!114 &5546169678029687111

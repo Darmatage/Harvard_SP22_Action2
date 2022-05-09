@@ -88,8 +88,8 @@ public class PlayerRespawn : MonoBehaviour
 							// animatorCheckPoint.SetTrigger("CP");
 							
                             pSpawn = other.gameObject.transform;
-							Debug.Log("I touched a checkpoint " + pSpawn);
-							print("checkpoint has been hit! ");
+							// Debug.Log("I touched a checkpoint " + pSpawn);
+							// print("checkpoint has been hit! ");
                             GameObject thisCheckpoint = other.gameObject;
 							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
 							// checkRend.material.color = Color.white;
@@ -108,6 +108,8 @@ public class PlayerRespawn : MonoBehaviour
 			  if (other.gameObject.tag == "Thought"){
 				  var currentThoughtpoint = other.gameObject.name;
 				  gameHandler.currCheckpointName = currentThoughtpoint;
+				  gameHandler.newCheckPointTouched = true;
+				  print("the current checkpoint name is " + other.gameObject.name);
 				  
 			  }
 			  
@@ -131,7 +133,7 @@ public class PlayerRespawn : MonoBehaviour
 	   
 	   // one potential issue, everytime we pass a checkpoint will reset thinking....
 	   public void OnTriggerExit2D(Collider2D other) {
-              if (other.gameObject.tag == "Checkpoint"){
+              if (other.gameObject.tag == "Checkpoint" || other.gameObject.tag == "Thought"){
 							Debug.Log("I moved passed a checkpoint");
 							gameHandler.newCheckPointTouched = false;
               }
