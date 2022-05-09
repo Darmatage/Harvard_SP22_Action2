@@ -15,6 +15,7 @@ TagManager:
   - playerCheckpoint
   - OxRefill
   - Thought
+  - virus
   layers:
   - Default
   - TransparentFX
