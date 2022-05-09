@@ -159,6 +159,10 @@ public class MissionHandler : MonoBehaviour
 		{
 			missionText.text = "MISSION: Use the egg's magnetism to hop to green machine and throw the alient object into the basket";
 		}
+		if(currLevelOfGame == "alien_level")
+		{
+			missionText.text = "Use the egg ship's magnetization to escape the alien ship";
+		}
 		
 		
 		
@@ -258,7 +262,7 @@ public class MissionHandler : MonoBehaviour
 		//
 		if (currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
 		{
-			thinkingList.Add("What is this ahead? Look for a green egg shaped thing. Walk into it...");
+			thinkingList.Add("What is this ahead? Look for a green egg shaped thing. Walk through the bright green line! Then into the egg!");
 
 			// missionText.text = "Get into the Green Egg!";
 		}
@@ -406,6 +410,57 @@ public class MissionHandler : MonoBehaviour
 		}
 		
 		
+		// ALIEN LEVEL
+		if(currGameStatus == "alien_thought")
+		{
+			thinkingList.Add("Go into the Large egg. Notice what you become encased in. Everything still works the same, however, now you can magentize to these circular alien artifacts");
+			
+		}
+		if(currGameStatus == "alien_thought2")
+		{
+			thinkingList.Add("A/D move along surface of Giant Mother Egg. Notice, I magnetize to the surface. ");
+			
+		}
+		if(currGameStatus == "cp_alien")
+		{
+			thinkingList.Add("A/D move along a surface (sometimes these commands may reverse due to alien gravity). Move along the surface to the top of the Giant Mother Egg");
+			
+		}		
+		if(currGameStatus == "cp_alien1")
+		{
+			thinkingList.Add("There is a Small Mother Egg to my left. What happens when I jump (W), aiming with the mouse cursor. Then use my rocket thrusters (right mouse button)");
+			
+		}
+		if(currGameStatus == "cp_alien2")
+		{
+			thinkingList.Add("I notice a smaller gree object to my left. Let me try the same thing (aim with mouse cursor + W = jump). Use my magnets to latch onto it.");
+			
+		}
+		if(currGameStatus == "cp_alien3")
+		{
+			thinkingList.Add("Keep hopping from one alien artifact to another. I must be in some sort of egg chamber. I am not losing any oxygen!");
+			
+		}
+		if(currGameStatus == "cp_alien4")
+		{
+			thinkingList.Add("go upwards and continue to latch");
+			
+		}	
+		if(currGameStatus == "alien_thought3")
+		{
+			thinkingList.Add("Beware there are red viruses. These can kill!");
+			
+		}	
+		if(currGameStatus == "cp_alien5")
+		{
+			thinkingList.Add("Go around the Giant Mother Egg. Find the smaller eggs, and travel along them, hopping from each one until I reach the spacecraft");
+			
+		}
+		if(currGameStatus == "cp_alienEND")
+		{
+			thinkingList.Add("Go around the Giant Mother Egg. Find the smaller eggs, and travel along them, hopping from each one until I reach the spacecraft");
+			
+		}			
 		
 		
 		

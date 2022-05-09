@@ -16,6 +16,7 @@ TagManager:
   - OxRefill
   - Thought
   - virus
+  - machineLight
   layers:
   - Default
   - TransparentFX
