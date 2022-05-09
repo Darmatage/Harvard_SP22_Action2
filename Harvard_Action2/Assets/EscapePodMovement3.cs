@@ -34,7 +34,7 @@ public class EscapePodMovement3 : MonoBehaviour
     }
 	 void Update()
     {
-      // moveDir = new Vector2(Input.GetAxisRaw("Horizontal"),0).normalized;  
+      moveDir = new Vector2(Input.GetAxisRaw("Horizontal"),0).normalized;  
 	  
 			h = Input.GetAxis("Horizontal");
 			v = Input.GetAxis("Vertical");
@@ -139,33 +139,9 @@ public class EscapePodMovement3 : MonoBehaviour
 				// if (force2D != Vector2.zero) nonZeroForce = force2D;
 				if(h != 0 && v == 0)
 					{
-						print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed + "vel " + rb.velocity);
-						
-									// if we're on a horizontal surface
-						if (force2D == Vector2.zero)
-						{
-							force2D = new Vector2(1,0);
-							horizontalSpeed = speed;
-							rb.velocity = (force2D*h*horizontalSpeed);
-						}
-						else // hills
-						{
-							if(Mathf.Abs(angle) < 160 &&  Mathf.Abs(angle) > 20)
-							{
-								print("I am in norm!");
-								if (angle != 0) rb.velocity = force2D*h*speed*1.5f; //rb.AddForce(force2D*h*speed*1.5f, ForceMode2D.Force);
-								// if (angle < 0)  rb.velocity = force2D*h*speed*1.5f; // rb.AddForce(-force2D*h*speed*1.5f, ForceMode2D.Force);
-							}
-							
-							// in case angle gets so small so slow
-							// if((Mathf.Abs(force2D.x + force2D.y) < 0.4))
-							else
-							{								
-								Vector2 tempVel =  force2D*h*speed*1.5f;
-								rb.velocity = (new Vector2(tempVel.x + 2, tempVel.y))*h;
-								print("oohhh sooo slow! " + rb.velocity + " h " + h);
-							}
-						}
+						  rb.velocity = Vector2.Perpendicular(normalSurface)*h*speed;
+				  
+							print("move dir is negative " + h + Vector2.Perpendicular(normalSurface));
 
 					}
 				if (h == 0 && v == 0)
@@ -182,6 +158,7 @@ public class EscapePodMovement3 : MonoBehaviour
 					isGrounded = false;
 					 // StartCoroutine(jump());
 				}
+				else isJumping = false;
 			 
 		 }
 		
