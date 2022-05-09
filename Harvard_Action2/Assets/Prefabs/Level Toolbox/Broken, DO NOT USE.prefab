@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5177337410684834220}
   - component: {fileID: 6280878218112699626}
   m_Layer: 0
-  m_Name: StationSuperLong (No Grab)
+  m_Name: Broken, DO NOT USE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
