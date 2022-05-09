@@ -150,8 +150,21 @@ public class EscapePodMovement3 : MonoBehaviour
 						}
 						else // hills
 						{
-							if (angle > 0) rb.AddForce(force2D*h*speed*1.5f, ForceMode2D.Force);
-							if (angle < 0) rb.AddForce(-force2D*h*speed*1.5f, ForceMode2D.Force);
+							if(Mathf.Abs(angle) < 160 &&  Mathf.Abs(angle) > 20)
+							{
+								print("I am in norm!");
+								if (angle != 0) rb.velocity = force2D*h*speed*1.5f; //rb.AddForce(force2D*h*speed*1.5f, ForceMode2D.Force);
+								// if (angle < 0)  rb.velocity = force2D*h*speed*1.5f; // rb.AddForce(-force2D*h*speed*1.5f, ForceMode2D.Force);
+							}
+							
+							// in case angle gets so small so slow
+							// if((Mathf.Abs(force2D.x + force2D.y) < 0.4))
+							else
+							{								
+								Vector2 tempVel =  force2D*h*speed*1.5f;
+								rb.velocity = (new Vector2(tempVel.x + 2, tempVel.y))*h;
+								print("oohhh sooo slow! " + rb.velocity + " h " + h);
+							}
 						}
 
 					}
@@ -161,6 +174,7 @@ public class EscapePodMovement3 : MonoBehaviour
 					}
 				if (v != 0)
 				{
+					isJumping = true;
 					 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 					// maybe adding to it will be with mouse
 					// rigidbody2d.AddForce(Vector2.up, ForceMode2D.Impulse);
