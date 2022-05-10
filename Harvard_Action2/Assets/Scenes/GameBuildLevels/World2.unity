@@ -34481,7 +34481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6715331065771252731, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_Text
-      value: 'Lives: 100'
+      value: 'Respawns: 100'
       objectReference: {fileID: 0}
     - target: {fileID: 6715331065771252731, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_Color.b
