@@ -163,7 +163,9 @@ void FixedUpdate()
 	// if (force2D != Vector2.zero) nonZeroForce = force2D;
 	if(h != 0 && v == 0)
 		{
-			print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed + "vel " + rigidbody2d.velocity);
+			// walking on metal
+			// AudioHandler.PlaySound ("walk");
+			// print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed + "vel " + rigidbody2d.velocity);
 			
 						// if we're on a horizontal surface
 			if (force2D == Vector2.zero)
