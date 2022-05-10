@@ -26,7 +26,7 @@ public class GameHandler : MonoBehaviour{
 
 	    //Deaths
 		public static int Deaths = 0;
-		public static int MaxDeaths = 100;
+		public static int MaxDeaths = 20;
 		
 		
 		

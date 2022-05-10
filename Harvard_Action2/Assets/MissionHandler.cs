@@ -102,9 +102,10 @@ public class MissionHandler : MonoBehaviour
 		// im M is pressed show mission and thought box
 		if (Input.GetKeyDown(KeyCode.M))
         {
+			print("m has been pushed!");
 			colorOriginator();
 			// if any one of them are actice we can hide them both with M
-            if(MissionDisplay.activeSelf || ThinkingDisplay.activeSelf){
+            if(ThinkingDisplay.activeSelf){
 				// hideMissionBox();
 				hideThinkingBox();
 			}
@@ -162,6 +163,11 @@ public class MissionHandler : MonoBehaviour
 		if(currLevelOfGame == "alien_level")
 		{
 			missionText.text = "Use the egg ship's magnetization to escape the alien ship";
+		}
+		if(currLevelOfGame == "winGameGateway")
+		{
+			missionText.text = "You activate the escape pod. And you've escaped!";
+			SceneManager.LoadScene("WinScene");
 		}
 		
 		
@@ -458,7 +464,22 @@ public class MissionHandler : MonoBehaviour
 		}
 		if(currGameStatus == "cp_alienEND")
 		{
-			thinkingList.Add("Go around the Giant Mother Egg. Find the smaller eggs, and travel along them, hopping from each one until I reach the spacecraft");
+			thinkingList.Add("Push this gear into the machine so that the Escape Pod can be actived! Then get to the bright teal capsule in the nose of the escape pod");
+			
+		}		
+		if(currGameStatus == "alien_thought_end")
+		{
+			thinkingList.Add("Push this gear! Then head to the teal capsule above!");
+			
+		}
+		if(currGameStatus == "CP_alienship_5")
+		{
+			thinkingList.Add("This alien egg should protect me from alien spikes!");
+			
+		}	
+		if(currGameStatus == "alien_thought22")
+		{
+			thinkingList.Add("Since my arms are free, I can still catch and launch myself with debris.");
 			
 		}			
 		
