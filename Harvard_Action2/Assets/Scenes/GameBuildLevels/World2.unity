@@ -35136,6 +35136,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -774.8
       objectReference: {fileID: 0}
+    - target: {fileID: 5622830978712621199, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 8a4145ac12e2cf949908f83ce7be22e3, type: 2}
     - target: {fileID: 6715331065771252731, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_Text
       value: 'Respawns: 100'
