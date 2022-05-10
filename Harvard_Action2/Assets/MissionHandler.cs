@@ -150,7 +150,7 @@ public class MissionHandler : MonoBehaviour
 		}
 		if(currLevelOfGame == "DanielsLevel")
 		{
-			missionText.text = "MISSION: Avoid the spikes to get to the top of the antenna";
+			missionText.text = "MISSION: Get to the top of the station and fix the antenna";
 		}
 		if(currLevelOfGame == "KaisLevel1")
 		{

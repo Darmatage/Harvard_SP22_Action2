@@ -23173,6 +23173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MS: {fileID: 0}
+  innerCircle: {fileID: 0}
 --- !u!1 &8984968195611862938
 GameObject:
   m_ObjectHideFlags: 0
@@ -24772,17 +24773,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Gateway
       objectReference: {fileID: 0}
+    - target: {fileID: 6941833461054176266, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0096822
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941833461054176266, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.055749178
+      objectReference: {fileID: 0}
     - target: {fileID: 6941833461054176267, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6941833461054176267, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21.224998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941833461054176267, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -128.74756
+      value: -123.8
       objectReference: {fileID: 0}
     - target: {fileID: 6941833461054176267, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -86.12398
+      value: -86.9
       objectReference: {fileID: 0}
     - target: {fileID: 6941833461054176267, guid: 7ad010a2d1ad19b4db4d7f89cb97059f, type: 3}
       propertyPath: m_LocalPosition.z
