@@ -7912,7 +7912,7 @@ Transform:
   m_Children:
   - {fileID: 206600152}
   m_Father: {fileID: 1916493620}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &316979770
 Rigidbody2D:
@@ -8983,7 +8983,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 2.5, z: 3.95525}
   m_Children: []
   m_Father: {fileID: 1916493620}
-  m_RootOrder: 27
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.26}
 --- !u!1001 &418778381
 PrefabInstance:
@@ -14032,7 +14032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1916493620}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &665522809
 Animator:
@@ -20742,6 +20742,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
+--- !u!114 &1305734820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5198435199698011142, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+  m_PrefabInstance: {fileID: 7151537619170222264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e773eab5a27d54c8b207dc4c7b5dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1315122654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34989,6 +35000,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 102825412991217263, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 102825413080096701, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102825413414023618, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 102825414743511014, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1305734820}
+    - target: {fileID: 102825414743511014, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 210431258505660971, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
