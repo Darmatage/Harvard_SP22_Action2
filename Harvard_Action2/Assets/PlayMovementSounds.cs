@@ -39,7 +39,7 @@ public class PlayMovementSounds : MonoBehaviour
 			
 		
 		// jump
-		if (isGrounded && ((Input.GetKeyDown("space") || (Input.GetKeyDown("W")) || (Input.GetKeyDown(KeyCode.UpArrow)))))
+		if (isGrounded &&  Input.GetAxis("Horizontal") != 0) // ((Input.GetKeyDown("space") || (Input.GetKeyDown("W")) || (Input.GetKeyDown(KeyCode.UpArrow)))))
 		{
 			// jump sound
 			AudioHandler.PlaySound ("jump");
