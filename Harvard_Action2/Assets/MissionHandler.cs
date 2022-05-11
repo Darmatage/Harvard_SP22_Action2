@@ -143,9 +143,9 @@ public class MissionHandler : MonoBehaviour
 	
 	public void MissionUpdater()
 	{
-		if(currLevelOfGame == "tutorial")
+		if(currLevelOfGame == "GateDebris")
 		{
-			missionText.text = "MISSION: Follow the checkpoints (green alien eyes) to the space station storage room";
+			missionText.text = "MISSION: Find your way through the debris field to the escape pod";
 		}
 		if(currLevelOfGame == "MicahsLevel")
 		{
@@ -153,7 +153,7 @@ public class MissionHandler : MonoBehaviour
 		}
 		if(currLevelOfGame == "DanielsLevel")
 		{
-			missionText.text = "MISSION: Get to the top of the station and fix the antenna";
+			missionText.text = "MISSION: Get to the top of the station and test the antenna";
 			MH.muteLayer2();
 		}
 		if(currLevelOfGame == "KaisLevel1")
@@ -257,19 +257,27 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("Those red things look dangerous... I'd better avoid them.");
 		}
 
-		if (currGameStatus == "CP_sample_3")
+		if (currGameStatus == "CargoCP")
 		{
-			thinkingList.Add("message 3 yes yes yes!!");
+			thinkingList.Add("I've made it to the cargo hold. I should lock in that gear to test the system's functionality.");
 
 			// missionText.text = "testing another mission but the prev mission still applies!";
 		}
 
-		if (currGameStatus == "CP_debris_1_1" || currGameStatus == "CP_debris_1_2" || currGameStatus == "CP_debris_1_3")
+		if (currGameStatus == "ThoughtGear1")
 		{
-			thinkingList.Add("I need to catch and throw objects. I need to watch out for red spikes!");
+			thinkingList.Add("It looks like the cargo system still has power. But what about the rest of the station?");
 
 			// missionText.text = "Get to the top of the debris field";
 		}
+
+		if (currGameStatus == "DebrisCP")
+		{
+			thinkingList.Add("What a mess! I hope the escape pod bay is still intact. It's my only hope of survival...");
+
+			// missionText.text = "Get to the top of the debris field";
+		}
+
 		//
 		if (currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
 		{
@@ -361,7 +369,7 @@ public class MissionHandler : MonoBehaviour
 		//Beginnning of Daniel level CP
 		if (currGameStatus == "AntennaCP_1")
 		{
-			thinkingList.Add("The antenna is far up at the top... I should stick close to the station... or...?");
+			thinkingList.Add(" If I can get up to the antenna maybe I can call for help! I should stick close to the station... or...?");
 			
 		}
 		
