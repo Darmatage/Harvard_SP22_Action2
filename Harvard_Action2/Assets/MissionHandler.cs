@@ -7,10 +7,10 @@ using UnityEngine.Audio;  // maybe delete?
 
 public class MissionHandler : MonoBehaviour
 {
-	
+
 	// for sound
 	public MusicHandler MH;
-	
+
 	public GameObject MissionDisplay;
 	public Text missionText;
 	// public GameObject missionNextCloseButton;
@@ -18,46 +18,46 @@ public class MissionHandler : MonoBehaviour
 	public Text thinkingText;
 	// public GameObject thinkingPrevButton;
 	// public GameObject thinkingNextButton;
-	
+
 	List<string> thinkingList = new List<string>();
 	private GameHandler gameHandler;
 	public string currGameStatus;
 	public string currLevelOfGame;
 	public int currThoughtIndex = 0;
-	public int maxIndex=0;
-	
+	public int maxIndex = 0;
+
 	public string currDisplayScene;
-	
-	
+
+
 	// use this for tracking if new mission is applied
 	string prevMission;
-	
-	
+
+
 	// for fading UI thought boxes
 	public bool makeBoxesFade = false;
 	public float NotificationDuration = 5f;
 	private YieldInstruction fadeInstruction = new YieldInstruction();
-	
+
 	// or make boxes vanish
 	public bool makeBoxesVanish = true;
-	
+
 	// for button
 	public Button hideBox;
 	public Text hideButtonText;
-	
+
 	Color origC1;
 	Color origC2;
 	Color origT1;
 	Color origT2;
-	
+
 	void Awake()
 	{
-	
+
 	}
-	
-    // Start is called before the first frame update
-    void Start()
-    {
+
+	// Start is called before the first frame update
+	void Start()
+	{
 		origC1 = ThinkingDisplay.GetComponent<Image>().color;
 		origC2 = MissionDisplay.GetComponent<Image>().color;
 		origT1 = thinkingText.color;
@@ -68,18 +68,18 @@ public class MissionHandler : MonoBehaviour
 		currDisplayScene = currGameStatus;
 		thinkingList.Add("What just happened? I'd better check the rest of the space station.                    (Right Mouse Button to move in space)");
 		thinkingText.text = thinkingList[currThoughtIndex];
-		maxIndex = thinkingList.Count-1;
-		
+		maxIndex = thinkingList.Count - 1;
+
 		// very first mission. Append thinking to list
-	
-	
+
+
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		
-		if(gameHandler.newCheckPointTouched)
+	// Update is called once per frame
+	void Update()
+	{
+
+		if (gameHandler.newCheckPointTouched)
 		{
 			// print("gamehandler new updated!");
 			currGameStatus = gameHandler.currCheckpointName;
@@ -92,23 +92,24 @@ public class MissionHandler : MonoBehaviour
 		if (prevMission != currLevelOfGame)
 		{
 			MissionUpdater();
-					// do not change below
-			gameHandler.currentLevelInteger ++;
+			// do not change below
+			gameHandler.currentLevelInteger++;
 			prevMission = currLevelOfGame;
 		}
 		// maxIndex = thinkingList.Count-1;
 		// print("maxIndex " + maxIndex);
 		// this will display the current index on the canvas
 		thinkingText.text = thinkingList[currThoughtIndex];
-				// print( " the thinkingText.text = thinkingList[currThoughtIndex]);
-			
+		// print( " the thinkingText.text = thinkingList[currThoughtIndex]);
+
 		// im M is pressed show mission and thought box
 		if (Input.GetKeyDown(KeyCode.M))
-        {
+		{
 			print("m has been pushed!");
 			colorOriginator();
 			// if any one of them are actice we can hide them both with M
-            if(ThinkingDisplay.activeSelf){
+			if (ThinkingDisplay.activeSelf)
+			{
 				// hideMissionBox();
 				hideThinkingBox();
 			}
@@ -118,40 +119,40 @@ public class MissionHandler : MonoBehaviour
 				// colorOriginator();
 				MissionDisplay.SetActive(true);
 				ThinkingDisplay.SetActive(true);
-				
-				
+
+
 				//change button
 				hideBox.GetComponent<Image>().color = Color.red;
 				hideButtonText.text = "[x]";
-				
+
 				// hide after duration
-					// Text t1 = ThinkingDisplay.GetComponent<Text>();
-				if(makeBoxesFade)
+				// Text t1 = ThinkingDisplay.GetComponent<Text>();
+				if (makeBoxesFade)
 				{
 					Image image1 = ThinkingDisplay.GetComponent<Image>();
 					Image image2 = MissionDisplay.GetComponent<Image>();
 					StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
-					
+
 				}
-				if(makeBoxesVanish)
+				if (makeBoxesVanish)
 				{
 					StartCoroutine(DelayDisappear());
 				}
 			}
-        }
-    }
-	
+		}
+	}
+
 	public void MissionUpdater()
 	{
-		if(currLevelOfGame == "GateDebris")
+		if (currLevelOfGame == "GateDebris")
 		{
 			missionText.text = "MISSION: Find your way through the debris field to the escape pod";
 		}
-		if(currLevelOfGame == "MicahsLevel")
+		if (currLevelOfGame == "MicahsLevel")
 		{
 			missionText.text = "MISSION: use the debris to get to the upper level of the storage component of the space station";
 		}
-		if(currLevelOfGame == "DanielsLevel")
+		if (currLevelOfGame == "DanielsLevel")
 		{
 			missionText.text = "MISSION: Get to the top of the station and test the antenna";
 			MH.muteLayer2();
@@ -167,31 +168,31 @@ public class MissionHandler : MonoBehaviour
 			missionText.text = "MISSION: Get through the debris field and reach the alien mother ship";
 		}
 
-		
+
 
 		if (currLevelOfGame == "KaisLevel2")
 		{
 			missionText.text = "MISSION: Use the egg's magnetism to hop to green machine and throw the alient object into the basket";
 		}
-		if(currLevelOfGame == "alien_level")
+		if (currLevelOfGame == "alien_level")
 		{
 			missionText.text = "Use the egg ship's magnetization to escape the alien ship";
 			MH.muteLayer3();
 		}
-		if(currLevelOfGame == "winGameGateway")
+		if (currLevelOfGame == "winGameGateway")
 		{
 			missionText.text = "You activate the escape pod. And you've escaped!";
 			SceneManager.LoadScene("WinScene");
 		}
-		
-		
-		
-		
+
+
+
+
 
 	}
-	
-	
-	
+
+
+
 	// // @Daniel and @Micah Use a conditional on the name of the checkpoint in your level and write in
 	// // the thought the player has as they pass the checkpoint. The thought should
 	// // offer help about gameplay or tips for them on what they need to do 
@@ -212,24 +213,24 @@ public class MissionHandler : MonoBehaviour
 		}
 
 		if (currGameStatus == "ThoughtDestroyed")
-        {
+		{
 
-            thinkingList.Add("The station is destroyed...                                        I'd better watch my oxygen levels...");
-        }
+			thinkingList.Add("The station is destroyed...                                        I'd better watch my oxygen levels...");
+		}
 
 		if (currGameStatus == "ThoughtGrab")
-        {
+		{
 
-            thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Left Click to GRAB and THROW debris)");
-        }
-		
+			thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Left Click to GRAB and THROW debris)");
+		}
+
 		if (currGameStatus == "ThoughtOxy")
-        {
+		{
 
-            thinkingList.Add("Look! I can replenish my oxygen at that tank.");
-        }
+			thinkingList.Add("Look! I can replenish my oxygen at that tank.");
+		}
 
-        if (currGameStatus == "ThoughtMagnetic")
+		if (currGameStatus == "ThoughtMagnetic")
 		{
 
 			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if my feet get close. (press A/D to walk)");
@@ -275,7 +276,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtGear1")
 		{
 			thinkingList.Add("It looks like the cargo system still has power. But what about the rest of the station?");
-			
+
 		}
 
 		if (currGameStatus == "DebrisCP")
@@ -440,276 +441,277 @@ public class MissionHandler : MonoBehaviour
 
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
-		
+
 		//Beginning of Micah level CP
-		
-		if(currGameStatus == "MCP1")
+
+		if (currGameStatus == "MCP1")
 		{
 			thinkingList.Add("This is the docking port. I gotta be careful not to fly off into space.");
-			
+
 		}
-		
-		if(currGameStatus == "MCP2")
+
+		if (currGameStatus == "MCP2")
 		{
 			thinkingList.Add("What a mess. I should head up towards the lifeboats");
-			
+
 		}
-		
-		if(currGameStatus == "MCP3")
+
+		if (currGameStatus == "MCP3")
 		{
 			thinkingList.Add("Am I the only survivor? Is anyone still alive?");
-			
+
 		}
-		if(currGameStatus == "Thought_debug")
+		if (currGameStatus == "Thought_debug")
 		{
 			thinkingList.Add("THIS IS JUST A TEST!!! only survivor? Is anyone still alive?");
-			
+
 		}
-		
-		
+
+
 		// ALIEN LEVEL
-		if(currGameStatus == "alien_thought")
+		if (currGameStatus == "alien_thought")
 		{
 			thinkingList.Add("Go into the Large egg. Notice what you become encased in. Everything still works the same, however, now you can magentize to these circular alien artifacts");
-			
+
 		}
-		if(currGameStatus == "alien_thought2")
+		if (currGameStatus == "alien_thought2")
 		{
 			thinkingList.Add("A/D move along surface of Giant Mother Egg. Notice, I magnetize to the surface. ");
-			
+
 		}
-		if(currGameStatus == "cp_alien")
+		if (currGameStatus == "cp_alien")
 		{
 			thinkingList.Add("A/D move along a surface (sometimes these commands may reverse due to alien gravity). Move along the surface to the top of the Giant Mother Egg");
-			
-		}		
-		if(currGameStatus == "cp_alien1")
+
+		}
+		if (currGameStatus == "cp_alien1")
 		{
 			thinkingList.Add("There is a Small Mother Egg to my left. What happens when I jump (W), aiming with the mouse cursor. Then use my rocket thrusters (right mouse button)");
-			
+
 		}
-		if(currGameStatus == "cp_alien2")
+		if (currGameStatus == "cp_alien2")
 		{
 			thinkingList.Add("I notice a smaller gree object to my left. Let me try the same thing (aim with mouse cursor + W = jump). Use my magnets to latch onto it.");
-			
+
 		}
-		if(currGameStatus == "cp_alien3")
+		if (currGameStatus == "cp_alien3")
 		{
 			thinkingList.Add("Keep hopping from one alien artifact to another. I must be in some sort of egg chamber. I am not losing any oxygen!");
-			
+
 		}
-		if(currGameStatus == "cp_alien4")
+		if (currGameStatus == "cp_alien4")
 		{
 			thinkingList.Add("go upwards and continue to latch");
-			
-		}	
-		if(currGameStatus == "alien_thought3")
+
+		}
+		if (currGameStatus == "alien_thought3")
 		{
 			thinkingList.Add("Beware there are red viruses. These can kill!");
-			
-		}	
-		if(currGameStatus == "cp_alien5")
+
+		}
+		if (currGameStatus == "cp_alien5")
 		{
 			thinkingList.Add("Go around the Giant Mother Egg. Find the smaller eggs, and travel along them, hopping from each one until I reach the spacecraft");
-			
+
 		}
-		if(currGameStatus == "cp_alienEND")
+		if (currGameStatus == "cp_alienEND")
 		{
 			thinkingList.Add("Push this gear into the machine so that the Escape Pod can be actived! Then get to the bright teal capsule in the nose of the escape pod");
-			
-		}		
-		if(currGameStatus == "alien_thought_end")
+
+		}
+		if (currGameStatus == "alien_thought_end")
 		{
 			thinkingList.Add("Push this gear! Then head to the teal capsule above!");
-			
+
 		}
-		if(currGameStatus == "CP_alienship_5")
+		if (currGameStatus == "CP_alienship_5")
 		{
 			thinkingList.Add("This alien egg should protect me from alien spikes!");
-			
-		}	
-		if(currGameStatus == "alien_thought22")
+
+		}
+		if (currGameStatus == "alien_thought22")
 		{
 			thinkingList.Add("Since my arms are free, I can still catch and launch myself with debris.");
-			
-		}			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		  // do not change below
-		 // this updates the index to the most current one
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// do not change below
+		// this updates the index to the most current one
 		// reset the displays when a new checkpoint it reached.
-		maxIndex = thinkingList.Count-1;
+		maxIndex = thinkingList.Count - 1;
 		print("thinkingList.Count " + thinkingList);
 		print("thinkingList.Count " + thinkingList.Count);
 		thinkingText.text = thinkingList[currThoughtIndex];
-		foreach(var p in thinkingList) {
-         print(" thinkingList " + p );
-      }
+		foreach (var p in thinkingList)
+		{
+			print(" thinkingList " + p);
+		}
 		print("thinkingList[currThoughtIndex]; " + thinkingList[currThoughtIndex]);
 		currThoughtIndex = maxIndex;
-		
 
-			colorOriginator();
+
+		colorOriginator();
 		MissionDisplay.SetActive(true);
 		ThinkingDisplay.SetActive(true);
-		
-				
-				// button changes
-				ThinkingDisplay.SetActive(true);;
-				hideBox.GetComponent<Image>().color = Color.blue;
-				hideButtonText.text = " [o]";
-		
-		
+
+
+		// button changes
+		ThinkingDisplay.SetActive(true); ;
+		hideBox.GetComponent<Image>().color = Color.blue;
+		hideButtonText.text = " [o]";
+
+
 		// Text t1 = ThinkingDisplay.GetComponent<Text>();
-		if(makeBoxesFade)
+		if (makeBoxesFade)
 		{
 			Image image1 = ThinkingDisplay.GetComponent<Image>();
 			Image image2 = MissionDisplay.GetComponent<Image>();
 			StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
-			
+
 		}
-		if(makeBoxesVanish)
+		if (makeBoxesVanish)
 		{
-			   StartCoroutine(DelayDisappear());
+			StartCoroutine(DelayDisappear());
 		}
 	}
-	
+
 	// connect to 'x' button of mission
 	public void hideMissionBox()
-	{	
+	{
 
 		MissionDisplay.SetActive(false);
 	}
-	
+
 	// connect to 'x' button of thinking box
 	public void hideThinkingBox()
 	{
 		ThinkingDisplay.SetActive(false);
-						
-				// button will change
+
+		// button will change
 		// button changes
 
-				hideBox.GetComponent<Image>().color = Color.blue;
-				hideButtonText.text = " [o]";
-		
+		hideBox.GetComponent<Image>().color = Color.blue;
+		hideButtonText.text = " [o]";
+
 	}
 	public void thinkingBoxButton()
 	{
-		if(ThinkingDisplay.activeSelf)  // turn off box
-			{
-				colorOriginator();
-				// hideThinkingBox();
-				ThinkingDisplay.SetActive(false);
-				// MissionDisplay.SetActive(true);
-				// ThinkingDisplay.SetActive(false);
-				hideBox.GetComponent<Image>().color = Color.blue;
-				hideButtonText.text = " [o]";
-			
-				
-			}
+		if (ThinkingDisplay.activeSelf)  // turn off box
+		{
+			colorOriginator();
+			// hideThinkingBox();
+			ThinkingDisplay.SetActive(false);
+			// MissionDisplay.SetActive(true);
+			// ThinkingDisplay.SetActive(false);
+			hideBox.GetComponent<Image>().color = Color.blue;
+			hideButtonText.text = " [o]";
+
+
+		}
 		else // turn on box
-			{
-				//actice both of them
-				// colorOriginator();
-				colorOriginator();
-				ThinkingDisplay.SetActive(true);
-				
-				
-					hideBox.GetComponent<Image>().color = Color.red;
-				hideButtonText.text = "[x]";
-			}
-		
+		{
+			//actice both of them
+			// colorOriginator();
+			colorOriginator();
+			ThinkingDisplay.SetActive(true);
+
+
+			hideBox.GetComponent<Image>().color = Color.red;
+			hideButtonText.text = "[x]";
+		}
+
 	}
-	
+
 	// displays the prev thought -- connect this to prevButton of thinking box
 	public void prevThought()
 	{
-		print("prevThought is clicked ! " );
-		if(currThoughtIndex >0)
+		print("prevThought is clicked ! ");
+		if (currThoughtIndex > 0)
 		{
 			currThoughtIndex = currThoughtIndex - 1;
 		}
 	}
-	
+
 	// displays the next thought -- connect to the nextButton of thinking box
 	public void nextThought()
 	{
-		print("nextThought is clicked " );
-		if(currThoughtIndex < maxIndex)
+		print("nextThought is clicked ");
+		if (currThoughtIndex < maxIndex)
 		{
 			currThoughtIndex = currThoughtIndex + 1;
 		}
 	}
 
 	IEnumerator FadeOut(Image image, Image image2, Text text, Text text2)
-{
-    float elapsedTime = 0.0f;
-	// Color origC1 = image.color;
-	// Color origC2 = image2.color;
-	// Color origT1 = text.color;
-	// Color origT2 = text2.color;
-	
-    Color c = image.color;
-    while (elapsedTime < NotificationDuration)
-    {
-		print("elapsedTime vs. fadeTime " + elapsedTime + " " + NotificationDuration);
-        yield return fadeInstruction;
-        elapsedTime += Time.deltaTime ;
-        c.a = 1.0f - Mathf.Clamp01(elapsedTime / NotificationDuration);
-        image.color = c;
-		image2.color = c;
-		
-		
-		// text
-		float alpha = Mathf.Lerp(1f, 0f, elapsedTime/NotificationDuration);
-        text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-		text2.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-		
-		if (Input.GetKeyDown(KeyCode.M))
-        {
-			colorOriginator();
-			break;
+	{
+		float elapsedTime = 0.0f;
+		// Color origC1 = image.color;
+		// Color origC2 = image2.color;
+		// Color origT1 = text.color;
+		// Color origT2 = text2.color;
+
+		Color c = image.color;
+		while (elapsedTime < NotificationDuration)
+		{
+			print("elapsedTime vs. fadeTime " + elapsedTime + " " + NotificationDuration);
+			yield return fadeInstruction;
+			elapsedTime += Time.deltaTime;
+			c.a = 1.0f - Mathf.Clamp01(elapsedTime / NotificationDuration);
+			image.color = c;
+			image2.color = c;
+
+
+			// text
+			float alpha = Mathf.Lerp(1f, 0f, elapsedTime / NotificationDuration);
+			text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+			text2.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+
+			if (Input.GetKeyDown(KeyCode.M))
+			{
+				colorOriginator();
+				break;
+			}
 		}
-    }
-	// t1.CrossFadeAlpha(0.0f, 0.05f, false);
-	hideThinkingBox();
-	// hideMissionBox();
-	// image.color = origC1;
-	// image2.color = origC2;
-	// text.color = origT1;
-	// text2.color = origT2;
-	colorOriginator();
-}
+		// t1.CrossFadeAlpha(0.0f, 0.05f, false);
+		hideThinkingBox();
+		// hideMissionBox();
+		// image.color = origC1;
+		// image2.color = origC2;
+		// text.color = origT1;
+		// text2.color = origT2;
+		colorOriginator();
+	}
 
 
-IEnumerator DelayDisappear()
-{
-    yield return new WaitForSeconds(NotificationDuration);
-	hideThinkingBox();
-}
+	IEnumerator DelayDisappear()
+	{
+		yield return new WaitForSeconds(NotificationDuration);
+		hideThinkingBox();
+	}
 
-void colorOriginator()
-{
-			Image image1 = ThinkingDisplay.GetComponent<Image>();
-			Image image2 = MissionDisplay.GetComponent<Image>();
-			image1.color = origC1;
-			image2.color = origC2;
-			thinkingText.color = origT1;
-			missionText.color = origT2;
-}
+	void colorOriginator()
+	{
+		Image image1 = ThinkingDisplay.GetComponent<Image>();
+		Image image2 = MissionDisplay.GetComponent<Image>();
+		image1.color = origC1;
+		image2.color = origC2;
+		thinkingText.color = origT1;
+		missionText.color = origT2;
+	}
 
-	
-	
+
+
 }
