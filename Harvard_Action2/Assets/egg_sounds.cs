@@ -24,7 +24,7 @@ public class egg_sounds : MonoBehaviour
     {
 		isGrounded = EPM.isGrounded;
 		// walking, probably should check if grounded too!
-		if (isGrounded &&  Input.GetAxis("Horizontal") != 0)   //((Input.GetKeyDown("A") || Input.GetKeyDown("D") || Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.RightArrow))))
+		if (Input.GetAxis("Horizontal") != 0)   //((Input.GetKeyDown("A") || Input.GetKeyDown("D") || Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.RightArrow))))
 		{
 			AHO.PlaySoundLoop ("egg_walk", true);
 			// isWalking = true;
@@ -37,6 +37,7 @@ public class egg_sounds : MonoBehaviour
 		if(Input.GetMouseButtonDown(1) || (Input.GetKeyDown(KeyCode.E)))
 		// if(oxCheck.OxygenOn)
 		{
+			print("playing the ox from EGG");
 			AHO.PlaySoundLoop ("ox", true);
 		}
 		if(Input.GetMouseButtonUp(1) || (Input.GetKeyUp(KeyCode.E)))

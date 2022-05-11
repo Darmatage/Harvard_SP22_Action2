@@ -136,8 +136,6 @@ public class Movement_arrows_4 : MonoBehaviour
 		rigidbody2d.velocity = Vector2.zero;
 		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
 		
-			rigidbody2d.velocity = Vector2.zero;
-		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
 
 		 StartCoroutine(delay());
 		 // isJumping = false;

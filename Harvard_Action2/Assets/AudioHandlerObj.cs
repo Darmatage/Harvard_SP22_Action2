@@ -116,7 +116,11 @@ public class AudioHandlerObj : MonoBehaviour
 				if(play)
 				{
 					if(!audioSrcEgg.isPlaying)
+					{
+						print("egg_walk now! " + audioSrcEgg.isPlaying);
 						audioSrcEgg.Play();
+						
+					}
 				}
 				else
 				{

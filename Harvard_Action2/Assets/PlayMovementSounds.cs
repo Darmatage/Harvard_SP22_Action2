@@ -58,7 +58,7 @@ public class PlayMovementSounds : MonoBehaviour
 		}
 		if(Input.GetMouseButtonDown(0))
 		{
-			print("I am throwing!");
+			// print("I am throwing!");
 			AudioHandler.PlaySound ("throw_debris");
 		}
 		if(GameHandler.CurrentHealth <= 20f)
