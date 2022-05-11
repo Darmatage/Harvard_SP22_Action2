@@ -11,6 +11,7 @@ public class EscapePodMovement3 : MonoBehaviour
 	public bool isGrounded;
 	public bool isJumping = false;
 	
+	
     // CharacterController r;
 	Rigidbody2D rb;
 	Vector2 com;
@@ -180,7 +181,7 @@ public class EscapePodMovement3 : MonoBehaviour
 				isGrounded = true;
 				rb.velocity =  rb.velocity/(rb.velocity);// * 1.09f);
 				// print("rb.velocity/(rb.velocity "  + rb.velocity/(rb.velocity));
-				AudioHandler.PlaySound ("egg_jump");
+				// AudioHandler.PlaySound ("egg_jump");
 
 			}
 	}
@@ -190,7 +191,7 @@ public class EscapePodMovement3 : MonoBehaviour
 			if( collision.gameObject.tag == "platform") 
 			{
 				isGrounded = false;
-				AudioHandler.PlaySound ("egg_jump");  // maybe remove if interfere
+				// AudioHandler.PlaySound ("egg_jump");  // maybe remove if interfere
 			}
 	}
 }

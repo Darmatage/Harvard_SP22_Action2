@@ -5,7 +5,7 @@ using UnityEngine;
 // this is for isGrounded movement
 public class AudioHandler : MonoBehaviour
 {
-	public static AudioClip walk, ox, jump, spike, checkpoint, level, ox_refill, throw_debris, land, no_air, egg_jump;
+	public static AudioClip walk, ox, jump, spike, checkpoint, level, ox_refill, throw_debris, land, no_air, egg_jump, egg_walk;
 	public static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -22,6 +22,7 @@ public class AudioHandler : MonoBehaviour
 		land = Resources.Load<AudioClip> ("metal");
 		no_air = Resources.Load<AudioClip> ("no_air");
 		egg_jump = Resources.Load<AudioClip> ("egg_jump");
+		egg_walk = Resources.Load<AudioClip> ("egg_walk");
 		audioSrc = GetComponent<AudioSource>();
     }
 
@@ -71,6 +72,9 @@ public class AudioHandler : MonoBehaviour
 				break;
 			case "egg_jump":
 				audioSrc.PlayOneShot(egg_jump);
+				break;
+			case "egg_walk":
+				audioSrc.PlayOneShot(egg_walk);
 				break;
 		}
 	}

@@ -9,6 +9,7 @@ public class eggTransformer : MonoBehaviour
 	public Camera mainCamera;
 	public GameObject AlienShipCamera;
 	public GameObject PlayerEgg; 
+	public AudioHandlerObj AHO;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,8 @@ public class eggTransformer : MonoBehaviour
 						 AlienShipCamera.SetActive(true);
 						 mainCamera.enabled = false;
 						 
-						 
+						 // TURN OFF ALL SOUNDS FROM PREV PLAYER
+						 AHO.PlaySoundLoop("ox", false); // this would be only sound still on
               }
        }
 	   
