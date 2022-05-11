@@ -11276,6 +11276,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3522955518075036557, guid: 0514919d82733394db10cd52a42812d1, type: 3}
+      propertyPath: m_TagString
+      value: platform
+      objectReference: {fileID: 0}
     - target: {fileID: 3522955518075036558, guid: 0514919d82733394db10cd52a42812d1, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -23593,6 +23597,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debris2 + Alien Ship (Kai)_v2
       objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365026, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_Size.x
+      value: 5.724946
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365026, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.28607237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365027, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.6183
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365027, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2061
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365027, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2061
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365027, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -218.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360382070485365027, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 148.36
+      objectReference: {fileID: 0}
     - target: {fileID: 5516303299674016550, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -23804,6 +23836,14 @@ PrefabInstance:
     - target: {fileID: 8942010186134797517, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
       propertyPath: m_Name
       value: Ball for Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984968196662322390, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984968196662322390, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -96.91
       objectReference: {fileID: 0}
     - target: {fileID: 9002209611288152760, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
       propertyPath: m_SortingOrder

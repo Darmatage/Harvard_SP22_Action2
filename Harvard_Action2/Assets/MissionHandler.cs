@@ -163,18 +163,9 @@ public class MissionHandler : MonoBehaviour
 			missionText.text = "MISSION: Find the escape pod";
 		}
 
-		if (currLevelOfGame == "KaisLevel1")
-		{
-			missionText.text = "MISSION: Get through the debris field and reach the alien mother ship";
-		}
-
-		if (currLevelOfGame == "KaisLevel2")
-		{
-			missionText.text = "MISSION: Use the egg's magnetism to hop to green machine and throw the alient object into the basket";
-		}
 		if (currLevelOfGame == "alien_level")
 		{
-			missionText.text = "Use the egg ship's magnetization to escape the alien ship";
+			missionText.text = "MISSION: Use the orb to get past the alien vessel";
 			MH.muteLayer3();
 		}
 		if (currLevelOfGame == "winGameGateway")
@@ -351,12 +342,11 @@ public class MissionHandler : MonoBehaviour
 		}
 
 
-		//
-		if (currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
+		// Beginning of Alien Area
+		if (currGameStatus == "CPSeeEgg")
 		{
-			thinkingList.Add("What is this ahead? Look for a green egg shaped thing. Walk through the bright green line! Then into the egg!");
+			thinkingList.Add("It looks like I have no choise... Into the alien hamster ball thing!");
 
-			// missionText.text = "Get into the Green Egg!";
 		}
 		if (currGameStatus == "CP_spaceship_1")
 		{
@@ -407,63 +397,7 @@ public class MissionHandler : MonoBehaviour
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
 
-		//beginning of Tutorial level CP
-
-		if (currGameStatus == "tutorial_2")
-		{
-			thinkingList.Add("I need to escape, but there's too much in the way! I'll have to cut my suit... While floating, right mouse button to spend oxygen for speed and course corrections.");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if (currGameStatus == "tutorial_3")
-		{
-			thinkingList.Add("Those red objects look dangerous. I should avoid them.");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if (currGameStatus == "tutorial_4")
-		{
-			thinkingList.Add("An oxygen tank! I should stand in it and replenish my oxygen before I head out.");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if (currGameStatus == "tutorial_5")
-		{
-			thinkingList.Add("This blue debris looks safe. I can use it to my advantage... Press left mouse button to pick up and throw debris highlighted in blue.");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if (currGameStatus == "tutorial_6")
-		{
-			thinkingList.Add("Everything is in disarray... After I roll this silo into its slot, I should move up towards the lifeboats.");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-
-		//Beginning of Micah level CP
-
-		if (currGameStatus == "MCP1")
-		{
-			thinkingList.Add("This is the docking port. I gotta be careful not to fly off into space.");
-
-		}
-
-		if (currGameStatus == "MCP2")
-		{
-			thinkingList.Add("What a mess. I should head up towards the lifeboats");
-
-		}
-
-		if (currGameStatus == "MCP3")
-		{
-			thinkingList.Add("Am I the only survivor? Is anyone still alive?");
-
-		}
-		if (currGameStatus == "Thought_debug")
-		{
-			thinkingList.Add("THIS IS JUST A TEST!!! only survivor? Is anyone still alive?");
-
-		}
+		
 
 
 		// ALIEN LEVEL
