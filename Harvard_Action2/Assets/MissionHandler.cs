@@ -156,11 +156,20 @@ public class MissionHandler : MonoBehaviour
 			missionText.text = "MISSION: Get to the top of the station and test the antenna";
 			MH.muteLayer2();
 		}
-		if(currLevelOfGame == "KaisLevel1")
+
+		if (currLevelOfGame == "MissionEscapePod")
+		{
+			missionText.text = "MISSION: Find the escape pod";
+		}
+
+		if (currLevelOfGame == "KaisLevel1")
 		{
 			missionText.text = "MISSION: Get through the debris field and reach the alien mother ship";
 		}
-		if(currLevelOfGame == "KaisLevel2")
+
+		
+
+		if (currLevelOfGame == "KaisLevel2")
 		{
 			missionText.text = "MISSION: Use the egg's magnetism to hop to green machine and throw the alient object into the basket";
 		}
@@ -261,22 +270,87 @@ public class MissionHandler : MonoBehaviour
 		{
 			thinkingList.Add("I've made it to the cargo hold. I should lock in that gear to test the system's functionality.");
 
-			// missionText.text = "testing another mission but the prev mission still applies!";
 		}
 
 		if (currGameStatus == "ThoughtGear1")
 		{
 			thinkingList.Add("It looks like the cargo system still has power. But what about the rest of the station?");
-
-			// missionText.text = "Get to the top of the debris field";
+			
 		}
 
 		if (currGameStatus == "DebrisCP")
 		{
 			thinkingList.Add("What a mess! I hope the escape pod bay is still intact. It's my only hope of survival...");
 
-			// missionText.text = "Get to the top of the debris field";
 		}
+
+		//Beginnning of Daniel level CP
+		if (currGameStatus == "AntennaCP_1")
+		{
+			thinkingList.Add(" If I can get up to the antenna maybe I can call for help! I should stick close to the station... or...?");
+
+		}
+
+		if (currGameStatus == "AntennaCP_1.5")
+		{
+			thinkingList.Add("Oh no... John, Doe... If only they saw these alien eyes...");
+
+		}
+
+		if (currGameStatus == "AntennaCP_2")
+		{
+			thinkingList.Add("Halfway There...");
+
+		}
+
+		if (currGameStatus == "AntennaCP_3")
+		{
+			thinkingList.Add("Nearly there...");
+
+		}
+
+		if (currGameStatus == "AntennaCP_B")
+		{
+			thinkingList.Add("I knew there was a better way! Who's the space cadet now, Mom??");
+
+		}
+
+		if (currGameStatus == "AntennaCP_4")
+		{
+			thinkingList.Add("Phew, that was nerve wracking. Time to test the antenna.");
+
+		}
+
+		if (currGameStatus == "ThoughtRory")
+		{
+			thinkingList.Add("Lieutenant Rory, no! Damn these vines.");
+
+		}
+
+		if (currGameStatus == "ThoughtGear2")
+		{
+			thinkingList.Add("Comms systems are still up, amazingly. Maybe I can get inside to access the controls...");
+
+		}
+
+		if (currGameStatus == "ThoughtBackside")
+		{
+			thinkingList.Add("Is is just me or are the vines getting bigger? I must be nearing the source...");
+
+		}
+
+		if (currGameStatus == "ThoughtDoor")
+		{
+			thinkingList.Add("Damn, the vines are blocking entry. It sounds like the escape pod is my only hope.");
+
+		}
+
+		if (currGameStatus == "AntennaCP_7")
+		{
+			thinkingList.Add("Maybe I can push that satellite out of the way!");
+
+		}
+
 
 		//
 		if (currGameStatus == "CP_debris_18" || currGameStatus == "CP_debris_19" || currGameStatus == "CP_debris_20")
@@ -365,60 +439,6 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("Everything is in disarray... After I roll this silo into its slot, I should move up towards the lifeboats.");
 
 			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		//Beginnning of Daniel level CP
-		if (currGameStatus == "AntennaCP_1")
-		{
-			thinkingList.Add(" If I can get up to the antenna maybe I can call for help! I should stick close to the station... or...?");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_1.5")
-		{
-			thinkingList.Add("Oh no... John, Doe... If only they saw these alien eyes...");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_2")
-		{
-			thinkingList.Add("Halfway There...");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_3")
-		{
-			thinkingList.Add("Nearly... There");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_B")
-		{
-			thinkingList.Add("I knew there was a shortcut! Not all astronauts have pro gamer moves");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_4")
-		{
-			thinkingList.Add("Phew, that was nerve wracking. Time to fix the antenna.");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_5")
-		{
-			thinkingList.Add("I should look for the service elevator behind the antenna after I fix it.");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_6")
-		{
-			thinkingList.Add("The elevator's gone... Well I should go down anyway.");
-			
-		}
-		
-		if(currGameStatus == "AntennaCP_7")
-		{
-			thinkingList.Add("This satellite is in the way... gotta push it.");
-			
 		}
 		
 		//Beginning of Micah level CP
