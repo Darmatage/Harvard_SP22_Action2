@@ -21,6 +21,7 @@ public class Movement_arrows_4 : MonoBehaviour
 	RaycastHit2D hit;
 	// private bool isGrabbable;
 
+
 // stick to floor
 // Vector3 forceDirection = new Vector3(0, 0, 1);
 
@@ -29,6 +30,7 @@ public class Movement_arrows_4 : MonoBehaviour
     [Header("Bools")]
     [SerializeField] bool isGrounded = false;
 	public bool isFiltering = false;
+	public bool isJumping = false;
 	
 
 
@@ -84,9 +86,11 @@ public class Movement_arrows_4 : MonoBehaviour
 		
 		if((Input.GetKeyDown("space") || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))))
 		{
-			isGrounded = false;
+			// isGrounded = false;
+			isJumping = true;
 		}
-		else
+		
+		if(!isJumping)
 		{
 			isGrounded = underMyFeet.isGrounded;
 		}
@@ -201,16 +205,27 @@ void FixedUpdate()
 		}
 	if (v != 0)
 	{
+		isGrounded = false;
 		 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		 var angle2 = Mathf.Atan2(direction.x, direction.y)*Mathf.Rad2Deg; //get angle
+		 print("the angle of jump is " + angle2 + "the force will be "+ direction*jumpPower);
 		// maybe adding to it will be with mouse
 		// rigidbody2d.AddForce(Vector2.up, ForceMode2D.Impulse);
+		rigidbody2d.velocity = Vector2.zero;
 		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
-		isGrounded = false;
-		 // StartCoroutine(jump());
+
+		 StartCoroutine(delay());
 	}
 	}
 
 }
+
+		IEnumerator delay()  
+		{
+			print("i'm in delay jump");
+			yield return new WaitForSeconds(1f);
+			isJumping = false;
+		}
 
 
 }

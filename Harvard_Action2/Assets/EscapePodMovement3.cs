@@ -134,7 +134,7 @@ public class EscapePodMovement3 : MonoBehaviour
 					var force = Vector3.ProjectOnPlane(force3d, surfaceNorm3d);
 					
 					 float angle = Mathf.Atan2(normalSurface.x, normalSurface.y)*Mathf.Rad2Deg; //get angle
-					 Debug.Log( " THE ANGLE IS " + angle);
+					 // Debug.Log( " THE ANGLE IS " + angle);
 				// This means the force we're adding is now following the slopes angle
 				Vector2 force2D = new Vector2(force.x, force.y);
 				// Vector2 nonZeroForce;
@@ -144,7 +144,7 @@ public class EscapePodMovement3 : MonoBehaviour
 					{
 						  rb.velocity = Vector2.Perpendicular(normalSurface)*h*speed;
 				  
-							print("move dir is negative " + h + Vector2.Perpendicular(normalSurface));
+							// print("move dir is negative " + h + Vector2.Perpendicular(normalSurface));
 
 					}
 				if (h == 0 && v == 0)
@@ -156,7 +156,7 @@ public class EscapePodMovement3 : MonoBehaviour
 					isJumping = true;
 					 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
-					print("the v is  " + v);
+					// print("the v is  " + v);
 					rb.AddForce(direction*jumpPower, ForceMode2D.Impulse);
 					isGrounded = false;
 					 // StartCoroutine(jump());
@@ -164,7 +164,7 @@ public class EscapePodMovement3 : MonoBehaviour
 				else 
 				{	
 					
-					print(" v no more!" );
+					// print(" v no more!" );
 					isJumping = false;
 				}
 			 
@@ -179,7 +179,8 @@ public class EscapePodMovement3 : MonoBehaviour
 				print("collision with platform");
 				isGrounded = true;
 				rb.velocity =  rb.velocity/(rb.velocity);// * 1.09f);
-				print("rb.velocity/(rb.velocity "  + rb.velocity/(rb.velocity));
+				// print("rb.velocity/(rb.velocity "  + rb.velocity/(rb.velocity));
+				AudioHandler.PlaySound ("egg_jump");
 
 			}
 	}
@@ -189,6 +190,7 @@ public class EscapePodMovement3 : MonoBehaviour
 			if( collision.gameObject.tag == "platform") 
 			{
 				isGrounded = false;
+				AudioHandler.PlaySound ("egg_jump");  // maybe remove if interfere
 			}
 	}
 }

@@ -6,11 +6,12 @@ using UnityEngine;
 public class AudioHandlerObj : MonoBehaviour
 
 {
-	public AudioClip walk, ox, jump, low_ox;
+	public AudioClip walk, ox, jump, low_ox, egg_walk;
 	public  AudioSource audioSrcOther;
 	public  AudioSource audioSrcFlying;
 	public  AudioSource audioSrcLife;
 	public  AudioSource audioSrcWalk;
+	public  AudioSource audioSrcEgg;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class AudioHandlerObj : MonoBehaviour
 		ox = Resources.Load<AudioClip> ("ox");
 		jump = Resources.Load<AudioClip> ("jump");
 		low_ox = Resources.Load<AudioClip> ("low_ox");
+		egg_walk = Resources.Load<AudioClip> ("egg_walk");
 		// audioSrcWalking = GetComponent<AudioSource>();
     }
 
@@ -95,7 +97,6 @@ public class AudioHandlerObj : MonoBehaviour
 				switch(clip) 
 		{
 		case "walk":
-			print("Im in walk LOOP");
 				audioSrcWalk.clip = walk;
 				audioSrcWalk.loop = true;
 				if(play)
@@ -109,7 +110,24 @@ public class AudioHandlerObj : MonoBehaviour
 					audioSrcWalk.loop = false;
 				}
 				break;
+		case "egg_walk":
+				audioSrcEgg.clip = egg_walk;
+				audioSrcEgg.loop = true;
+				if(play)
+				{
+					if(!audioSrcEgg.isPlaying)
+						audioSrcEgg.Play();
+				}
+				else
+				{
+					audioSrcEgg.Stop();
+					audioSrcEgg.loop = false;
+				}
+				break;
 	}
+	
+		
+	
 	}
 	
 	
