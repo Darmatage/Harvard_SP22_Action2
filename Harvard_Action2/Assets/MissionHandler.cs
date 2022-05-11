@@ -168,8 +168,6 @@ public class MissionHandler : MonoBehaviour
 			missionText.text = "MISSION: Get through the debris field and reach the alien mother ship";
 		}
 
-
-
 		if (currLevelOfGame == "KaisLevel2")
 		{
 			missionText.text = "MISSION: Use the egg's magnetism to hop to green machine and throw the alient object into the basket";
