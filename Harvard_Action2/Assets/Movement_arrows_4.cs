@@ -124,6 +124,24 @@ public class Movement_arrows_4 : MonoBehaviour
 				animator.SetBool("Light", true);
 				animator.SetFloat("Walk", h);
 				animator.SetFloat("WalkB", -h);
+				
+					if (v != 0)
+	{
+		isGrounded = false;
+		 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		 var angle2 = Mathf.Atan2(direction.x, direction.y)*Mathf.Rad2Deg; //get angle
+		 print("the angle of jump is " + angle2 + "the force will be "+ direction*jumpPower);
+		// maybe adding to it will be with mouse
+		// rigidbody2d.AddForce(Vector2.up, ForceMode2D.Impulse);
+		rigidbody2d.velocity = Vector2.zero;
+		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
+		
+			rigidbody2d.velocity = Vector2.zero;
+		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
+
+		 StartCoroutine(delay());
+		 // isJumping = false;
+	}
 
 			}
 			else 
@@ -203,19 +221,20 @@ void FixedUpdate()
 		{
 			rigidbody2d.velocity = Vector2.zero;
 		}
-	if (v != 0)
-	{
-		isGrounded = false;
-		 Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-		 var angle2 = Mathf.Atan2(direction.x, direction.y)*Mathf.Rad2Deg; //get angle
-		 print("the angle of jump is " + angle2 + "the force will be "+ direction*jumpPower);
+	// if (v != 0)
+	// {
+		// isGrounded = false;
+		 // Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		 // var angle2 = Mathf.Atan2(direction.x, direction.y)*Mathf.Rad2Deg; //get angle
+		 // print("the angle of jump is " + angle2 + "the force will be "+ direction*jumpPower);
 		// maybe adding to it will be with mouse
 		// rigidbody2d.AddForce(Vector2.up, ForceMode2D.Impulse);
-		rigidbody2d.velocity = Vector2.zero;
-		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
+		// rigidbody2d.velocity = Vector2.zero;
+		// rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
 
-		 StartCoroutine(delay());
-	}
+		 // StartCoroutine(delay());
+		 // isJumping = false;
+	// }
 	}
 
 }
@@ -225,6 +244,7 @@ void FixedUpdate()
 			print("i'm in delay jump");
 			yield return new WaitForSeconds(1f);
 			isJumping = false;
+			print("i'm in delay AFTER jump");
 		}
 
 
