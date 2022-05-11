@@ -391,7 +391,25 @@ public class MissionHandler : MonoBehaviour
 		
 		if(currGameStatus == "AntennaCP_4")
 		{
-			thinkingList.Add("Phew, that was nerve wracking. I should look for the service elevator behind the antenna after I fix it.");
+			thinkingList.Add("Phew, that was nerve wracking. Time to fix the antenna.");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_5")
+		{
+			thinkingList.Add("I should look for the service elevator behind the antenna after I fix it.");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_6")
+		{
+			thinkingList.Add("The elevator's gone... Well I should go down anyway.");
+			
+		}
+		
+		if(currGameStatus == "AntennaCP_7")
+		{
+			thinkingList.Add("This satellite is in the way... gotta push it.");
 			
 		}
 		
