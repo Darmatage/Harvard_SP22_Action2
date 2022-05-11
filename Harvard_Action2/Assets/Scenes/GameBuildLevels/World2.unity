@@ -35198,6 +35198,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7168452083532358235, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: OxygenBurstStart
+      value: 0.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168452083532358235, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: OxygenBurstDepletion
       value: 0.05
       objectReference: {fileID: 0}
