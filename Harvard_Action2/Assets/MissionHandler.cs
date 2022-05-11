@@ -407,8 +407,12 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("I've made it! But does it still run?");
 
 		}
-		
-		
+
+		if (currGameStatus == "alien_thought_end2")
+		{
+			thinkingList.Add("Yes, it works!! Now, up to the controls. It's time to go home.");
+
+		}
 
 
 
