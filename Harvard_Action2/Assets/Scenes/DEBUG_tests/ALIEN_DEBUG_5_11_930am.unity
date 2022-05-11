@@ -36146,11 +36146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2450696187467251866, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 139.07
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 2450696187467251866, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -538.94
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 2450696187873704132, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_RootOrder
@@ -36256,6 +36256,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5432373888803651924, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -315.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432373888803651924, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -753.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5616298332912090680, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -300.1
@@ -36272,6 +36280,18 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 8a4145ac12e2cf949908f83ce7be22e3, type: 2}
+    - target: {fileID: 6305594472321484681, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332294994734445865, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 589.55994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332294994734445865, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 751.8871
+      objectReference: {fileID: 0}
     - target: {fileID: 6715331065771252731, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_Text
       value: 'Respawns: 100'
