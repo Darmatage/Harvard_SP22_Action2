@@ -10,6 +10,7 @@ public class AudioHandlerObj : MonoBehaviour
 	public  AudioSource audioSrcOther;
 	public  AudioSource audioSrcFlying;
 	public  AudioSource audioSrcLife;
+	public  AudioSource audioSrcWalk;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +92,24 @@ public class AudioHandlerObj : MonoBehaviour
 				}
 				break;
 		}
+				switch(clip) 
+		{
+		case "walk":
+			print("Im in walk LOOP");
+				audioSrcWalk.clip = walk;
+				audioSrcWalk.loop = true;
+				if(play)
+				{
+					if(!audioSrcWalk.isPlaying)
+						audioSrcWalk.Play();
+				}
+				else
+				{
+					audioSrcWalk.Stop();
+					audioSrcWalk.loop = false;
+				}
+				break;
+	}
 	}
 	
 	

@@ -26,13 +26,13 @@ public class PlayMovementSounds : MonoBehaviour
 		// walking, probably should check if grounded too!
 		if (isGrounded &&  Input.GetAxis("Horizontal") != 0)   //((Input.GetKeyDown("A") || Input.GetKeyDown("D") || Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.RightArrow))))
 		{
-			AudioHandler.PlaySoundLoop ("walk", true);
+			AHO.PlaySoundLoop ("walk", true);
 			// isWalking = true;
 		}
 		else
 		{
 			// isWalking = false;
-			 AudioHandler.PlaySoundLoop ("walk", false);
+			 AHO.PlaySoundLoop ("walk", false);
 		}
 		if(Input.GetMouseButtonDown(1) || (Input.GetKeyDown(KeyCode.E)))
 		// if(oxCheck.OxygenOn)
@@ -50,13 +50,13 @@ public class PlayMovementSounds : MonoBehaviour
 			
 		
 		// jump
-		if (isGrounded &&  Input.GetAxis("Vertical") != 0) // ((Input.GetKeyDown("space") || (Input.GetKeyDown("W")) || (Input.GetKeyDown(KeyCode.UpArrow)))))
+		if (isGrounded && ((Input.GetKeyDown("space") || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))))) // Input.GetAxis("Vertical") != 0)
 		{
 			// jump sound
 			AudioHandler.PlaySound ("jump");
 			
 		}
-		if(Input.GetMouseButtonUp(0))
+		if(Input.GetMouseButtonDown(0))
 		{
 			print("I am throwing!");
 			AudioHandler.PlaySound ("throw_debris");

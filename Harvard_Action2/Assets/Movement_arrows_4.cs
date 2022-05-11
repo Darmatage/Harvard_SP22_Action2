@@ -81,13 +81,24 @@ public class Movement_arrows_4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
+		if((Input.GetKeyDown("space") || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))))
+		{
+			isGrounded = false;
+		}
+		else
+		{
 			isGrounded = underMyFeet.isGrounded;
+		}
 		
 		// turn off isGrounded if OX
 		if((Input.GetMouseButton(1) || (Input.GetKeyDown(KeyCode.E))))
 		{
 			isGrounded = false;
 		}
+		
+		// for jumping
+		
 		
 			if (isGrounded)
 			{
