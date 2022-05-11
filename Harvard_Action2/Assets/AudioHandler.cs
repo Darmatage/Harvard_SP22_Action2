@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this is for isGrounded movement
 public class AudioHandler : MonoBehaviour
 {
-	public static AudioClip walk, ox, jump;
+	public static AudioClip walk, ox, jump, spike, checkpoint, level, ox_refill, throw_debris, land, no_air ;
 	public static AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
         walk = Resources.Load<AudioClip> ("metal_clank");
-		ox = Resources.Load<AudioClip> ("steam");
+		ox = Resources.Load<AudioClip> ("ox");
 		jump = Resources.Load<AudioClip> ("jump");
+		spike = Resources.Load<AudioClip> ("spike");
+		checkpoint = Resources.Load<AudioClip> ("checkpoint");
+		level = Resources.Load<AudioClip> ("level");
+		ox_refill = Resources.Load<AudioClip> ("ox_refill");
+		throw_debris = Resources.Load<AudioClip> ("throw_debris");
+		land = Resources.Load<AudioClip> ("metal");
+		no_air = Resources.Load<AudioClip> ("no_air");
 		audioSrc = GetComponent<AudioSource>();
     }
 
@@ -36,7 +45,29 @@ public class AudioHandler : MonoBehaviour
 			case "jump":
 				audioSrc.PlayOneShot(jump);
 				break;
-			
+				
+				
+			case "spike":
+				audioSrc.PlayOneShot(spike);
+				break;
+			case "checkpoint":
+				audioSrc.PlayOneShot(checkpoint, 0.5f);
+				break;
+			case "level":
+				audioSrc.PlayOneShot(level);
+				break;
+			case "ox_refill":
+				audioSrc.PlayOneShot(ox_refill, 1);
+				break;
+			case "throw_debris":
+				audioSrc.PlayOneShot(throw_debris, 1);
+				break;
+			case "land":
+				audioSrc.PlayOneShot(land);
+				break;
+			case "no_air":
+				audioSrc.PlayOneShot(no_air);
+				break;
 		}
 	}
 	
@@ -60,20 +91,20 @@ public class AudioHandler : MonoBehaviour
 					audioSrc.loop = false;
 				}
 				break;
-			case "ox":
-				audioSrc.clip = ox;
-				audioSrc.loop = true;
-				if(play)
-				{
-					if(!audioSrc.isPlaying)
-						audioSrc.Play();
-				}
-				else
-				{
-					audioSrc.Stop();
-					audioSrc.loop = false;
-				}
-				break;
+			// case "ox":
+				// audioSrc.clip = ox;
+				// audioSrc.loop = true;
+				// if(play)
+				// {
+					// if(!audioSrc.isPlaying)
+						// audioSrc.Play();
+				// }
+				// else
+				// {
+					// audioSrc.Stop();
+					// audioSrc.loop = false;
+				// }
+				// break;
 		}
 	}
 	

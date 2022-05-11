@@ -21,6 +21,7 @@ public class oxygenReplenish : MonoBehaviour
 		public void OnTriggerEnter2D(Collider2D other) 
 		{
               if (other.gameObject.tag == "playerCheckpoint"){
+				  AudioHandler.PlaySound ("ox_refill");
 				  print("player got replenishment " );
 				  Renderer checkRend = GetComponentInChildren<Renderer>();
 				  checkRend.material.color = new Color(0, 1, 0, 1);

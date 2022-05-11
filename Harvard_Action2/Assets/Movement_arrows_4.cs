@@ -49,6 +49,7 @@ public class Movement_arrows_4 : MonoBehaviour
 		}	
 		if (collision.gameObject.tag == "kill")
 		{
+			AudioHandler.PlaySound ("spike");
 			// print("object is spike or fire! NAME: " + collision.gameObject.name);
 			// print("the tag of obj is " + collision.gameObject.tag);
 			dragCanvasHereOxyHealth.Die();
@@ -163,6 +164,8 @@ void FixedUpdate()
 	// if (force2D != Vector2.zero) nonZeroForce = force2D;
 	if(h != 0 && v == 0)
 		{
+			// AudioHandler.PlaySoundLoop ("walk", true);
+			// AudioHandler.PlaySoundLoop ("ox", false);
 			// walking on metal
 			// AudioHandler.PlaySound ("walk");
 			// print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed + "vel " + rigidbody2d.velocity);

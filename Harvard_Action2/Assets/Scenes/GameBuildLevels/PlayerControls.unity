@@ -273,7 +273,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Mouse\t\t\t\t \t\t\t\t= Direction of Movement and Jump\nLeft Mouse Click
-    \t\t\t\t= Catch and Throw Objects\nR or Right Mouse Click \t= Use Oxygen Propulsion"
+    \t\t\t\t= Catch and Throw Objects\nE or Right Mouse Click \t= Use Oxygen Propulsion"
 --- !u!222 &233066512
 CanvasRenderer:
   m_ObjectHideFlags: 0

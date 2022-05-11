@@ -35,6 +35,7 @@ public class OxygenMovement2 : MonoBehaviour
         armRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         startOxygen();
+		
     }
 
     public void startOxygen()

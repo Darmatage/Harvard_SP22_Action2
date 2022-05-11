@@ -62,7 +62,7 @@ public class PlatformChecker : MonoBehaviour
 	
 	public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "platform"){
-							
+						   AudioHandler.PlaySound ("land");
                            isGrounded = true;
 						   reorientToGround();
               }

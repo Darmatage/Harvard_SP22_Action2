@@ -167,6 +167,7 @@ public class GameHandler : MonoBehaviour{
 	
 
       public void playerDies(){
+		  AudioHandler.PlaySound ("no_air");
             // player.GetComponent<PlayerHurt>().playerDead();
 			StartCoroutine(DeathPause());
 			// SceneManager.LoadScene("Death");
@@ -176,7 +177,14 @@ public class GameHandler : MonoBehaviour{
       IEnumerator DeathPause(){
             // player.GetComponent<PlayerMove>().isAlive = false;
             // player.GetComponent<PlayerJump>().isAlive = false;
+			
             yield return new WaitForSeconds(1.0f);
+			
+			// added these to make sure player will reset
+			Deaths = 0;
+			Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
+			CurrentHealthNotStatic = 100f;
+			
             SceneManager.LoadScene("Death");
       }
 	  
@@ -252,6 +260,11 @@ public class GameHandler : MonoBehaviour{
 
         public void RestartGame(){
                 Time.timeScale = 1f;
+				
+				Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
+				CurrentHealthNotStatic = 100f;
+				Deaths = 0;
+				
                 SceneManager.LoadScene("MainMenu");
         }
 		

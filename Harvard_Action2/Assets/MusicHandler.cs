@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MusicHandler : MonoBehaviour
 {
-	public AudioClip layer1, layer2, layer3;
+	public AudioClip layer1, layer2, layer3, menu;
 	public AudioSource audioSrc1;
 	public AudioSource audioSrc2;
 	public AudioSource audioSrc3;
+	public AudioSource audioSrc4;
 	
 	
 	void Awake()
@@ -36,6 +37,14 @@ public class MusicHandler : MonoBehaviour
     }
 	
 	// play sound one time
+	public void playMenuLayer()
+	{
+		print("I am playing menu");
+		audioSrc4.loop = true;
+		audioSrc4.PlayOneShot(menu);
+			
+	}
+	
 	public void playLayer1()
 	{
 		print("I am playing layer1");
@@ -59,6 +68,12 @@ public class MusicHandler : MonoBehaviour
 			
 	}
 	
+	public void muteMenu()
+	{
+
+		audioSrc4.mute = !audioSrc4.mute;
+			
+	}
 	
 	public void muteLayer1()
 	{

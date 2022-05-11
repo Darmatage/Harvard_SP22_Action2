@@ -59,7 +59,6 @@ public class PlayerRespawn : MonoBehaviour
 							
 							
 							respawning = false;
-							print("ByeBye");
 							
                      }
               }
@@ -67,15 +66,14 @@ public class PlayerRespawn : MonoBehaviour
 	   
 	   public void damage(){
 		   if (GameHandler.CurrentHealth <= 20f){
-			   print("particles should start!");
-			   suitholeparent.SetActive(true);
+			   // suitholeparent.SetActive(true);
 			   // animator.SetBool("Death", true);
 			 // particlesTemp = Instantiate(oxygenParticles, suithole.position, Quaternion.identity);
 			 // particlesTemp.transform.SetParent(suithole);
 			 // particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
 		   }
 		   else{
-			    suitholeparent.SetActive(false);
+			    // suitholeparent.SetActive(false);
 				// animator.SetBool("CP", false);
 			
 		   }
@@ -86,6 +84,7 @@ public class PlayerRespawn : MonoBehaviour
               if (other.gameObject.tag == "Checkpoint"){
 							
 							// animatorCheckPoint.SetTrigger("CP");
+							AudioHandler.PlaySound ("checkpoint");
 							
                             pSpawn = other.gameObject.transform;
 							// Debug.Log("I touched a checkpoint " + pSpawn);
@@ -109,7 +108,7 @@ public class PlayerRespawn : MonoBehaviour
 				  var currentThoughtpoint = other.gameObject.name;
 				  gameHandler.currCheckpointName = currentThoughtpoint;
 				  gameHandler.newCheckPointTouched = true;
-				  print("the current checkpoint name is " + other.gameObject.name);
+				  // print("the current checkpoint name is " + other.gameObject.name);
 				  
 			  }
 			  
@@ -158,7 +157,7 @@ public class PlayerRespawn : MonoBehaviour
 	   
 	   IEnumerator DelayDeath()  //  <-  its a standalone method
 		{
-			print("dying in 3 seconds");
+			// print("dying in 3 seconds");
 			
 			
 			
@@ -175,7 +174,7 @@ public class PlayerRespawn : MonoBehaviour
 							
 							animator.SetBool("Death", false);
 							
-			print("ByeBye");
+			// print("ByeBye");
 			respawning = false;
 		}
 			
@@ -202,7 +201,7 @@ public class PlayerRespawn : MonoBehaviour
 							pSpawnScript.respawn(); // call a respawn
 					
 							gameHandler.replenishHealth();
-							print("animate the death!" + gameHandler.CurrentHealthNotStatic);
+							// print("animate the death!" + gameHandler.CurrentHealthNotStatic);
 							 
 				// Remove the recorded 2 seconds.
 				timer = timer - waitTime;
@@ -215,7 +214,7 @@ public class PlayerRespawn : MonoBehaviour
 		// temp!
 		 IEnumerator changeColorGatway(GameObject thisCheckpoint){
 			
-				print("CHANGING COLOR! ");
+				// print("CHANGING COLOR! ");
 				
 			  Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
               checkRend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);

@@ -8,6 +8,9 @@ using UnityEngine.Audio;  // maybe delete?
 public class MissionHandler : MonoBehaviour
 {
 	
+	// for sound
+	public MusicHandler MH;
+	
 	public GameObject MissionDisplay;
 	public Text missionText;
 	// public GameObject missionNextCloseButton;
@@ -151,6 +154,7 @@ public class MissionHandler : MonoBehaviour
 		if(currLevelOfGame == "DanielsLevel")
 		{
 			missionText.text = "MISSION: Get to the top of the station and fix the antenna";
+			MH.muteLayer2();
 		}
 		if(currLevelOfGame == "KaisLevel1")
 		{
@@ -163,6 +167,7 @@ public class MissionHandler : MonoBehaviour
 		if(currLevelOfGame == "alien_level")
 		{
 			missionText.text = "Use the egg ship's magnetization to escape the alien ship";
+			MH.muteLayer3();
 		}
 		if(currLevelOfGame == "winGameGateway")
 		{
