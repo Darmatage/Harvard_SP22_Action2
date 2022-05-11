@@ -165,7 +165,7 @@ public class MissionHandler : MonoBehaviour
 
 		if (currLevelOfGame == "alien_level")
 		{
-			missionText.text = "MISSION: Use the orb to get past the alien vessel";
+			missionText.text = "MISSION: Use the orb to get to the top of the alien vessel";
 			MH.muteLayer3();
 		}
 		if (currLevelOfGame == "winGameGateway")
@@ -348,125 +348,67 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("It looks like I have no choise... Into the alien hamster ball thing!");
 
 		}
-		if (currGameStatus == "CP_spaceship_1")
-		{
-			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
-
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if (currGameStatus == "CP_spaceship_2")
-		{
-			thinkingList.Add("I am in an egg? I still have my Oxygen Thruster (right click), my grabber (leftclick). Hmmm. I notice I also can stick to the ground. Notice pushing arrow left goes right when I'm upside down on this Alien Orb!");
-
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if (currGameStatus == "CP_spaceship_3")
-		{
-			thinkingList.Add("If I push the up arrow, I jump and the magnetization of this egg turns off!");
-
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if (currGameStatus == "CP_spaceship_4")
-		{
-			thinkingList.Add("I notice I have more energy. This Egg is giving me oxygen! Somehow it is more powerful than my suit!");
-
-			// missionText.text = "Go Around the Alien Orb and Travel to the Green Alien Teleporter";
-		}
-		if (currGameStatus == "CP_spaceship_15")
-		{
-			thinkingList.Add("I'm almost at the end. Keep pushing the up arrow and launching from orb to orb. My magnetism is helping me!");
-
-			// missionText.text = "I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home";
-		}
-		if (currGameStatus == "CP_spaceship_16")
-		{
-			thinkingList.Add("I need to push the Green Alien Machine into it's puzzle slot. Only then will this egg be able to leave this alien ship and fly me home");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if (currGameStatus == "CP_spaceship_17")
-		{
-			thinkingList.Add("All I need to do is to push into it. Then it will move");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-		if (currGameStatus == "tutorial_1")
-		{
-			thinkingList.Add("Oh god I think it touched me. ");
-
-			// missionText.text = "Push the green machine component into the engine slot";
-		}
-
-		
 
 
 		// ALIEN LEVEL
 		if (currGameStatus == "alien_thought")
 		{
-			thinkingList.Add("Go into the Large egg. Notice what you become encased in. Everything still works the same, however, now you can magentize to these circular alien artifacts");
+			thinkingList.Add("I think... I think it wants me touch it...");
 
 		}
 		if (currGameStatus == "alien_thought2")
 		{
-			thinkingList.Add("A/D move along surface of Giant Mother Egg. Notice, I magnetize to the surface. ");
+			thinkingList.Add("What the hell is this thing?? I'm trapped, but it seems I can still move normally... and my oxygen is replenished!");
 
 		}
 		if (currGameStatus == "cp_alien")
 		{
-			thinkingList.Add("A/D move along a surface (sometimes these commands may reverse due to alien gravity). Move along the surface to the top of the Giant Mother Egg");
+			thinkingList.Add("I can sense everything the vines are connected to now. The escape pod is at the top!");
 
 		}
-		if (currGameStatus == "cp_alien1")
-		{
-			thinkingList.Add("There is a Small Mother Egg to my left. What happens when I jump (W), aiming with the mouse cursor. Then use my rocket thrusters (right mouse button)");
-
-		}
+		
 		if (currGameStatus == "cp_alien2")
 		{
-			thinkingList.Add("I notice a smaller gree object to my left. Let me try the same thing (aim with mouse cursor + W = jump). Use my magnets to latch onto it.");
+			thinkingList.Add("These orbs seem to have unsually strong gravity. Maybe I can use it to my advantage...");
 
 		}
-		if (currGameStatus == "cp_alien3")
-		{
-			thinkingList.Add("Keep hopping from one alien artifact to another. I must be in some sort of egg chamber. I am not losing any oxygen!");
-
-		}
-		if (currGameStatus == "cp_alien4")
-		{
-			thinkingList.Add("go upwards and continue to latch");
-
-		}
+	
 		if (currGameStatus == "alien_thought3")
 		{
-			thinkingList.Add("Beware there are red viruses. These can kill!");
+			thinkingList.Add("I'd better avoid those red orbs. They give me the heebie jeebies!");
 
 		}
 		if (currGameStatus == "cp_alien5")
 		{
-			thinkingList.Add("Go around the Giant Mother Egg. Find the smaller eggs, and travel along them, hopping from each one until I reach the spacecraft");
+			thinkingList.Add("I can sense a path to the right... I'd better be careful not to float off into space.");
 
 		}
-		if (currGameStatus == "cp_alienEND")
+
+		if (currGameStatus == "cp_alien6")
 		{
-			thinkingList.Add("Push this gear into the machine so that the Escape Pod can be actived! Then get to the bright teal capsule in the nose of the escape pod");
+			thinkingList.Add("These must be immature alien life forms... Green Space Eggs. Where's the ham, Dr. Seuss?");
 
 		}
+
+		if (currGameStatus == "ThoughtSeeEscapePod")
+		{
+			thinkingList.Add("The escape pod! And it's still intact!!");
+
+		}
+
+		if (currGameStatus == "CPEscapePodApproach")
+		{
+			thinkingList.Add("");
+
+		}
+
 		if (currGameStatus == "alien_thought_end")
 		{
-			thinkingList.Add("Push this gear! Then head to the teal capsule above!");
+			thinkingList.Add("I've made it! But does it still run?");
 
 		}
-		if (currGameStatus == "CP_alienship_5")
-		{
-			thinkingList.Add("This alien egg should protect me from alien spikes!");
-
-		}
-		if (currGameStatus == "alien_thought22")
-		{
-			thinkingList.Add("Since my arms are free, I can still catch and launch myself with debris.");
-
-		}
-
+		
+		
 
 
 
