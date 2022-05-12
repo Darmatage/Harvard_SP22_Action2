@@ -249,6 +249,10 @@ public class GameHandler : MonoBehaviour{
         public void StartGame(){
                 SceneManager.LoadScene("World2");
         }
+		
+		public void StartGameOpeningAnimation(){
+                SceneManager.LoadScene("Opening");
+        }
 
         public void OpenCredits(){
                 SceneManager.LoadScene("Credits");
