@@ -120,11 +120,18 @@ public class grab_throw_3 : MonoBehaviour
 					feet.SetActive(false);
 					//launch player
 					// PersonRB.velocity =  -lookDirection * bulletSpeed;
-					PersonRB.velocity = direction * bulletSpeed;
+					
+					
+					// change
+					// PersonRB.velocity = direction * bulletSpeed;
+					
+					PersonRB.AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
 					// AudioHandler.PlaySound ("throw_debris");
 					// launch object
 					// obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
-					obj.GetComponent<Rigidbody2D>().velocity = -direction * bulletSpeed;
+					// obj.GetComponent<Rigidbody2D>().velocity = -direction * bulletSpeed;
+					
+					obj.GetComponent<Rigidbody2D>().AddForce(-direction * bulletSpeed, ForceMode2D.Impulse);
 					StartCoroutine(delay());
 
 

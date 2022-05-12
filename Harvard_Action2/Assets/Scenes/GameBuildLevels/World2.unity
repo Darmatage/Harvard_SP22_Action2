@@ -40035,6 +40035,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 8a4145ac12e2cf949908f83ce7be22e3, type: 2}
+    - target: {fileID: 5801160955551102704, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: bulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5824275229595576095, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_SortingOrder
       value: 5
