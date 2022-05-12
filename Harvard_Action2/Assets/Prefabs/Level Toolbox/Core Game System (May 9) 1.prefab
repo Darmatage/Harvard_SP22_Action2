@@ -18103,7 +18103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2450696187986806483}
   m_LocalRotation: {x: -0, y: -0, z: -0.020342559, w: 0.9997931}
-  m_LocalPosition: {x: 1.1, y: -0, z: 0}
+  m_LocalPosition: {x: 1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2825007432151807066}
@@ -19686,6 +19686,8 @@ MonoBehaviour:
   EPM: {fileID: 1396847398402387292}
   isGrounded: 0
   AHO: {fileID: 1708242675528014871}
+  GT: {fileID: 2468235817773288860}
+  grabbed: 0
 --- !u!1 &4296032987405331678
 GameObject:
   m_ObjectHideFlags: 0
@@ -35321,6 +35323,9 @@ MonoBehaviour:
   PC: {fileID: 3443193768102092802}
   isGrounded: 0
   AHO: {fileID: 1708242675528014871}
+  GT: {fileID: 5801160955551102704}
+  grabbed: 0
+  isThrowing: 0
 --- !u!1 &7384475472304184827
 GameObject:
   m_ObjectHideFlags: 0
@@ -40737,7 +40742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7901544903336767915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.93, y: -0, z: 0}
+  m_LocalPosition: {x: 2.64, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2825007432151807066}
@@ -46049,6 +46054,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1031231434367298381}
   - component: {fileID: 4224076981836355670}
+  - component: {fileID: 7612445706574227959}
+  - component: {fileID: 2468235817773288860}
   m_Layer: 0
   m_Name: GrabberArm (1)
   m_TagString: Untagged
@@ -46078,7 +46085,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9083298915750170697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bb608eb4c26fb64c840128d84d43b03, type: 3}
   m_Name: 
@@ -46093,6 +46100,57 @@ MonoBehaviour:
   pickupPoint: {fileID: 8450393353928064524}
   firePoint: {fileID: 7002645411908285538}
   bulletSpeed: 4
+  thrusterSpeed: 3
+  redTargeter: {fileID: 778151438485080694}
+--- !u!114 &7612445706574227959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083298915750170697}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdb5c5971bd1a54795c1aa4c6b3fd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
+  distance: 2
+  grabpoint: {fileID: 7379842980283817841}
+  handpoint: {fileID: 6051192162415435446}
+  notgrabbed:
+    serializedVersion: 2
+    m_Bits: 0
+  pickupPoint: {fileID: 8450393353928064524}
+  firePoint: {fileID: 7002645411908285538}
+  bulletSpeed: 10
+  thrusterSpeed: 3
+  redTargeter: {fileID: 778151438485080694}
+  platformChecker: {fileID: 0}
+  isGrounded: 0
+  feet: {fileID: 0}
+--- !u!114 &2468235817773288860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083298915750170697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4608f69c874584e83e3527ce70e194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
+  distance: 2
+  grabpoint: {fileID: 7379842980283817841}
+  handpoint: {fileID: 6051192162415435446}
+  notgrabbed:
+    serializedVersion: 2
+    m_Bits: 0
+  pickupPoint: {fileID: 8450393353928064524}
+  firePoint: {fileID: 7002645411908285538}
+  bulletSpeed: 10
   thrusterSpeed: 3
   redTargeter: {fileID: 778151438485080694}
 --- !u!1001 &498657061257101030

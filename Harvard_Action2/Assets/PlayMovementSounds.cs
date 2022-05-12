@@ -8,6 +8,9 @@ public class PlayMovementSounds : MonoBehaviour
 	public bool isGrounded;
 	// public OxygenMovement2 oxCheck;
 	public AudioHandlerObj AHO;
+	public grab_throw_3 GT;
+	public bool grabbed = false;
+	public bool isThrowing = false;
 	// GameObject gameHandler;
 	// public bool isWalking;
 	// public bool isFlying;
@@ -23,6 +26,10 @@ public class PlayMovementSounds : MonoBehaviour
     void Update()
     {
 		isGrounded = PC.isGrounded;
+		
+		
+		
+		
 		// walking, probably should check if grounded too!
 		if (isGrounded &&  Input.GetAxis("Horizontal") != 0)   //((Input.GetKeyDown("A") || Input.GetKeyDown("D") || Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.RightArrow))))
 		{
@@ -56,7 +63,7 @@ public class PlayMovementSounds : MonoBehaviour
 			AudioHandler.PlaySound ("jump");
 			
 		}
-		if(Input.GetMouseButtonDown(0))
+		if(grabbed && Input.GetMouseButtonDown(0))
 		{
 			// print("I am throwing!");
 			AudioHandler.PlaySound ("throw_debris");
@@ -68,6 +75,8 @@ public class PlayMovementSounds : MonoBehaviour
 		else{
 			AHO.PlaySoundLoop ("low_ox", false);
 		}
+		
+		grabbed = GT.grabbed;
         
     }
 }

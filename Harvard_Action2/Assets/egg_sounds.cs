@@ -8,6 +8,8 @@ public class egg_sounds : MonoBehaviour
 	public bool isGrounded;
 	// public OxygenMovement2 oxCheck;
 	public AudioHandlerObj AHO;
+	public Grab_throw_3_egg GT;
+	public bool grabbed = false;
 	// GameObject gameHandler;
 	// public bool isWalking;
 	// public bool isFlying;
@@ -23,6 +25,7 @@ public class egg_sounds : MonoBehaviour
     void Update()
     {
 		isGrounded = EPM.isGrounded;
+		
 		// walking, probably should check if grounded too!
 		if (Input.GetAxis("Horizontal") != 0)   //((Input.GetKeyDown("A") || Input.GetKeyDown("D") || Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetKeyDown(KeyCode.RightArrow))))
 		{
@@ -57,7 +60,7 @@ public class egg_sounds : MonoBehaviour
 			AudioHandler.PlaySound ("jump");
 			
 		}
-		if(Input.GetMouseButtonDown(0))
+		if(grabbed && Input.GetMouseButtonDown(0))
 		{
 			print("I am throwing!");
 			AudioHandler.PlaySound ("throw_debris");
@@ -69,6 +72,8 @@ public class egg_sounds : MonoBehaviour
 		else{
 			AHO.PlaySoundLoop ("low_ox", false);
 		}
+		
+		grabbed = GT.grabbed;
         
     }
 }

@@ -104,7 +104,7 @@ public class grab_throw_3 : MonoBehaviour
 
 				if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null) // throw
 				{
-
+					
 					// mouse directions for shooting
 					lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
@@ -121,7 +121,7 @@ public class grab_throw_3 : MonoBehaviour
 					//launch player
 					// PersonRB.velocity =  -lookDirection * bulletSpeed;
 					PersonRB.velocity = direction * bulletSpeed;
-					
+					// AudioHandler.PlaySound ("throw_debris");
 					// launch object
 					// obj.GetComponent<Rigidbody2D>().velocity = lookDirection * bulletSpeed;
 					obj.GetComponent<Rigidbody2D>().velocity = -direction * bulletSpeed;

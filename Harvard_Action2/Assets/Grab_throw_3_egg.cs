@@ -1,7 +1,9 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class TRDGrabberScript : MonoBehaviour {
+public class Grab_throw_3_egg : MonoBehaviour
+{
 
 	public bool grabbed;
 	RaycastHit2D hit;
@@ -34,8 +36,8 @@ public class TRDGrabberScript : MonoBehaviour {
 	public Transform redTargeter;
 	
 	
-	public PlatformChecker platformChecker;
-	public bool isGrounded;
+	// public PlatformChecker platformChecker;
+	// public bool isGrounded;
 
 	
 
@@ -48,7 +50,7 @@ public class TRDGrabberScript : MonoBehaviour {
 	void Start()
 	{
 		
-		isGrounded = platformChecker.isGrounded;
+		// isGrounded = false;
 		// platformChecker = GameObject.FindWithTag("feet").GetComponent<PlatformChecker>();
 		ThisPlayer = GameObject.FindGameObjectWithTag("Player");
 		originalOrientation = ThisPlayer.transform.position;
@@ -112,7 +114,7 @@ public class TRDGrabberScript : MonoBehaviour {
 					obj.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 					
 					// this aims to allow us to launch player even when isGrounded
-					platformChecker.isGrounded = false;
+					// platformChecker.isGrounded = false;
 					//launch player
 					// PersonRB.velocity =  -lookDirection * bulletSpeed;
 					PersonRB.velocity = direction * bulletSpeed;
