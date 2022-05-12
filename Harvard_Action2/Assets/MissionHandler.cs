@@ -258,7 +258,7 @@ public class MissionHandler : MonoBehaviour
 
 		if (currGameStatus == "CargoCP")
 		{
-			thinkingList.Add("I've made it to the cargo hold. I should lock in that gear to test the system's functionality.");
+			thinkingList.Add("I've made it to the cargo hold. I should lock in that gear by pushing it towards the light to test the system's functionality.");
 
 		}
 
