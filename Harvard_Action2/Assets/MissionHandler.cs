@@ -345,7 +345,7 @@ public class MissionHandler : MonoBehaviour
 		// Beginning of Alien Area
 		if (currGameStatus == "CPSeeEgg")
 		{
-			thinkingList.Add("It looks like I have no choice... Into the translucent alien hamster ball thing to my left!");
+			thinkingList.Add("It looks like I have no choice... Into the translucent alien hamster ball thing!");
 
 		}
 
