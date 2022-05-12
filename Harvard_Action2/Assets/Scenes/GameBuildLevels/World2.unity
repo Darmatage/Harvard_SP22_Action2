@@ -23745,6 +23745,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6301257616527408334, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
     - target: {fileID: 6317249389425939061, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -23957,6 +23961,70 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 11.15
       objectReference: {fileID: 0}
+    - target: {fileID: 8755706802786156692, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803004453828, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803028358569, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803189403155, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803281348949, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803433041663, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803516195806, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803778922234, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803787665620, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706803959964781, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706804027272431, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706804047884537, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706804350355197, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706804487455204, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706804683787496, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8755706804724651942, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
+      objectReference: {fileID: 0}
     - target: {fileID: 8942010186134797517, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
       propertyPath: m_Name
       value: Ball for Goal
@@ -23972,6 +24040,10 @@ PrefabInstance:
     - target: {fileID: 9002209611288152760, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072274704519348282, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
+      propertyPath: m_TagString
+      value: virus
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5955842822201905787, guid: 8fbf70e0f0e570e4e833d9a35f399514, type: 3}
@@ -39409,6 +39481,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -774.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1918395092458328871, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2450696186694303173, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
@@ -39509,6 +39585,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1678
       objectReference: {fileID: 0}
+    - target: {fileID: 4171548724814356422, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4203909436296935425, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -39565,6 +39645,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 8a4145ac12e2cf949908f83ce7be22e3, type: 2}
+    - target: {fileID: 5824275229595576095, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6715331065771252731, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_Text
       value: 'Respawns: 100'
