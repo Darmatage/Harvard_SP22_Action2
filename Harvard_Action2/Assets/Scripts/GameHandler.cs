@@ -249,6 +249,10 @@ public class GameHandler : MonoBehaviour{
         public void StartGame(){
                 SceneManager.LoadScene("World2");
         }
+		
+		public void StartGameOpeningAnimation(){
+                SceneManager.LoadScene("Opening");
+        }
 
         public void OpenCredits(){
                 SceneManager.LoadScene("Credits");
@@ -262,6 +266,15 @@ public class GameHandler : MonoBehaviour{
                 Time.timeScale = 1f;
 				
 				Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
+				CurrentHealthNotStatic = 100f;
+				Deaths = 0;
+				
+                SceneManager.LoadScene("MainMenu");
+        }
+		
+		public void RestartGame_simple(){
+                Time.timeScale = 1f;
+				
 				CurrentHealthNotStatic = 100f;
 				Deaths = 0;
 				

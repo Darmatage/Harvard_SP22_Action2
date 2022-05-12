@@ -10,6 +10,7 @@ public class eggTransformer : MonoBehaviour
 	public GameObject AlienShipCamera;
 	public GameObject PlayerEgg; 
 	public AudioHandlerObj AHO;
+	public bool deactivateEgg = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class eggTransformer : MonoBehaviour
         
     }
 	public void OnTriggerEnter2D(Collider2D other) {
+		if(!deactivateEgg){
               if (other.gameObject.tag == "Player"){
 							
                          print("player has entered the egg!");
@@ -34,14 +36,12 @@ public class eggTransformer : MonoBehaviour
 						 // TURN OFF ALL SOUNDS FROM PREV PLAYER
 						 AHO.PlaySoundLoop("ox", false); // this would be only sound still on
               }
+		}
        }
 	   
 	   // one potential issue, everytime we pass a checkpoint will reset thinking....
 	   public void OnTriggerExit2D(Collider2D other) {
-              // if (other.gameObject.tag == "Checkpoint"){
-							// Debug.Log("I moved passed a checkpoint");
-							// gameHandler.newCheckPointTouched = false;
-              // }
+              deactivateEgg = true;
        }
 
 }
