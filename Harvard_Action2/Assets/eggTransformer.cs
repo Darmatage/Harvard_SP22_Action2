@@ -41,7 +41,9 @@ public class eggTransformer : MonoBehaviour
 	   
 	   // one potential issue, everytime we pass a checkpoint will reset thinking....
 	   public void OnTriggerExit2D(Collider2D other) {
+		       if (other.gameObject.tag == "Player"){
               deactivateEgg = true;
+			   }
        }
 
 }
