@@ -171,7 +171,7 @@ public class MissionHandler : MonoBehaviour
 		if (currLevelOfGame == "winGameGateway")
 		{
 			missionText.text = "You activate the escape pod. And you've escaped!";
-			SceneManager.LoadScene("WinScene");
+			SceneManager.LoadScene("Ending");
 		}
 
 

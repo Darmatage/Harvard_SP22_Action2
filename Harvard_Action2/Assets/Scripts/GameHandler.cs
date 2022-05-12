@@ -268,6 +268,15 @@ public class GameHandler : MonoBehaviour{
                 SceneManager.LoadScene("MainMenu");
         }
 		
+		public void RestartGame_simple(){
+                Time.timeScale = 1f;
+				
+				CurrentHealthNotStatic = 100f;
+				Deaths = 0;
+				
+                SceneManager.LoadScene("MainMenu");
+        }
+		
 		// gets oxygen from OxBarScript and then tracks it
 		public void setOxygen(){
                 OxygenLevel = Drag_Canvas_Here_OxygenTracker.getOxLevel();
