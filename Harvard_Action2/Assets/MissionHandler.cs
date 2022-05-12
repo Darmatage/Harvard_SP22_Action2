@@ -369,7 +369,7 @@ public class MissionHandler : MonoBehaviour
 		
 		if (currGameStatus == "cp_alien2")
 		{
-			thinkingList.Add("These orbs seem to have unsually strong gravity. Maybe I can use it to my advantage...");
+			thinkingList.Add("These orbs seem to have unusually strong gravity. Maybe I can use it to my advantage...");
 
 		}
 	
