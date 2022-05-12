@@ -7,35 +7,39 @@ using UnityEngine.Video;
 public class VideoManager : MonoBehaviour
 {
    // public GameObject VideoP;
-   public VideoPlayer video;
+   public VideoPlayer videoPlayer;
+   public GameObject screen;
  
  
 	void Awake()
 	{
-		video.Play();
-        video.loopPointReached += CheckOver;
+		screen.SetActive(false);
+		// video.Play();
+        // video.loopPointReached += CheckOver;
 	}
 	
 	
     void Start()
     {
+		screen.SetActive(true);
+		videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Opening.mp4");
+		videoPlayer.SetDirectAudioMute(0,false);
+		videoPlayer.Play();
+        videoPlayer.loopPointReached += CheckOver;
         // video = VideoP.GetComponent<VideoPlayer>();
         // video.Play();
         // StartCoroutine("WaitForMovieEnd");
     }
  
- 
-    public IEnumerator WaitForMovieEnd()
-    {
-		print("i am waiting for video");
-        // while (video.isPlaying)
-        // {
-            // yield return new WaitForEndOfFrame();
-         
-        // }
-		yield return new WaitForSeconds(10);
-        OnMovieEnded();
-    }
+	
+	public void startVideo ()
+	{
+		screen.SetActive(true);
+		videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Opening.mp4");
+		videoPlayer.SetDirectAudioMute(0,false);
+		videoPlayer.Play();
+        videoPlayer.loopPointReached += CheckOver;
+	}
  
      void OnMovieEnded()
     {
@@ -49,7 +53,7 @@ public class VideoManager : MonoBehaviour
     // }
 	     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-       SceneManager.LoadScene("World2");//the scene that you want to load after the video has ended.
+         SceneManager.LoadScene("World2");//the scene that you want to load after the video has ended.
     }
 	
 }
