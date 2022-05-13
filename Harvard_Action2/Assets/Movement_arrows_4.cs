@@ -84,7 +84,7 @@ public class Movement_arrows_4 : MonoBehaviour
     void Update()
     {
 		
-		if((Input.GetKeyDown("space") || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))))
+		if(isGrounded && (Input.GetKeyDown("space") || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))))
 		{
 			// isGrounded = false;
 			isJumping = true;
