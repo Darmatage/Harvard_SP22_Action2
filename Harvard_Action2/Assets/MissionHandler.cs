@@ -35,7 +35,7 @@ public class MissionHandler : MonoBehaviour
 
 	// for fading UI thought boxes
 	public bool makeBoxesFade = false;
-	public float NotificationDuration = 5f;
+	public float NotificationDuration = 500f;
 	private YieldInstruction fadeInstruction = new YieldInstruction();
 
 	// or make boxes vanish
@@ -201,16 +201,16 @@ public class MissionHandler : MonoBehaviour
 			thinkingList.Add("(Aim with your mouse and press W/Space to JUMP.)");
 		}
 
-		if (currGameStatus == "ThoughtDestroyed")
-		{
-
-			thinkingList.Add("The station is destroyed...                                        I'd better watch my oxygen levels...");
-		}
-
 		if (currGameStatus == "ThoughtGrab")
 		{
 
-			thinkingList.Add("That's a lot of debris. Maybe I can use it?                                          (Left Click to GRAB and THROW debris)");
+			thinkingList.Add("I can use this debris to push myself where I need to go!                                  (Right Click to Grab/Throw)");
+		}
+
+		if (currGameStatus == "ThoughtAirlock")
+		{
+
+			thinkingList.Add("The emergency airlock engaged! I'm going to have to depend on my suit's oxygen from now on.");
 		}
 
 		if (currGameStatus == "ThoughtOxy")
@@ -460,10 +460,12 @@ public class MissionHandler : MonoBehaviour
 			StartCoroutine(FadeOut(image1, image2, thinkingText, missionText));
 
 		}
-		if (makeBoxesVanish)
-		{
-			StartCoroutine(DelayDisappear());
-		}
+
+																			//MICAH Temporarily removed for testing
+		//if (makeBoxesVanish)
+		//{
+		//	StartCoroutine(DelayDisappear());
+		//}
 	}
 
 	// connect to 'x' button of mission
