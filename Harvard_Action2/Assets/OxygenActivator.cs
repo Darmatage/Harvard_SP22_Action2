@@ -53,7 +53,7 @@ public class OxygenActivator : MonoBehaviour
 			  OxActivateWarning.SetActive(true);
 			  Text OxActivateWarningText = OxActivateWarning.GetComponentInChildren<Text>(); //.text = "WARNING: Oxygen Depleting";
 			  
-              StartCoroutine(TypeText(OxActivateWarningText, "WARNING: Oxygen Depleting"));
+              StartCoroutine(TypeText(OxActivateWarningText, "WARNING: Oxygen Depleting "));
 			  isActivated = true;
 			  AudioHandler.PlaySound ("oxActivated");
 		}
@@ -71,13 +71,13 @@ public class OxygenActivator : MonoBehaviour
 	
 	IEnumerator TypeText(Text target, string fullText){
 		Debug.Log("I have been TypeText Effect");
-			float delay = 0.01f;
+			float delay = 0.04f;
 			for (int i = 0; i < fullText.Length; i++){
 					string currentText = fullText.Substring(0,i);
 					target.text = currentText;
 					yield return new WaitForSeconds(delay);
 			}
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(7f);
 			target.text = "";
 			yield return new WaitForSeconds(1f);
 			target.text = fullText;
