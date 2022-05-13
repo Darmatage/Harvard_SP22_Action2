@@ -6054,10 +6054,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b800ab656f534786a4678f198ad7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToOrbit: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  angle: 0
-  radius: 0
+  objectToOrbit: {fileID: 2715562421290713006}
+  direction: {x: 1, y: 1, z: 1}
+  angle: 1
+  radius: 1
   degreesPerSecond: 10
 --- !u!114 &2060047678741665909
 MonoBehaviour:
@@ -24403,6 +24403,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3083292053755336414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816451828769199230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce609ae2235de145ac2eb664cc3ad62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7504988519861490510}
 --- !u!114 &5422094043792851966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24420,19 +24433,6 @@ MonoBehaviour:
   angle: 8
   radius: 3
   degreesPerSecond: 10
---- !u!114 &3083292053755336414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8816451828769199230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ce609ae2235de145ac2eb664cc3ad62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 7504988519861490510}
 --- !u!1 &8841604851883724314
 GameObject:
   m_ObjectHideFlags: 0
