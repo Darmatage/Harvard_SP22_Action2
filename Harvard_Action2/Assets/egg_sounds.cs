@@ -10,6 +10,7 @@ public class egg_sounds : MonoBehaviour
 	public AudioHandlerObj AHO;
 	public Grab_throw_3_egg GT;
 	public bool grabbed = false;
+	public string platformName = "";
 	// GameObject gameHandler;
 	// public bool isWalking;
 	// public bool isFlying;
@@ -75,5 +76,21 @@ public class egg_sounds : MonoBehaviour
 		
 		grabbed = GT.grabbed;
         
+    }
+	
+	 void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "platform")
+        {
+           
+		   
+		   if(collision.gameObject.name != platformName)
+		   {
+		   AudioHandler.PlaySound ("egg_jump");
+		   }
+		   
+		   platformName = collision.gameObject.name;
+		   
+        }
     }
 }

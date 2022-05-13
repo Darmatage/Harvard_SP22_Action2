@@ -41,7 +41,7 @@ public class EscapePodMovement3 : MonoBehaviour
 			v = Input.GetAxis("Vertical");
 			
 			// bind space to jump
-				if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+				if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetMouseButton(1))
 				{
 					v = 1f;
 				}
@@ -108,14 +108,12 @@ public class EscapePodMovement3 : MonoBehaviour
 					   normalSurface = -hit1.normal;
 					   if(!isJumping)
 					   {
+						   // if(!Input.GetMouseButton(1))
+						   // {
 							rb.AddForce((dir * BootGravPower), ForceMode2D.Force);
+						   // }
 					   }
-					   else
-					   {
-						   
-						   
-					   }
-					   
+
 					   Debug.DrawRay(origin, dir, Color.blue, 5);
 					   break;
 				   }
