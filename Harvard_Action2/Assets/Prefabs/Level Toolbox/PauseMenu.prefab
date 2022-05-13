@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7490196, g: 0.9058824, b: 0.95294124, a: 1}
+  m_Color: {r: 0.12936097, g: 0.21119702, b: 0.4811321, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1386,6 +1386,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -74.799995
       objectReference: {fileID: 0}
+    - target: {fileID: 2918868445995784077, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: '= A or Left Arrow
+
+        = D or Right Arrow
+
+        = W or Up Arrow'
+      objectReference: {fileID: 0}
     - target: {fileID: 3304577637609795019, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 71
@@ -1394,6 +1402,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 62
       objectReference: {fileID: 0}
+    - target: {fileID: 3705342101013974017, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: '= Esc
+
+        = M, O, or X'
+      objectReference: {fileID: 0}
     - target: {fileID: 4473776806568221332, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 65.10001
@@ -1401,6 +1415,14 @@ PrefabInstance:
     - target: {fileID: 4473776806568221332, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -143.79999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218842331574252634, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: '= Mouse
+
+        = Left Mouse Click
+
+        = Right Mouse Click'
       objectReference: {fileID: 0}
     - target: {fileID: 6715759512307284447, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Pivot.x

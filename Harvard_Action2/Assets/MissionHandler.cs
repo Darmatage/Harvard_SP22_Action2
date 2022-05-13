@@ -103,7 +103,7 @@ public class MissionHandler : MonoBehaviour
 		// print( " the thinkingText.text = thinkingList[currThoughtIndex]);
 
 		// im M is pressed show mission and thought box
-		if (Input.GetKeyDown(KeyCode.M))
+		if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.X))
 		{
 			print("m has been pushed!");
 			colorOriginator();
