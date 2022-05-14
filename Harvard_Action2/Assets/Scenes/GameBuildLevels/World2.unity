@@ -9420,6 +9420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Station Debris (No Grab)_platform (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3360667535552752661, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5833381250072350612, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
       propertyPath: m_Mass
       value: 11.381677
@@ -28384,6 +28388,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
+--- !u!1 &1365356125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6956347744362150614, guid: 5978080fa044e97409bc3deeb62b9beb, type: 3}
+  m_PrefabInstance: {fileID: 6956347743627143571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1365356126
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365356125}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.071204185, y: -0.041826963}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 4}
+    newSize: {x: 8, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.802706, y: 2.9940605}
+  m_EdgeRadius: 0
 --- !u!1 &1366223622
 GameObject:
   m_ObjectHideFlags: 0
@@ -47034,6 +47069,10 @@ PrefabInstance:
     - target: {fileID: 2450696186694303173, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450696187072253074, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2450696187147977306, guid: 9c6fc30c3a800de4caf62e2d49508a77, type: 3}
       propertyPath: m_AnchoredPosition.y
