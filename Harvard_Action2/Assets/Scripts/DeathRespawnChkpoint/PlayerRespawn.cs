@@ -35,6 +35,11 @@ public class PlayerRespawn : MonoBehaviour
 	   public GameObject oxBar;
 	   public GameObject OxActivateWarning;
 	   public GameObject DeathOverlay;
+	   
+	   void Awake()
+	   {
+		   playerHealth = 100f;
+	   }
 
        void Start() {
               gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
@@ -43,8 +48,10 @@ public class PlayerRespawn : MonoBehaviour
        }
 
        void Update() {
-		   playerHealth = gameHandler.CurrentHealthNotStatic;
-				damage();
+		   // playerHealth = gameHandler.CurrentHealthNotStatic;
+				// damage();
+				if(GameHandler.respawnOn)
+				{
               if (respawning == false && pSpawn != null){
                      if (playerHealth <= 0f){ //&&  GameHandler.Deaths < GameHandler.MaxDeaths){
                             respawning = true; // cannot respawn or die again
@@ -80,23 +87,25 @@ public class PlayerRespawn : MonoBehaviour
 							
                      }
               }
+			  playerHealth = gameHandler.CurrentHealthNotStatic;
+			  }
        }
 	   
-	   public void damage(){
-		   if (GameHandler.CurrentHealth <= 20f){
+	   // public void damage(){
+		   // if (GameHandler.CurrentHealth <= 20f){
 			   // suitholeparent.SetActive(true);
 			   // animator.SetBool("Death", true);
 			 // particlesTemp = Instantiate(oxygenParticles, suithole.position, Quaternion.identity);
 			 // particlesTemp.transform.SetParent(suithole);
 			 // particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
-		   }
-		   else{
+		   // }
+		   // else{
 			    // suitholeparent.SetActive(false);
-				// animator.SetBool("CP", false);
-			
-		   }
+				//		   // }
 		   
-	   }
+	   // } animator.SetBool("CP", false);
+			
+
 		// get checkpoint name >> send this to GameHandler >> GameHandler records current pos >> sends to canvas SceneScript >> displays appropriate message based on input from gameHandler
        public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "Checkpoint"){

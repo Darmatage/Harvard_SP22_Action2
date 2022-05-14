@@ -56,6 +56,7 @@ public class OxygenActivator : MonoBehaviour
               StartCoroutine(TypeText(OxActivateWarningText, "WARNING: Oxygen Depleting "));
 			  isActivated = true;
 			  AudioHandler.PlaySound ("oxActivated");
+			  GameHandler.respawnOn = true; // turns on death 
 		}
 	  }
         

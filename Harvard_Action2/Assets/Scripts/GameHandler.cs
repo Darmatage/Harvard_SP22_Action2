@@ -54,6 +54,9 @@ public class GameHandler : MonoBehaviour{
 	public int currentLevelInteger = 0; // integer associated with current level
 	public int pointsScored = 0; // temporary way to track total positive behavior
 	public static int pointsScoredForUI;
+	
+	// to avoid opening death in WebGL
+	public static bool respawnOn = true;
 
     public string sceneName;
 	public string currCheckpointName = "CP_tutorial_1";
@@ -69,6 +72,9 @@ public class GameHandler : MonoBehaviour{
                         sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
                         sliderVolumeCtrl.value = 0.5f;
                 }
+				respawnOn = false;
+				
+				
         }
 
         void Start (){

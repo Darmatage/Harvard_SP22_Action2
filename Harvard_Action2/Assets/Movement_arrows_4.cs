@@ -121,7 +121,7 @@ public class Movement_arrows_4 : MonoBehaviour
 				//NEW STUFF BY DANIEL - activates on platform animation
 				animator.SetBool("Idle", true);
 				animator.SetBool("Float", false);
-				animator.SetBool("Light", true);
+				// animator.SetBool("", true);
 				animator.SetFloat("Walk", h);
 				animator.SetFloat("WalkB", -h);
 				
@@ -150,7 +150,7 @@ public class Movement_arrows_4 : MonoBehaviour
 				//NEW STUFF BY DANIEL - activates off platform animation
 				animator.SetBool("Idle", false);
 				animator.SetBool("Float", true);
-				animator.SetBool("Light", true);
+				// animator.SetBool("Light", true);
 				
 			}
 			
