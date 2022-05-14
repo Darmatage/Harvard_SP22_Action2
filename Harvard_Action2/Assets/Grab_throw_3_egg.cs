@@ -83,9 +83,9 @@ public class Grab_throw_3_egg : MonoBehaviour
 
 				// Debug.DrawRay(hit.transform.position, directionOfTarget*DistOfVect, Color.yellow, 2, false);
 
-				bool madeContact = hit.collider.tag == "grabbable";
-				bool isNull = hit.collider != null;
-				print("hit collider made contact true? " + isNull + " is grabbable? " + madeContact);
+				// bool madeContact = hit.collider.tag == "grabbable";
+				// bool isNull = hit.collider != null;
+				// print("hit collider made contact true? " + isNull + " is grabbable? " + madeContact);
 
 				if (hit.collider != null && hit.collider.tag == "grabbable")
 				{

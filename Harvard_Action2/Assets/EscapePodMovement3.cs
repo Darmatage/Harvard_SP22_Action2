@@ -177,7 +177,7 @@ public class EscapePodMovement3 : MonoBehaviour
 			{
 				print("collision with platform");
 				isGrounded = true;
-				rb.velocity =  rb.velocity/(rb.velocity);// * 1.09f);
+				rb.velocity =  Vector2.zero; //rb.velocity./(rb.velocity);// * 1.09f);
 				// print("rb.velocity/(rb.velocity "  + rb.velocity/(rb.velocity));
 				// AudioHandler.PlaySound ("egg_jump");
 
