@@ -68,8 +68,8 @@ public class eggTransformer : MonoBehaviour
 			  SpriteRenderer checkRend2 = wall.GetComponentInChildren<SpriteRenderer>();
 			  checkRend2.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
               yield return new WaitForSeconds(0.5f);
-              checkRend.material.color = Color.green;
-			  checkRend2.color = Color.green;
+              checkRend.material.color = Color.red;
+			  checkRend2.color = Color.red;
 			  
 			  // remove if checkpoint img changed
 			 

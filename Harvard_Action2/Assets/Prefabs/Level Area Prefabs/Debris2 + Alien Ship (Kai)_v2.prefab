@@ -28087,7 +28087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760854594787867462, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: virus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
@@ -46543,7 +46543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760854594787867462, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: virus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
@@ -47188,7 +47188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760854594787867462, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: virus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
