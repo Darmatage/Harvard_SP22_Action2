@@ -162,7 +162,7 @@ public class GameHandler : MonoBehaviour{
 		print("gameHandler has replenishHealth");
 		Drag_Canvas_Here_OxygenTracker.setOxLevel100(); // reset OX levels 
 		CurrentHealthNotStatic = 100f;
-		Deaths++;
+		// Deaths++;
 	}
 	
 

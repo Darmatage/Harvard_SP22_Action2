@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -21,11 +22,19 @@ public class PlayerRespawn : MonoBehaviour
 	   public float playerHealth;
 	   
 	   
+	   
+	   
 	   GameObject particlesTemp;
 	   
 	   // timer
 	   private float timer = 0.0f;
 	   public float waitTime = 2.0f;
+	   
+	   
+	   // I'm pulling in oxbar to make it disappear when player is dying
+	   public GameObject oxBar;
+	   public GameObject OxActivateWarning;
+	   public GameObject DeathOverlay;
 
        void Start() {
               gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
@@ -39,24 +48,33 @@ public class PlayerRespawn : MonoBehaviour
               if (respawning == false && pSpawn != null){
                      if (playerHealth <= 0f){ //&&  GameHandler.Deaths < GameHandler.MaxDeaths){
                             respawning = true; // cannot respawn or die again
+							
+							OxActivateWarning.SetActive(true);
+							oxBar.SetActive(false);
+							DeathOverlay.SetActive(true);
+							Text OxActivateWarningText = OxActivateWarning.GetComponentInChildren<Text>();
+							OxActivateWarningText.text = "DEATH IMMINENT";
+							
+									// playerHealth = 100;
 							playerHealth = 100;
-							
-							
-							Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
-			
-                            gameObject.transform.position = pSpn2;
-							gameObject.transform.rotation = Quaternion.identity;
-							gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero; // turn off RB
-							pSpawnScript.respawn(); // call a respawn
-					
+							var currDeaths = GameHandler.Deaths;
 							gameHandler.replenishHealth();
+							StartCoroutine(DelayDeath());		
+									// Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
+					
+									// gameObject.transform.position = pSpn2;
+									// gameObject.transform.rotation = Quaternion.identity;
+									// gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero; // turn off RB
+									// pSpawnScript.respawn(); // call a respawn
+							
+									// gameHandler.replenishHealth();
 							// GameHandler.Deaths ++;
 							
 							
 							 // timeDelay();
 							
 							// GameHandler.Deaths ++;
-							
+							GameHandler.Deaths = currDeaths + 1;
 							
 							respawning = false;
 							
@@ -157,23 +175,33 @@ public class PlayerRespawn : MonoBehaviour
 	   
 	   IEnumerator DelayDeath()  //  <-  its a standalone method
 		{
-			// print("dying in 3 seconds");
+			print("dying in 3 seconds");
+			
+			animator.SetTrigger("Death");
+			AudioHandler.PlaySound ("no_air");
 			
 			
-			
-			yield return new WaitForSeconds(2f);
+			yield return new WaitForSeconds(4.5f);
 			Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, transform.position.z);
 							
 							
 			  gameObject.transform.position = pSpn2;
 							gameObject.transform.rotation = Quaternion.identity;
+							Rigidbody2D rb = GetComponent<Rigidbody2D>();
+							rb.velocity = Vector2.zero; 
+							rb.angularVelocity  = 0f;
+							
 							pSpawnScript.respawn(); // call a respawn
 					
-							gameHandler.replenishHealth();
+							// gameHandler.replenishHealth();
 							// GameHandler.Deaths ++;
 							
 							animator.SetBool("Death", false);
-							
+							DeathOverlay.SetActive(false);
+							 animator.Rebind();
+							animator.Update(0f);
+							OxActivateWarning.SetActive(false);
+							oxBar.SetActive(true);
 			// print("ByeBye");
 			respawning = false;
 		}
@@ -202,7 +230,8 @@ public class PlayerRespawn : MonoBehaviour
 					
 							gameHandler.replenishHealth();
 							// print("animate the death!" + gameHandler.CurrentHealthNotStatic);
-							 
+			animator.SetBool("Death", false);
+			animator.SetBool("idle", true);
 				// Remove the recorded 2 seconds.
 				timer = timer - waitTime;
 				

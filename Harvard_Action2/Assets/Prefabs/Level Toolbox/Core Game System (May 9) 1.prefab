@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7490196, g: 0.9058824, b: 0.95294124, a: 1}
+  m_Color: {r: 0.18422928, g: 0.21842232, b: 0.8679245, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -384,7 +384,7 @@ RectTransform:
   - {fileID: 398565153507342818}
   - {fileID: 6618248857744475961}
   m_Father: {fileID: 210431258605834289}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -889,8 +889,9 @@ RectTransform:
   - {fileID: 3166029272938657824}
   - {fileID: 2985878083058315029}
   - {fileID: 6565642303681490763}
-  - {fileID: 102825413080096700}
   - {fileID: 3218183790077106788}
+  - {fileID: 8810160289302370138}
+  - {fileID: 102825413080096700}
   m_Father: {fileID: 6332294994734445865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6308,7 +6309,7 @@ GameObject:
   - component: {fileID: 4184386787840634420}
   - component: {fileID: 6418815125953202099}
   m_Layer: 5
-  m_Name: Text
+  m_Name: OxActivateWarningText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19697,6 +19698,9 @@ MonoBehaviour:
   suitholeparent: {fileID: 9015575821034540037}
   playerHealth: 0
   waitTime: 2
+  oxBar: {fileID: 0}
+  OxActivateWarning: {fileID: 0}
+  DeathOverlay: {fileID: 0}
 --- !u!114 &7695996571740660959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19783,6 +19787,7 @@ MonoBehaviour:
   AHO: {fileID: 1708242675528014871}
   GT: {fileID: 2468235817773288860}
   grabbed: 0
+  platformName: 
 --- !u!1 &4296032987405331678
 GameObject:
   m_ObjectHideFlags: 0
@@ -24599,7 +24604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3218183790077106788}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: OxActivateWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24618,7 +24623,7 @@ RectTransform:
   m_Children:
   - {fileID: 6718335064509224860}
   m_Father: {fileID: 210431258605834289}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35381,6 +35386,9 @@ MonoBehaviour:
   suitholeparent: {fileID: 3768473616191499035}
   playerHealth: 0
   waitTime: 2
+  oxBar: {fileID: 210431258605834293}
+  OxActivateWarning: {fileID: 4463809415228466055}
+  DeathOverlay: {fileID: 8786328698976071333}
 --- !u!114 &7168452083532358235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45951,6 +45959,81 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &8786328698976071333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8810160289302370138}
+  - component: {fileID: 6415702026196145730}
+  - component: {fileID: 2691577490418356353}
+  m_Layer: 5
+  m_Name: DeathOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &8810160289302370138
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786328698976071333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 210431258605834289}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1280, y: 720}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6415702026196145730
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786328698976071333}
+  m_CullTransparentMesh: 1
+--- !u!114 &2691577490418356353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786328698976071333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.1764706}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8833565011313423745
 GameObject:
   m_ObjectHideFlags: 0
