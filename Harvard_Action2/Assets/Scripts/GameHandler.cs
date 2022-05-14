@@ -61,7 +61,8 @@ public class GameHandler : MonoBehaviour{
     public string sceneName;
 	public string currCheckpointName = "CP_tutorial_1";
 	public bool newCheckPointTouched = false;
-	public bool respawning = false;
+	// public bool respawning = false;
+	public static bool respawnInProgress = false;
 	
         void Awake (){
 			
@@ -72,7 +73,8 @@ public class GameHandler : MonoBehaviour{
                         sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
                         sliderVolumeCtrl.value = 0.5f;
                 }
-				respawnOn = false;
+				respawnOn = false; // note this is only turned on by OxygenActivator (essentailly at that point player death can happen. OA is in the tutorial level as a GO
+				respawnInProgress = false;
 				
 				
         }

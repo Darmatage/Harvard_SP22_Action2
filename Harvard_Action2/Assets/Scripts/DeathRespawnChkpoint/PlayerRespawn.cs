@@ -55,7 +55,7 @@ public class PlayerRespawn : MonoBehaviour
               if (respawning == false && pSpawn != null){
                      if (playerHealth <= 0f){ //&&  GameHandler.Deaths < GameHandler.MaxDeaths){
                             respawning = true; // cannot respawn or die again
-							
+							GameHandler.respawnInProgress = respawning;
 							OxActivateWarning.SetActive(true);
 							oxBar.SetActive(false);
 							DeathOverlay.SetActive(true);
@@ -83,7 +83,7 @@ public class PlayerRespawn : MonoBehaviour
 							// GameHandler.Deaths ++;
 							GameHandler.Deaths = currDeaths + 1;
 							
-							respawning = false;
+							// respawning = false;
 							
                      }
               }
@@ -213,6 +213,7 @@ public class PlayerRespawn : MonoBehaviour
 							oxBar.SetActive(true);
 			// print("ByeBye");
 			respawning = false;
+			GameHandler.respawnInProgress = respawning;
 		}
 			
 		public void timeDelay()
