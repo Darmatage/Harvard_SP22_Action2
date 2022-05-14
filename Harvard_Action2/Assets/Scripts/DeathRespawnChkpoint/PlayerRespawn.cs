@@ -19,7 +19,7 @@ public class PlayerRespawn : MonoBehaviour
 	   public GameObject suitholeparent;
 	   private Transform suithole;
 	   private bool respawning = false;
-	   public float playerHealth;
+	   public float playerHealth = 100f;
 	   
 	   
 	   

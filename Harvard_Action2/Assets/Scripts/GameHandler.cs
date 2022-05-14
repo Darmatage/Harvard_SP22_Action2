@@ -248,6 +248,7 @@ public class GameHandler : MonoBehaviour{
 
         public void StartGame(){
                 SceneManager.LoadScene("World2");
+				CurrentHealthNotStatic = 100f;
         }
 		
 		public void StartGameOpeningAnimation(){
