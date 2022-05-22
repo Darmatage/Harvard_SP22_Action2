@@ -4353,6 +4353,14 @@ PrefabInstance:
       propertyPath: gameHandler
       value: 
       objectReference: {fileID: 6410926727732940971}
+    - target: {fileID: 8224745274032937899, guid: a8ec7f09d3780fc4fb2120a7ce34f5f6, type: 3}
+      propertyPath: m_Text
+      value: '= A or Left Arrow
+
+        = D or Right Arrow
+
+        = W or Up Arrow'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ec7f09d3780fc4fb2120a7ce34f5f6, type: 3}
 --- !u!223 &9054171096223652796

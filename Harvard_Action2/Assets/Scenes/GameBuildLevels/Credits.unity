@@ -6059,6 +6059,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -74.799995
       objectReference: {fileID: 0}
+    - target: {fileID: 2918868445995784077, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: '= A or Left Arrow
+
+        = D or Right Arrow
+
+        = W or Up Arrow'
+      objectReference: {fileID: 0}
     - target: {fileID: 3304577637609795019, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 71

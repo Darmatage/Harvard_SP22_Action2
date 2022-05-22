@@ -10,6 +10,12 @@ public class PlatformChecker : MonoBehaviour
 	public bool isGrounded = false;
 	public float miniPlatformPuller = -0.2f;
 	
+	// non upright platforms
+		public bool isGroundedOther = false;
+		public GameObject gravHelper;
+		RaycastHit hit;
+		
+	
     void Start()
     {
         player =  this.transform.parent.gameObject;
@@ -19,27 +25,24 @@ public class PlatformChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 dir = transform.position - gravHelper.transform.position;
+		dir = dir.normalized;
+		Ray ray = new Ray(transform.position, dir);
+		Physics.Raycast(ray, out hit);
+		Debug.DrawLine(transform.position, gravHelper.transform.position, Color.blue);
     }
 	
 	void FixedUpdate()
 	{
-		RaycastHit hit;
+		Vector3 dir = transform.position - gravHelper.transform.position;
+		dir = dir.normalized;
+		Ray ray = new Ray(transform.position, dir);
+		Physics.Raycast(ray, out hit);
+		// Debug.DrawRay(transform.position, dir*5, Color.red, 2.0f);
 
-        Vector3 p1 = transform.position;
+        // Vector3 p1 = transform.position;
         float distanceToObstacle = 0;
 
-        // Cast a sphere wrapping character controller 10 meters forward
-        // to see if it is about to hit anything.
-        // if (Physics.SphereCast(p1, 2, transform.forward, out hit, 10))
-        // {
-			// print("I am in spherecast " + hit.collider.tag);
-            // distanceToObstacle = hit.distance;
-			// if(hit.collider.tag == "platform")
-			// {
-				// isGrounded = true;
-			// }
-        // }
 		 Collider2D [] colliders = Physics2D.OverlapCircleAll(transform.position, 0.5f);
 		 if(colliders.Length > 1)
 		 {
@@ -54,7 +57,7 @@ public class PlatformChecker : MonoBehaviour
 					   
 					   // use a slower roation if collideers hit
 					   var tr = player.transform;
-						tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
+					   tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
 				   }
 				}
 		 }
@@ -66,6 +69,11 @@ public class PlatformChecker : MonoBehaviour
                            isGrounded = true;
 						   reorientToGround();
               }
+			   if (other.gameObject.tag == "platformOther"){
+						   AudioHandler.PlaySound ("land");
+                           isGroundedOther = true;
+						   reorientToGround2();
+              }
        }
 	   
 	   // one potential issue, everytime we pass a checkpoint will reset thinking....
@@ -73,12 +81,28 @@ public class PlatformChecker : MonoBehaviour
               if (other.gameObject.tag == "platform"){
 						isGrounded = false;
               }
+				   if (other.gameObject.tag == "platformOther"){
+				   isGroundedOther = false;
+              }
        }
 	   
 	   public void reorientToGround()
 	   {
 		   Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 		   var tr = player.transform;
+		   // tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
+		   tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.identity, 1f);
+		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
+		   tr.position = tr.position + new Vector3(0,miniPlatformPuller,0);
+		
+		   
+	   }
+	   
+	      public void reorientToGround2()
+	   {
+		   Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+		   var tr = player.transform;
+		   
 		   // tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
 		   tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.identity, 1f);
 		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
