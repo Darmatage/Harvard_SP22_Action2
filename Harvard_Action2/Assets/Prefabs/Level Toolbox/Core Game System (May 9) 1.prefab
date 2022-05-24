@@ -19108,6 +19108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   miniPlatformPuller: -0.2
+  miniPlatformPullerOther: -0.35
   isGroundedOther: 0
   isLeftRight: 0
   gravHelper: {fileID: 7814236231710723076}
@@ -35548,7 +35549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3443193768572897219}
   speed: 10
-  jumpPower: 0.3
+  jumpPower: 3
   dragCanvasHereOxyHealth: {fileID: 210431258605834288}
   underMyFeet: {fileID: 3443193768102092802}
   isGroundedOther: 0
