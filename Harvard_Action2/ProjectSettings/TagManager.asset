@@ -17,6 +17,10 @@ TagManager:
   - Thought
   - virus
   - machineLight
+  - platformLeft
+  - platformRight
+  - platformUpsidedown
+  - oxParticle
   layers:
   - Default
   - TransparentFX

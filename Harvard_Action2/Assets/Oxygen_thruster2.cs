@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 
@@ -20,29 +21,28 @@ private Quaternion armRotation;
 // private float OxygenTime;
 
 // DO NOT DELETE -- THIS IS MAKING OX PARTICLES WORK!
+public GameObject ptController;
 GameObject particlesTemp;
+
+// public List<String> myList; //= new List<String>();
 
 	void start()
 	{
-
+		// myList = new List<String>();
+		ptController.SetActive(false);
 	}
 
-
+	public void FixedUpdate()
+	{
+		
+	}
     // Update is called once per frame
     public  void Update()
     {
 		
 
-			// Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position; 
-			// float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
-			// armRotation = Quaternion.AngleAxis(angle, Vector3.forward); 
-			// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
-			// print("transform.rotation = Quaternion " + transform.rotation);
-			// armRotation = aimer.Update();
 			startOxygen(); 
-			
-			// GET PARTICLE ROTATION OR DIRECTION AND THEN THRUS IN OPPOSITE WAY OF THIS
-			// armRotation = transform.rotation;
+
 			
     }
 	
@@ -51,14 +51,19 @@ GameObject particlesTemp;
 		
 		 if (Input.GetMouseButtonDown(1) || (Input.GetKeyDown(KeyCode.E)))
 		 {
-			 OxygenOn = true;
+			 ptController.SetActive(true);
+			 // OxygenOn = true;
 			 // oxBar.timeToDamage = OxygenDepletion;
-			 print("the ox level in THRUSTER is " + oxBar.timeToDamage);
+			 // print("the ox level in THRUSTER is " + oxBar.timeToDamage);
 			 // print("oxygen is on particle!");
-			 particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
-			 particlesTemp.transform.SetParent(handEnd);
-			 particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
-			 //LookAt( position - ( target - position))
+			 if(!OxygenOn)
+			 {
+				 particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
+				 particlesTemp.transform.SetParent(handEnd);
+				 particlesTemp.transform.LookAt(particlesTemp.transform.position - ( shoulder.position - particlesTemp.transform.position));
+				 OxygenOn = true;
+			 }
+			//LookAt( position - ( target - position))
 ;             //particleEffect.Play();
 			 
 			// for oxygenBlaster
@@ -68,22 +73,13 @@ GameObject particlesTemp;
 			 // oxBar.TakeDamage(OxygenTime);
 			 // oxDamage();
 			 
-			
 		
 		 }
 		 if(Input.GetMouseButtonUp(1) || (Input.GetKeyDown(KeyCode.E)))
 		 {
 			 OxygenOn = false;
-			 //particleEffect.Stop() ;
-			 // float newOxygenTime = OxygenTime + 100f * Time.deltaTime;
-			 // OxygenTime = newOxygenTime - OxygenTime;
 			 Destroy(particlesTemp);
-			 // oxBar.timeToDamage = 5f;
-			 
-			 // oxBar.TakeDamage(OxygenTime);
-			 
-
-			 // return OxygenTime;
+			 ptController.SetActive(false);
 			 
 		 }
 		  

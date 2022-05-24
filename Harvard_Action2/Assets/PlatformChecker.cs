@@ -9,9 +9,11 @@ public class PlatformChecker : MonoBehaviour
     // Start is called before the first frame update
 	public bool isGrounded = false;
 	public float miniPlatformPuller = -0.2f;
+	public float miniPlatformPullerOther = -0.35f;
 	
 	// non upright platforms
 		public bool isGroundedOther = false;
+		public bool isLeftRight = false; // for left and right platforms 
 		public GameObject gravHelper;
 		RaycastHit hit;
 		
@@ -59,6 +61,15 @@ public class PlatformChecker : MonoBehaviour
 					   var tr = player.transform;
 					   tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
 				   }
+				   if (c.tag == "platformOther")
+				   {
+					   
+					   isGroundedOther = true;
+					   
+					   // use a slower roation if collideers hit
+					   var tr = player.transform;
+					   tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
+				   }
 				}
 		 }
 	}
@@ -66,13 +77,27 @@ public class PlatformChecker : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "platform"){
 						   AudioHandler.PlaySound ("land");
-                           isGrounded = true;
+                         
 						   reorientToGround();
+						   isGrounded = true;
               }
-			   if (other.gameObject.tag == "platformOther"){
+			   if (other.gameObject.tag == "platformLeft"){
 						   AudioHandler.PlaySound ("land");
-                           isGroundedOther = true;
-						   reorientToGround2();
+						   reorientLeft();
+						   isGroundedOther = true;
+						   isLeftRight = true;
+              }
+			   if (other.gameObject.tag == "platformRight"){
+						   AudioHandler.PlaySound ("land");
+						   reorientRight();
+						   isGroundedOther = true;
+						   isLeftRight = true;
+              }
+			   if (other.gameObject.tag == "platformUpsidedown"){
+						   AudioHandler.PlaySound ("land");
+						   print(" I am platformUpsidedown ");
+						   reorientUpsideDown();
+						   isGroundedOther = true;
               }
        }
 	   
@@ -81,8 +106,16 @@ public class PlatformChecker : MonoBehaviour
               if (other.gameObject.tag == "platform"){
 						isGrounded = false;
               }
-				   if (other.gameObject.tag == "platformOther"){
-				   isGroundedOther = false;
+			  if (other.gameObject.tag == "platformLeft"){
+						   isGroundedOther = false;
+						   isLeftRight = false;
+              }
+			  if (other.gameObject.tag == "platformRight"){
+						   isGroundedOther = false;
+						   isLeftRight = false;
+              }
+			  if (other.gameObject.tag == "platformUpsidedown"){
+						   isGroundedOther = false;
               }
        }
 	   
@@ -98,15 +131,50 @@ public class PlatformChecker : MonoBehaviour
 		   
 	   }
 	   
-	      public void reorientToGround2()
+	      public void reorientUpsideDown()
 	   {
 		   Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 		   var tr = player.transform;
 		   
 		   // tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
 		   tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.identity, 1f);
+		   // tr.Rotate(0, Time.deltaTime * 30, 0, Space.Self);
+		      Vector3 rot = tr.rotation.eulerAngles;
+			 rot = new Vector3(rot.x,rot.y,rot.z+180);
+			 tr.rotation = Quaternion.Euler(rot);
 		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
-		   tr.position = tr.position + new Vector3(0,miniPlatformPuller,0);
+		   tr.position = tr.position + new Vector3(0,-miniPlatformPullerOther,0);
+		
+		   
+	   }
+	    public void reorientRight()
+	   {
+		   Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+		   var tr = player.transform;
+		   
+		   // tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
+		   tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.identity, 1f);
+		   // tr.rotation *= Quaternion.Euler(0, -90, 0);
+		     Vector3 rot = tr.rotation.eulerAngles;
+			 rot = new Vector3(rot.x,rot.y,rot.z+90);
+			 tr.rotation = Quaternion.Euler(rot);
+		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
+		   tr.position = tr.position + new Vector3(miniPlatformPullerOther,0,0);
+		
+		   
+	   }
+	    public void reorientLeft()
+	   {
+		   Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+		   var tr = player.transform;
+		   
+		   // tr.rotation = Quaternion.RotateTowards(tr.rotation, Quaternion.identity, 100f * Time.deltaTime);
+		   tr.rotation = Quaternion.Slerp(tr.rotation, Quaternion.identity, 1f);
+		      Vector3 rot = tr.rotation.eulerAngles;
+			 rot = new Vector3(rot.x,rot.y,rot.z-90);
+			 tr.rotation = Quaternion.Euler(rot);
+		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
+		   tr.position = tr.position + new Vector3(-miniPlatformPullerOther,0,0);
 		
 		   
 	   }

@@ -47,15 +47,15 @@ public class OxygenMovement2 : MonoBehaviour
             OxygenOn = true;
             oxBar.timeToDamage = OxygenBurstDepletion;
             print("the ox level in THRUSTER is " + oxBar.timeToDamage);
-            particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
-            particlesTemp.transform.SetParent(handEnd);
-            particlesTemp.transform.LookAt(particlesTemp.transform.position - (shoulder.position - particlesTemp.transform.position));
+            // particlesTemp = Instantiate(oxygenParticles, handEnd.position, Quaternion.identity);
+            // particlesTemp.transform.SetParent(handEnd);
+            // particlesTemp.transform.LookAt(particlesTemp.transform.position - (shoulder.position - particlesTemp.transform.position));
         }
 
         else
         {
             OxygenOn = false;
-            Destroy(particlesTemp);
+            // Destroy(particlesTemp);
             oxBar.timeToDamage = OxygenDepletion;
         }
     }
