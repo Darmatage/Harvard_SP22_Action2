@@ -114,18 +114,6 @@ public class movementOtherPlatforms : MonoBehaviour
 
 				h = Input.GetAxisRaw("Horizontal");
 				v = Input.GetAxis("Vertical");
-				// if(isLeftRight) // we are on right/left platform
-				// {
-					// v = Input.GetAxisRaw("Horizontal");
-					// if(Input.GetKeyDown(KeyCode.LeftArrow))
-					// {
-					// h = new Vector2(0, 1)
-					// }
-					// if(Input.GetKeyDown(KeyCode.RightArrow))
-					// {
-					// h = new Vector2(0, -1)
-					// }
-				// }
 				
 				if(Input.GetKey(KeyCode.Space))
 				{

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+// using System;
 using UnityEngine;
 
 public class Movement_arrows_4 : MonoBehaviour
@@ -16,7 +17,11 @@ public class Movement_arrows_4 : MonoBehaviour
 	Quaternion startRotation;
 	float time;
 	// public GameObject underFeet;
+	
+	// check if GROUNDED
 	public PlatformChecker underMyFeet;
+	// public checkGrounded gravHelper;
+	// public String platformType;
 	// public GameObject myFeet;
 	RaycastHit2D hit;
 	// private bool isGrabbable;
@@ -84,7 +89,7 @@ public class Movement_arrows_4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
+		// platformType = gravHelper.typeOfPlatform;
 		if(isGrounded && (Input.GetKeyDown("space") || (Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow))))
 		{
 			// isGrounded = false;
@@ -171,19 +176,12 @@ void FixedUpdate()
 	Vector3 force = force3d;
 	Vector2 upDir = new Vector2(1,0);
    // Cast a ray straight down.
+
    RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-   
-   if (hit.collider != null && isGrounded == true)
+   print("collider tag is " + hit.collider.tag );
+   if (hit.collider != null && isGrounded == true) // && hit.collider.tag == "platform")// && platformType == "platform")//&& hit.collider.tag == "platform")
     {
-		// transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
-		// time += Time.deltaTime;
 		
-		// reorient player to platform
-		// transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 100f * Time.deltaTime);
-		
-		// pull player down to platform sice they rotate and can disconnect
-		// rigidbody2d.AddForce(Vector2.down * 10f);
-		// rigidbody2d.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
 		
 		Vector3 surfaceNorm3d = new Vector3(hit.normal.x, hit.normal.y, 0);
 		
@@ -199,14 +197,9 @@ void FixedUpdate()
 	// if (force2D != Vector2.zero) nonZeroForce = force2D;
 	if(h != 0 && v == 0)
 		{
-			// AudioHandler.PlaySoundLoop ("walk", true);
-			// AudioHandler.PlaySoundLoop ("ox", false);
-			// walking on metal
-			// AudioHandler.PlaySound ("walk");
-			// print("move horiz " + force2D*h*speed + " h " + h + " force2d " + force2D + " speed " + speed + "vel " + rigidbody2d.velocity);
-			
+
 						// if we're on a horizontal surface
-			if (force2D == Vector2.zero)
+			if (force2D == Vector2.zero || angle > .75)
 			{
 				force2D = new Vector2(1,0);
 				horizontalSpeed = speed;
@@ -223,20 +216,7 @@ void FixedUpdate()
 		{
 			rigidbody2d.velocity = Vector2.zero;
 		}
-	// if (v != 0)
-	// {
-		// isGrounded = false;
-		 // Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-		 // var angle2 = Mathf.Atan2(direction.x, direction.y)*Mathf.Rad2Deg; //get angle
-		 // print("the angle of jump is " + angle2 + "the force will be "+ direction*jumpPower);
-		// maybe adding to it will be with mouse
-		// rigidbody2d.AddForce(Vector2.up, ForceMode2D.Impulse);
-		// rigidbody2d.velocity = Vector2.zero;
-		// rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
-
-		 // StartCoroutine(delay());
-		 // isJumping = false;
-	// }
+	
 	}
 
 }
