@@ -9,7 +9,7 @@ public class PlatformChecker : MonoBehaviour
     // Start is called before the first frame update
 	public bool isGrounded = false;
 	public float miniPlatformPuller = -0.2f;
-	public float miniPlatformPullerOther = -0.35f;
+	public float miniPlatformPullerOther = -0.4f;
 	
 	// non upright platforms
 		public bool isGroundedOther = false;
@@ -86,6 +86,7 @@ public class PlatformChecker : MonoBehaviour
 						   reorientLeft();
 						   isGroundedOther = true;
 						   isLeftRight = true;
+
               }
 			   if (other.gameObject.tag == "platformRight"){
 						   AudioHandler.PlaySound ("land");
@@ -107,10 +108,12 @@ public class PlatformChecker : MonoBehaviour
 						isGrounded = false;
               }
 			  if (other.gameObject.tag == "platformLeft"){
+							StartCoroutine(delay());
 						   isGroundedOther = false;
 						   isLeftRight = false;
               }
 			  if (other.gameObject.tag == "platformRight"){
+							StartCoroutine(delay());
 						   isGroundedOther = false;
 						   isLeftRight = false;
               }
@@ -159,7 +162,7 @@ public class PlatformChecker : MonoBehaviour
 			 rot = new Vector3(rot.x,rot.y,rot.z+90);
 			 tr.rotation = Quaternion.Euler(rot);
 		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
-		   tr.position = tr.position + new Vector3(miniPlatformPullerOther,0,0);
+		   // tr.position = tr.position + new Vector3(miniPlatformPullerOther,0,0);
 		
 		   
 	   }
@@ -174,8 +177,16 @@ public class PlatformChecker : MonoBehaviour
 			 rot = new Vector3(rot.x,rot.y,rot.z-90);
 			 tr.rotation = Quaternion.Euler(rot);
 		   // rb.AddForce(Vector2.down*10f, ForceMode2D.Impulse);
-		   tr.position = tr.position + new Vector3(-miniPlatformPullerOther,0,0);
+		   // tr.position = tr.position + new Vector3(-miniPlatformPullerOther,0,0);
 		
 		   
 	   }
+	   
+	   // add a slight delay so player can stick a little longer
+	   IEnumerator delay()  
+		{
+			print("i'm in delay land");
+			yield return new WaitForSeconds(0.4f);
+			print("i'm in delay AFTER land");
+		}
 }

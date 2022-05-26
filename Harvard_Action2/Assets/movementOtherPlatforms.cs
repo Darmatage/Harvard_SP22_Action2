@@ -17,6 +17,7 @@ public class movementOtherPlatforms : MonoBehaviour
 	float time;
 	// public GameObject underFeet;
 	public PlatformChecker underMyFeet;
+	public GameObject gravHelper;
 	// public GameObject myFeet;
 	RaycastHit2D hit;
 	// private bool isGrabbable;
@@ -33,6 +34,8 @@ public class movementOtherPlatforms : MonoBehaviour
 	public bool isFiltering = false;
 	public bool isJumping = false;
 	public bool isLeftRight = false;
+	public bool upWleft = true;
+	public bool upWright = false;
 	
 
 
@@ -142,8 +145,7 @@ public class movementOtherPlatforms : MonoBehaviour
 		rigidbody2d.velocity = Vector2.zero;
 		rigidbody2d.AddForce(direction*jumpPower, ForceMode2D.Impulse);
 		
-
-		 StartCoroutine(delay());
+		if(isJumping) StartCoroutine(delay());
 		 // isJumping = false;
 	}
 
@@ -174,12 +176,24 @@ void FixedUpdate()
     // isGroundedOther = underMyFeet.isGroundedOther;
 	Vector3 force3d = new Vector3 (0,-1,0);
 	Vector3 force = force3d;
-	Vector2 upDir = new Vector2(1,0);
+	// Vector2 upDir = new Vector2(1,0);
    // Cast a ray straight down.
-   RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
+   // RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
    
+        Vector2 dir2 = transform.position - gravHelper.transform.position;
+        dir2 = -dir2.normalized;
+        Debug.DrawRay(transform.position, dir2*4,Color.red, 1.0f);
+		
+		// this ray cast should go from player to their gravhelper
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, dir2);
+		
+		
+   print("hit.collider " + hit.collider.tag);
    if (hit.collider != null && isGroundedOther == true)
     {
+		
+		rigidbody2d.AddForce(dir2*2, ForceMode2D.Force);
+		// rigidbody2d.freezeRotation = true;
 		
 		Vector3 surfaceNorm3d = new Vector3(hit.normal.x, hit.normal.y, 0);
 		
@@ -196,9 +210,8 @@ void FixedUpdate()
 	if(h != 0 && v == 0)
 		{
 
-			if (force2D == Vector2.zero)
-			{
-				print("zero");
+			// if (force2D == Vector2.zero)
+			// {
 				if(!isLeftRight)
 				{
 				force2D = new Vector2(1,0);
@@ -206,22 +219,23 @@ void FixedUpdate()
 				rigidbody2d.velocity = (force2D*h*horizontalSpeed);
 				print("upsideDown");
 				}
-				else{
-					force2D = new Vector2(0,1);
-					horizontalSpeed = speed;
-					rigidbody2d.velocity = (force2D*h*horizontalSpeed);
+				else // LEFT RIGHT platforms
+				{
+					if(upWleft && hit.collider.tag == "platformLeft")
+					{
+						h = -h;
+						print("I have changed platformLeft");
+					}
+					if(upWright && hit.collider.tag == "platformRight")
+					{
+						h = -h;
+					}
+						force2D = new Vector2(0,1);
+						horizontalSpeed = speed;
+						rigidbody2d.velocity = (force2D*h*horizontalSpeed);
+	
 				}
-			}
-			else // hills
-			{
-				// if (angle > 0) rigidbody2d.AddForce(force2D*h*speed*1.5f, ForceMode2D.Force);
-				// if (angle < 0) rigidbody2d.AddForce(-force2D*h*speed*1.5f, ForceMode2D.Force);
-				force2D = new Vector2(0,1);
 
-				horizontalSpeed = speed;
-				print("I am in lr " + force2D*h*horizontalSpeed);
-				rigidbody2d.velocity = (force2D*h*horizontalSpeed);
-			}
 
 		}
 	if (h == 0 && v == 0)
@@ -230,6 +244,9 @@ void FixedUpdate()
 		}
 
 	}
+	// else{
+		// rigidbody2d.freezeRotation = false;
+	// }
 
 }
 

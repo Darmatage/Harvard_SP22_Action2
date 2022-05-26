@@ -178,7 +178,7 @@ void FixedUpdate()
    // Cast a ray straight down.
 
    RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-   print("collider tag is " + hit.collider.tag );
+   
    if (hit.collider != null && isGrounded == true) // && hit.collider.tag == "platform")// && platformType == "platform")//&& hit.collider.tag == "platform")
     {
 		

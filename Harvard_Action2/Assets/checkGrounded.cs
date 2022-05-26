@@ -23,37 +23,22 @@ public class checkGrounded : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-	void OnTriggerEnter2D(Collider2D other)
-    {
-        // if(other.tag == "platform")
-		// {
-			// isPlatform = true;
-		// }
-		if(other.tag == "platform" || other.tag == "platformLeft" || other.tag == "platformRight" || other.tag == "platformUpsidedown" )
-		{
-			objectCollision = true;
-			typeOfPlatform = other.tag;
-			
-		}
-		else{
-			typeOfPlatform = "";
-		}
+        Collider2D [] colliders = Physics2D.OverlapCircleAll(transform.position, 2f);
+		print("colliders.Length " + colliders.Length);
 		
-		print("the PLATfORMTYPE is " + typeOfPlatform);
+		foreach (Collider2D other in colliders) 
+				{
+				   if(other.tag == "platform" || other.tag == "platformLeft" || other.tag == "platformRight" || other.tag == "platformUpsidedown" )
+					{
+						objectCollision = true;
+						typeOfPlatform = other.tag;
+						
+					}
+					else
+					{
+						typeOfPlatform = "did not find platform";
+					}
+				}
     }
-	void OnTriggerExit2D(Collider2D other)
-    {
-        // if(other.tag == "platform")
-		// {
-			// isPlatform = true;
-		// }
-		if(other.tag == "platform" || other.tag == "platformLeft" || other.tag == "platformRight" || other.tag == "platformUpsidedown" )
-		{
-			objectCollision = false;
-			typeOfPlatform = "";
-			
-		}
-    }
+	
 }
