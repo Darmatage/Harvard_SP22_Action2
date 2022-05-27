@@ -5,7 +5,7 @@ using UnityEngine;
 // this is for isGrounded movement
 public class AudioHandler : MonoBehaviour
 {
-	public static AudioClip walk, ox, jump, spike, checkpoint, level, ox_refill, throw_debris, land, no_air, egg_jump, egg_walk, oxActivated;
+	public static AudioClip walk, ox, jump, spike, checkpoint, level, ox_refill, throw_debris, land, no_air, egg_jump, egg_walk, oxActivated, airlock, door, door_warning;
 	public static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -24,6 +24,9 @@ public class AudioHandler : MonoBehaviour
 		egg_jump = Resources.Load<AudioClip> ("egg_jump");
 		egg_walk = Resources.Load<AudioClip> ("egg_walk");
 		oxActivated = Resources.Load<AudioClip> ("oxActivated");
+		airlock = Resources.Load<AudioClip> ("airlock");
+		door_warning = Resources.Load<AudioClip> ("door_warning");
+		door = Resources.Load<AudioClip> ("door");
 		audioSrc = GetComponent<AudioSource>();
     }
 
@@ -80,6 +83,18 @@ public class AudioHandler : MonoBehaviour
 			case "oxActivated":
 				audioSrc.PlayOneShot(oxActivated);
 				break;
+			case "airlock":
+				audioSrc.PlayOneShot(airlock, 1);
+				print("I AM PLAYING AIRLOCK!!");
+				break;
+			case "door_warning":
+				audioSrc.PlayOneShot(door_warning);
+				print("I AM PLAYING doorW!!");
+				break;
+			case "door":
+				audioSrc.PlayOneShot(door, 1);
+				print("I AM PLAYING door!!");
+				break;
 		}
 	}
 	
@@ -103,20 +118,6 @@ public class AudioHandler : MonoBehaviour
 					audioSrc.loop = false;
 				}
 				break;
-			// case "ox":
-				// audioSrc.clip = ox;
-				// audioSrc.loop = true;
-				// if(play)
-				// {
-					// if(!audioSrc.isPlaying)
-						// audioSrc.Play();
-				// }
-				// else
-				// {
-					// audioSrc.Stop();
-					// audioSrc.loop = false;
-				// }
-				// break;
 		}
 	}
 	

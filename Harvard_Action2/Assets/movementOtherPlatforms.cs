@@ -18,6 +18,7 @@ public class movementOtherPlatforms : MonoBehaviour
 	// public GameObject underFeet;
 	public PlatformChecker underMyFeet;
 	public GameObject gravHelper;
+	public GameObject centerOfGravity;
 	// public GameObject myFeet;
 	RaycastHit2D hit;
 	// private bool isGrabbable;
@@ -182,18 +183,18 @@ void FixedUpdate()
    
         Vector2 dir2 = transform.position - gravHelper.transform.position;
         dir2 = -dir2.normalized;
-        Debug.DrawRay(transform.position, dir2*4,Color.red, 1.0f);
+        Debug.DrawRay(centerOfGravity.transform.position, dir2*2,Color.red, 1.0f);
 		
 		// this ray cast should go from player to their gravhelper
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, dir2);
+		RaycastHit2D hit = Physics2D.Raycast(centerOfGravity.transform.position, dir2, 2f);
 		
 		
-   print("hit.collider " + hit.collider.tag);
+   print("hit.collider " + hit.collider.tag); // this basically controls when player isGrounded
    if (hit.collider != null && isGroundedOther == true)
     {
 		
 		rigidbody2d.AddForce(dir2*2, ForceMode2D.Force);
-		// rigidbody2d.freezeRotation = true;
+		rigidbody2d.freezeRotation = true;
 		
 		Vector3 surfaceNorm3d = new Vector3(hit.normal.x, hit.normal.y, 0);
 		
@@ -244,9 +245,9 @@ void FixedUpdate()
 		}
 
 	}
-	// else{
-		// rigidbody2d.freezeRotation = false;
-	// }
+	else{
+		rigidbody2d.freezeRotation = false;
+	}
 
 }
 

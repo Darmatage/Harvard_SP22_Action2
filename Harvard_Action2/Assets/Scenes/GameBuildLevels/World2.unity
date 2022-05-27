@@ -47621,5 +47621,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airlock
       objectReference: {fileID: 0}
+    - target: {fileID: 8059663620593618528, guid: f3c5f8a0bcb7097409bd6a4fb1752235, type: 3}
+      propertyPath: m_Size.x
+      value: 0.17533608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059663620593618528, guid: f3c5f8a0bcb7097409bd6a4fb1752235, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.012668036
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3c5f8a0bcb7097409bd6a4fb1752235, type: 3}

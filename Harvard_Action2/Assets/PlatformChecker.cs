@@ -31,7 +31,7 @@ public class PlatformChecker : MonoBehaviour
 		dir = dir.normalized;
 		Ray ray = new Ray(transform.position, dir);
 		Physics.Raycast(ray, out hit);
-		Debug.DrawLine(transform.position, gravHelper.transform.position, Color.blue);
+		// Debug.DrawLine(transform.position, gravHelper.transform.position, Color.blue);
     }
 	
 	void FixedUpdate()
