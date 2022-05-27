@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class animateFromPlayer : MonoBehaviour
+public class AnimateAirlock : MonoBehaviour
 {
 	public Animator animator;
     // Start is called before the first frame update
@@ -20,9 +20,9 @@ public class animateFromPlayer : MonoBehaviour
 	public void OnTriggerEnter2D(Collider2D other) {
               if (other.gameObject.tag == "playerCheckpoint"){
 				// print("player has entered ");
-				//animator.SetTrigger("CP");	
-				 animator.SetBool("CP", true);
-				// animator.Play("CP");
+				// animator.SetTrigger("Airlock");	
+				 animator.SetBool("Airlock", true);
+				// animator.Play("Airlock");
 			  }
 							
 							
@@ -31,7 +31,7 @@ public class animateFromPlayer : MonoBehaviour
 			  public void OnTriggerExit2D(Collider2D other) {
               if (other.gameObject.tag == "playerCheckpoint"){
 							
-				// animator.SetBool("CP", false);	
+				// animator.SetBool("Airlock", false);	
 				//animator.speed = 0f;
 			  }
 							
