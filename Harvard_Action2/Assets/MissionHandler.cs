@@ -204,7 +204,13 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtGrab")
 		{
 
-			thinkingList.Add("I can use this debris to push myself where I need to go!  \r\n  (Right Click to Grab/Throw)");
+			thinkingList.Add(" Oh no, there's debris everywhere! \r\n  (Right Click to Grab/Throw)");
+		}
+
+		if (currGameStatus == "ThoughtGrab2")
+		{
+
+			thinkingList.Add("I'd better avoid those red spikes... \r\n	I can use this debris to push myself where I need to go!");
 		}
 
 		if (currGameStatus == "ThoughtAirlock")
@@ -253,7 +259,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtSpike")
 		{
 
-			thinkingList.Add("Those red things look dangerous... I'd better avoid them.");
+			thinkingList.Add("Space thorns everywhere. Why not.");
 		}
 
 		if (currGameStatus == "CargoCP")
