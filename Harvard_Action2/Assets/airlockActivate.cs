@@ -7,6 +7,7 @@ public class airlockActivate : MonoBehaviour
 	public Animator animator;
 	public GameObject firstDoor;
 	public GameObject secondDoor;
+	public bool activated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,16 @@ public class airlockActivate : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D col)
     {
+			if(!activated)
+			{
 	   	   AudioHandler.PlaySound("door");
+			}
        if(col.tag == "player")
 	   {
 	
 		   // AudioHandler.PlaySound("airlock");
 		   // firstDoor.SetActive(true);
-		   animator.SetBool("Airlock", true);
+		   // animator.SetBool("Airlock", true);
 		   secondDoor.SetActive(false);
 	   }
     }
@@ -35,8 +39,10 @@ public class airlockActivate : MonoBehaviour
     {
 	  
 
-	  
+	  if(!activated)
+	  {
 		StartCoroutine(delay());
+	  }
        if(col.tag == "player")
 	   {
 
@@ -52,5 +58,6 @@ public class airlockActivate : MonoBehaviour
 			print("i'm in delay");
 			yield return new WaitForSeconds(3f);
 			AudioHandler.PlaySound("door");
+			activated = true;
 		}
 }

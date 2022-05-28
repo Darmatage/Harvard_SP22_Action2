@@ -66,7 +66,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("What just happened? I'd better check the rest of the space station.                    (Right Mouse Button to move in space)");
+		thinkingList.Add("What just happened? I'd better check the rest of the space station.            \r\n        (Right Mouse Button to move in space)");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count - 1;
 
@@ -204,7 +204,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtGrab")
 		{
 
-			thinkingList.Add("I can use this debris to push myself where I need to go!                                  (Right Click to Grab/Throw)");
+			thinkingList.Add("I can use this debris to push myself where I need to go!  \r\n  (Right Click to Grab/Throw)");
 		}
 
 		if (currGameStatus == "ThoughtAirlock")
@@ -222,7 +222,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtMagnetic")
 		{
 
-			thinkingList.Add("That's a magnetic surface.                                                          I'll stick to it if my feet get close. (press A/D to walk)");
+			thinkingList.Add("That's a magnetic surface.    \r\n  I'll stick to it if my feet get close.    \r\n   (press A/D to walk)");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")
@@ -448,7 +448,7 @@ public class MissionHandler : MonoBehaviour
 
 		// button changes
 		ThinkingDisplay.SetActive(true); ;
-		hideBox.GetComponent<Image>().color = Color.blue;
+		// hideBox.GetComponent<Image>().color = Color.blue;
 		hideButtonText.text = " [o]";
 
 
@@ -518,7 +518,6 @@ public class MissionHandler : MonoBehaviour
 	// displays the prev thought -- connect this to prevButton of thinking box
 	public void prevThought()
 	{
-		print("prevThought is clicked ! ");
 		if (currThoughtIndex > 0)
 		{
 			currThoughtIndex = currThoughtIndex - 1;

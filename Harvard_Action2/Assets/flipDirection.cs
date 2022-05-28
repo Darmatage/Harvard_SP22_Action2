@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class flipDirection : MonoBehaviour
 {
-	public bool isGrounded = true;
+	public bool isGrounded = false;
+	public bool isGroundedOther =  false;
+	public bool doNotActivateOnPlatform = false;
+	public bool doNotActivateOnPlatformOther = false;
 	public PlatformChecker PlatformCheckerScript;
 	Rigidbody2D rb;
 	public GameObject torso;
@@ -20,8 +23,15 @@ public class flipDirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		isGrounded = PlatformCheckerScript.isGrounded;
-		if(isGrounded)
+		if(!doNotActivateOnPlatform) 
+		{
+			isGrounded = PlatformCheckerScript.isGrounded;
+		}
+		if(!doNotActivateOnPlatformOther)   
+		{			
+			isGroundedOther = PlatformCheckerScript.isGroundedOther;
+		}
+		if(isGrounded || isGroundedOther)
 		{
 			Flip();
 		}
