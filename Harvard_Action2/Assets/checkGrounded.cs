@@ -25,7 +25,7 @@ public class checkGrounded : MonoBehaviour
     {
         Collider2D [] colliders = Physics2D.OverlapCircleAll(transform.position, 2f);
 		print("colliders.Length " + colliders.Length);
-		
+		// Colliders2D [] raycastAll = Physics2D.RaycastAll
 		foreach (Collider2D other in colliders) 
 				{
 				   if(other.tag == "platform" || other.tag == "platformLeft" || other.tag == "platformRight" || other.tag == "platformUpsidedown" )

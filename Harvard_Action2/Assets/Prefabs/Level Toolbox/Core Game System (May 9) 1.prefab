@@ -19102,6 +19102,7 @@ GameObject:
   - component: {fileID: 3443193768102092802}
   - component: {fileID: 3443193768102092803}
   - component: {fileID: 3443193768102092801}
+  - component: {fileID: 3405576683387109767}
   m_Layer: 0
   m_Name: underFeet
   m_TagString: Untagged
@@ -19184,6 +19185,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3405576683387109767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443193768102092805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec06e787cac13b4aaf158fc1ea5fb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectCollision: 0
+  typeOfPlatform: 
+  gravHelper: {fileID: 7814236231710723076}
 --- !u!1 &3600145909143954802
 GameObject:
   m_ObjectHideFlags: 0
@@ -35391,6 +35407,7 @@ GameObject:
   - component: {fileID: 2488678416831241309}
   - component: {fileID: 5025148391246951987}
   - component: {fileID: 5280719822957732317}
+  - component: {fileID: 6314372566916711560}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -35545,6 +35562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 1
+  isGroundedOther: 0
+  doNotActivateOnPlatform: 0
+  doNotActivateOnPlatformOther: 0
   PlatformCheckerScript: {fileID: 3443193768102092802}
   torso: {fileID: 7522788393609653264}
 --- !u!114 &5025148391246951987
@@ -35591,6 +35611,21 @@ MonoBehaviour:
   isLeftRight: 0
   upWleft: 0
   upWright: 0
+--- !u!114 &6314372566916711560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168452083532358234}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c4785d5de8a4648bce472d766c7d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apc: {fileID: 3405576683387109767}
+  animTorso: {fileID: 3443193768572897219}
+  flipped: 0
 --- !u!1 &7384475472304184827
 GameObject:
   m_ObjectHideFlags: 0

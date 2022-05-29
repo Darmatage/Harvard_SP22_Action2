@@ -183,7 +183,7 @@ void FixedUpdate()
    
         Vector2 dir2 = transform.position - gravHelper.transform.position;
         dir2 = -dir2.normalized;
-        Debug.DrawRay(centerOfGravity.transform.position, dir2*2,Color.red, 1.0f);
+        // Debug.DrawRay(centerOfGravity.transform.position, dir2*2,Color.red, 1.0f);
 		
 		// this ray cast should go from player to their gravhelper
 		RaycastHit2D hit = Physics2D.Raycast(centerOfGravity.transform.position, dir2, 2f);

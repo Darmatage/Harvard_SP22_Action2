@@ -31,7 +31,7 @@ public class flipDirection : MonoBehaviour
 		{			
 			isGroundedOther = PlatformCheckerScript.isGroundedOther;
 		}
-		if(isGrounded || isGroundedOther)
+		if(isGrounded)
 		{
 			Flip();
 		}
