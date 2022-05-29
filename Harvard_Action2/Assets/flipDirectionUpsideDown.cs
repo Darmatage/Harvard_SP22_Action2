@@ -29,18 +29,20 @@ public class flipDirectionUpsideDown : MonoBehaviour
 			animTorso.transform.Rotate(0, 180, 0);
 			
 		}
-		else if(apc.typeOfPlatform != "platformUpsidedown" && flipped == true)
+		// else if(apc.typeOfPlatform != "platformUpsidedown" && flipped == true)
+		// {
+			// flipped = false;
+			// print("i am flippingAgain! " + origAnimRot );
+			// animTorso.transform.Rotate(origAnimRot);
+			// animTorso.transform.Rotate(0, 180, 0);
+		// }
+		
+		if (apc.typeOfPlatform == "platform" && flipped == true)
 		{
 			flipped = false;
-			print("i am flippingAgain! " + origAnimRot );
+			print("i am flippingAgainNorm! " + origAnimRot );
 			// animTorso.transform.Rotate(origAnimRot);
 			animTorso.transform.Rotate(0, 180, 0);
-		}
-		
-		if (apc.typeOfPlatform == "platform")
-		{
-			print("i am flippingAgainNorm! " + origAnimRot );
-			animTorso.transform.Rotate(origAnimRot);
 		}
     }
 }
