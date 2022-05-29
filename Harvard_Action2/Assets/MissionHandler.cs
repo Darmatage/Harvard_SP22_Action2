@@ -198,7 +198,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtJump")
 		{
 
-			thinkingList.Add("(Aim with your mouse and press W/Space to JUMP.)");
+			thinkingList.Add("(Aim with your mouse \r\n and press W/Space to JUMP.)");
 		}
 
 		if (currGameStatus == "ThoughtGrab")
