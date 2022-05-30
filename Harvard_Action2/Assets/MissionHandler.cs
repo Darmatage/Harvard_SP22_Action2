@@ -66,7 +66,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("What just happened? I'd better check the rest of the space station.            \r\n        (Right Mouse Button to move in space)");
+		thinkingList.Add("What just happened? I'd better check the rest of the space station.\r\n(Click [Right Mouse Button] to propel with oxygen)");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count - 1;
 
@@ -198,13 +198,13 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtJump")
 		{
 
-			thinkingList.Add("(Aim with your mouse \r\n and press W/Space to JUMP.)");
+			thinkingList.Add("(Aim with your mouse \r\n and press [W] or [SPACEBAR]\r\nto JUMP.)");
 		}
 
 		if (currGameStatus == "ThoughtGrab")
 		{
 
-			thinkingList.Add(" Oh no, there's debris everywhere! \r\n  (Right Click to Grab/Throw)");
+			thinkingList.Add(" Oh no, there's debris everywhere!\r\n(Click [Left Mouse Button] to grab/throw)");
 		}
 
 		if (currGameStatus == "ThoughtGrab2")
@@ -228,7 +228,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtMagnetic")
 		{
 
-			thinkingList.Add("That's a magnetic surface.    \r\n  I'll stick to it if my feet get close.    \r\n   (press A/D to walk)");
+			thinkingList.Add("That's a magnetic surface.\r\nI'll stick to it if my feet get close.\r\n(press A/D to walk)");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")
@@ -351,7 +351,7 @@ public class MissionHandler : MonoBehaviour
 		// Beginning of Alien Area
 		if (currGameStatus == "CPSeeEgg")
 		{
-			thinkingList.Add("It looks like I have no choice... Into the translucent alien hamster ball thing!");
+			thinkingList.Add("It looks like I have no choice...\r\nInto the translucent alien hamster ball thing!");
 
 		}
 
@@ -386,13 +386,13 @@ public class MissionHandler : MonoBehaviour
 		}
 		if (currGameStatus == "cp_alien5")
 		{
-			thinkingList.Add("I can sense a path to the right... I'd better be careful not to float off into space.");
+			thinkingList.Add("I can sense a path to the right...\r\nI'd better be careful not to float off into space.");
 
 		}
 
 		if (currGameStatus == "cp_alien6")
 		{
-			thinkingList.Add("These must be immature alien life forms... Green Space Eggs. Where's the ham, Dr. Seuss?");
+			thinkingList.Add("These must be immature alien life forms...\r\nGreen Space Eggs. Where's the ham, Dr. Seuss?");
 
 		}
 
