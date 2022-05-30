@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 561545255299145946}
   m_Layer: 0
   m_Name: StationAlienVineyPlatform(Frozen)
-  m_TagString: platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,7 +709,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 37.916298
+  m_Mass: 37.916306
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
