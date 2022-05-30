@@ -785,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Station Debris (No Grab)_platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3360667535552752661, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4624522359864398229, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
       propertyPath: m_Color.b
       value: 0.740566
@@ -878,6 +882,10 @@ PrefabInstance:
     - target: {fileID: 3360667535552752661, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
       propertyPath: m_Name
       value: Station Debris (No Grab)_platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360667535552752661, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4624522359864398229, guid: d1a506386ad4ee943866042f9854f06d, type: 3}
       propertyPath: m_Color.b
