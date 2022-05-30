@@ -210,7 +210,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtGrab2")
 		{
 
-			thinkingList.Add("I'd better avoid those red spikes... \r\n	I can use this debris to push myself where I need to go!");
+			thinkingList.Add("I'd better avoid those red spikes... But I can use this debris to push myself where I need to go!");
 		}
 
 		if (currGameStatus == "ThoughtAirlock")
@@ -238,7 +238,7 @@ public class MissionHandler : MonoBehaviour
 
 		if (currGameStatus == "CP1")
 		{
-			thinkingList.Add("Oh god I think it touched me. Why do I feel like it collected a sample?");
+			thinkingList.Add("Oh god I think it touched me.\r\nWhy do I feel like it collected a sample?");
 
 			// missionText.text = "Push the green machine component into the engine slot";
 		}
