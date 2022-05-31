@@ -14,9 +14,9 @@ public class eggTransformer : MonoBehaviour
 	public GameObject PlayerEgg; 
 	public AudioHandlerObj AHO;
 	public bool deactivateEgg = false;
-	// public GameObject w1;
-	// public GameObject w2;
-	// public GameObject w3;
+	public GameObject w1;
+	public GameObject w2;
+	public GameObject w3;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,16 +35,14 @@ public class eggTransformer : MonoBehaviour
                          print("player has entered the egg!");
 						 other.gameObject.SetActive(false);
 						 PlayerEgg.SetActive(true);
-						 
+
 						 AlienShipCamera.SetActive(true);
 						 mainCamera.enabled = false;
 						 mainCamAudioListener.enabled = false;
-						 PlayerEgg.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
 						 
 						 // TURN OFF ALL SOUNDS FROM PREV PLAYER
 						 AHO.PlaySoundLoop("ox", false); // this would be only sound still on
-						 // StartCoroutine(changeColorWall(w1));
+						 StartCoroutine(changeColorWall(w1));
 						 // StartCoroutine(changeColorWall(w2));
 						 // StartCoroutine(changeColorWall(w3));
               }
