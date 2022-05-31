@@ -40,8 +40,8 @@ public class oxygenReplenish : MonoBehaviour
 							
 				// OxBar.isFiltering = false;
 				Renderer checkRend = GetComponentInChildren<Renderer>();
-				 // checkRend.material.color = new Color(2.4f, 1.9f, 0.9f, 1.5f);
-				  checkRend.material.color = new Color(0f, 0, 1, 1);
+				  //checkRend.material.color = new Color(2.4f, 1.9f, 0.9f, 1.5f);
+				 // checkRend.material.color = new Color(50, 50, 50, 200);
 				  // oxBar.timeToDamage = .0001f;
 				OxBar.damageAmt = .3f;
 				OxBar.timeToDamage = 5f;
