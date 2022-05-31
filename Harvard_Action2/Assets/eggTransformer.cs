@@ -43,8 +43,8 @@ public class eggTransformer : MonoBehaviour
 						 // TURN OFF ALL SOUNDS FROM PREV PLAYER
 						 AHO.PlaySoundLoop("ox", false); // this would be only sound still on
 						 StartCoroutine(changeColorWall(w1));
-						 // StartCoroutine(changeColorWall(w2));
-						 // StartCoroutine(changeColorWall(w3));
+						 StartCoroutine(changeColorWall(w2));
+						 StartCoroutine(changeColorWall(w3));
               }
 		}
        }

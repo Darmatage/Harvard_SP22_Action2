@@ -26957,10 +26957,6 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 37.916294
       objectReference: {fileID: 0}
-    - target: {fileID: 561545255299145946, guid: 51c763bc7f2fb5f4e8f05530f7233938, type: 3}
-      propertyPath: m_Mass
-      value: 37.916298
-      objectReference: {fileID: 0}
     - target: {fileID: 5038387028356135303, guid: 51c763bc7f2fb5f4e8f05530f7233938, type: 3}
       propertyPath: m_Mass
       value: 37.916294
@@ -27030,10 +27026,6 @@ PrefabInstance:
     - target: {fileID: 519245112194865168, guid: 51c763bc7f2fb5f4e8f05530f7233938, type: 3}
       propertyPath: m_Mass
       value: 37.916294
-      objectReference: {fileID: 0}
-    - target: {fileID: 561545255299145946, guid: 51c763bc7f2fb5f4e8f05530f7233938, type: 3}
-      propertyPath: m_Mass
-      value: 37.916298
       objectReference: {fileID: 0}
     - target: {fileID: 5038387028356135303, guid: 51c763bc7f2fb5f4e8f05530f7233938, type: 3}
       propertyPath: m_Mass
@@ -47175,10 +47167,6 @@ PrefabInstance:
       value: 67.581
       objectReference: {fileID: 0}
     - target: {fileID: 6760854594787867461, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 18c108d74aae8ce4aa608a500c160d54, type: 3}
-    - target: {fileID: 6760854594787867461, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
@@ -47201,14 +47189,6 @@ PrefabInstance:
     - target: {fileID: 6760854594787867462, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
       propertyPath: m_TagString
       value: virus
-      objectReference: {fileID: 0}
-    - target: {fileID: 6760854594787867463, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6760854594787867463, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73fc526a1a3221b44ad120e24c522c49, type: 3}

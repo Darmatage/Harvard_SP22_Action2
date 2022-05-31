@@ -147,10 +147,8 @@ public class PlayerRespawn : MonoBehaviour
                             GameObject thisLevelGateway = other.gameObject;
 							// Renderer checkRend = thisCheckpoint.GetComponentInChildren<Renderer>();
 							// checkRend.material.color = Color.white;
-							
-							// change colors
-								// StopCoroutine(changeColorGatway(thisLevelGateway));
-								// StartCoroutine(changeColorGatway(thisLevelGateway));
+                            StopCoroutine(changeColorGatway(thisLevelGateway));
+                            StartCoroutine(changeColorGatway(thisLevelGateway));
 							
 							// update gameHandler with current checkpoint name
 							var currentLevelGateway = other.gameObject.name;
