@@ -66,7 +66,7 @@ public class MissionHandler : MonoBehaviour
 		currGameStatus = gameHandler.currCheckpointName;
 		currLevelOfGame = gameHandler.currentLevel;
 		currDisplayScene = currGameStatus;
-		thinkingList.Add("What just happened? I'd better check the rest of the space station.\r\n(Click [Right Mouse Button] to propel with oxygen)");
+		thinkingList.Add("What just happened? \r\n I'd better check the rest of the station.\r\n(Click [Right Mouse Button] to propel with oxygen)");
 		thinkingText.text = thinkingList[currThoughtIndex];
 		maxIndex = thinkingList.Count - 1;
 
@@ -198,7 +198,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtJump")
 		{
 
-			thinkingList.Add("(Aim with your mouse \r\n and press [W] or [SPACEBAR]\r\nto JUMP.)");
+			thinkingList.Add("(Aim mouse and press [W] or [SPACEBAR] to JUMP.)");
 		}
 
 		if (currGameStatus == "ThoughtGrab")
@@ -228,7 +228,7 @@ public class MissionHandler : MonoBehaviour
 		if (currGameStatus == "ThoughtMagnetic")
 		{
 
-			thinkingList.Add("That's a magnetic surface.\r\nI'll stick to it if my feet get close.\r\n(press A/D to walk)");
+			thinkingList.Add("That's a magnetic surface.\r\nI'll stick to it if my feet get close.\r\n(press [A] or [D] to walk)");
 		}
 
 		if (currGameStatus == "ThoughtSeeCP")

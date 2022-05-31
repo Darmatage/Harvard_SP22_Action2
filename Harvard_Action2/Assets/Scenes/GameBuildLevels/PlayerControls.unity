@@ -3574,25 +3574,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2918868445995784077, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Text
-      value: '= A or Left Arrow
+      value: '= [A] or [Left Arrow]
 
-        = D or Right Arrow
+        = [D] or [Right Arrow]
 
-        = W or Up Arrow'
+        = [W]
+        or [Up Arrow] + Aim Cursor'
       objectReference: {fileID: 0}
     - target: {fileID: 3705342101013974017, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Text
-      value: '= Esc
+      value: '= [Esc]
 
-        = M, O, or X'
+        = [M], [O], or [X]'
       objectReference: {fileID: 0}
     - target: {fileID: 5218842331574252634, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Text
-      value: '= Mouse
+      value: '= [Click Left Mouse Button]
 
-        = Left Mouse Click
-
-        = Right Mouse Click'
+        = [Hold Right Mouse Button]'
       objectReference: {fileID: 0}
     - target: {fileID: 6715759512307284447, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Pivot.x
@@ -3689,6 +3688,26 @@ PrefabInstance:
     - target: {fileID: 6715759512307284447, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904231343106313981, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: Space Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904231343702368946, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: "Pause \t\t\nToggle Mission & Thoughts "
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904231344289497612, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: Platform Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904231344469277263, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: "Catch and Throw Objects \nUse Oxygen Propulsion \t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904231345023170382, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
+      propertyPath: m_Text
+      value: HUD Controls
       objectReference: {fileID: 0}
     - target: {fileID: 7335003225862938134, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Name
