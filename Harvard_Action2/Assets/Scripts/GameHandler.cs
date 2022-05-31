@@ -67,11 +67,11 @@ public class GameHandler : MonoBehaviour{
         void Awake (){
 			
 			// this is the volume level!
-             SetLevel (volumeLevel);
+             SetLevel (0.5f);
                 GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
                 if (sliderTemp != null){
                         sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
-                        sliderVolumeCtrl.value = volumeLevel;
+                        sliderVolumeCtrl.value = 0.5f;
                 }
 				respawnOn = false; // note this is only turned on by OxygenActivator (essentailly at that point player death can happen. OA is in the tutorial level as a GO
 				respawnInProgress = false;
@@ -243,7 +243,7 @@ public class GameHandler : MonoBehaviour{
         }
 
         public void SetLevel (float sliderValue){
-			//print("I AM CHANGING THE MUSIC TO " + sliderValue);
+			print("I AM CHANGING THE MUSIC TO " + sliderValue);
                 mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
                 volumeLevel = sliderValue;
         }
