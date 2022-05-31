@@ -8,9 +8,7 @@ public class leaveDeadBody : MonoBehaviour
 	// publix OxBarScript oxBarScript;
 	public GameHandler gameHandler;
 	public float currentHealth = 100f;
-	public bool oxActivated = false;
 	GameObject deadBodNow;
-	GameObject OxBG;
 	
 	public bool iAmDying = false;
 	
@@ -18,29 +16,22 @@ public class leaveDeadBody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OxBG = GameObject.Find("OxBG");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (OxBG.activeSelf)
+        currentHealth = gameHandler.CurrentHealthNotStatic;
+		if(currentHealth <= 0 && iAmDying == false)
 		{
-			oxActivated = true;
+			iAmDying = true;
+			StartCoroutine(delayBod());
+			
 		}
-		if(oxActivated)
+		if(currentHealth == 100)
 		{
-			currentHealth = gameHandler.CurrentHealthNotStatic;
-			if(currentHealth <= 0 && iAmDying == false)
-			{
-				iAmDying = true;
-				StartCoroutine(delayBod());
-				
-			}
-			if(currentHealth == 100)
-			{
-				iAmDying = false;
-			}
+			iAmDying = false;
 		}
     }
 	
@@ -50,8 +41,7 @@ public class leaveDeadBody : MonoBehaviour
 
 	  yield return new WaitForSeconds(2.5f);
 	  deadBodNow = Instantiate(deadBody, transform.position, Quaternion.identity);
-	  iAmDying = false;
-	   yield return new WaitForSeconds(1f);
-	   deadBodNow.SetActive(true);
+	  deadBodNow.SetActive(true);
+	 
 	}
 }
