@@ -3695,7 +3695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904231343702368946, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Text
-      value: "Pause \t\t\nToggle Mission & Thoughts "
+      value: "Pause \t\t\nToggle Thoughts Display"
       objectReference: {fileID: 0}
     - target: {fileID: 6904231344289497612, guid: 9105f706fd1d6054ab3ffaef315734bc, type: 3}
       propertyPath: m_Text
