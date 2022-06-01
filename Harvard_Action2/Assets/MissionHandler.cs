@@ -288,7 +288,7 @@ public class MissionHandler : MonoBehaviour
 		//Beginnning of Daniel level CP
 		if (currGameStatus == "AntennaCP_1")
 		{
-			thinkingList.Add(" If I can get up to the antenna maybe I can call for help! I should stick close to the station... or...?");
+			thinkingList.Add(" If I can get up to the antenna maybe I can call for help! Upwards and onwards.");
 
 		}
 
