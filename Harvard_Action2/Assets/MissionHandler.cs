@@ -158,6 +158,11 @@ public class MissionHandler : MonoBehaviour
 			MH.muteLayer2();
 		}
 
+		if (currLevelOfGame == "MissionEnterControl")
+		{
+			missionText.text = "MISSION: Gain access to the Control Room";
+		}
+
 		if (currLevelOfGame == "MissionEscapePod")
 		{
 			missionText.text = "MISSION: Find the escape pod";
@@ -165,7 +170,7 @@ public class MissionHandler : MonoBehaviour
 
 		if (currLevelOfGame == "alien_level")
 		{
-			missionText.text = "MISSION: Use the orb to get to the top of the alien vessel";
+			missionText.text = "MISSION: Find an exit + Find the escape pod";
 			MH.muteLayer3();
 		}
 		if (currLevelOfGame == "winGameGateway")
@@ -289,7 +294,7 @@ public class MissionHandler : MonoBehaviour
 
 		if (currGameStatus == "AntennaCP_1.5")
 		{
-			thinkingList.Add("Oh no... John, Doe... If only they saw these alien eyes...");
+			thinkingList.Add("");
 
 		}
 
