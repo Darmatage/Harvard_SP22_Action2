@@ -60,7 +60,7 @@ public class PlayerRespawn : MonoBehaviour
 							oxBar.SetActive(false);
 							DeathOverlay.SetActive(true);
 							Text OxActivateWarningText = OxActivateWarning.GetComponentInChildren<Text>();
-							OxActivateWarningText.text = "DEATH IMMINENT";
+							OxActivateWarningText.text = "SPACESUIT RUPTURED";
 							
 									// playerHealth = 100;
 							playerHealth = 100;
